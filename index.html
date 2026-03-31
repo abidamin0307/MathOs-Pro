@@ -26,15 +26,15 @@
         <div class="side-card">
             <h3>Categories</h3>
             <div class="category-list">
-                <div class="cat-btn active" onclick="loadGrid('math', this)"><i class="fas fa-plus-minus"></i> Algebra (20)</div>
-                <div class="cat-btn" onclick="loadGrid('unit', this)"><i class="fas fa-ruler-combined"></i> Units (20)</div>
-                <div class="cat-btn" onclick="loadGrid('engg', this)"><i class="fas fa-cog"></i> Engineering (20)</div>
+                <div class="cat-btn active" onclick="loadGrid('math', this)"><i class="fas fa-subscript"></i> Algebra & Math</div>
+                <div class="cat-btn" onclick="loadGrid('unit', this)"><i class="fas fa-rule"></i> Unit Converters</div>
+                <div class="cat-btn" onclick="loadGrid('engg', this)"><i class="fas fa-cog"></i> Engineering</div>
             </div>
         </div>
     </aside>
 
     <main>
-        <div class="breadcrumb">Home / <span id="current-cat-name">Algebra</span></div>
+        <div class="breadcrumb">Home / <span id="current-cat-name">Algebra & Math</span></div>
         <div id="tool-grid" class="grid-container"></div>
     </main>
 </div>
@@ -42,40 +42,40 @@
 <div id="tool-modal" class="modal">
     <div class="modal-window">
         <div class="modal-header">
-            <span id="modal-title">Scientific Terminal</span>
+            <span id="modal-title">Terminal</span>
             <button class="close-btn" onclick="closeTool()">&times;</button>
         </div>
 
         <div class="modal-body">
             <div class="meter-container">
-                <div class="meter-text">Engine Calibration: <span id="meter-val">0%</span></div>
+                <div class="meter-text">System Calibration: <span id="meter-val">0%</span></div>
                 <div class="meter-track"><div id="meter-bar" class="meter-fill"></div></div>
             </div>
 
             <div class="display-box">
+                <div id="display-label">Standard Precision Mode</div>
                 <input type="text" id="main-display" placeholder="0">
             </div>
 
             <div id="unit-interface" class="unit-box" style="display:none;">
                 <div class="unit-row">
                     <select id="u-from" onchange="runUnitConversion()"></select>
-                    <i class="fas fa-exchange-alt"></i>
+                    <i class="fas fa-sync"></i>
                     <select id="u-to" onchange="runUnitConversion()"></select>
                 </div>
-                <div id="unit-result" class="unit-res-text">Result will appear here</div>
             </div>
 
             <div id="math-keypad" class="keypad">
                 <button class="k-f" onclick="press('sin(')">sin</button>
                 <button class="k-f" onclick="press('cos(')">cos</button>
-                <button class="k-f" onclick="press('sqrt(')">√</button>
+                <button class="k-f" onclick="press('tan(')">tan</button>
                 <button class="k-o" onclick="press('(')">(</button>
                 <button class="k-o" onclick="press(')')">)</button>
                 <button class="k-n" onclick="press('7')">7</button>
                 <button class="k-n" onclick="press('8')">8</button>
                 <button class="k-n" onclick="press('9')">9</button>
                 <button class="k-d" onclick="backspace()">DEL</button>
-                <button class="k-o" onclick="press('/')">÷</button>
+                <button class="k-o" onclick="press('/')">/</button>
                 <button class="k-n" onclick="press('4')">4</button>
                 <button class="k-n" onclick="press('5')">5</button>
                 <button class="k-n" onclick="press('6')">6</button>
@@ -93,9 +93,9 @@
         </div>
 
         <div class="edu-footer">
-            <h4><i class="fas fa-info-circle"></i> Educational Guide</h4>
-            <p id="edu-text">Loading instructions...</p>
-            <div class="formula-box" id="edu-formula">Formula: --</div>
+            <h4>Concept & Theory</h4>
+            <p id="edu-text"></p>
+            <div class="formula-box" id="edu-formula"></div>
         </div>
     </div>
 </div>
@@ -103,7 +103,7 @@
 <footer class="main-footer">
     <div class="container">
         <a href="about.html">About</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a>
-        <p>&copy; 2026 MathOS Pro. All Rights Reserved.</p>
+        <p>&copy; 2026 MathOS Pro | Professional Grade Mathematics</p>
     </div>
 </footer>
 
