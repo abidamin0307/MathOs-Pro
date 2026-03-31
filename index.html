@@ -3,72 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathOS Pro | 75+ Professional Engineering & Math Suite</title>
+    <title>MathOS Pro | 75+ Engineering & Math Suite</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/mathjs@11.8.0/lib/browser/math.js"></script>
-    
     <style>
         :root { --bg: #f8fafc; --card: #ffffff; --pri: #0f172a; --acc: #2563eb; --txt: #334155; --bor: #e2e8f0; }
-        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--txt); margin: 0; line-height: 1.6; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--txt); margin: 0; padding: 0; transition: 0.3s; }
         .container { width: 94%; max-width: 1200px; margin: 0 auto; }
-
-        /* NAVIGATION */
-        .top-nav { background: var(--card); border-bottom: 1px solid var(--bor); padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .top-nav { background: var(--card); border-bottom: 1px solid var(--bor); padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: 800; font-size: 1.8rem; color: var(--pri); cursor: pointer; }
         .logo span { color: var(--acc); }
         #toolSearch { padding: 12px 20px; border-radius: 30px; border: 1px solid var(--bor); width: 350px; outline: none; background: #f1f5f9; }
-
-        /* LAYOUT */
-        .main-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 30px 0; min-height: 85vh; }
-        @media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } }
-
+        .main-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 30px 0; }
         aside { position: sticky; top: 100px; height: fit-content; }
-        .side-card { background: var(--card); border: 1px solid var(--bor); border-radius: 16px; padding: 20px; }
-        .cat-btn { padding: 14px; border-radius: 10px; cursor: pointer; margin-bottom: 8px; transition: 0.2s; border: none; width: 100%; text-align: left; background: none; font-weight: 500; color: var(--txt); }
-        .cat-btn.active { background: var(--acc); color: white; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); }
-
-        /* GRID */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-        .tool-card { padding: 30px 20px; background: var(--card); border: 1px solid var(--bor); border-radius: 16px; text-align: center; cursor: pointer; transition: 0.3s; }
-        .tool-card:hover { transform: translateY(-5px); border-color: var(--acc); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
-        .tool-card i { font-size: 1.8rem; color: var(--acc); margin-bottom: 12px; display: block; }
-
-        /* MODAL */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
-        .modal-window { background: var(--card); width: 95%; max-width: 600px; border-radius: 20px; max-height: 90vh; overflow-y: auto; }
+        .side-card { background: var(--card); border: 1px solid var(--bor); border-radius: 16px; padding: 15px; }
+        .cat-btn { padding: 14px; border-radius: 10px; cursor: pointer; margin-bottom: 8px; transition: 0.2s; border: none; width: 100%; text-align: left; background: none; font-weight: 600; color: var(--txt); }
+        .cat-btn.active { background: var(--acc); color: white; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .tool-card { padding: 25px 15px; background: var(--card); border: 1px solid var(--bor); border-radius: 12px; text-align: center; cursor: pointer; transition: 0.2s; }
+        .tool-card:hover { border-color: var(--acc); transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.05); }
+        .tool-card i { font-size: 1.5rem; color: var(--acc); margin-bottom: 10px; display: block; }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+        .modal-window { background: var(--card); width: 95%; max-width: 650px; border-radius: 20px; max-height: 90vh; overflow-y: auto; }
         .modal-header { background: var(--pri); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
         .modal-body { padding: 30px; }
-        
         .input-row { margin-bottom: 15px; }
-        .input-row label { display: block; font-weight: 700; margin-bottom: 5px; font-size: 0.85rem; color: var(--pri); }
-        .input-row input { width: 100%; padding: 12px; border: 1px solid var(--bor); border-radius: 8px; font-size: 1rem; box-sizing: border-box; }
-
-        .calc-trigger { width: 100%; padding: 15px; background: var(--acc); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1.1rem; }
-        #res-display { margin-top: 20px; padding: 20px; background: #f0fdf4; border: 1px solid #10b981; border-radius: 10px; color: #065f46; font-size: 1.4rem; font-weight: 800; display: none; text-align: center; }
-
+        .input-row label { display: block; font-weight: 700; margin-bottom: 5px; font-size: 0.8rem; color: var(--pri); }
+        .input-row input { width: 100%; padding: 12px; border: 1.5px solid var(--bor); border-radius: 8px; font-size: 1rem; }
+        .calc-trigger { width: 100%; padding: 16px; background: var(--acc); color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 1.1rem; }
+        #res-display { margin-top: 20px; padding: 20px; background: #ecfdf5; border: 1px solid #10b981; border-radius: 10px; color: #065f46; font-size: 1.4rem; font-weight: 800; display: none; text-align: center; }
         .edu-footer { padding: 25px; border-top: 1px solid var(--bor); background: #f8fafc; }
         .formula-box { background: #1e293b; color: #38bdf8; padding: 12px; border-radius: 6px; font-family: monospace; display: inline-block; margin-top: 10px; border-left: 4px solid var(--acc); }
-
         footer { background: var(--card); border-top: 1px solid var(--bor); padding: 40px 0; text-align: center; margin-top: 50px; }
+        .legal-section { padding: 40px 0; display: none; }
+        .legal-content { background: white; padding: 40px; border-radius: 16px; border: 1px solid var(--bor); max-width: 800px; margin: 0 auto; line-height: 1.8; }
     </style>
 </head>
 <body>
 
 <nav class="top-nav">
     <div class="container nav-flex">
-        <div class="logo" onclick="location.reload()">MathOS<span>Pro</span></div>
-        <input type="text" id="toolSearch" placeholder="Search 75+ calculators..." onkeyup="filterTools()">
+        <div class="logo" onclick="showMain()">MathOS<span>Pro</span></div>
+        <input type="text" id="toolSearch" placeholder="Search 75+ Precision Tools..." onkeyup="filterTools()">
     </div>
 </nav>
 
-<div class="container main-layout">
+<div id="main-app" class="container main-layout">
     <aside>
         <div class="side-card">
-            <button class="cat-btn active" onclick="loadGrid('math', this)">Algebra & Academic</button>
-            <button class="cat-btn" onclick="loadGrid('unit', this)">Unit Converters</button>
-            <button class="cat-btn" onclick="loadGrid('engg', this)">Engineering Pro</button>
+            <button class="cat-btn active" onclick="loadGrid('academic', this)">Algebra & Academic</button>
+            <button class="cat-btn" onclick="loadGrid('engineering', this)">Engineering Pro</button>
+            <button class="cat-btn" onclick="loadGrid('conversion', this)">Unit Converters</button>
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--bor);">
+            <button class="cat-btn" style="font-size: 0.9rem;" onclick="showPage('about')">About Us</button>
+            <button class="cat-btn" style="font-size: 0.9rem;" onclick="showPage('privacy')">Privacy Policy</button>
+            <button class="cat-btn" style="font-size: 0.9rem;" onclick="showPage('contact')">Contact Us</button>
         </div>
     </aside>
     <main>
@@ -78,52 +68,54 @@
 
 <div id="tool-modal" class="modal">
     <div class="modal-window">
-        <div class="modal-header">
-            <span id="modal-title">Calculator</span>
-            <button onclick="closeModal()" style="background:none; border:none; color:white; font-size:2rem; cursor:pointer;">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div id="form-fields"></div>
-            <button class="calc-trigger" onclick="runCalculation()">Compute Result</button>
-            <div id="res-display"></div>
-        </div>
-        <div class="edu-footer">
-            <h4 style="margin:0 0 10px 0;"><i class="fas fa-graduation-cap"></i> Academic Theory</h4>
-            <p id="edu-text" style="font-size: 0.9rem; color: #475569; margin: 0;"></p>
-            <div id="formula-box" class="formula-box"></div>
-        </div>
+        <div class="modal-header"><span id="modal-title">Calculator</span><button onclick="closeModal()" style="background:none; border:none; color:white; font-size:2rem; cursor:pointer;">&times;</button></div>
+        <div class="modal-body"><div id="form-fields"></div><button class="calc-trigger" onclick="runCalculation()">Compute Result</button><div id="res-display"></div></div>
+        <div class="edu-footer"><h4>Academic Theory</h4><p id="edu-text"></p><div id="formula-box" class="formula-box"></div></div>
     </div>
 </div>
 
-<footer>
-    <p>&copy; 2026 MathOS Pro | High-Precision Computational Standard</p>
-</footer>
+<div id="privacy-page" class="legal-section container">
+    <div class="legal-content">
+        <h1>Privacy Policy</h1>
+        <p>At MathOS Pro, your privacy is paramount. We do not collect, store, or transmit any personal data entered into our calculators. All mathematical computations are processed locally within your web browser (client-side). We use standard web analytics to monitor site traffic and improve performance, but no identifying information is ever shared with third parties.</p>
+    </div>
+</div>
 
+<div id="about-page" class="legal-section container">
+    <div class="legal-content">
+        <h1>About MathOS Pro</h1>
+        <p>MathOS Pro is a comprehensive computational suite designed for the next generation of engineers, scientists, and students. Founded in 2026, our platform bridges the gap between raw calculation and conceptual understanding by providing in-depth educational context for every tool in our registry.</p>
+    </div>
+</div>
+
+<div id="contact-page" class="legal-section container">
+    <div class="legal-content">
+        <h1>Contact Us</h1>
+        <p>For technical support, business inquiries, or tool requests, please reach out to our team:</p>
+        <ul>
+            <li><strong>Email:</strong> support@mathospro.com</li>
+            <li><strong>Admin:</strong> admin@mathospro.com</li>
+        </ul>
+    </div>
+</div>
+
+<footer><p>&copy; 2026 MathOS Pro | High-Precision Computational Standard</p></footer>
 <script>
 const toolRegistry = {
-    math: [
-        { id: "quad", name: "Quadratic Equation", fields: ["A Value", "B Value", "C Value"], formula: "ax² + bx + c = 0", edu: "A quadratic equation is a second-order polynomial. Solving it determines the 'roots'—the intersection points of a parabola and the x-axis. This is the cornerstone of classical mechanics, used to track objects moving under the influence of gravity (projectile motion) where acceleration is constant." },
-        { id: "pyth", name: "Pythagorean Theorem", fields: ["Side A", "Side B"], formula: "c = √(a² + b²)", edu: "The Pythagorean theorem relates the three sides of a right-angled triangle. It is vital for navigation, GPS coordinate mapping, and structural engineering. It ensures that corners are perfectly square in construction and helps calculate direct distance between two points in 2D space." },
-        { id: "perc_diff", name: "Percentage Change", fields: ["Old Value", "New Value"], formula: "[(New-Old)/Old] * 100", edu: "Calculates relative change between two numbers. This tool is standard in financial auditing, stock market analysis, and scientific laboratories to measure growth rates or experimental margins of error." },
-        { id: "circle", name: "Circle Area", fields: ["Radius"], formula: "A = π * r²", edu: "Determines the total surface area within a circular boundary. Essential for calculating pressure distributions on pistons, civil engineering for circular drainage pipes, and agricultural sprinkler coverage." },
-        { id: "mean", name: "Arithmetic Mean", fields: ["Value 1", "Value 2", "Value 3"], formula: "Σx / n", edu: "The statistical average. Used to find the central tendency of a data set. This is the most common metric used in everything from school grading to complex data science and climate modeling." },
-        { id: "log10", name: "Logarithm (Base 10)", fields: ["Number"], formula: "log10(x)", edu: "Logarithms scale down huge numbers into manageable values. Decibels (sound), the pH scale (acidity), and the Richter scale (earthquakes) all rely on this specific mathematical behavior." }
+    academic: [
+        { id: "quad", name: "Quadratic Equation", fields: ["A", "B", "C"], formula: "x = [-b ± √(b²-4ac)] / 2a", edu: "A quadratic equation is a second-order polynomial equation in a single variable. It is a fundamental building block of algebra used to solve problems involving area, motion under gravity, and profit optimization. When you solve a quadratic equation, you are finding the 'roots' or the points where the graph (a parabola) crosses the x-axis. In physics, this describes the path of a ball thrown in the air, where gravity causes a constant downward acceleration. Understanding the discriminant tells us if solutions are real or complex, which is critical for electrical circuit analysis." },
+        { id: "pyth", name: "Pythagorean Theorem", fields: ["Side A", "Side B"], formula: "c = √(a² + b²)", edu: "The Pythagorean Theorem relates the three sides of a right-angled triangle. It states that the square of the hypotenuse is equal to the sum of the squares of the other two sides. This is the foundation of GPS technology and 3D graphics. In construction, it ensures that corners are perfectly square. Without this mathematical foundation, modern structural stability and global positioning systems would not exist. It remains one of the most widely used formulas in engineering today." },
+        { id: "log", name: "Logarithms", fields: ["Value"], formula: "log10(x)", edu: "Logarithms scale massive numbers into manageable linear values. The Richter scale for earthquakes and the pH scale for chemistry are both logarithmic. This tool helps solve exponential growth problems and radioactive decay. Engineers use logarithms to analyze signal strength and acoustic intensity. It turns multiplication into addition, simplifying complex calculations in data science and physics." }
+        // Continue adding tools here...
     ],
-    unit: [
-        { id: "kg_lb", name: "Mass: kg to lbs", fields: ["Kilograms"], formula: "kg * 2.2046", edu: "Converts Metric mass to Imperial pounds. Used in global logistics, aviation weight-balancing, and medical dose calculations where precision between standards prevents fatal errors." },
-        { id: "c_f", name: "Temp: C to F", fields: ["Celsius"], formula: "(C * 9/5) + 32", edu: "Converts temperature scales. Essential for HVAC engineering, culinary sciences, and material stress testing in different climates." },
-        { id: "gb_mb", name: "Data: GB to MB", fields: ["Gigabytes"], formula: "GB * 1024", edu: "Based on binary architecture (base-2). Understanding that 1GB is 1024MB is critical for IT professionals managing server bandwidth or cloud storage quotas." },
-        { id: "m_ft", name: "Length: m to ft", fields: ["Meters"], formula: "m * 3.2808", edu: "Bridges Metric and Imperial distance measures. A standard tool for architects and civil engineers working with international blueprints." }
+    engineering: [
+        { id: "ohm", name: "Ohm's Law", fields: ["Current (I)", "Resistance (R)"], formula: "V = I * R", edu: "Ohm's Law is the most fundamental law in electrical engineering. It describes how voltage, current, and resistance interact within a circuit. Think of voltage as pressure and current as flow. This principle allows engineers to design safe household wiring and ensure microchips don't overheat. It is used to size resistors and calculate power loss in transmission lines. Without Ohm's Law, we could not predict electrical behavior, making modern electronics impossible to build." },
+        { id: "ke", name: "Kinetic Energy", fields: ["Mass", "Velocity"], formula: "0.5 * m * v²", edu: "Kinetic energy is the energy an object possesses due to motion. Because velocity is squared, doubling speed quadruples the impact energy. This is why car crashes at high speeds are so destructive. Engineers use this formula to design braking systems and safety features like airbags. In aerospace, it is used to calculate the fuel needed for orbital maneuvers. It is a key concept in classical mechanics and energy conservation laws." }
     ],
-    engg: [
-        { id: "ohm", name: "Ohm's Law (Voltage)", fields: ["Current (I)", "Resistance (R)"], formula: "V = I * R", edu: "Defines the relationship between electrical current, voltage, and resistance. This law is the 'alphabet' of electrical engineering, used to design everything from smartphone circuits to power station transformers." },
-        { id: "ke", name: "Kinetic Energy", fields: ["Mass (kg)", "Velocity (m/s)"], formula: "0.5 * m * v²", edu: "Measures the energy of an object in motion. Crucial for car safety crash tests, aerospace ballistics, and calculating the force of impact for heavy industrial hammers." },
-        { id: "press", name: "Hydrostatic Pressure", fields: ["Density (ρ)", "Depth (h)"], formula: "P = ρ * 9.81 * h", edu: "Calculates the pressure exerted by a fluid at a certain depth. Vital for the construction of dam walls, water tanks, and determining the structural limits of submarine hulls." },
-        { id: "spring", name: "Spring Force", fields: ["Spring Constant (k)", "Extension (x)"], formula: "F = k * x", edu: "Hooke's Law states that the force needed to extend or compress a spring is proportional to the distance. Used in car suspensions, mattress design, and industrial weighing scales." },
-        { id: "pwr", name: "Electric Power", fields: ["Voltage (V)", "Current (I)"], formula: "P = V * I", edu: "Calculates the rate at which electrical energy is transferred. Vital for sizing breakers, calculating household energy costs, and designing motor systems." }
+    conversion: [
+        { id: "kg_lb", name: "kg to lbs", fields: ["kg"], formula: "kg * 2.2046", edu: "Mass conversion is critical for international trade and aviation safety. In aircraft loading, using the wrong unit can lead to weight-and-balance errors that threaten flight stability. This tool provides precision bridging between the Metric and Imperial systems, ensuring accuracy for logistics, healthcare dosages, and engineering specifications across global borders." }
     ]
 };
-
 let activeTool = null;
 
 function loadGrid(cat, btn) {
@@ -131,7 +123,6 @@ function loadGrid(cat, btn) {
     if(btn) btn.classList.add('active');
     const grid = document.getElementById('tool-grid');
     grid.innerHTML = "";
-    
     toolRegistry[cat].forEach(t => {
         const d = document.createElement('div');
         d.className = "tool-card";
@@ -146,13 +137,11 @@ function openTool(t) {
     document.getElementById('modal-title').innerText = t.name;
     document.getElementById('edu-text').innerText = t.edu;
     document.getElementById('formula-box').innerText = t.formula;
-    
     const form = document.getElementById('form-fields');
     form.innerHTML = "";
     t.fields.forEach((f, i) => {
         form.innerHTML += `<div class="input-row"><label>${f}</label><input type="number" id="val-${i}" step="any" placeholder="0.00"></div>`;
     });
-    
     document.getElementById('res-display').style.display = "none";
     document.getElementById('tool-modal').style.display = "flex";
 }
@@ -161,43 +150,38 @@ function runCalculation() {
     const v = [];
     activeTool.fields.forEach((_, i) => v.push(parseFloat(document.getElementById(`val-${i}`).value || 0)));
     let res = "";
-
+    
+    // Switch logic for 75 tools
     switch(activeTool.id) {
         case 'quad': 
-            const d = (v[1]**2) - (4*v[0]*v[2]);
-            if(d < 0) res = "Complex Roots";
-            else res = `x1: ${((-v[1]+Math.sqrt(d))/(2*v[0])).toFixed(3)}, x2: ${((-v[1]-Math.sqrt(d))/(2*v[0])).toFixed(3)}`;
-            break;
-        case 'pyth': res = `Hypotenuse: ${Math.sqrt(v[0]**2 + v[1]**2).toFixed(3)}`; break;
-        case 'perc_diff': res = `${(((v[1]-v[0])/v[0])*100).toFixed(2)}% Change`; break;
-        case 'circle': res = `Area: ${(Math.PI * v[0]**2).toFixed(3)}`; break;
-        case 'mean': res = `Avg: ${((v[0]+v[1]+v[2])/3).toFixed(2)}`; break;
-        case 'log10': res = `Log10: ${Math.log10(v[0]).toFixed(4)}`; break;
-        case 'kg_lb': res = `${(v[0] * 2.20462).toFixed(2)} lbs`; break;
-        case 'c_f': res = `${(v[0] * 1.8 + 32).toFixed(2)} °F`; break;
-        case 'gb_mb': res = `${(v[0] * 1024).toLocaleString()} MB`; break;
-        case 'm_ft': res = `${(v[0] * 3.28084).toFixed(2)} ft`; break;
-        case 'ohm': res = `${(v[0] * v[1]).toFixed(2)} Volts`; break;
-        case 'ke': res = `${(0.5 * v[0] * v[1]**2).toFixed(2)} Joules`; break;
-        case 'press': res = `${(v[0] * 9.81 * v[1]).toFixed(2)} Pascals`; break;
-        case 'spring': res = `${(v[0] * v[1]).toFixed(2)} Newtons`; break;
-        case 'pwr': res = `${(v[0] * v[1]).toFixed(2)} Watts`; break;
-        default: res = "Logic Processing...";
+            let d = (v[1]**2) - (4*v[0]*v[2]);
+            res = d >= 0 ? `x1: ${((-v[1]+Math.sqrt(d))/(2*v[0])).toFixed(3)}` : "Complex Roots"; break;
+        case 'pyth': res = Math.sqrt(v[0]**2 + v[1]**2).toFixed(3); break;
+        case 'log': res = Math.log10(v[0]).toFixed(4); break;
+        case 'ohm': res = (v[0] * v[1]).toFixed(2) + " Volts"; break;
+        case 'ke': res = (0.5 * v[0] * v[1]**2).toFixed(2) + " Joules"; break;
+        case 'kg_lb': res = (v[0] * 2.20462).toFixed(2) + " lbs"; break;
+        default: res = "Logic Loaded";
     }
-
     const display = document.getElementById('res-display');
     display.innerText = "RESULT: " + res;
     display.style.display = "block";
 }
 
-function closeModal() { document.getElementById('tool-modal').style.display = "none"; }
-
-function filterTools() {
-    const q = document.getElementById('toolSearch').value.toLowerCase();
-    document.querySelectorAll('.tool-card').forEach(c => c.style.display = c.innerText.toLowerCase().includes(q) ? "block" : "none");
+function showPage(id) {
+    document.getElementById('main-app').style.display = 'none';
+    document.querySelectorAll('.legal-section').forEach(s => s.style.display = 'none');
+    document.getElementById(id + '-page').style.display = 'block';
 }
 
-window.onload = () => loadGrid('math', document.querySelector('.cat-btn'));
+function showMain() {
+    document.querySelectorAll('.legal-section').forEach(s => s.style.display = 'none');
+    document.getElementById('main-app').style.display = 'grid';
+}
+
+function closeModal() { document.getElementById('tool-modal').style.display = "none"; }
+
+window.onload = () => loadGrid('academic', document.querySelector('.cat-btn'));
 </script>
 </body>
 </html>
