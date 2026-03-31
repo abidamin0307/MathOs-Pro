@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>MathOS Pro | Free Engineering & Scientific Calculator with Steps</title>
-    <meta name="description" content="MathOS Pro is a professional-grade engineering suite for Matric, Inter, and Engineering students. Solve complex algebra, calculus, and matrix equations with step-by-step clarity.">
-    <meta name="keywords" content="scientific calculator, engineering calculator online, mathos pro, step by step math, matric math solver, matrix multiplication calculator, calculus tool">
+    <meta name="description" content="MathOS Pro is a professional-grade engineering suite for Matric, Inter, and Engineering students. Solve complex algebra, calculus, and matrix equations instantly.">
+    <meta name="keywords" content="scientific calculator, engineering calculator online, mathos pro, step by step math, matric math solver, matrix multiplication, calculus tool">
     <link rel="canonical" href="https://mathospro.github.io/" />
 
     <script type="application/ld+json">
@@ -16,15 +16,11 @@
       "name": "MathOS Pro Engineering Suite",
       "operatingSystem": "All",
       "applicationCategory": "EducationalApplication",
-      "description": "An advanced scientific terminal providing step-by-step mathematical solutions for students and engineers.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "offers": { " @type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
     </script>
 
+    <script src="https://unpkg.com/mathjs@11.8.0/lib/browser/math.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2B5JTRYR9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -33,7 +29,6 @@
       gtag('config', 'G-K2B5JTRYR9');
     </script>  
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -44,31 +39,24 @@
     <div class="logo"><i class="fas fa-microchip"></i> MathOS<span>PRO</span></div>
     
     <div class="nav-group">
-        <div class="nav-item active" onclick="loadGrid('matric', this)" role="button" aria-label="Matric Math">
+        <div class="nav-item active" onclick="loadGrid('matric', this)" role="button">
             <i class="fas fa-graduation-cap"></i><span>Matric</span>
         </div>
-        <div class="nav-item" onclick="loadGrid('inter', this)" role="button" aria-label="Intermediate Math">
+        <div class="nav-item" onclick="loadGrid('inter', this)" role="button">
             <i class="fas fa-superscript"></i><span>Inter</span>
         </div>
-        <div class="nav-item" onclick="loadGrid('engg', this)" role="button" aria-label="Engineering Math">
+        <div class="nav-item" onclick="loadGrid('engg', this)" role="button">
             <i class="fas fa-atom"></i><span>Engg</span>
         </div>
-        
         <div class="nav-item mobile-only" onclick="toggleHistory()">
             <i class="fas fa-history"></i><span>History</span>
         </div>
-        <a href="about.html" class="nav-item mobile-only">
-            <i class="fas fa-info-circle"></i><span>About</span>
-        </a>
+        <a href="about.html" class="nav-item mobile-only"><i class="fas fa-info-circle"></i><span>About</span></a>
     </div>
 
     <div class="sidebar-footer desktop-only">
-        <a href="about.html" class="nav-item-link">
-            <i class="fas fa-info-circle"></i> About Us
-        </a>
-        <div class="nav-item" onclick="toggleHistory()">
-            <i class="fas fa-history"></i> History
-        </div>
+        <a href="about.html" class="nav-item-link"><i class="fas fa-info-circle"></i> About Us</a>
+        <div class="nav-item" onclick="toggleHistory()"><i class="fas fa-history"></i> History</div>
     </div>
 </nav>
 
@@ -80,53 +68,45 @@
     
     <div id="tool-grid" class="tool-grid"></div>
 
-    <article class="seo-content-section" style="padding: 40px 20px; max-width: 900px; margin: 40px auto; color: #444; line-height: 1.8; border-top: 1px solid #eee;">
+    <article class="seo-content-section" style="padding: 40px 20px; max-width: 900px; margin: 40px auto; color: #cbd5e1; line-height: 1.8; border-top: 1px solid rgba(255,255,255,0.1);">
         <h2>Empowering Students with Precision Math Tools</h2>
-        <p>
-            Welcome to <strong>MathOS Pro</strong>, the ultimate digital terminal for students and engineers. Our platform is built to handle the rigorous demands of modern mathematics, from high school board exams to professional engineering applications. 
-        </p>
+        <p>Welcome to <strong>MathOS Pro</strong>, the ultimate digital terminal for students and engineers. Our platform handles the rigorous demands of modern mathematics, from high school board exams to professional engineering applications.</p>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px;">
             <section>
                 <h3>Matric & Secondary Math</h3>
-                <p>Our Matric module covers foundational algebra, geometry, and basic trigonometry. Use our tools to solve quadratic equations instantly and understand the step-by-step logic required for academic success.</p>
+                <p>Solve quadratic equations and geometry problems instantly. We provide the logic required for academic success in secondary education.</p>
             </section>
             <section>
-                <h3>Intermediate (Inter) Calculus</h3>
-                <p>Focusing on FSc, A-Levels, and Pre-Engineering, we provide advanced calculators for differentiation, integration, and complex number theory. Our scientific terminal ensures accurate plotting and identity verification.</p>
+                <h3>Intermediate Calculus</h3>
+                <p>Advanced calculators for differentiation, integration, and complex number theory. Optimized for FSc and A-Level students.</p>
             </section>
             <section>
-                <h3>Advanced Engineering Suite</h3>
-                <p>Specifically designed for undergraduate engineering students. Solve large-scale matrices using <strong>Cramer's Rule</strong> or <strong>Gauss-Jordan elimination</strong>. Our system handles vectors, linear algebra, and advanced physics formulas with zero latency.</p>
+                <h3>Advanced Engineering</h3>
+                <p>Solve large-scale matrices using <strong>Cramer's Rule</strong> or <strong>Gauss-Jordan elimination</strong>. High-speed vector and linear algebra tools.</p>
             </section>
         </div>
-
-        <h3 style="margin-top: 40px;">Why Use MathOS Pro?</h3>
-        <p>
-            Unlike standard handheld calculators, MathOS Pro leverages the <strong>Math.js</strong> engine to provide real-time results on any device. Our clean, ad-friendly interface is optimized for speed, ensuring that you spend less time waiting and more time learning. Whether it's <em>Matrix Multiplication</em> or <em>Trigonometric Functions</em>, we have the specialized tool you need.
-        </p>
     </article>
+    
     <footer>
         <div class="footer-links">
             <a href="privacy.html">Privacy Policy</a>
             <a href="about.html">About Us</a>
             <a href="contact.html">Contact Us</a>
         </div>
-        <p>© 2026 MathOS Pro. All Rights Reserved. | Optimized for Educational Excellence.</p>
+        <p>© 2026 MathOS Pro. All Rights Reserved.</p>
     </footer>
 </main>
 
 <div id="tool-modal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeTool()" aria-label="Close">&times;</span>
-        <h2 id="modal-title">Scientific Terminal</h2>
-        
+        <span class="close" onclick="closeTool()">&times;</span>
+        <h2 id="modal-title">Terminal</h2>
         <div id="calculator-ui">
             <div class="calc-display">
                 <div id="calc-preview"></div>
-                <input type="text" id="main-display" placeholder="0" aria-label="Calculator Input">
+                <input type="text" id="main-display" placeholder="0" spellcheck="false">
             </div>
-
             <div class="sci-keys">
                 <button class="key op" onclick="press('sin(')">sin</button>
                 <button class="key op" onclick="press('cos(')">cos</button>
@@ -158,11 +138,8 @@
                 <button class="key num" onclick="press(',')">,</button>
             </div>
         </div>
-
-        <div class="result-container" id="res-container">
-            <button class="copy-btn" onclick="copyResult()">
-                <i class="far fa-copy"></i> Copy Result
-            </button>
+        <div class="result-container">
+            <button class="copy-btn" onclick="copyResult()"><i class="far fa-copy"></i> Copy Result</button>
         </div>
     </div>
 </div>
@@ -173,7 +150,7 @@
         <span onclick="toggleHistory()" class="close-btn">&times;</span>
     </div>
     <div id="history-list"></div>
-    <button class="clear-hist" onclick="clearHistory()">Clear History</button>
+    <button class="clear-hist" onclick="clearHistory()">Clear All</button>
 </div>
 
 <script src="app.js"></script>
