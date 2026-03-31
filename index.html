@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>MathOS Pro | Free Online Calculators - Math, Algebra, Engineering</title>
+    <meta name="description" content="MathOS Pro offers a comprehensive collection of free online calculators for math, algebra, calculus, and engineering. Get step-by-step results instantly.">
+    <meta name="keywords" content="online calculator, math calculator, engineering calculator, fraction calculator, quadratic solver, scientific calculator free">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/mathjs@11.8.0/lib/browser/math.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+
+<div class="top-nav">
+    <div class="container">
+        <div class="logo">MathOS<span>Pro</span></div>
+        <div class="nav-tools">
+            <button id="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i> Dark Mode</button>
+        </div>
+    </div>
+</div>
+
+<div class="container main-wrapper">
+    <aside id="sidebar">
+        <div class="side-box">
+            <h3>Calculators</h3>
+            <div class="nav-group">
+                <div class="nav-item active" onclick="loadGrid('matric', this)">Matric & School</div>
+                <div class="nav-item" onclick="loadGrid('inter', this)">Intermediate / FSc</div>
+                <div class="nav-item" onclick="loadGrid('engg', this)">Engineering Pro</div>
+            </div>
+        </div>
+        
+        <div class="side-box search-box">
+            <input type="text" placeholder="Search calculator..." id="toolSearch" onkeyup="filterTools()">
+        </div>
+    </aside>
+
+    <main id="content">
+        <nav class="breadcrumb">You are here: <span id="current-cat">Matric & School</span></nav>
+        <h1 id="section-title">Free Math Calculators</h1>
+        <p class="intro-text">Select a calculator below to start your calculations. All tools provide high-precision results for academic and professional use.</p>
+        
+        <div id="tool-grid" class="tool-list">
+            </div>
+
+        <section class="seo-article">
+            <h2>About MathOS Pro Calculators</h2>
+            <p>Our goal is to provide the fastest, most accessible mathematical tools on the web. Unlike traditional handheld calculators, MathOS Pro is optimized for large-scale engineering and rapid student homework assistance.</p>
+            <div class="seo-columns">
+                <ul>
+                    <li><strong>Accuracy:</strong> Powered by MathJS for high-precision floating point math.</li>
+                    <li><strong>Speed:</strong> Zero server-side lag; calculations happen in your browser.</li>
+                    <li><strong>Education:</strong> Designed specifically for Board Exam and University standards.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</div>
+
+<div id="tool-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modal-title">Calculator</h2>
+            <span class="close" onclick="closeTool()">&times;</span>
+        </div>
+        <div class="calc-container">
+            <div class="display-panel">
+                <div id="calc-preview"></div>
+                <input type="text" id="main-display" readonly>
+            </div>
+            <div class="keypad">
+                <button class="k-func" onclick="press('sin(')">sin</button>
+                <button class="k-func" onclick="press('cos(')">cos</button>
+                <button class="k-func" onclick="press('tan(')">tan</button>
+                <button class="k-op" onclick="press('(')">(</button>
+                <button class="k-op" onclick="press(')')">)</button>
+                
+                <button class="k-func" onclick="press('sqrt(')">√</button>
+                <button class="k-func" onclick="press('^')">xʸ</button>
+                <button class="k-func" onclick="press('pi')">π</button>
+                <button class="k-func" onclick="press('log(')">log</button>
+                <button class="k-del" onclick="clearDisplay()">AC</button>
+
+                <button class="k-num" onclick="press('7')">7</button>
+                <button class="k-num" onclick="press('8')">8</button>
+                <button class="k-num" onclick="press('9')">9</button>
+                <button class="k-del" onclick="backspace()">DEL</button>
+                <button class="k-op" onclick="press('/')">/</button>
+
+                <button class="k-num" onclick="press('4')">4</button>
+                <button class="k-num" onclick="press('5')">5</button>
+                <button class="k-num" onclick="press('6')">6</button>
+                <button class="k-op" onclick="press('*')">×</button>
+                <button class="k-op" onclick="press('-')">-</button>
+
+                <button class="k-num" onclick="press('1')">1</button>
+                <button class="k-num" onclick="press('2')">2</button>
+                <button class="k-num" onclick="press('3')">3</button>
+                <button class="k-op" onclick="press('+')">+</button>
+                <button class="k-equal" onclick="solve()">=</button>
+
+                <button class="k-num" style="grid-column: span 2;" onclick="press('0')">0</button>
+                <button class="k-num" onclick="press('.')">.</button>
+                <button class="k-num" onclick="press(',')">,</button>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-copy" onclick="copyResult()">Copy Result</button>
+            <button class="btn-hist" onclick="toggleHistory()">View History</button>
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="f-links">
+            <a href="about.html">About Us</a> | 
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms of Use</a> |
+            <a href="contact.html">Contact</a>
+        </div>
+        <p>&copy; 2026 MathOS Pro. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
