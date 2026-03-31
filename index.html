@@ -8,16 +8,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        .result-container { position: relative; margin-top: 20px; }
-        .copy-btn { 
-            position: absolute; right: 10px; top: 10px; 
-            background: #334155; color: #38bdf8; border: none; 
-            padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 0.7rem; z-index: 10;
-        }
-    </style>
 </head>
 <body>
 
@@ -28,34 +20,91 @@
         <div class="nav-item" onclick="loadGrid('inter', this)"><i class="fas fa-superscript"></i> Intermediate</div>
         <div class="nav-item" onclick="loadGrid('engg', this)"><i class="fas fa-atom"></i> Engineering</div>
     </div>
-    <div class="sidebar-footer" style="margin-top:auto; padding:10px;">
-        <div class="nav-item" onclick="showLegal('about')"><i class="fas fa-info-circle"></i> About</div>
-        <div class="nav-item" onclick="showLegal('contact')"><i class="fas fa-envelope"></i> Contact</div>
+    <div class="sidebar-footer">
+        <div class="nav-item" onclick="showLegal('about')"><i class="fas fa-info-circle"></i> About App</div>
+        <div class="nav-item" onclick="toggleHistory()"><i class="fas fa-history"></i> View History</div>
     </div>
 </nav>
 
 <main>
     <div class="header">
         <h1 id="section-title">Matric Section</h1>
-        <p id="section-desc">Select a specialized tool below.</p>
+        <p id="section-desc">Select a tool to open the Scientific Terminal.</p>
     </div>
     <div id="tool-grid" class="tool-grid"></div>
     
-    <footer style="margin-top: 50px; text-align: center; opacity: 0.6; font-size: 0.8rem;">
-        <a href="#" onclick="showLegal('privacy')" style="color:white; margin:0 10px;">Privacy</a>
-        <a href="#" onclick="showLegal('terms')" style="color:white; margin:0 10px;">Terms</a>
-        <p>© 2026 MathOS Pro Suite</p>
+    <footer>
+        <div class="footer-links">
+            <a href="#" onclick="showLegal('privacy')">Privacy</a>
+            <a href="#" onclick="showLegal('terms')">Terms</a>
+            <a href="#" onclick="showLegal('contact')">Support</a>
+        </div>
+        <p>© 2026 MathOS Pro. Built for Engineers.</p>
     </footer>
 </main>
+
+<div id="history-panel" class="history-panel">
+    <div class="history-header">
+        <h3>Calculation History</h3>
+        <span onclick="toggleHistory()">&times;</span>
+    </div>
+    <div id="history-list"></div>
+    <button class="clear-hist" onclick="clearHistory()">Clear History</button>
+</div>
 
 <div id="tool-modal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeTool()">&times;</span>
-        <h2 id="modal-title">Tool Name</h2>
-        <div id="tool-ui"></div>
+        <h2 id="modal-title">Scientific Terminal</h2>
+        
+        <div id="calculator-ui">
+            <div class="calc-display">
+                <div id="calc-preview"></div>
+                <input type="text" id="main-display" placeholder="0" spellcheck="false">
+            </div>
+
+            <div class="sci-keys">
+                <button class="key op" onclick="press('sin(')">sin</button>
+                <button class="key op" onclick="press('cos(')">cos</button>
+                <button class="key op" onclick="press('tan(')">tan</button>
+                <button class="key op" onclick="press('log(')">log</button>
+                <button class="key op" onclick="press('sqrt(')">√</button>
+
+                <button class="key op" onclick="press('^')">xʸ</button>
+                <button class="key op" onclick="press('pi')">π</button>
+                <button class="key op" onclick="press('e')">e</button>
+                <button class="key op" onclick="press('(')">(</button>
+                <button class="key op" onclick="press(')')">)</button>
+
+                <button class="key num" onclick="press('7')">7</button>
+                <button class="key num" onclick="press('8')">8</button>
+                <button class="key num" onclick="press('9')">9</button>
+                <button class="key action del" onclick="backspace()">DEL</button>
+                <button class="key action ac" onclick="clearDisplay()">AC</button>
+
+                <button class="key num" onclick="press('4')">4</button>
+                <button class="key num" onclick="press('5')">5</button>
+                <button class="key num" onclick="press('6')">6</button>
+                <button class="key op" onclick="press('*')">×</button>
+                <button class="key op" onclick="press('/')">÷</button>
+
+                <button class="key num" onclick="press('1')">1</button>
+                <button class="key num" onclick="press('2')">2</button>
+                <button class="key num" onclick="press('3')">3</button>
+                <button class="key op" onclick="press('+')">+</button>
+                <button class="key op" onclick="press('-')">-</button>
+
+                <button class="key num" onclick="press('0')">0</button>
+                <button class="key num" onclick="press('.')">.</button>
+                <button class="key num" onclick="press(',')">,</button>
+                <button class="key equal" onclick="solve()">= ENTER</button>
+            </div>
+        </div>
+
+        <div id="legal-ui" style="display:none;"></div>
+        
         <div class="result-container" id="res-container">
-            <button class="copy-btn" id="copy-btn" onclick="copyResult()"><i class="far fa-copy"></i> Copy</button>
-            <div id="tool-result" class="result-area">Ready...</div>
+            <button class="copy-btn" onclick="copyResult()"><i class="far fa-copy"></i> Copy Result</button>
         </div>
     </div>
 </div>
