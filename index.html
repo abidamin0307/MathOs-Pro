@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathOS Pro | 60+ Professional Calculators</title>
+    <title>MathOS Pro | 60+ Scientific Calculators</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://unpkg.com/mathjs@11.8.0/lib/browser/math.js"></script>
@@ -14,8 +14,8 @@
 <nav class="top-nav">
     <div class="container nav-flex">
         <div class="logo">MathOS<span>Pro</span></div>
-        <div class="nav-controls">
-            <input type="text" id="toolSearch" placeholder="Search 60+ tools..." onkeyup="filterTools()">
+        <div class="nav-search">
+            <input type="text" id="toolSearch" placeholder="Search all 60 tools..." onkeyup="filterTools()">
             <button id="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
         </div>
     </div>
@@ -24,11 +24,11 @@
 <div class="container main-layout">
     <aside id="sidebar">
         <div class="side-card">
-            <h3>Categories</h3>
+            <h3>Calculators</h3>
             <div class="category-list">
-                <div class="cat-btn active" onclick="loadGrid('math', this)"><i class="fas fa-subscript"></i> Algebra & Math</div>
-                <div class="cat-btn" onclick="loadGrid('unit', this)"><i class="fas fa-rule"></i> Unit Converters</div>
-                <div class="cat-btn" onclick="loadGrid('engg', this)"><i class="fas fa-cog"></i> Engineering</div>
+                <div class="cat-btn active" onclick="loadGrid('math', this)">Algebra & Math</div>
+                <div class="cat-btn" onclick="loadGrid('unit', this)">Unit Converters</div>
+                <div class="cat-btn" onclick="loadGrid('engg', this)">Engineering Pro</div>
             </div>
         </div>
     </aside>
@@ -42,26 +42,26 @@
 <div id="tool-modal" class="modal">
     <div class="modal-window">
         <div class="modal-header">
-            <span id="modal-title">Terminal</span>
+            <span id="modal-title">Scientific Engine</span>
             <button class="close-btn" onclick="closeTool()">&times;</button>
         </div>
 
         <div class="modal-body">
             <div class="meter-container">
-                <div class="meter-text">System Calibration: <span id="meter-val">0%</span></div>
+                <div class="meter-text">Precision Calibration: <span id="meter-val">0%</span></div>
                 <div class="meter-track"><div id="meter-bar" class="meter-fill"></div></div>
             </div>
 
             <div class="display-box">
-                <div id="display-label">Standard Precision Mode</div>
                 <input type="text" id="main-display" placeholder="0">
+                <div id="result-preview">Result will appear here</div>
             </div>
 
             <div id="unit-interface" class="unit-box" style="display:none;">
                 <div class="unit-row">
-                    <select id="u-from" onchange="runUnitConversion()"></select>
-                    <i class="fas fa-sync"></i>
-                    <select id="u-to" onchange="runUnitConversion()"></select>
+                    <select id="u-from" onchange="runConversion()"></select>
+                    <i class="fas fa-exchange-alt"></i>
+                    <select id="u-to" onchange="runConversion()"></select>
                 </div>
             </div>
 
@@ -93,7 +93,7 @@
         </div>
 
         <div class="edu-footer">
-            <h4>Concept & Theory</h4>
+            <h4><i class="fas fa-book-open"></i> Theory & Educational Guide</h4>
             <p id="edu-text"></p>
             <div class="formula-box" id="edu-formula"></div>
         </div>
@@ -102,8 +102,7 @@
 
 <footer class="main-footer">
     <div class="container">
-        <a href="about.html">About</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a>
-        <p>&copy; 2026 MathOS Pro | Professional Grade Mathematics</p>
+        <p>&copy; 2026 MathOS Pro | High-Performance Computation</p>
     </div>
 </footer>
 
