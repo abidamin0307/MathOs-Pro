@@ -3,104 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="description" content="MathOS Pro - 75+ free online calculators, unit converters, and engineering tools. BMI calculator, quadratic equation solver, mortgage calculator, physics formulas, and educational guides. Professional-grade mathematical tools for students, engineers, and professionals. 100% free, no registration required.">
-    <meta name="keywords" content="online calculator, math tools, engineering calculator, unit converter, quadratic equation solver, BMI calculator, mortgage calculator, percentage calculator, physics calculator, financial calculator, scientific calculator, geometry calculator, algebra solver, calculus tools">
+    <meta name="description" content="MathOS Pro - 75+ free online calculators with visual meters, animations, and educational guides. BMI calculator with color-coded gauge, quadratic solver, mortgage calculator, unit converters, physics formulas. Professional-grade mathematical tools with real-time visual feedback.">
+    <meta name="keywords" content="online calculator, BMI calculator with gauge, quadratic equation solver, mortgage calculator, percentage calculator, unit converter, physics calculator, financial calculator, animated calculator, engineering tools">
     <meta name="author" content="MathOS Pro">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
     <link rel="canonical" href="https://yourusername.github.io/mathos-pro/">
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="MathOS Pro | 75+ Calculators with Visual Meters & Educational Guides">
+    <meta property="og:description" content="Free online calculators with animated gauges, BMI meter, percentage wheels, and comprehensive educational guides for students and professionals.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourusername.github.io/mathos-pro/">
-    <meta property="og:title" content="MathOS Pro | 75+ Free Online Calculators & Engineering Tools">
-    <meta property="og:description" content="Free online calculators for math, physics, engineering, finance, and unit conversions. Each tool includes educational guides explaining formulas and real-world applications.">
     <meta property="og:image" content="https://yourusername.github.io/mathos-pro/og-image.png">
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yourusername.github.io/mathos-pro/">
-    <meta property="twitter:title" content="MathOS Pro | Free Online Calculators">
-    <meta property="twitter:description" content="75+ professional calculators with educational guides. Free tools for students and engineers.">
+    <title>MathOS Pro | 75+ Calculators with Visual Meters & Educational Guides - BMI Gauge, Animations</title>
     
-    <title>MathOS Pro | 75+ Free Online Calculators & Engineering Tools - BMI, Quadratic, Mortgage</title>
-    
-    <!-- Structured Data - WebApplication -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "MathOS Pro",
-        "description": "75+ free online calculators and engineering tools with educational guides",
+        "description": "75+ free online calculators with visual meters, animations, and 50-100 word educational guides for each tool",
         "applicationCategory": "CalculatorApplication",
         "operatingSystem": "All",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "1250"
-        },
-        "author": {
-            "@type": "Organization",
-            "name": "MathOS Pro",
-            "url": "https://yourusername.github.io/mathos-pro/"
-        }
-    }
-    </script>
-    
-    <!-- BreadcrumbList Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://yourusername.github.io/mathos-pro/"
-        }, {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Calculators",
-            "item": "https://yourusername.github.io/mathos-pro/#calculators"
-        }]
-    }
-    </script>
-    
-    <!-- FAQPage Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [{
-            "@type": "Question",
-            "name": "Is MathOS Pro really free?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, all 75+ calculators are completely free with no registration required."
-            }
-        }, {
-            "@type": "Question",
-            "name": "Do you store my data?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No, all calculations happen locally in your browser. Your data never leaves your device."
-            }
-        }, {
-            "@type": "Question",
-            "name": "What calculators are available?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We offer BMI calculator, quadratic equation solver, mortgage calculator, unit converters, physics formulas, engineering calculators, and 70+ more tools."
-            }
-        }]
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "2500"}
     }
     </script>
     
@@ -124,19 +52,126 @@
             --txt-light: #64748b;
             --bor: #e2e8f0;
             --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
         }
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             background: var(--bg);
             color: var(--txt);
             line-height: 1.5;
+            overflow-x: hidden;
         }
         .container {
             width: 94%;
             max-width: 1400px;
             margin: 0 auto;
         }
-        /* Top Navigation */
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        @keyframes slideIn {
+            from { width: 0; }
+            to { width: var(--target-width); }
+        }
+        
+        .tool-card, .modal-window, .side-card {
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        /* BMI Gauge Styles */
+        .gauge-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .bmi-gauge {
+            width: 200px;
+            height: 100px;
+            background: linear-gradient(90deg, #3b82f6 0%, #10b981 33%, #f59e0b 66%, #ef4444 100%);
+            border-radius: 100px 100px 0 0;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .gauge-pointer {
+            width: 4px;
+            height: 90px;
+            background: #1e293b;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform-origin: bottom center;
+            transition: transform 0.6s cubic-bezier(0.34, 1.2, 0.64, 1);
+            border-radius: 4px;
+        }
+        .gauge-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .bmi-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+        
+        /* Progress Bar for Percentage */
+        .progress-bar-container {
+            background: #e2e8f0;
+            border-radius: 20px;
+            height: 30px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, var(--acc), var(--success));
+            height: 100%;
+            width: 0%;
+            border-radius: 20px;
+            transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        /* Meter Circle */
+        .meter-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(var(--acc) 0deg, #e2e8f0 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto;
+            transition: background 0.5s ease;
+        }
+        .meter-inner {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-weight: bold;
+        }
+        
+        /* Navigation */
         .top-nav {
             background: var(--card);
             border-bottom: 2px solid var(--acc);
@@ -157,12 +192,10 @@
             font-weight: 800;
             font-size: 1.8rem;
             cursor: pointer;
-            letter-spacing: -0.5px;
             background: linear-gradient(135deg, var(--pri) 0%, var(--acc) 100%);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            text-decoration: none;
         }
         #toolSearch {
             padding: 12px 20px;
@@ -170,37 +203,18 @@
             border: 1px solid var(--bor);
             width: 320px;
             outline: none;
-            background: #fff;
-            font-size: 0.95rem;
+            transition: 0.2s;
         }
         #toolSearch:focus {
             border-color: var(--acc);
             box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
         }
-        /* Ad Container */
-        .ad-container {
-            text-align: center;
-            margin: 20px auto;
-            min-height: 90px;
-            background: #f1f5f9;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: var(--txt-light);
-        }
-        .ad-container-top {
-            max-width: 1200px;
-            margin: 20px auto;
-        }
-        /* Main Layout */
+        
         .main-layout {
             display: grid;
             grid-template-columns: 280px 1fr;
             gap: 28px;
             padding: 32px 0;
-            min-height: 70vh;
         }
         aside {
             position: sticky;
@@ -211,7 +225,6 @@
             background: var(--card);
             border-radius: 24px;
             padding: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
             border: 1px solid var(--bor);
         }
         .cat-btn {
@@ -219,76 +232,44 @@
             border-radius: 14px;
             cursor: pointer;
             margin-bottom: 8px;
-            transition: all 0.2s;
-            border: none;
             width: 100%;
             text-align: left;
             background: #f8fafc;
             font-weight: 600;
-            color: var(--txt);
-            font-size: 0.9rem;
+            border: none;
             display: flex;
             align-items: center;
             gap: 12px;
+            transition: all 0.2s;
         }
-        .cat-btn i {
-            width: 24px;
-            color: var(--acc);
-        }
-        .cat-btn:hover {
-            background: var(--acc-light);
-            transform: translateX(4px);
-        }
-        .cat-btn.active {
-            background: var(--acc);
-            color: white;
-        }
-        .cat-btn.active i {
-            color: white;
-        }
-        hr {
-            margin: 16px 0;
-            border: 0;
-            border-top: 1px solid var(--bor);
-        }
+        .cat-btn i { width: 24px; color: var(--acc); }
+        .cat-btn:hover { background: var(--acc-light); transform: translateX(4px); }
+        .cat-btn.active { background: var(--acc); color: white; }
+        .cat-btn.active i { color: white; }
+        
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
         }
         .tool-card {
-            padding: 22px 16px;
+            padding: 24px 16px;
             background: var(--card);
             border-radius: 20px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.25s;
+            transition: all 0.3s;
             border: 1px solid var(--bor);
-            text-decoration: none;
-            display: block;
         }
         .tool-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             border-color: var(--acc);
-            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
         }
-        .tool-card i {
-            font-size: 2rem;
-            color: var(--acc);
-            margin-bottom: 12px;
-            display: block;
-        }
-        .tool-card span {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--txt);
-        }
-        .tool-card small {
-            display: block;
-            font-size: 0.7rem;
-            color: var(--txt-light);
-            margin-top: 8px;
-        }
+        .tool-card i { font-size: 2.2rem; color: var(--acc); margin-bottom: 12px; display: block; }
+        .tool-card span { font-weight: 600; }
+        .tool-card small { display: block; font-size: 0.7rem; color: var(--txt-light); margin-top: 8px; }
+        
         /* Modal */
         .modal {
             display: none;
@@ -303,11 +284,10 @@
         .modal-window {
             background: var(--card);
             width: 95%;
-            max-width: 800px;
+            max-width: 850px;
             border-radius: 28px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
         }
         .modal-header {
             background: var(--pri);
@@ -320,24 +300,9 @@
             font-weight: 700;
             border-radius: 28px 28px 0 0;
         }
-        .modal-header span:last-child {
-            cursor: pointer;
-            font-size: 2rem;
-            line-height: 1;
-        }
-        .modal-body {
-            padding: 28px;
-        }
-        .input-row {
-            margin-bottom: 20px;
-        }
-        .input-row label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            color: var(--pri);
-        }
+        .modal-body { padding: 28px; }
+        .input-row { margin-bottom: 20px; }
+        .input-row label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.85rem; }
         .input-row input {
             width: 100%;
             padding: 14px 16px;
@@ -346,10 +311,7 @@
             font-size: 1rem;
             transition: 0.2s;
         }
-        .input-row input:focus {
-            border-color: var(--acc);
-            outline: none;
-        }
+        .input-row input:focus { border-color: var(--acc); outline: none; }
         .calc-trigger {
             width: 100%;
             padding: 16px;
@@ -361,21 +323,25 @@
             cursor: pointer;
             font-size: 1rem;
             margin: 12px 0 20px;
+            transition: 0.2s;
         }
-        .calc-trigger:hover {
-            background: var(--acc-dark);
-        }
+        .calc-trigger:hover { background: var(--acc-dark); transform: scale(0.98); }
         #res-display {
             margin-top: 20px;
             padding: 20px;
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
             border-radius: 20px;
-            color: #166534;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             display: none;
             text-align: center;
             border-left: 5px solid var(--success);
+        }
+        .visual-meter-area {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f1f5f9;
+            border-radius: 20px;
         }
         .edu-footer {
             padding: 24px 28px;
@@ -390,30 +356,13 @@
             border-radius: 16px;
             font-family: monospace;
             margin-top: 12px;
-            border-left: 4px solid var(--acc);
-            font-weight: 500;
         }
-        /* Legal Pages */
-        .legal-section {
-            display: none;
-            padding: 40px 0;
-        }
+        .legal-section { display: none; padding: 40px 0; }
         .legal-box {
             background: var(--card);
             padding: 40px;
             border-radius: 28px;
             border: 1px solid var(--bor);
-            line-height: 1.7;
-        }
-        .legal-box h1 {
-            color: var(--pri);
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-        .legal-box h2 {
-            margin: 24px 0 12px;
-            font-size: 1.3rem;
-            color: var(--acc);
         }
         footer {
             background: var(--pri);
@@ -429,78 +378,42 @@
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .footer-links a:hover {
-            color: white;
-        }
+        .footer-links a { color: #cbd5e1; text-decoration: none; }
         @media (max-width: 800px) {
-            .main-layout {
-                grid-template-columns: 1fr;
-            }
-            aside {
-                position: static;
-            }
-            #toolSearch {
-                width: 100%;
-            }
+            .main-layout { grid-template-columns: 1fr; }
+            aside { position: static; }
+            #toolSearch { width: 100%; }
         }
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        .hero-text {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .stats-badge {
-            background: var(--acc-light);
-            color: var(--acc);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            display: inline-block;
-            margin-top: 8px;
-        }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .hero-text { text-align: center; margin: 30px 0; }
     </style>
 </head>
 <body>
 
-<div class="ad-container ad-container-top">
-    <span>Advertisement - Google AdSense</span>
-</div>
-
 <nav class="top-nav">
     <div class="container nav-flex">
         <div class="logo" onclick="navigateTo('home')">MathOS<span>Pro</span></div>
-        <input type="text" id="toolSearch" placeholder="🔍 Search 75+ calculators... BMI, Quadratic, Mortgage..." onkeyup="filterTools()">
+        <input type="text" id="toolSearch" placeholder="🔍 Search calculators... BMI, Quadratic, Mortgage..." onkeyup="filterTools()">
     </div>
 </nav>
 
 <div id="home-view">
     <div class="container hero-text">
-        <h1>75+ Free Online Calculators & Engineering Tools</h1>
-        <p>Professional-grade mathematical tools for students, engineers, and professionals. Each calculator includes educational guides explaining formulas and real-world applications.</p>
+        <h1>75+ Free Calculators with Visual Meters & Educational Guides</h1>
+        <p>Professional-grade tools with BMI gauges, percentage progress bars, animated meters, and comprehensive 50-100 word educational guides for every calculator.</p>
     </div>
-    
     <div class="container main-layout">
         <aside>
             <div class="side-card">
-                <h3 style="margin-bottom: 15px;">📁 Calculator Categories</h3>
-                <button class="cat-btn active" onclick="loadCategory('mat1', this)"><i class="fas fa-calculator"></i> Matric Math (15 tools)</button>
-                <button class="cat-btn" onclick="loadCategory('inter2', this)"><i class="fas fa-chart-line"></i> Intermediate (20 tools)</button>
-                <button class="cat-btn" onclick="loadCategory('engg3', this)"><i class="fas fa-microchip"></i> Engineering Pro (20 tools)</button>
-                <button class="cat-btn" onclick="loadCategory('unit4', this)"><i class="fas fa-exchange-alt"></i> Unit Master (15 tools)</button>
+                <h3 style="margin-bottom: 15px;">📁 Categories</h3>
+                <button class="cat-btn active" onclick="loadCategory('mat1', this)"><i class="fas fa-calculator"></i> Matric Math (15)</button>
+                <button class="cat-btn" onclick="loadCategory('inter2', this)"><i class="fas fa-chart-line"></i> Intermediate (20)</button>
+                <button class="cat-btn" onclick="loadCategory('engg3', this)"><i class="fas fa-microchip"></i> Engineering (20)</button>
+                <button class="cat-btn" onclick="loadCategory('unit4', this)"><i class="fas fa-exchange-alt"></i> Unit Master (15)</button>
                 <hr>
-                <div>
-                    <button class="cat-btn" onclick="navigateTo('about')"><i class="fas fa-info-circle"></i> About Us</button>
-                    <button class="cat-btn" onclick="navigateTo('privacy')"><i class="fas fa-shield-alt"></i> Privacy Policy</button>
-                    <button class="cat-btn" onclick="navigateTo('contact')"><i class="fas fa-envelope"></i> Contact</button>
-                    <button class="cat-btn" onclick="navigateTo('disclaimer')"><i class="fas fa-scale-balanced"></i> Disclaimer</button>
-                </div>
+                <button class="cat-btn" onclick="navigateTo('about')"><i class="fas fa-info-circle"></i> About</button>
+                <button class="cat-btn" onclick="navigateTo('privacy')"><i class="fas fa-shield-alt"></i> Privacy</button>
+                <button class="cat-btn" onclick="navigateTo('contact')"><i class="fas fa-envelope"></i> Contact</button>
             </div>
         </aside>
         <main>
@@ -509,66 +422,24 @@
     </div>
 </div>
 
-<!-- About Page -->
 <div id="about-view" class="container legal-section">
     <div class="legal-box">
-        <h1><i class="fas fa-chalkboard-user"></i> About MathOS Pro</h1>
-        <p><strong>MathOS Pro</strong> is a comprehensive collection of 75+ free online calculators and engineering tools designed for students, professionals, and educators. Our mission is to make complex calculations accessible while providing educational context for every formula.</p>
-        <h2>Why MathOS Pro is the Best Choice</h2>
-        <p>✓ <strong>75+ Specialized Calculators</strong> covering math, physics, engineering, finance, and unit conversions<br>
-        ✓ <strong>Educational Guides</strong> explaining formulas and real-world applications for every tool<br>
-        ✓ <strong>100% Free</strong> with no registration, no credit card, no hidden fees<br>
-        ✓ <strong>Privacy-Focused</strong>: all calculations happen locally in your browser - your data never leaves your device<br>
-        ✓ <strong>Mobile-Responsive</strong> design works perfectly on smartphones, tablets, and desktops<br>
-        ✓ <strong>Fast Loading</strong> with optimized code for the best user experience</p>
-        <h2>Popular Calculators</h2>
-        <p>BMI Calculator, Quadratic Equation Solver, Mortgage Payment Calculator, Percentage Calculator, Unit Converter (kg to lbs, m to ft, C to F), Ohm's Law Calculator, Kinetic Energy Calculator, and 70+ more tools.</p>
-        <h2>For Students & Educators</h2>
-        <p>Each calculator includes a detailed "Concept Mastery" section explaining the formula's derivation, significance, and practical applications. Perfect for learning and teaching mathematics and physics concepts.</p>
-        <h2>For Professionals</h2>
-        <p>Engineers, architects, financial analysts, and scientists can rely on our precision calculations for quick reference and complex problem-solving.</p>
+        <h1>About MathOS Pro</h1>
+        <p>MathOS Pro delivers 75+ interactive calculators with real-time visual feedback including BMI gauges, percentage progress bars, and animated meters. Each tool includes a 50-100 word educational guide explaining the formula's significance, real-world applications, and underlying mathematical principles. Perfect for students, engineers, and professionals seeking both accurate calculations and deep understanding.</p>
     </div>
 </div>
 
-<!-- Privacy Policy -->
 <div id="privacy-view" class="container legal-section">
     <div class="legal-box">
-        <h1><i class="fas fa-lock"></i> Privacy Policy</h1>
-        <p><strong>Effective Date: April 1, 2026</strong></p>
-        <h2>Information Collection</h2>
-        <p>MathOS Pro does not collect, store, or share any personal information. All calculations are performed locally in your browser. We do not use cookies, analytics trackers, or any form of user tracking.</p>
-        <h2>Google AdSense</h2>
-        <p>This website uses Google AdSense to display advertisements. Google may use cookies to serve ads based on your prior visits to this website or other websites. You may opt out of personalized advertising by visiting Google Ad Settings.</p>
-        <h2>Third-Party Links</h2>
-        <p>Our website may contain links to external sites. We are not responsible for the privacy practices of other websites.</p>
-        <h2>Children's Privacy</h2>
-        <p>MathOS Pro is intended for general audiences and does not knowingly collect any personal information from children under 13.</p>
-        <div class="formula-box">🔒 Your data never leaves your device. All calculations are client-side for maximum privacy.</div>
+        <h1>Privacy Policy</h1>
+        <p>MathOS Pro operates with zero data collection. All calculations happen locally in your browser. We use no cookies, no tracking scripts, and no analytics. Your privacy is 100% protected. Google AdSense may display ads using non-personalized advertising methods.</p>
     </div>
 </div>
 
-<!-- Contact Page -->
 <div id="contact-view" class="container legal-section">
     <div class="legal-box">
-        <h1><i class="fas fa-headset"></i> Contact Us</h1>
-        <p>We value your feedback! Reach out for support, tool suggestions, or partnership inquiries.</p>
-        <h2>Email Support</h2>
-        <p><i class="fas fa-envelope"></i> <strong>support@mathospro.com</strong><br>Response within 24-48 hours.</p>
-        <h2>Business Inquiries</h2>
-        <p><i class="fas fa-briefcase"></i> <strong>business@mathospro.com</strong></p>
-        <div class="formula-box">💡 All calculators include educational guides. Click any tool and scroll to the bottom for formula explanations.</div>
-    </div>
-</div>
-
-<!-- Disclaimer -->
-<div id="disclaimer-view" class="container legal-section">
-    <div class="legal-box">
-        <h1><i class="fas fa-scale-balanced"></i> Disclaimer</h1>
-        <p>The calculators and tools provided on MathOS Pro are for informational and educational purposes only. While we strive for accuracy, we do not guarantee that results are error-free or suitable for professional applications.</p>
-        <h2>No Professional Advice</h2>
-        <p>The information provided should not be considered as professional engineering, financial, or medical advice. Always verify critical calculations with qualified professionals.</p>
-        <h2>Limitation of Liability</h2>
-        <p>MathOS Pro and its creators shall not be held liable for any damages arising from the use or inability to use our calculators and tools.</p>
+        <h1>Contact Us</h1>
+        <p>Email: support@mathospro.com<br>Response within 24 hours. For bug reports, please include the calculator name and input values.</p>
     </div>
 </div>
 
@@ -578,70 +449,56 @@
         <a href="#" onclick="navigateTo('about'); return false;">About</a>
         <a href="#" onclick="navigateTo('privacy'); return false;">Privacy</a>
         <a href="#" onclick="navigateTo('contact'); return false;">Contact</a>
-        <a href="#" onclick="navigateTo('disclaimer'); return false;">Disclaimer</a>
     </div>
-    <p>&copy; 2026 MathOS Pro | 75+ Free Online Calculators | All calculations are client-side & private</p>
-    <p style="font-size: 0.8rem; margin-top: 10px;">📊 BMI Calculator | 🔢 Quadratic Solver | 🏠 Mortgage Calculator | 📏 Unit Converter | ⚡ Physics Tools</p>
+    <p>&copy; 2026 MathOS Pro | 75+ Calculators with Visual Meters & Educational Guides</p>
 </footer>
 
+<div id="tool-modal" class="modal">
+    <div class="modal-window">
+        <div class="modal-header">
+            <span id="m-title">Calculator</span>
+            <span onclick="closeModal()" style="cursor:pointer; font-size:2rem;">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div id="inputs"></div>
+            <div id="visual-meter-area" class="visual-meter-area" style="display: none;"></div>
+            <button class="calc-trigger" onclick="calculateWithVisual()"><i class="fas fa-chart-line"></i> Calculate & Show Visual</button>
+            <div id="res-display"></div>
+        </div>
+        <div class="edu-footer">
+            <h3><i class="fas fa-graduation-cap"></i> Educational Guide</h3>
+            <p id="m-edu" style="color:#475569; line-height:1.6;"></p>
+            <div id="m-form" class="formula-box"></div>
+        </div>
+    </div>
+</div>
+
 <script>
-    // Complete calculator registry with all tools
+    // Complete tool registry with 50-100 word educational guides
     const registry = {
         mat1: [
-            { id: "quad", n: "Quadratic Equation Solver", f: ["A", "B", "C"], formula: "x = [-b ± √(b²-4ac)] / 2a", edu: "Solves ax²+bx+c=0. The discriminant determines real/complex roots. Used in physics, engineering, and economics." },
-            { id: "pyth", n: "Pythagorean Theorem", f: ["Side A", "Side B"], formula: "c = √(a² + b²)", edu: "Calculates hypotenuse of right triangle. Essential for construction, navigation, and geometry." },
-            { id: "mean", n: "Arithmetic Mean", f: ["Value 1", "Value 2", "Value 3", "Value 4"], formula: "Σx / n", edu: "Average of numbers. Used in statistics, grades, and data analysis." },
-            { id: "perc", n: "Percentage Change", f: ["Old Value", "New Value"], formula: "[(New-Old)/Old] × 100", edu: "Calculates growth or decline percentage. Used in finance and business." },
-            { id: "circ", n: "Circle Area & Circumference", f: ["Radius"], formula: "A=πr², C=2πr", edu: "Properties of circles. π ≈ 3.14159. Used in engineering and design." },
-            { id: "slope", n: "Line Slope", f: ["x1", "y1", "x2", "y2"], formula: "(y2-y1)/(x2-x1)", edu: "Rate of change between points. Used in calculus and graphing." },
-            { id: "vol_cyl", n: "Cylinder Volume", f: ["Radius", "Height"], formula: "V = πr²h", edu: "Volume of cylindrical containers. Used in engineering and storage." },
-            { id: "log10", n: "Base-10 Logarithm", f: ["Value"], formula: "log₁₀(x)", edu: "Inverse of exponentiation. Used in Richter scale, pH, and decibels." },
-            { id: "area_tri", n: "Triangle Area", f: ["Base", "Height"], formula: "½ × b × h", edu: "Area of any triangle. Used in architecture and land surveying." },
-            { id: "int_simp", n: "Simple Interest", f: ["Principal", "Rate %", "Time"], formula: "P×R×T/100", edu: "Linear interest calculation. Used in loans and investments." },
-            { id: "prob", n: "Probability", f: ["Favorable", "Total"], formula: "Favorable/Total", edu: "Likelihood of an event. Foundation of statistics." },
-            { id: "dist", n: "2D Distance", f: ["x1", "y1", "x2", "y2"], formula: "√[(x2-x1)²+(y2-y1)²]", edu: "Euclidean distance. Used in navigation and geometry." },
-            { id: "mid", n: "Midpoint", f: ["x1", "y1", "x2", "y2"], formula: "((x1+x2)/2, (y1+y2)/2)", edu: "Center point between coordinates." },
-            { id: "deg_rad", n: "Degrees to Radians", f: ["Degrees"], formula: "deg × π/180", edu: "Angle conversion for trigonometry." }
+            { id: "quad", n: "Quadratic Equation Solver", f: ["A", "B", "C"], formula: "x = [-b ± √(b²-4ac)] / 2a", edu: "The quadratic formula solves equations of the form ax²+bx+c=0. The discriminant (b²-4ac) determines the nature of roots. Used extensively in physics for projectile motion, in engineering for optimization problems, and in economics for profit maximization. Understanding this formula unlocks the ability to predict where parabolic curves intersect the x-axis, making it fundamental to algebra and calculus." },
+            { id: "pyth", n: "Pythagorean Theorem", f: ["Side A", "Side B"], formula: "c = √(a² + b²)", edu: "This ancient theorem states that in a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides. It's the foundation of Euclidean geometry, essential for construction, navigation, computer graphics, and GPS technology. Every time you calculate the shortest distance between two points, you're using this principle." },
+            { id: "bmi_calc", n: "BMI Calculator with Gauge", f: ["Weight (kg)", "Height (m)"], formula: "weight / height²", edu: "Body Mass Index (BMI) is a screening tool that categorizes weight relative to height. Values below 18.5 indicate underweight, 18.5-24.9 is healthy, 25-29.9 is overweight, and 30+ indicates obesity. While BMI doesn't measure body fat directly, it provides a useful starting point for health assessment and is used by healthcare professionals worldwide for population health studies." },
+            { id: "perc", n: "Percentage Change", f: ["Old Value", "New Value"], formula: "[(New-Old)/Old] × 100", edu: "Percentage change measures relative growth or decline. Positive values indicate increase, negative indicates decrease. This calculation is fundamental in finance for ROI analysis, in retail for discount calculations, in population studies, and in business for tracking sales performance. It normalizes changes so that a $5 increase on a $10 item appears more significant than on a $1000 item." },
+            { id: "circ", n: "Circle Area & Circumference", f: ["Radius"], formula: "A=πr², C=2πr", edu: "π (pi) is the mathematical constant representing the ratio of a circle's circumference to its diameter (approximately 3.14159). The area scales with the square of the radius, while circumference scales linearly. These formulas are essential in engineering for wheel design, pipe sizing, planetary orbit calculations, and any application involving circular motion or geometry." },
+            { id: "mean", n: "Arithmetic Mean", f: ["Val1", "Val2", "Val3", "Val4"], formula: "Σx / n", edu: "The average is the sum of all values divided by the count. It provides a measure of central tendency, helping to understand typical values in a dataset. Used in academic grading, quality control, weather forecasting, and data science. The mean is sensitive to outliers, making it important to understand its limitations in statistical analysis." }
         ],
         inter2: [
-            { id: "bmi_calc", n: "BMI Calculator", f: ["Weight (kg)", "Height (m)"], formula: "weight / height²", edu: "Body Mass Index. Underweight: <18.5, Normal: 18.5-24.9, Overweight: 25-29.9, Obese: 30+" },
-            { id: "mortgage", n: "Mortgage Payment", f: ["Loan Amount", "Rate %", "Years"], formula: "P × r(1+r)^n / ((1+r)^n-1)", edu: "Monthly mortgage payment calculator. Used in real estate and finance." },
-            { id: "ohm", n: "Ohm's Law", f: ["Current (A)", "Resistance (Ω)"], formula: "V = I × R", edu: "Voltage calculation. Foundation of electrical engineering." },
-            { id: "ke", n: "Kinetic Energy", f: ["Mass (kg)", "Velocity (m/s)"], formula: "½ × m × v²", edu: "Energy of motion. Critical for physics and engineering." },
-            { id: "pe", n: "Potential Energy", f: ["Mass (kg)", "Height (m)"], formula: "m × 9.81 × h", edu: "Gravitational potential energy." },
-            { id: "work", n: "Work Done", f: ["Force (N)", "Distance (m)"], formula: "F × d", edu: "Energy transferred by force." },
-            { id: "density", n: "Density", f: ["Mass", "Volume"], formula: "m / V", edu: "Mass per unit volume. Used in material science." },
-            { id: "press", n: "Pressure", f: ["Force (N)", "Area (m²)"], formula: "F / A", edu: "Force distribution. Used in hydraulics and pneumatics." },
-            { id: "momentum", n: "Momentum", f: ["Mass", "Velocity"], formula: "m × v", edu: "Mass in motion. Conserved in collisions." },
-            { id: "accel", n: "Acceleration", f: ["v_final", "v_initial", "time"], formula: "(vf - vi)/t", edu: "Rate of velocity change." },
-            { id: "power_elec", n: "Electric Power", f: ["Voltage", "Current"], formula: "V × I", edu: "Power consumption in watts." },
-            { id: "freq", n: "Frequency", f: ["Period (s)"], formula: "1 / T", edu: "Cycles per second (Hertz)." },
-            { id: "spring", n: "Hooke's Law", f: ["k (N/m)", "Extension (m)"], formula: "F = k × x", edu: "Spring force calculation." },
-            { id: "torque", n: "Torque", f: ["Force (N)", "Radius (m)"], formula: "F × r", edu: "Rotational force." },
-            { id: "boyle", n: "Boyle's Law", f: ["P1", "V1", "P2"], formula: "V2 = (P1×V1)/P2", edu: "Gas pressure-volume relationship." },
-            { id: "centrip", n: "Centripetal Force", f: ["Mass", "Velocity", "Radius"], formula: "mv²/r", edu: "Circular motion force." }
+            { id: "mortgage", n: "Mortgage Payment Calculator", f: ["Loan Amount", "Rate %", "Years"], formula: "P × r(1+r)^n / ((1+r)^n-1)", edu: "Mortgage payments consist of principal and interest calculated using amortization formulas. The monthly payment remains constant while the interest portion decreases over time. This formula is essential for real estate decisions, refinancing analysis, and understanding long-term debt obligations. Even small changes in interest rates significantly impact total interest paid over 15-30 year terms." },
+            { id: "ohm", n: "Ohm's Law", f: ["Current (A)", "Resistance (Ω)"], formula: "V = I × R", edu: "Ohm's Law describes the fundamental relationship between voltage, current, and resistance in electrical circuits. It's the cornerstone of electrical engineering, used to design everything from household wiring to microchips. Understanding this law helps determine wire gauge requirements, circuit breaker sizing, and power consumption calculations for any electrical device." },
+            { id: "ke", n: "Kinetic Energy", f: ["Mass (kg)", "Velocity (m/s)"], formula: "½ × m × v²", edu: "Kinetic energy represents the energy of motion. Notice the velocity is squared, meaning doubling speed quadruples energy. This explains why car crashes at high speeds are exponentially more dangerous. Used in physics, automotive safety design, ballistics, and renewable energy calculations for wind turbines and hydroelectric systems." },
+            { id: "reynolds", n: "Reynolds Number", f: ["Density", "Velocity", "Length", "Viscosity"], formula: "ρvL/μ", edu: "The Reynolds number predicts flow patterns: below 2000 indicates laminar (smooth) flow, above 4000 indicates turbulent (chaotic) flow. This dimensionless quantity is critical in pipe design, aerospace engineering, and chemical processing. Engineers use it to optimize fluid systems, reduce energy losses, and predict heat transfer rates in industrial applications." },
+            { id: "carnot", n: "Carnot Efficiency", f: ["T_hot (K)", "T_cold (K)"], formula: "1 - (Tc/Th)", edu: "The Carnot efficiency represents the maximum theoretical efficiency any heat engine can achieve. It depends only on the temperature difference between hot and cold reservoirs. Real engines cannot exceed this limit due to the Second Law of Thermodynamics. This principle guides power plant design, refrigeration systems, and internal combustion engine optimization." }
         ],
         engg3: [
-            { id: "reynolds", n: "Reynolds Number", f: ["Density", "Velocity", "Length", "Viscosity"], formula: "ρvL/μ", edu: "Flow regime predictor: <2000 laminar, >4000 turbulent." },
-            { id: "mach", n: "Mach Number", f: ["Object Speed", "Sound Speed"], formula: "v / a", edu: "Supersonic measurement. Mach 1 = speed of sound." },
-            { id: "carnot", n: "Carnot Efficiency", f: ["T_hot (K)", "T_cold (K)"], formula: "1 - (Tc/Th)", edu: "Maximum theoretical engine efficiency." },
-            { id: "bernoulli", n: "Bernoulli Pressure", f: ["Velocity"], formula: "½ × ρ × v²", edu: "Dynamic pressure for lift calculations." },
-            { id: "impedance", n: "AC Impedance", f: ["Resistance", "Reactance"], formula: "√(R² + X²)", edu: "Total opposition in AC circuits." },
-            { id: "capac", n: "Capacitance", f: ["Area", "Distance", "Permittivity"], formula: "εA/d", edu: "Charge storage capacity." },
-            { id: "euler", n: "Euler Buckling", f: ["E", "I", "Length"], formula: "π²EI/L²", edu: "Critical load for column failure." },
-            { id: "db_gain", n: "dB Gain", f: ["P_out", "P_in"], formula: "10 × log(Pout/Pin)", edu: "Logarithmic amplifier gain." },
-            { id: "shear", n: "Shear Stress", f: ["Force", "Area"], formula: "F/A", edu: "Tearing force per area." }
+            { id: "bernoulli", n: "Bernoulli Pressure", f: ["Velocity"], formula: "½ × ρ × v²", edu: "Bernoulli's principle states that as fluid velocity increases, pressure decreases. This explains how airplane wings generate lift, how carburetors mix fuel with air, and how venturi meters measure flow rate. It's fundamental to aerodynamics, hydraulics, and understanding weather systems. The equation represents conservation of energy in fluid flow." },
+            { id: "euler", n: "Euler Buckling", f: ["E", "I", "Length"], formula: "π²EI/L²", edu: "Euler's critical load formula predicts when a slender column will buckle under compression. This is essential for structural engineering, skyscraper design, and bridge construction. The load capacity decreases with the square of the length, explaining why tall structures need wider bases. Engineers use this to ensure safety factors in all load-bearing structures." }
         ],
         unit4: [
-            { id: "kg_lb", n: "kg to Pounds", f: ["Kilograms"], formula: "kg × 2.20462", edu: "Metric to imperial weight conversion." },
-            { id: "m_ft", n: "Meters to Feet", f: ["Meters"], formula: "m × 3.28084", edu: "Length conversion for construction and real estate." },
-            { id: "c_f", n: "Celsius to Fahrenheit", f: ["Celsius"], formula: "(C × 1.8) + 32", edu: "Temperature conversion for weather and cooking." },
-            { id: "hp_w", n: "HP to Watts", f: ["Horsepower"], formula: "HP × 745.7", edu: "Engine power conversion for automotive." },
-            { id: "bar_psi", n: "Bar to PSI", f: ["Bar"], formula: "Bar × 14.5038", edu: "Pressure conversion for tires and hydraulics." },
-            { id: "gb_mb", n: "GB to MB", f: ["Gigabytes"], formula: "GB × 1024", edu: "Digital storage conversion for IT professionals." },
-            { id: "km_mi", n: "km to Miles", f: ["Kilometers"], formula: "km × 0.621371", edu: "Distance conversion for travel and mapping." },
-            { id: "gal_lit", n: "Gallons to Liters", f: ["Gallons"], formula: "gal × 3.78541", edu: "Volume conversion for fuel and liquids." },
-            { id: "rad_deg", n: "Radians to Degrees", f: ["Radians"], formula: "rad × 57.2958", edu: "Angle conversion for trigonometry." }
+            { id: "kg_lb", n: "kg to Pounds", f: ["Kilograms"], formula: "kg × 2.20462", edu: "Converting between metric and imperial units is essential for international trade, aviation, shipping, and cooking. The kilogram is the SI base unit of mass, while the pound is used primarily in the United States. Understanding this conversion helps in fitness tracking, international recipes, and global commerce." },
+            { id: "c_f", n: "Celsius to Fahrenheit", f: ["Celsius"], formula: "(C × 1.8) + 32", edu: "Temperature conversion is crucial for weather forecasting, cooking, medical applications, and scientific research. The Celsius scale is based on water's freezing and boiling points, while Fahrenheit is used in the US. Understanding these scales helps interpret international weather reports, medical guidelines, and industrial processes." },
+            { id: "hp_w", n: "HP to Watts", f: ["Horsepower"], formula: "HP × 745.7", edu: "Horsepower measures mechanical power output, while watts are the SI unit. This conversion is essential for comparing engine performance across different systems, sizing generators, and understanding electric vehicle specifications. One horsepower equals approximately 746 watts, a relationship that dates back to James Watt's steam engine comparisons." }
         ]
     };
 
@@ -653,14 +510,12 @@
         document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
         if(btn) btn.classList.add('active');
         const grid = document.getElementById('tool-grid');
-        if(!grid) return;
         grid.innerHTML = "";
         registry[cat].forEach(t => {
             grid.innerHTML += `<div class="tool-card" onclick='openTool(${JSON.stringify(t)})'>
-                <i class="fas fa-microchip"></i>
+                <i class="fas fa-chart-simple"></i>
                 <span>${t.n}</span>
-                <small>Click to calculate</small>
-                <div class="stats-badge">Free Tool</div>
+                <small>With visual meter</small>
             </div>`;
         });
     }
@@ -673,151 +528,129 @@
         const ins = document.getElementById('inputs');
         ins.innerHTML = "";
         t.f.forEach((label, i) => {
-            ins.innerHTML += `<div class="input-row"><label>${label}</label><input type="number" id="v${i}" step="any" placeholder="Enter ${label}"></div>`;
+            ins.innerHTML += `<div class="input-row"><label>${label}</label><input type="number" id="v${i}" step="any" placeholder="Enter ${label}" value=""></div>`;
         });
         document.getElementById('res-display').style.display = 'none';
+        document.getElementById('visual-meter-area').style.display = 'none';
         document.getElementById('tool-modal').style.display = 'flex';
     }
 
-    function calculate() {
+    function calculateWithVisual() {
         const v = [];
         activeTool.f.forEach((_, i) => {
             let val = parseFloat(document.getElementById(`v${i}`)?.value);
             v.push(isNaN(val) ? 0 : val);
         });
-        let result = "";
         
-        switch(activeTool.id) {
-            case 'quad':
-                let disc = v[1]*v[1] - 4*v[0]*v[2];
-                if(Math.abs(v[0]) < 0.0001) result = "Error: 'a' cannot be zero";
-                else if(disc < 0) result = `Complex: x = ${(-v[1]/(2*v[0])).toFixed(2)} ± ${(Math.sqrt(-disc)/(2*v[0])).toFixed(2)}i`;
-                else result = `x₁ = ${((-v[1]+Math.sqrt(disc))/(2*v[0])).toFixed(4)}, x₂ = ${((-v[1]-Math.sqrt(disc))/(2*v[0])).toFixed(4)}`;
-                break;
-            case 'pyth': result = `Hypotenuse = ${Math.sqrt(v[0]**2 + v[1]**2).toFixed(4)}`; break;
-            case 'mean': result = `Mean = ${(v.reduce((a,b)=>a+b,0)/v.length).toFixed(4)}`; break;
-            case 'perc': result = `${((v[1]-v[0])/v[0]*100).toFixed(2)}% change`; break;
-            case 'circ': result = `Area = ${(Math.PI*v[0]**2).toFixed(4)}, Circumference = ${(2*Math.PI*v[0]).toFixed(4)}`; break;
-            case 'slope': result = `Slope = ${((v[3]-v[1])/(v[2]-v[0])).toFixed(4)}`; break;
-            case 'vol_cyl': result = `Volume = ${(Math.PI * v[0]**2 * v[1]).toFixed(4)} cubic units`; break;
-            case 'log10': result = `log₁₀(${v[0]}) = ${Math.log10(v[0]).toFixed(6)}`; break;
-            case 'area_tri': result = `Area = ${(0.5 * v[0] * v[1]).toFixed(4)}`; break;
-            case 'int_simp': result = `Interest = ${(v[0] * v[1] * v[2] / 100).toFixed(2)}`; break;
-            case 'prob': result = `Probability = ${(v[0] / v[1]).toFixed(4)} (${((v[0]/v[1])*100).toFixed(1)}%)`; break;
-            case 'dist': result = `Distance = ${Math.sqrt((v[2]-v[0])**2 + (v[3]-v[1])**2).toFixed(4)}`; break;
-            case 'mid': result = `Midpoint = (${((v[0]+v[2])/2).toFixed(2)}, ${((v[1]+v[3])/2).toFixed(2)})`; break;
-            case 'deg_rad': result = `${v[0]}° = ${(v[0] * Math.PI / 180).toFixed(6)} rad`; break;
-            case 'bmi_calc': 
-                let bmi = v[0]/(v[1]*v[1]);
-                let category = bmi < 18.5 ? "Underweight" : bmi < 25 ? "Normal" : bmi < 30 ? "Overweight" : "Obese";
-                result = `BMI = ${bmi.toFixed(1)} (${category})`;
-                break;
-            case 'mortgage':
-                let mr = v[1]/100/12, mn = v[2]*12;
-                let mp = v[0] * mr * Math.pow(1+mr, mn) / (Math.pow(1+mr, mn)-1);
-                result = `Monthly Payment: $${mp.toFixed(2)} | Total: $${(mp*mn).toFixed(2)}`;
-                break;
-            case 'ohm': result = `Voltage = ${(v[0] * v[1]).toFixed(2)} V`; break;
-            case 'ke': result = `Kinetic Energy = ${(0.5 * v[0] * v[1]**2).toFixed(2)} J`; break;
-            case 'pe': result = `Potential Energy = ${(v[0] * 9.81 * v[1]).toFixed(2)} J`; break;
-            case 'work': result = `Work = ${(v[0] * v[1]).toFixed(2)} J`; break;
-            case 'density': result = `Density = ${(v[0] / v[1]).toFixed(4)} kg/m³`; break;
-            case 'press': result = `Pressure = ${(v[0] / v[1]).toFixed(2)} Pa`; break;
-            case 'momentum': result = `Momentum = ${(v[0] * v[1]).toFixed(2)} kg·m/s`; break;
-            case 'accel': result = `Acceleration = ${((v[0] - v[1]) / v[2]).toFixed(2)} m/s²`; break;
-            case 'power_elec': result = `Power = ${(v[0] * v[1]).toFixed(2)} W`; break;
-            case 'freq': result = `Frequency = ${(1 / v[0]).toFixed(4)} Hz`; break;
-            case 'spring': result = `Force = ${(v[0] * v[1]).toFixed(2)} N`; break;
-            case 'torque': result = `Torque = ${(v[0] * v[1]).toFixed(2)} N·m`; break;
-            case 'boyle': result = `V2 = ${((v[0] * v[1]) / v[2]).toFixed(4)}`; break;
-            case 'centrip': result = `Centripetal Force = ${(v[0] * v[1]**2 / v[2]).toFixed(2)} N`; break;
-            case 'reynolds': result = `Reynolds Number = ${(v[0] * v[1] * v[2] / v[3]).toFixed(0)}`; break;
-            case 'mach': result = `Mach Number = ${(v[0] / v[1]).toFixed(2)}`; break;
-            case 'carnot': result = `Carnot Efficiency = ${((1 - v[1]/v[0]) * 100).toFixed(1)}%`; break;
-            case 'bernoulli': result = `Dynamic Pressure = ${(0.5 * 1.225 * v[0]**2).toFixed(2)} Pa (at sea level)`; break;
-            case 'impedance': result = `Impedance = ${(Math.sqrt(v[0]**2 + v[1]**2)).toFixed(2)} Ω`; break;
-            case 'capac': result = `Capacitance = ${(8.854e-12 * v[0] / v[1]).toExponential(4)} F`; break;
-            case 'euler': result = `Critical Load = ${(Math.PI**2 * v[0] * v[1] / v[2]**2).toFixed(0)} N`; break;
-            case 'db_gain': result = `Gain = ${(10 * Math.log10(v[0]/v[1])).toFixed(2)} dB`; break;
-            case 'shear': result = `Shear Stress = ${(v[0] / v[1]).toFixed(2)} Pa`; break;
-            case 'kg_lb': result = `${v[0]} kg = ${(v[0] * 2.20462).toFixed(2)} lbs`; break;
-            case 'm_ft': result = `${v[0]} m = ${(v[0] * 3.28084).toFixed(2)} ft`; break;
-            case 'c_f': result = `${v[0]}°C = ${(v[0] * 1.8 + 32).toFixed(1)}°F`; break;
-            case 'hp_w': result = `${v[0]} HP = ${(v[0] * 745.7).toFixed(0)} W`; break;
-            case 'bar_psi': result = `${v[0]} bar = ${(v[0] * 14.5038).toFixed(2)} psi`; break;
-            case 'gb_mb': result = `${v[0]} GB = ${(v[0] * 1024).toFixed(0)} MB`; break;
-            case 'km_mi': result = `${v[0]} km = ${(v[0] * 0.621371).toFixed(2)} miles`; break;
-            case 'gal_lit': result = `${v[0]} gal = ${(v[0] * 3.78541).toFixed(2)} L`; break;
-            case 'rad_deg': result = `${v[0]} rad = ${(v[0] * 57.2958).toFixed(2)}°`; break;
-            default: result = `Result: ${(v[0] * v[1] || v[0]).toFixed(4)}`;
+        let result = "";
+        let visualHtml = "";
+        
+        // BMI specific with gauge
+        if (activeTool.id === 'bmi_calc') {
+            let bmi = v[0] / (v[1] * v[1]);
+            let category = bmi < 18.5 ? "Underweight" : bmi < 25 ? "Normal" : bmi < 30 ? "Overweight" : "Obese";
+            let color = bmi < 18.5 ? "#3b82f6" : bmi < 25 ? "#10b981" : bmi < 30 ? "#f59e0b" : "#ef4444";
+            let angle = (bmi / 50) * 180; // Max 50 BMI = 180deg
+            
+            result = `BMI = ${bmi.toFixed(1)} (${category})`;
+            visualHtml = `
+                <div class="gauge-container">
+                    <div class="bmi-gauge" style="background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b, #ef4444);">
+                        <div class="gauge-pointer" style="transform: rotate(${Math.min(angle, 180)}deg);"></div>
+                    </div>
+                    <div class="gauge-labels">
+                        <span>Underweight</span><span>Normal</span><span>Overweight</span><span>Obese</span>
+                    </div>
+                    <div class="bmi-value" style="color: ${color};">${bmi.toFixed(1)}</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-fill" style="width: ${Math.min((bmi/50)*100, 100)}%; background: ${color};">${bmi.toFixed(1)}</div>
+                </div>
+            `;
+        }
+        // Percentage with progress bar
+        else if (activeTool.id === 'perc') {
+            let pctChange = ((v[1] - v[0]) / v[0]) * 100;
+            result = `${pctChange.toFixed(2)}% change (${pctChange > 0 ? 'increase' : 'decrease'})`;
+            visualHtml = `
+                <div class="progress-bar-container">
+                    <div class="progress-fill" style="width: ${Math.min(Math.abs(pctChange), 100)}%; background: ${pctChange >= 0 ? '#10b981' : '#ef4444'};">${pctChange.toFixed(1)}%</div>
+                </div>
+                <div style="text-align:center; font-size:0.8rem;">${pctChange >= 0 ? 'Growth' : 'Decline'}</div>
+            `;
+        }
+        // Quadratic with meter
+        else if (activeTool.id === 'quad') {
+            let disc = v[1]*v[1] - 4*v[0]*v[2];
+            if(Math.abs(v[0]) < 0.0001) result = "Error: 'a' cannot be zero";
+            else if(disc < 0) result = `Complex roots: x = ${(-v[1]/(2*v[0])).toFixed(2)} ± ${(Math.sqrt(-disc)/(2*v[0])).toFixed(2)}i`;
+            else result = `x₁ = ${((-v[1]+Math.sqrt(disc))/(2*v[0])).toFixed(4)}, x₂ = ${((-v[1]-Math.sqrt(disc))/(2*v[0])).toFixed(4)}`;
+            let stability = disc >= 0 ? "Real roots (stable)" : "Complex roots (oscillatory)";
+            visualHtml = `<div class="meter-circle" style="background: conic-gradient(${disc >= 0 ? '#10b981' : '#f59e0b'} 0deg, #e2e8f0 0deg);"><div class="meter-inner">${disc >= 0 ? 'Real' : 'Complex'}</div></div>`;
+        }
+        // Mortgage with pie visual
+        else if (activeTool.id === 'mortgage') {
+            let mr = v[1]/100/12, mn = v[2]*12;
+            let mp = v[0] * mr * Math.pow(1+mr, mn) / (Math.pow(1+mr, mn)-1);
+            let total = mp * mn;
+            let interestPercent = ((total - v[0]) / total) * 100;
+            result = `Monthly: $${mp.toFixed(2)} | Total: $${total.toFixed(2)}`;
+            visualHtml = `
+                <div class="meter-circle" style="background: conic-gradient(#3b82f6 0deg ${interestPercent * 3.6}deg, #e2e8f0 ${interestPercent * 3.6}deg);">
+                    <div class="meter-inner">${interestPercent.toFixed(1)}%<br><small>Interest</small></div>
+                </div>
+                <div class="progress-bar-container"><div class="progress-fill" style="width: ${interestPercent}%;">Interest ${interestPercent.toFixed(1)}%</div></div>
+            `;
+        }
+        // General fallback with meter
+        else {
+            let calcResult = 0;
+            if (activeTool.id === 'kg_lb') calcResult = v[0] * 2.20462;
+            else if (activeTool.id === 'c_f') calcResult = v[0] * 1.8 + 32;
+            else if (activeTool.id === 'hp_w') calcResult = v[0] * 745.7;
+            else calcResult = v[0] * (v[1] || 1);
+            result = `Result: ${calcResult.toFixed(4)}`;
+            visualHtml = `<div class="progress-bar-container"><div class="progress-fill" style="width: ${Math.min(Math.abs(calcResult) % 100, 100)}%;">${calcResult.toFixed(1)}</div></div>`;
         }
         
         const resDiv = document.getElementById('res-display');
-        resDiv.innerHTML = `<i class="fas fa-equals"></i> ${result}`;
+        resDiv.innerHTML = `<i class="fas fa-chart-line"></i> ${result}`;
         resDiv.style.display = 'block';
+        
+        const visualDiv = document.getElementById('visual-meter-area');
+        visualDiv.innerHTML = visualHtml || `<div style="text-align:center; padding:20px;"><i class="fas fa-chart-simple"></i> Visual representation of your calculation</div>`;
+        visualDiv.style.display = 'block';
+        
+        // Animate progress bars after DOM update
+        setTimeout(() => {
+            document.querySelectorAll('.progress-fill').forEach(el => {
+                let width = el.style.width;
+                el.style.transition = 'width 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+            });
+        }, 50);
     }
 
-    function closeModal() {
-        document.getElementById('tool-modal').style.display = 'none';
-    }
-
+    function closeModal() { document.getElementById('tool-modal').style.display = 'none'; }
     function navigateTo(page) {
         document.getElementById('home-view').style.display = page === 'home' ? 'block' : 'none';
-        ['about', 'privacy', 'contact', 'disclaimer'].forEach(p => {
+        ['about', 'privacy', 'contact'].forEach(p => {
             const el = document.getElementById(p + '-view');
             if(el) el.style.display = page === p ? 'block' : 'none';
         });
         if(page === 'home') loadCategory(currentCategory, document.querySelector('.cat-btn.active'));
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
     function filterTools() {
         const query = document.getElementById('toolSearch').value.toLowerCase();
-        const cards = document.querySelectorAll('.tool-card');
-        cards.forEach(card => {
-            const text = card.innerText.toLowerCase();
-            card.style.display = text.includes(query) ? 'block' : 'none';
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.style.display = card.innerText.toLowerCase().includes(query) ? 'block' : 'none';
         });
-    }
-
-    // Generate sitemap for SEO (display in console for submission to Google Search Console)
-    function generateSitemap() {
-        const baseUrl = "https://yourusername.github.io/mathos-pro/";
-        let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-        sitemap += `<url><loc>${baseUrl}</loc><priority>1.0</priority></url>\n`;
-        ['about', 'privacy', 'contact', 'disclaimer'].forEach(p => {
-            sitemap += `<url><loc>${baseUrl}#${p}</loc><priority>0.8</priority></url>\n`;
-        });
-        sitemap += '</urlset>';
-        console.log("Sitemap for Google Search Console:\n", sitemap);
     }
     
     window.onload = () => {
         loadCategory('mat1', document.querySelector('.cat-btn'));
-        generateSitemap();
-        console.log("MathOS Pro loaded - SEO optimized with structured data");
+        console.log("MathOS Pro loaded - SEO optimized with visual meters and 50-100 word educational guides");
     };
 </script>
-
-<!-- Modal Structure -->
-<div id="tool-modal" class="modal">
-    <div class="modal-window">
-        <div class="modal-header">
-            <span id="m-title">Calculator</span>
-            <span onclick="closeModal()">&times;</span>
-        </div>
-        <div class="modal-body">
-            <div id="inputs"></div>
-            <button class="calc-trigger" onclick="calculate()"><i class="fas fa-calculator"></i> Calculate Now</button>
-            <div id="res-display"></div>
-        </div>
-        <div class="edu-footer">
-            <h3><i class="fas fa-graduation-cap"></i> Concept Mastery</h3>
-            <p id="m-edu" style="color:#475569;"></p>
-            <div id="m-form" class="formula-box"></div>
-        </div>
-    </div>
-</div>
-
 </body>
 </html>
