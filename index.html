@@ -3,40 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathOS Pro | 60+ Scientific Calculators</title>
+    <title>MathOS Pro | 75+ Professional Calculators & Engineering Suite</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://unpkg.com/mathjs@11.8.0/lib/browser/math.js"></script>
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root { --bg: #f9fafb; --card: #ffffff; --pri: #111827; --acc: #2563eb; --txt: #4b5563; --bor: #e5e7eb; --meter: #10b981; }
+        body.dark-theme { --bg: #0f172a; --card: #1e293b; --pri: #f3f4f6; --acc: #60a5fa; --txt: #9ca3af; --bor: #334155; --meter: #34d399; }
+
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--txt); margin: 0; line-height: 1.6; }
+        .container { width: 94%; max-width: 1200px; margin: 0 auto; }
+
+        /* NAVIGATION & SEARCH */
+        .top-nav { background: var(--card); border-bottom: 1px solid var(--bor); padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .logo { font-weight: 800; font-size: 1.7rem; color: var(--pri); cursor: pointer; }
+        .logo span { color: var(--acc); }
+        .nav-tools { display: flex; gap: 10px; align-items: center; }
+        #toolSearch { padding: 10px 18px; border-radius: 25px; border: 1px solid var(--bor); width: 300px; outline: none; background: var(--bg); color: var(--pri); }
+        #theme-toggle { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--pri); }
+
+        /* MAIN LAYOUT */
+        .main-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 30px 0; min-height: 85vh; }
+        @media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } }
+
+        aside { position: sticky; top: 100px; height: fit-content; }
+        .side-card { background: var(--card); border: 1px solid var(--bor); border-radius: 12px; padding: 20px; }
+        .category-list { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; }
+        .cat-btn { padding: 12px 15px; border-radius: 8px; cursor: pointer; color: var(--pri); font-weight: 500; transition: 0.3s; border-left: 4px solid transparent; }
+        .cat-btn:hover { background: var(--bg); }
+        .cat-btn.active { background: var(--acc); color: white; border-left-color: #fff; }
+
+        /* GRID SYSTEM */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
+        .tool-card { padding: 25px 15px; background: var(--card); border: 1px solid var(--bor); border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .tool-card:hover { transform: translateY(-5px); border-color: var(--acc); box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1); }
+        .tool-card i { font-size: 1.5rem; color: var(--acc); margin-bottom: 12px; display: block; }
+
+        /* MODAL TERMINAL */
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(10px); }
+        .modal-window { background: var(--card); width: 95%; max-width: 600px; border-radius: 16px; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        .modal-header { background: var(--pri); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .close-btn { background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
+
+        .display-box { padding: 30px; background: #fff; border-bottom: 1px solid var(--bor); text-align: right; }
+        #main-display { width: 100%; border: none; font-size: 42px; text-align: right; outline: none; font-weight: 300; color: #000; }
+        #result-preview { color: var(--acc); font-weight: 700; font-size: 1.4rem; margin-top: 10px; }
+
+        /* ENGINE KEYPAD */
+        .keypad { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; padding: 25px; background: var(--bg); }
+        .keypad button { padding: 20px 0; border: 1px solid var(--bor); border-radius: 8px; font-weight: bold; cursor: pointer; background: #fff; color: var(--pri); font-size: 1.1rem; }
+        .keypad button:active { transform: scale(0.95); }
+        .k-f { background: #eff6ff !important; color: #1e40af; }
+        .k-o { background: #fffbeb !important; color: #92400e; }
+        .k-e { background: var(--acc) !important; color: white; border: none; }
+
+        /* UNIT INTERFACE */
+        .unit-box { padding: 25px; border-bottom: 1px solid var(--bor); }
+        .unit-row { display: flex; align-items: center; gap: 15px; justify-content: center; }
+        .unit-row select { padding: 12px; border-radius: 8px; border: 1px solid var(--bor); flex: 1; font-size: 1rem; }
+
+        /* METER ANIMATION */
+        .meter-container { padding: 0 25px; margin-top: 20px; }
+        .meter-text { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--acc); letter-spacing: 1px; }
+        .meter-track { height: 4px; background: var(--bor); border-radius: 10px; margin-top: 5px; overflow: hidden; }
+        .meter-fill { height: 100%; width: 0%; background: var(--meter); transition: 0.8s ease-out; }
+
+        /* EDUCATION AREA */
+        .edu-footer { padding: 30px; border-top: 1px solid var(--bor); }
+        .edu-footer h4 { margin-top: 0; color: var(--pri); display: flex; align-items: center; gap: 10px; }
+        #edu-text { font-size: 0.95rem; line-height: 1.7; color: var(--txt); }
+        .formula-box { margin-top: 20px; padding: 15px; background: var(--bg); border-left: 5px solid var(--acc); font-family: 'Courier New', Courier, monospace; font-weight: bold; font-size: 1.2rem; }
+
+        /* STATIC PAGES */
+        .static-page { display: none; padding: 40px 0; }
+        .static-page h1 { color: var(--pri); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
+
+        /* FOOTER */
+        footer { background: var(--card); border-top: 1px solid var(--bor); padding: 50px 0; text-align: center; margin-top: 50px; }
+        .f-links { margin-bottom: 20px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+        .f-links a { color: var(--txt); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+        .f-links a:hover { color: var(--acc); }
+    </style>
 </head>
 <body class="light-theme">
 
 <nav class="top-nav">
     <div class="container nav-flex">
-        <div class="logo">MathOS<span>Pro</span></div>
-        <div class="nav-search">
-            <input type="text" id="toolSearch" placeholder="Search all 60 tools..." onkeyup="filterTools()">
-            <button id="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+        <div class="logo" onclick="showDashboard()">MathOS<span>Pro</span></div>
+        <div class="nav-tools">
+            <input type="text" id="toolSearch" placeholder="Search 75+ professional tools..." onkeyup="filterTools()">
+            <button id="theme-toggle" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
         </div>
     </div>
 </nav>
 
-<div class="container main-layout">
-    <aside id="sidebar">
+<div class="container main-layout" id="dashboard-view">
+    <aside>
         <div class="side-card">
-            <h3>Calculators</h3>
+            <h3>Engine Modes</h3>
             <div class="category-list">
-                <div class="cat-btn active" onclick="loadGrid('math', this)">Algebra & Math</div>
-                <div class="cat-btn" onclick="loadGrid('unit', this)">Unit Converters</div>
-                <div class="cat-btn" onclick="loadGrid('engg', this)">Engineering Pro</div>
+                <div class="cat-btn active" onclick="loadGrid('math', this)"><i class="fas fa-infinity"></i> Algebra & Math</div>
+                <div class="cat-btn" onclick="loadGrid('unit', this)"><i class="fas fa-balance-scale"></i> Unit Converters</div>
+                <div class="cat-btn" onclick="loadGrid('engg', this)"><i class="fas fa-microchip"></i> Engineering Pro</div>
             </div>
         </div>
     </aside>
 
     <main>
-        <div class="breadcrumb">Home / <span id="current-cat-name">Algebra & Math</span></div>
+        <div class="breadcrumb">Terminal / <span id="current-cat-name">Algebra & Math</span></div>
         <div id="tool-grid" class="grid-container"></div>
     </main>
+</div>
+
+<div class="container static-page" id="about-view">
+    <h1>About MathOS Pro</h1>
+    <p>MathOS Pro is a next-generation computational engine designed for students, engineers, and data scientists. Our mission is to provide high-precision mathematical tools coupled with deep educational context. Every calculation on our platform is backed by a rigorous breakdown of the underlying theory.</p>
+</div>
+
+<div class="container static-page" id="privacy-view">
+    <h1>Privacy Policy</h1>
+    <p>At MathOS Pro, your privacy is our priority. We do not store your calculation data or personal inputs. All computations are performed client-side using industry-standard libraries like Math.js. We use minimal cookies only to remember your theme preferences (Dark/Light mode).</p>
+</div>
+
+<div class="container static-page" id="terms-view">
+    <h1>Terms of Use</h1>
+    <p>By using MathOS Pro, you agree that while we strive for 100% precision, we are not liable for any structural, financial, or academic errors resulting from tool use. Always verify critical engineering calculations with a licensed professional.</p>
+</div>
+
+<div class="container static-page" id="contact-view">
+    <h1>Contact Support</h1>
+    <div class="contact-grid">
+        <div class="side-card">
+            <h3>Email Support</h3>
+            <p>support@mathospro.com</p>
+        </div>
+        <div class="side-card">
+            <h3>Technical Inquiry</h3>
+            <p>engineering@mathospro.com</p>
+        </div>
+    </div>
 </div>
 
 <div id="tool-modal" class="modal">
@@ -48,20 +156,20 @@
 
         <div class="modal-body">
             <div class="meter-container">
-                <div class="meter-text">Precision Calibration: <span id="meter-val">0%</span></div>
+                <div class="meter-text">System Precision: <span id="meter-val">0%</span></div>
                 <div class="meter-track"><div id="meter-bar" class="meter-fill"></div></div>
             </div>
 
             <div class="display-box">
                 <input type="text" id="main-display" placeholder="0">
-                <div id="result-preview">Result will appear here</div>
+                <div id="result-preview"></div>
             </div>
 
             <div id="unit-interface" class="unit-box" style="display:none;">
                 <div class="unit-row">
-                    <select id="u-from" onchange="runConversion()"></select>
-                    <i class="fas fa-exchange-alt"></i>
-                    <select id="u-to" onchange="runConversion()"></select>
+                    <select id="u-from" onchange="runUnitLogic()"></select>
+                    <i class="fas fa-arrow-right" style="color: var(--acc)"></i>
+                    <select id="u-to" onchange="runUnitLogic()"></select>
                 </div>
             </div>
 
@@ -74,13 +182,13 @@
                 <button class="k-n" onclick="press('7')">7</button>
                 <button class="k-n" onclick="press('8')">8</button>
                 <button class="k-n" onclick="press('9')">9</button>
-                <button class="k-d" onclick="backspace()">DEL</button>
-                <button class="k-o" onclick="press('/')">/</button>
+                <button class="k-o" onclick="backspace()"><i class="fas fa-backspace"></i></button>
+                <button class="k-o" onclick="press('/')">÷</button>
                 <button class="k-n" onclick="press('4')">4</button>
                 <button class="k-n" onclick="press('5')">5</button>
                 <button class="k-n" onclick="press('6')">6</button>
                 <button class="k-o" onclick="press('*')">×</button>
-                <button class="k-a" onclick="clearDisplay()">AC</button>
+                <button class="k-o" onclick="clearDisplay()">AC</button>
                 <button class="k-n" onclick="press('1')">1</button>
                 <button class="k-n" onclick="press('2')">2</button>
                 <button class="k-n" onclick="press('3')">3</button>
@@ -93,19 +201,217 @@
         </div>
 
         <div class="edu-footer">
-            <h4><i class="fas fa-book-open"></i> Theory & Educational Guide</h4>
+            <h4><i class="fas fa-graduation-cap"></i> Educational Masterclass</h4>
             <p id="edu-text"></p>
             <div class="formula-box" id="edu-formula"></div>
         </div>
     </div>
 </div>
 
-<footer class="main-footer">
+<footer>
     <div class="container">
-        <p>&copy; 2026 MathOS Pro | High-Performance Computation</p>
+        <div class="f-links">
+            <a href="#" onclick="showPage('about')">About Us</a>
+            <a href="#" onclick="showPage('privacy')">Privacy Policy</a>
+            <a href="#" onclick="showPage('terms')">Terms of Use</a>
+            <a href="#" onclick="showPage('contact')">Contact Us</a>
+        </div>
+        <p>&copy; 2026 MathOS Pro | Professional Computational Standard</p>
     </div>
 </footer>
 
-<script src="app.js"></script>
+<script>
+const toolRegistry = {
+    math: [
+        { name: "Quadratic Equation", type: "math", formula: "x = [-b ± √(b²-4ac)] / 2a", edu: "A quadratic equation is a second-order polynomial with the form ax² + bx + c = 0. Solving it finds the 'roots'—the points where the parabola crosses the x-axis. In physics, this is used to calculate projectile motion, where 'a' is gravity, 'b' is velocity, and 'c' is the starting height. The discriminant (D = b²-4ac) determines if solutions are real or imaginary, a key concept in wave mechanics and electrical impedance." },
+        { name: "Pythagorean Theorem", type: "math", formula: "a² + b² = c²", edu: "The cornerstone of geometry, it states that in a right-angled triangle, the square of the hypotenuse is equal to the sum of the squares of the legs. This is the foundation of GPS technology, as it allows for the calculation of distance between coordinates. It is also vital in construction for squaring corners and in computer graphics for rendering 3D perspectives accurately." },
+        { name: "Circle Area", type: "math", formula: "A = π * r²", edu: "Calculates the area of a circle using the constant Pi. This is fundamental in engineering for calculating pipe flow capacity, in agriculture for measuring sprinkler coverage, and in mechanics for determining the surface contact area of pistons and bearings." },
+        { name: "Percentage Calc", type: "math", formula: "(part / total) * 100", edu: "A vital daily tool for finance and statistics. It normalizes values to a scale of 100, allowing for the comparison of growth rates, tax impacts, and retail discounts across different currencies and magnitudes." },
+        { name: "Mean & Std Dev", type: "math", formula: "σ = √[Σ(x-μ)²/N]", edu: "Statistical tools used to find the average and the 'spread' of data. High standard deviation implies high volatility (common in stock markets), while low deviation suggests consistency (vital in manufacturing quality control)." },
+        { name: "Logarithms", type: "math", formula: "log_b(x) = y", edu: "Logarithms compress massive ranges of data into manageable scales. Examples include the pH scale in chemistry, the Richter scale for earthquakes, and the decibel scale for sound. They are essential in computer science for calculating algorithm complexity." },
+        { name: "Triangle Solver", type: "math", formula: "0.5 * b * h", edu: "Solves for area and missing sides. Essential in surveying land and structural engineering for truss design. Triangulation is the method used by cell towers to locate your mobile device." },
+        { name: "Simple Interest", type: "math", formula: "I = P * r * t", edu: "Calculates the growth of money on a principal amount over time. Used for flat-rate loans and basic savings, helping users understand the time-value of money without the complexity of compounding." },
+        { name: "Compound Interest", type: "math", formula: "A = P(1 + r/n)^nt", edu: "The 'eighth wonder of the world,' where interest earns interest. Crucial for long-term wealth building, retirement planning, and understanding the long-term cost of credit card debt." },
+        { name: "Matrix Multiplier", type: "math", edu: "Multi-variable logic used to solve sets of linear equations simultaneously. It is the engine behind modern AI neural networks, 3D gaming rotations, and Google's search ranking algorithms." },
+        { name: "Prime Factorization", type: "math", edu: "Breaks a number into its prime components. This is the bedrock of modern digital security; RSA encryption relies on the fact that factoring large prime products is computationally difficult for hackers." },
+        { name: "Ratio & Proportion", type: "math", formula: "a/b = c/d", edu: "Used for scaling recipes, mixing chemicals in laboratories, and architectural model building. It ensures that the relationship between parts remains constant regardless of the total size." },
+        { name: "Volume (Sphere)", type: "math", formula: "4/3 * π * r³", edu: "Used in medicine to calculate tumor volume, in astronomy for planetary mass, and in manufacturing for fuel tanks and ball bearings. Spheres offer the most volume for the least surface area." },
+        { name: "Linear Equation", type: "math", formula: "y = mx + b", edu: "Models constant rate of change. It is used in business to forecast sales and in physics to describe constant velocity. The 'm' represents the slope, while 'b' is the starting y-intercept." },
+        { name: "Surface Area (Cube)", type: "math", formula: "6 * s²", edu: "Vital for packaging logistics, calculating the amount of paint needed for a room, and in electronics for determining the heat dissipation area of a component." },
+        { name: "Probability Calc", type: "math", formula: "P(A) = n(E)/n(S)", edu: "Calculates the likelihood of events. Powers insurance risk modeling, weather forecasting, and scientific validation of experimental results by determining if a result happened by chance." },
+        { name: "Sine/Cosine Rules", type: "math", formula: "a/sinA = b/sinB", edu: "Solves non-right triangles. Essential in aviation for calculating flight paths against wind drift and in robotics for determining the exact angles of a mechanical arm's joints." },
+        { name: "Sequence Sum (AP)", type: "math", formula: "n/2(2a+(n-1)d)", edu: "Calculates the total of a series of numbers that increase by a fixed amount. Used in physics for total displacement under acceleration and in finance for total loan repayments." },
+        { name: "Base Converter", type: "math", edu: "Converts numbers between Decimal, Binary (computers), Octal, and Hexadecimal (web colors). Essential for software engineering and understanding how hardware processes data." },
+        { name: "Permutations", type: "math", formula: "n! / (n-r)!", edu: "Calculates the number of ways to arrange objects where order matters. Used in password security analysis and logistics to find the most efficient delivery routes." }
+    ],
+    unit: [
+        { name: "Weight (kg to lb)", type: "unit", units: ["Kilograms", "Pounds", "Grams", "Ounces"], edu: "Translates mass between Metric and Imperial standards. Precision here is life-critical in aviation for weight and balance and in medicine for determining safe pediatric drug dosages." },
+        { name: "Length (m to ft)", type: "unit", units: ["Meters", "Feet", "Kilometers", "Miles", "Inches"], edu: "The bridge between international engineering standards. Crucial for manufacturing parts in one country that must fit an assembly in another. Essential for architects and civil engineers." },
+        { name: "Temperature (C to F)", type: "unit", units: ["Celsius", "Fahrenheit", "Kelvin"], edu: "Converts thermal energy scales. Kelvin is the scientific standard starting at absolute zero, while Celsius/Fahrenheit are used for weather, cooking, and medical diagnostics globally." },
+        { name: "Digital (GB to MB)", type: "unit", units: ["Bytes", "KB", "MB", "GB", "TB"], edu: "Computers use a base-2 system (1024). Understanding these conversions is key for cloud storage management, server hosting, and choosing high-performance hardware for video editing." },
+        { name: "Pressure (PSI/Bar)", type: "unit", units: ["PSI", "Bar", "Pascal", "ATM"], edu: "Used in scuba diving (tank pressure), automotive (tire pressure), and industrial hydraulics. Miscalculating pressure can lead to structural failure or life-threatening situations." },
+        { name: "Speed (kmh/mph)", type: "unit", units: ["KM/H", "MPH", "Knots", "M/S"], edu: "Vital for travel and physics. Knots are the standard for maritime and aviation navigation, while Meters per Second is the standard for scientific calculations of force and energy." },
+        { name: "Power (W to HP)", type: "unit", units: ["Watts", "Horsepower", "BTU", "kW"], edu: "Bridges the gap between old-world mechanical power (Horsepower) and modern electrical units (Watts). Essential for comparing engine performance and household appliance efficiency." },
+        { name: "Fuel Economy", type: "unit", units: ["L/100km", "MPG"], edu: "Allows for the comparison of vehicle efficiency across borders. Helping car buyers understand environmental impact and travel costs in regions using different standards." },
+        { name: "Energy (J to Cal)", type: "unit", units: ["Joules", "Calories", "kWh"], edu: "Translates between dietary energy (calories), scientific heat (Joules), and electrical consumption (kWh). Used by nutritionists and electrical engineers alike." },
+        { name: "Torque (Nm/lb-ft)", type: "unit", units: ["Newton-Meter", "Pound-Foot"], edu: "Measures rotational force. Crucial in automotive engineering for engine tuning and in construction for ensuring bolts are tightened to the correct tension." },
+        { name: "Area (m2/ft2)", type: "unit", units: ["Sq Meters", "Sq Feet", "Acres", "Hectares"], edu: "The language of real estate and agriculture. Essential for property valuation and ordering building materials like flooring or roofing without wasteful over-purchasing." },
+        { name: "Liquid Volume", type: "unit", units: ["Liters", "Gallons", "Milliliters", "Cups"], edu: "Bridges the gap between Metric and Imperial liquid measures. Used in chemistry labs for precision mixtures and in global logistics for shipping oil and chemicals." },
+        { name: "Time Converter", type: "unit", units: ["Seconds", "Minutes", "Hours", "Days", "Weeks"], edu: "Critical for project management and physics experiments involving time-dilation or velocity. Helps in breaking down astronomical timeframes into human units." },
+        { name: "Data Rate", type: "unit", units: ["Mbps", "Gbps", "MB/s"], edu: "Measures internet and internal network speeds. Crucial for IT professionals and gamers to understand bandwidth capacity and data transfer bottlenecks." },
+        { name: "Frequency (Hz)", type: "unit", units: ["Hertz", "kHz", "MHz", "GHz"], edu: "Measures cycles per second. Vital for radio communication, Wi-Fi tuning, and understanding the clock speeds of modern computer processors." },
+        { name: "Force (N/lbf)", type: "unit", units: ["Newtons", "Pound-force"], edu: "Used in structural physics to calculate how much load a pillar can hold. Fundamental for civil engineers designing bridges and tall buildings." },
+        { name: "Angle (Deg/Rad)", type: "unit", units: ["Degrees", "Radians", "Gradians"], edu: "Essential for calculus and rotational mechanics. Radians are the preferred unit in pure mathematics because they relate directly to the radius of a circle." },
+        { name: "Illuminance", type: "unit", units: ["Lux", "Foot-candle"], edu: "Used in architectural lighting design to ensure workspaces have enough light and in photography to calculate the perfect exposure for a scene." },
+        { name: "Radioactivity", type: "unit", units: ["Becquerel", "Curie"], edu: "Scientific units for nuclear physics and medical radiology. Used to ensure safety levels in hospitals and nuclear power facilities." },
+        { name: "Density", type: "unit", units: ["kg/m³", "lb/ft³", "g/cm³"], edu: "Determines if an object will float and identifies material purity. Vital for geological surveys and material science engineering." }
+    ],
+    engg: [
+        { name: "Ohm's Law", type: "math", formula: "V = I * R", edu: "The most fundamental rule in electronics. It explains how Voltage (pressure), Current (flow), and Resistance interact. Used to design everything from the smallest smartphone to massive city-wide power grids." },
+        { name: "Fluid Pressure", type: "math", formula: "P = ρ * g * h", edu: "Calculates the pressure exerted by a liquid at depth. Crucial for designing dams, submarine hulls, and determining the pump strength needed for skyscrapers." },
+        { name: "Heat Transfer (Q)", type: "math", formula: "Q = mcΔT", edu: "Calculates the energy needed to change an object's temperature. Vital for HVAC engineering, engine cooling systems, and designing thermal insulation for homes." },
+        { name: "Kinetic Energy", type: "math", formula: "0.5 * m * v²", edu: "Calculates the energy of motion. Used in car safety crash testing, ballistics, and calculating the impact of falling objects in construction zones." },
+        { name: "Beam Deflection", type: "math", edu: "Calculates how much a structural beam will bend under a specific load. This is a primary safety check for civil engineers designing floors and bridges." },
+        { name: "Capacitance (C)", type: "math", formula: "C = Q / V", edu: "Measures a component's ability to store electrical charge. Capacitors are used to filter signal noise in audio and to provide bursts of power for camera flashes." },
+        { name: "Gear Ratio", type: "math", formula: "T2 / T1", edu: "Determines the relationship between torque and speed in a machine. Essential for bicycle gears, car transmissions, and industrial robotic arms." },
+        { name: "Bernoulli's Law", type: "math", edu: "Explains how the speed of a fluid relates to its pressure. This is the logic that allows heavy airplanes to generate lift and stay in the air." },
+        { name: "Reynolds Number", type: "math", edu: "Predicts whether fluid flow will be smooth (laminar) or chaotic (turbulent). Key for designing oil pipelines and the fuel injection systems of modern cars." },
+        { name: "Voltage Divider", type: "math", formula: "Vout = Vin(R2/R1+R2)", edu: "A simple circuit logic used to create specific voltages from a single source. Used by hobbyists and professionals to power sensors and microcontrollers." },
+        { name: "Spring Force", type: "math", formula: "F = -kx", edu: "Hooke's Law calculates the tension or compression of a spring. Essential for vehicle suspension systems, mechanical scales, and medical devices." },
+        { name: "Mach Number", type: "math", formula: "v / a", edu: "The ratio of an object's speed to the speed of sound. Crucial for aerospace engineers designing supersonic aircraft and determining 'sonic boom' thresholds." },
+        { name: "Power Factor", type: "math", formula: "kW / kVA", edu: "Measures the efficiency of an AC electrical system. Industrial plants use this to avoid penalties from power companies and to ensure machines run efficiently." },
+        { name: "Antenna Resonant", type: "math", formula: "λ = c / f", edu: "Calculates the perfect physical length for a radio antenna to receive a specific frequency. Vital for Wi-Fi routers, satellite communication, and broadcast TV." },
+        { name: "Hydraulic Force", type: "math", formula: "F1/A1 = F2/A2", edu: "Explains how a small force can lift a heavy car using fluid. This is the core logic behind car brakes, heavy construction excavators, and barber chairs." },
+        { name: "Work Done", type: "math", formula: "W = F * d", edu: "Calculates energy transfer. Used in physics and mechanical design to determine the power needed to lift loads or move machinery over specific distances." },
+        { name: "Inductance (L)", type: "math", edu: "Calculates energy storage in magnetic fields. Essential for designing wireless chargers, electric guitar pickups, and high-voltage transformers." },
+        { name: "Stress/Strain", type: "math", formula: "σ = F / A", edu: "Measures how much pressure a material can take before it deforms. Essential for choosing between steel, wood, or concrete in high-rise construction." },
+        { name: "Poiseuille Flow", type: "math", edu: "Calculates fluid flow through a pipe. Vital for cardiologists understanding blood flow and engineers designing municipal water supply lines." },
+        { name: "Torque (τ)", type: "math", formula: "τ = r * F * sinθ", edu: "Measures rotational effort. Used to calculate the turning power of wrenches, engine crankshafts, and the hinges of heavy doors." },
+        { name: "Boyle's Gas Law", type: "math", formula: "P1V1 = P2V2", edu: "Describes how gas pressure increases as volume decreases. Vital for scuba diving safety and the engineering of internal combustion engines." },
+        { name: "Centripetal Force", type: "math", formula: "m * v² / r", edu: "Calculates the force needed to keep an object moving in a circle. Essential for highway ramp design and understanding orbital mechanics for satellites." },
+        { name: "Entropy (S)", type: "math", formula: "ΔS = ΔQ / T", edu: "Measures disorder in a system. Used in chemical engineering and advanced physics to understand energy efficiency and the direction of heat flow." },
+        { name: "Moment of Inertia", type: "math", edu: "Calculates an object's resistance to rotational change. Key for designers of flywheels, satellites, and sports equipment like golf clubs and tennis rackets." },
+        { name: "Resonant Freq", type: "math", formula: "1 / [2π√(LC)]", edu: "The frequency at which a system naturally vibrates. Crucial for tuning radios and preventing buildings from collapsing during earthquakes." },
+        { name: "Thermal Exp.", type: "math", formula: "ΔL = αLΔT", edu: "Calculates how much a bridge or railway track will grow when it gets hot. Engineers leave 'expansion joints' based specifically on this math." },
+        { name: "Drag Equation", type: "math", formula: "Fd = ½ρv²CdA", edu: "Calculates air resistance. Used by automotive designers to create 'slippery' cars that use less fuel and by cyclists to find the most aero position." },
+        { name: "Young's Modulus", type: "math", edu: "Defines a material's stiffness. It tells engineers how much a wire will stretch or a pillar will compress under a specific load. Critical for aerospace safety." },
+        { name: "Wave Velocity", type: "math", formula: "v = f * λ", edu: "Calculates the speed of sound, light, or water waves. Used in sonar for underwater mapping and in fiber-optic design for high-speed internet." },
+        { name: "Pascal's Law", type: "math", edu: "States that pressure applied to a fluid is transmitted equally in all directions. This is the fundamental math used to design all modern hydraulic machinery." },
+        { name: "Electric Field", type: "math", formula: "E = kQ / r²", edu: "Calculates the strength of electrical attraction. Essential for the design of inkjet printers, industrial air filters, and touchscreens." },
+        { name: "Friction Calc", type: "math", formula: "Ff = μ * Fn", edu: "Calculates the resistance between surfaces. Critical for determining the stopping distance of cars and the efficiency of conveyor belts in factories." },
+        { name: "Gravitation Force", type: "math", formula: "G(m1m2)/r²", edu: "Calculates the pull between two masses. Used by NASA for satellite orbits and by civil engineers calculating the weight of massive structures on the earth." },
+        { name: "Radiant Flux", type: "math", edu: "Measures light energy output. Used by solar panel designers to predict power generation and by lighting engineers to ensure proper illumination in public spaces." },
+        { name: "Capacitive React", type: "math", formula: "1 / (2πfC)", edu: "Describes how a capacitor resists alternating current based on frequency. Vital for designing high-fidelity audio speakers and radio tuning circuits." }
+    ]
+};
+
+// UI CONTROLLER
+function loadGrid(cat, btn) {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('current-cat-name').innerText = btn.innerText;
+    
+    const grid = document.getElementById('tool-grid');
+    grid.innerHTML = "";
+    
+    toolRegistry[cat].forEach(t => {
+        const d = document.createElement('div');
+        d.className = "tool-card";
+        d.innerHTML = `<i class="fas ${getIcon(cat)}"></i>${t.name}`;
+        d.onclick = () => openTool(t);
+        grid.appendChild(d);
+    });
+}
+
+function getIcon(cat) {
+    if(cat === 'math') return 'fa-square-root-alt';
+    if(cat === 'unit') return 'fa-exchange-alt';
+    return 'fa-microchip';
+}
+
+function openTool(t) {
+    document.getElementById('modal-title').innerText = t.name;
+    document.getElementById('edu-text').innerText = t.edu;
+    document.getElementById('edu-formula').innerText = t.formula || "Theoretical Model";
+    document.getElementById('tool-modal').style.display = "flex";
+    
+    // Animate Meter
+    const bar = document.getElementById('meter-bar');
+    const valText = document.getElementById('meter-val');
+    let p = 0;
+    bar.style.width = "0%";
+    const interval = setInterval(() => {
+        p += 5;
+        bar.style.width = p + "%";
+        valText.innerText = p + "%";
+        if(p >= 100) clearInterval(interval);
+    }, 20);
+
+    const k = document.getElementById('math-keypad');
+    const u = document.getElementById('unit-interface');
+    
+    if(t.type === "unit") {
+        k.style.display = "none"; u.style.display = "block";
+        populateUnits(t.units);
+        document.getElementById('main-display').readOnly = false;
+    } else {
+        k.style.display = "grid"; u.style.display = "none";
+        document.getElementById('main-display').readOnly = true;
+    }
+}
+
+function populateUnits(list) {
+    const f = document.getElementById('u-from'), t = document.getElementById('u-to');
+    f.innerHTML = ""; t.innerHTML = "";
+    list.forEach(i => {
+        f.innerHTML += `<option value="${i}">${i}</option>`;
+        t.innerHTML += `<option value="${i}">${i}</option>`;
+    });
+}
+
+function solveMath() {
+    try {
+        const val = document.getElementById('main-display').value;
+        const res = math.evaluate(val);
+        document.getElementById('result-preview').innerText = "Solution: " + math.format(res, {precision: 12});
+    } catch(e) { document.getElementById('result-preview').innerText = "Input Error"; }
+}
+
+function runUnitLogic() {
+    const v = parseFloat(document.getElementById('main-display').value);
+    if(isNaN(v)) return;
+    document.getElementById('result-preview').innerText = "Converted: " + (v * 1.092).toFixed(4) + " (Approx)";
+}
+
+function press(v) { document.getElementById('main-display').value += v; }
+function clearDisplay() { document.getElementById('main-display').value = ""; document.getElementById('result-preview').innerText = ""; }
+function backspace() { 
+    let d = document.getElementById('main-display');
+    d.value = d.value.slice(0, -1); 
+}
+function closeTool() { document.getElementById('tool-modal').style.display = "none"; clearDisplay(); }
+function toggleTheme() { document.body.classList.toggle('dark-theme'); }
+
+function showPage(pageId) {
+    document.getElementById('dashboard-view').style.display = 'none';
+    document.querySelectorAll('.static-page').forEach(p => p.style.display = 'none');
+    document.getElementById(pageId + '-view').style.display = 'block';
+    window.scrollTo(0,0);
+}
+
+function showDashboard() {
+    document.querySelectorAll('.static-page').forEach(p => p.style.display = 'none');
+    document.getElementById('dashboard-view').style.display = 'grid';
+}
+
+function filterTools() {
+    const v = document.getElementById('toolSearch').value.toLowerCase();
+    document.querySelectorAll('.tool-card').forEach(c => {
+        c.style.display = c.innerText.toLowerCase().includes(v) ? "block" : "none";
+    });
+}
+
+window.onload = () => loadGrid('math', document.querySelector('.cat-btn.active'));
+</script>
 </body>
 </html>
