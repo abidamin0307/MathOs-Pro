@@ -1,50 +1,49 @@
 /**
- * MathOS Pro - High-Performance Engineering Engine
- * Optimized for SEO & Educational Authority
+ * MathOS Pro - Full Tool Suite Engine
+ * Contains all Matric, Inter, and Engineering modules
  */
 
-// 1. Tool Data Configuration (The "Power" behind the UI)
+// 1. DATABASE OF ALL TOOLS
 const tools = {
     matric: [
-        { name: "Quadratic Solver", icon: "fa-square-root-variable", desc: "Solves equations in the form ax² + bx + c = 0 with discriminant analysis.", formula: "(-b ± √(b² - 4ac)) / 2a" },
-        { name: "Ratio & Proportion", icon: "fa-percent", desc: "Find missing values in ratios and calculate percentage changes.", formula: "a/b = c/d" },
-        { name: "Trig identities", icon: "fa-chart-line", desc: "Basic Sine, Cosine, and Tangent values for angles in degrees/radians.", formula: "sin(θ), cos(θ), tan(θ)" },
-        { name: "Area & Volume", icon: "fa-cube", desc: "Calculate geometric properties of 2D and 3D shapes accurately.", formula: "πr², 4/3πr³" }
+        { name: "Quadratic Solver", icon: "fa-square-root-variable", desc: "Solve ax² + bx + c = 0 with steps.", formula: "x = [-b ± √(b²-4ac)] / 2a" },
+        { name: "Ratio Calculator", icon: "fa-percent", desc: "Calculate proportions and missing ratio values.", formula: "a:b = c:d" },
+        { name: "Basic Trigonometry", icon: "fa-chart-line", desc: "Calculate Sin, Cos, and Tan for any angle.", formula: "SOH CAH TOA" },
+        { name: "Circle Properties", icon: "fa-circle", desc: "Find Area, Circumference, and Diameter.", formula: "A = πr²" },
+        { name: "Linear Equations", icon: "fa-grip-lines", desc: "Solve for x in linear algebraic expressions.", formula: "y = mx + b" },
+        { name: "Percentage Tool", icon: "fa-arrow-up-right-dots", desc: "Calculate percentage increase or decrease.", formula: "% Change" }
     ],
     inter: [
-        { name: "Derivative Solver", icon: "fa-wave-square", desc: "Find the rate of change for algebraic and trigonometric functions.", formula: "d/dx [f(x)]" },
-        { name: "Integration Tool", icon: "fa-grip-lines-vertical", desc: "Calculate definite integrals and find areas under curves.", formula: "∫ f(x) dx" },
-        { name: "Complex Numbers", icon: "fa-i-cursor", desc: "Perform arithmetic on complex numbers (a + bi) including polar forms.", formula: "z = r(cos θ + i sin θ)" },
-        { name: "Logarithmic Engine", icon: "fa-exponent", desc: "Solve natural logs (ln) and base-10 logs for exponential growth.", formula: "log_b(x) = y" }
+        { name: "Derivative Calc", icon: "fa-wave-square", desc: "Find the derivative d/dx of functions.", formula: "f'(x)" },
+        { name: "Integral Solver", icon: "fa-sum", desc: "Solve definite and indefinite integrals.", formula: "∫ f(x) dx" },
+        { name: "Complex Numbers", icon: "fa-i-cursor", desc: "Arithmetic with imaginary numbers (i).", formula: "a + bi" },
+        { name: "Logarithms", icon: "fa-exponent", desc: "Solve Natural (ln) and Base-10 logs.", formula: "log_b(x)" },
+        { name: "Limits Solver", icon: "fa-arrows-to-line", desc: "Evaluate limits as x approaches a value.", formula: "lim x→a" },
+        { name: "Trig Identities", icon: "fa-vector-square", desc: "Simplify complex trigonometric identities.", formula: "sin²x + cos²x = 1" }
     ],
     engg: [
-        { name: "Matrix Algebra", icon: "fa-table-cells", desc: "Perform Addition, Subtraction, and Multiplication on multi-dimensional matrices.", formula: "[A] x [B] = [C]" },
-        { name: "Determinant Calc", icon: "fa-border-all", desc: "Calculate 2x2 and 3x3 determinants for system stability analysis.", formula: "det(A)" },
-        { name: "Vector Mechanics", icon: "fa-arrows-up-down-left-right", desc: "Calculate Dot Product, Cross Product, and Vector Magnitudes.", formula: "A · B = |A||B|cosθ" },
-        { name: "Inverse Matrix", icon: "fa-rotate-left", desc: "Find the inverse of a matrix using Adjoint or Gauss-Jordan methods.", formula: "A⁻¹ = 1/det(A) * adj(A)" }
+        { name: "Matrix Multiplier", icon: "fa-table-cells", desc: "Multiply A x B matrices of any size.", formula: "[A][B] = [C]" },
+        { name: "3x3 Determinant", icon: "fa-border-all", desc: "Calculate the determinant of a 3x3 matrix.", formula: "|A|" },
+        { name: "Inverse Matrix", icon: "fa-rotate-left", desc: "Find the inverse A⁻¹ of a square matrix.", formula: "A⁻¹" },
+        { name: "Vector Dot Product", icon: "fa-arrows-up-down-left-right", desc: "Calculate the dot product of two vectors.", formula: "A · B" },
+        { name: "Vector Cross Product", icon: "fa-arrows-spin", desc: "Find the cross product (A x B).", formula: "A × B" },
+        { name: "Cramer's Rule", icon: "fa-list-check", desc: "Solve systems of equations using matrices.", formula: "x = det(Ax)/det(A)" }
     ]
 };
 
-// 2. Core Grid Logic
+// 2. CORE GRID RENDERER
 function loadGrid(category, element) {
     const grid = document.getElementById('tool-grid');
     const title = document.getElementById('section-title');
     
-    // Update Active Navigation State
+    // UI Update
     document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-    if(element) {
-        element.classList.add('active');
-    } else {
-        // Fallback for mobile/direct calls
-        const items = document.querySelectorAll('.nav-item');
-        items.forEach(item => {
-            if(item.innerText.toLowerCase().includes(category)) item.classList.add('active');
-        });
-    }
+    if(element) element.classList.add('active');
 
-    title.innerText = category.charAt(0).toUpperCase() + category.slice(1) + " Engineering Suite";
+    title.innerText = category.charAt(0).toUpperCase() + category.slice(1) + " Suite";
     grid.innerHTML = "";
 
+    // Generate Cards
     tools[category].forEach(tool => {
         const card = document.createElement('div');
         card.className = 'tool-card';
@@ -59,14 +58,14 @@ function loadGrid(category, element) {
     });
 }
 
-// 3. The Scientific Terminal Logic
+// 3. CALCULATOR LOGIC
 const display = document.getElementById('main-display');
 const preview = document.getElementById('calc-preview');
 
 function openTool(tool) {
     document.getElementById('modal-title').innerText = tool.name;
     document.getElementById('tool-modal').style.display = "flex";
-    display.placeholder = `Formula: ${tool.formula}`;
+    display.placeholder = "Enter expression...";
     display.focus();
 }
 
@@ -77,7 +76,12 @@ function closeTool() {
 
 function press(val) {
     display.value += val;
-    liveEvaluate();
+    try {
+        if(display.value) {
+            const res = math.evaluate(display.value);
+            preview.innerText = "= " + math.format(res, { precision: 10 });
+        }
+    } catch(e) { preview.innerText = "..."; }
 }
 
 function clearDisplay() {
@@ -87,126 +91,44 @@ function clearDisplay() {
 
 function backspace() {
     display.value = display.value.slice(0, -1);
-    liveEvaluate();
-}
-
-// 4. Advanced Math Engine (Using Math.js)
-function liveEvaluate() {
-    try {
-        if(display.value.trim() === "") {
-            preview.innerText = "";
-            return;
-        }
-        // Live preview as the user types
-        const res = math.evaluate(display.value);
-        preview.innerText = "= " + math.format(res, { precision: 10 });
-    } catch(e) {
-        preview.innerText = "..."; 
-    }
 }
 
 function solve() {
     try {
-        const expression = display.value;
-        const result = math.evaluate(expression);
-        const formattedResult = math.format(result, { precision: 10 });
-        
-        display.value = formattedResult;
+        const res = math.evaluate(display.value);
+        const final = math.format(res, { precision: 10 });
+        saveToHistory(display.value, final);
+        display.value = final;
         preview.innerText = "";
-        
-        saveToHistory(expression, formattedResult);
     } catch(e) {
-        // Shaking effect for error feedback
-        display.classList.add('error-shake');
-        setTimeout(() => display.classList.remove('error-shake'), 400);
-        alert("Syntax Error: Please check your mathematical expression.");
+        alert("Check your math syntax!");
     }
 }
 
-// 5. Intelligent History (Syncs with LocalStorage)
+// 4. HISTORY & UTILS
 function saveToHistory(exp, res) {
-    let history = JSON.parse(localStorage.getItem('mathos_pro_history')) || [];
-    const entry = {
-        exp: exp,
-        res: res,
-        date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-    };
-    
-    history.unshift(entry);
-    if(history.length > 20) history.pop(); // Keep top 20 records
-    
-    localStorage.setItem('mathos_pro_history', JSON.stringify(history));
-    renderHistory();
-}
-
-function renderHistory() {
-    const list = document.getElementById('history-list');
-    let history = JSON.parse(localStorage.getItem('mathos_pro_history')) || [];
-    
-    if(history.length === 0) {
-        list.innerHTML = `<p style="text-align:center; padding:20px; color:#999;">No recent calculations.</p>`;
-        return;
-    }
-
-    list.innerHTML = history.map(item => `
-        <div class="history-item" onclick="reuseHistory('${item.exp}')">
-            <div class="hist-math">
-                <strong>${item.exp}</strong>
-                <span>= ${item.res}</span>
-            </div>
-            <small>${item.date}</small>
-        </div>
-    `).join('');
-}
-
-function reuseHistory(exp) {
-    display.value = exp;
-    liveEvaluate();
+    let history = JSON.parse(localStorage.getItem('mathos_history')) || [];
+    history.unshift({ exp, res, date: new Date().toLocaleTimeString() });
+    localStorage.setItem('mathos_history', JSON.stringify(history.slice(0, 10)));
 }
 
 function toggleHistory() {
     const panel = document.getElementById('history-panel');
     panel.classList.toggle('active');
-    renderHistory();
+    const list = document.getElementById('history-list');
+    let history = JSON.parse(localStorage.getItem('mathos_history')) || [];
+    list.innerHTML = history.map(h => `<div class="history-item"><b>${h.exp}</b><br>= ${h.res}</div>`).join('');
 }
 
 function clearHistory() {
-    if(confirm("Clear all calculation records?")) {
-        localStorage.removeItem('mathos_pro_history');
-        renderHistory();
-    }
+    localStorage.removeItem('mathos_history');
+    toggleHistory();
 }
 
-// 6. Professional Utilities
 function copyResult() {
-    if(!display.value) return;
-    
-    navigator.clipboard.writeText(display.value).then(() => {
-        const btn = document.querySelector('.copy-btn');
-        const originalContent = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        btn.style.background = "#27ae60";
-        
-        setTimeout(() => {
-            btn.innerHTML = originalContent;
-            btn.style.background = "";
-        }, 2000);
-    });
+    navigator.clipboard.writeText(display.value);
+    alert("Result copied!");
 }
 
-// 7. Initial State Setup
-document.addEventListener('DOMContentLoaded', () => {
-    loadGrid('matric', document.querySelector('.nav-item.active'));
-    
-    // Close modal if clicking outside content
-    window.onclick = function(event) {
-        const modal = document.getElementById('tool-modal');
-        if (event.target == modal) closeTool();
-    }
-    
-    // Keyboard Support
-    document.addEventListener('keydown', (e) => {
-        if(e.key === "Enter") solve();
-        if(e.key === "Escape") closeTool();
-    });
-});
+// Initial Load
+window.onload = () => loadGrid('matric', document.querySelector('.nav-item.active'));
