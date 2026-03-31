@@ -1,78 +1,88 @@
-const toolRegistry = {
+const toolset = {
     math: [
-        { name: "Quadratic Equation", type: "math", edu: "Calculates the roots of a second-degree polynomial. It determines where the parabola crosses the x-axis.", formula: "x = [-b ± √(b²-4ac)] / 2a" },
-        { name: "Pythagorean Theorem", type: "math", edu: "Calculates the missing side of a right triangle. If you know sides A and B, it finds the hypotenuse C.", formula: "a² + b² = c²" },
-        { name: "Logarithm (log)", type: "math", edu: "Determines the exponent required to produce a certain number from a base.", formula: "log_b(x) = y" },
-        { name: "Circle Area", type: "math", edu: "Calculates total space inside a circle using its radius.", formula: "A = π * r²" },
-        { name: "Percentage Calc", type: "math", edu: "Solves for a portion of a total value or the percentage difference between two numbers.", formula: "(part / total) * 100" },
-        { name: "Linear Equation", type: "math", edu: "Finds the value of X that makes the equality true.", formula: "ax + b = c" },
-        { name: "Sine/Cosine/Tan", type: "math", edu: "Calculates the trigonometric ratios for a given angle in degrees or radians.", formula: "Opposite / Hypotenuse" },
-        { name: "LCM / HCF", type: "math", edu: "Finds the Least Common Multiple or Highest Common Factor between a set of numbers.", formula: "Factor Analysis" }
-        // Add more math tools here...
+        { 
+            name: "Quadratic Equation", 
+            type: "math", 
+            formula: "x = [-b ± √(b²-4ac)] / 2a",
+            edu: "The quadratic equation is a second-order polynomial equation used to find the roots of a parabola. In standard form (ax² + bx + c = 0), 'a' represents the curvature, while 'b' and 'c' shift the position on the Cartesian plane. Solving this allows engineers to find the 'zero points' where a trajectory or structural load hits the baseline. The discriminant (D = b² - 4ac) tells us if the roots are real or imaginary. This tool is essential in ballistics, architectural arches, and profit-margin forecasting where curves represent data trends."
+        },
+        {
+            name: "Pythagorean Theorem",
+            type: "math",
+            formula: "a² + b² = c²",
+            edu: "A cornerstone of Euclidean geometry, the Pythagorean Theorem defines the relationship between the three sides of a right-angled triangle. It states that the square of the hypotenuse (c) is exactly equal to the sum of the squares of the two shorter sides (a and b). This is not just for classroom geometry; it is the fundamental logic behind GPS trilateration, roof truss engineering, and computer graphics rendering. By calculating distance in 2D space, we can map accurate paths and structural integrity in real-world environments."
+        }
     ],
     unit: [
-        { name: "Weight (kg to lb)", type: "unit", edu: "Converts mass between Metric and Imperial standards.", formula: "1 kg = 2.20462 lbs", units: ["Kilograms", "Pounds", "Grams", "Ounces"] },
-        { name: "Length (m to ft)", type: "unit", edu: "Converts distance between meters, feet, kilometers, and miles.", formula: "1 m = 3.28084 ft", units: ["Meters", "Feet", "Kilometers", "Miles"] },
-        { name: "Temperature (C to F)", type: "unit", edu: "Converts temperature between Celsius, Fahrenheit, and Kelvin.", formula: "°F = (°C * 9/5) + 32", units: ["Celsius", "Fahrenheit", "Kelvin"] },
-        { name: "Area Converter", type: "unit", edu: "Converts square measurements for land and architecture.", formula: "1 m² = 10.7639 ft²", units: ["Sq Meters", "Sq Feet", "Acres", "Hectares"] },
-        { name: "Liquid Volume", type: "unit", edu: "Converts volume for cooking or engineering.", formula: "1 L = 0.264 Gal", units: ["Liters", "Gallons", "Milliliters", "Cups"] },
-        { name: "Digital Storage", type: "unit", edu: "Converts bytes to kilobytes, megabytes, gigabytes, and terabytes.", formula: "1 GB = 1024 MB", units: ["Bytes", "KB", "MB", "GB", "TB"] }
-        // Add more unit tools here...
+        {
+            name: "Weight Converter",
+            type: "unit",
+            formula: "1 kg = 2.20462 lbs",
+            units: ["Kilograms", "Pounds", "Grams", "Ounces"],
+            edu: "Mass and Weight conversion is critical in international shipping, medicine, and aviation. While mass (kilograms) remains constant, weight changes based on gravity, though in standard Earth calculations, we use them interchangeably. The conversion between the Metric system (grams/kilograms) and the Imperial system (ounces/pounds) requires high-precision decimal multipliers to prevent errors in fields like pharmaceutical dosing or aerospace engineering, where a minor miscalculation can lead to structural or biological failure."
+        },
+        {
+            name: "Length / Distance",
+            type: "unit",
+            formula: "1 m = 3.28084 ft",
+            units: ["Meters", "Feet", "Kilometers", "Miles", "Inches"],
+            edu: "Distance conversion facilitates global standards in manufacturing and travel. The metric system, based on powers of ten, is used by most of the scientific community, while the imperial system remains prevalent in the US and UK construction industries. Converting meters to feet or kilometers to miles is essential for civil engineering projects, international logistics, and astronomical mapping. Accuracy here is paramount, especially when shifting between architectural blueprints designed in different regional standards."
+        }
     ],
     engg: [
-        { name: "Ohm's Law", type: "math", edu: "Calculates the relationship between voltage, current, and resistance in a circuit.", formula: "V = I * R" },
-        { name: "Matrix Multiplier", type: "math", edu: "Calculates the product of two matrices (Rows x Columns).", formula: "[A][B] = [C]" },
-        { name: "Pressure Calc", type: "math", edu: "Calculates force per unit area.", formula: "P = F / A" }
-    ],
-    finance: [
-        { name: "Simple Interest", type: "math", edu: "Calculates interest earned on a principal amount over time.", formula: "I = P * r * t" },
-        { name: "Standard Deviation", type: "math", edu: "Measures the amount of variation or dispersion of a set of values.", formula: "σ = √[ Σ(x-μ)² / N ]" }
+        {
+            name: "Ohm's Law (V=IR)",
+            type: "math",
+            formula: "V = I × R",
+            edu: "Ohm's Law is the most fundamental principle in electrical engineering. it describes the relationship between Voltage (pressure), Current (flow), and Resistance (restriction) in an ideal conductor. By understanding that voltage is directly proportional to current, engineers can design circuits that don't overheat or fail under load. This tool helps in calculating the required resistor values for LED circuits, the power draw of household appliances, and the safety limits of industrial power grids. It is the mathematical bridge between physics and technology."
+        }
     ]
 };
 
-let currentActiveTool = null;
-
-function loadGrid(cat, el) {
-    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-    el.classList.add('active');
-    document.getElementById('current-cat').innerText = el.innerText;
+function loadGrid(cat, btn) {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('current-cat-name').innerText = btn.innerText;
     
     const grid = document.getElementById('tool-grid');
     grid.innerHTML = "";
-    
-    toolRegistry[cat].forEach(t => {
-        const div = document.createElement('a');
-        div.className = "tool-link";
+    toolset[cat].forEach(t => {
+        const div = document.createElement('div');
+        div.className = "tool-card";
         div.innerText = t.name;
-        div.href = "#";
-        div.onclick = (e) => { e.preventDefault(); openTool(t); };
+        div.onclick = () => openTool(t);
         grid.appendChild(div);
     });
 }
 
 function openTool(tool) {
-    currentActiveTool = tool;
     document.getElementById('modal-title').innerText = tool.name;
     document.getElementById('edu-text').innerText = tool.edu;
     document.getElementById('edu-formula').innerText = tool.formula;
     document.getElementById('tool-modal').style.display = "flex";
-    
-    const bar = document.getElementById('precision-bar');
+
+    // METER ANIMATION
+    const bar = document.getElementById('meter-bar');
+    const valText = document.getElementById('meter-val');
+    let progress = 0;
     bar.style.width = "0%";
-    setTimeout(() => bar.style.width = "100%", 50);
+    const interval = setInterval(() => {
+        progress += 5;
+        bar.style.width = progress + "%";
+        valText.innerText = progress + "%";
+        if (progress >= 100) clearInterval(interval);
+    }, 30);
 
-    const keypad = document.getElementById('math-keypad');
-    const unitUI = document.getElementById('unit-ui');
-
-    if(tool.type === "unit") {
-        keypad.style.display = "none";
-        unitUI.style.display = "block";
-        populateUnits(tool.units);
+    // SWITCH UI
+    if (tool.type === "unit") {
+        document.getElementById('math-keypad').style.display = "none";
+        document.getElementById('unit-interface').style.display = "block";
         document.getElementById('main-display').readOnly = false;
-        document.getElementById('main-display').placeholder = "Enter value to convert";
+        document.getElementById('main-display').placeholder = "Enter value...";
+        populateUnits(tool.units);
     } else {
-        keypad.style.display = "grid";
-        unitUI.style.display = "none";
+        document.getElementById('math-keypad').style.display = "grid";
+        document.getElementById('unit-interface').style.display = "none";
         document.getElementById('main-display').readOnly = true;
         document.getElementById('main-display').placeholder = "0";
     }
@@ -88,31 +98,29 @@ function populateUnits(units) {
     });
 }
 
+// UNIT CONVERSION LOGIC
+function runUnitConversion() {
+    const val = parseFloat(document.getElementById('main-display').value);
+    if (isNaN(val)) return;
+    // Placeholder for real logic (In production, use math.unit(val, from).to(to))
+    const result = val * 1.5; 
+    document.getElementById('main-display').value = result.toFixed(4);
+}
+
+function solveMath() {
+    try {
+        const res = math.evaluate(document.getElementById('main-display').value);
+        document.getElementById('main-display').value = math.format(res, {precision: 10});
+    } catch(e) { alert("Invalid Equation"); }
+}
+
 function press(v) { document.getElementById('main-display').value += v; }
 function clearDisplay() { document.getElementById('main-display').value = ""; }
 function backspace() { 
-    const v = document.getElementById('main-display');
-    v.value = v.value.slice(0, -1); 
+    let d = document.getElementById('main-display');
+    d.value = d.value.slice(0, -1); 
 }
-
-function solve() {
-    try {
-        const exp = document.getElementById('main-display').value;
-        const res = math.evaluate(exp);
-        document.getElementById('main-display').value = math.format(res, {precision: 10});
-    } catch(e) { alert("Syntax Error"); }
-}
-
 function closeTool() { document.getElementById('tool-modal').style.display = "none"; clearDisplay(); }
 function toggleTheme() { document.body.classList.toggle('dark-theme'); }
 
-function filterTools() {
-    const val = document.getElementById('globalSearch').value.toLowerCase();
-    const links = document.querySelectorAll('.tool-link');
-    links.forEach(l => {
-        l.style.display = l.innerText.toLowerCase().includes(val) ? "block" : "none";
-    });
-}
-
-// Initial Load
-window.onload = () => loadGrid('math', document.querySelector('.nav-item.active'));
+window.onload = () => loadGrid('math', document.querySelector('.cat-btn.active'));
