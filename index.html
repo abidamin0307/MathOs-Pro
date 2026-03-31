@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathOS Pro | 60+ Professional Calculators</title>
+    <title>MathOS Pro | 60+ Free Online Calculators & Converters</title>
+    <meta name="description" content="Professional grade calculators for Algebra, Engineering, and Unit Conversions. Free educational guides included for every tool.">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://unpkg.com/mathjs@11.8.0/lib/browser/math.js"></script>
@@ -14,25 +15,28 @@
 <nav class="top-nav">
     <div class="container">
         <div class="logo">MathOS<span>Pro</span></div>
-        <button id="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i> Dark Mode</button>
+        <div class="nav-right">
+            <input type="text" id="globalSearch" placeholder="Search 60+ tools..." onkeyup="filterTools()">
+            <button id="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+        </div>
     </div>
 </nav>
 
 <div class="container main-wrapper">
     <aside id="sidebar">
         <div class="side-box">
-            <h3>Calculators</h3>
+            <h3>Categories</h3>
             <div class="nav-group">
                 <div class="nav-item active" onclick="loadGrid('math', this)">Math & Algebra</div>
                 <div class="nav-item" onclick="loadGrid('unit', this)">Unit Converters</div>
-                <div class="nav-item" onclick="loadGrid('engg', this)">Engineering</div>
+                <div class="nav-item" onclick="loadGrid('engg', this)">Engineering Pro</div>
+                <div class="nav-item" onclick="loadGrid('finance', this)">Finance & Stats</div>
             </div>
         </div>
     </aside>
 
     <main>
         <nav class="breadcrumb">Home > <span id="current-cat">Math & Algebra</span></nav>
-        <h1 id="section-title">All Calculators</h1>
         <div id="tool-grid" class="tool-list"></div>
     </main>
 </div>
@@ -40,69 +44,69 @@
 <div id="tool-modal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <h2 id="modal-title">Tool Name</h2>
+            <h2 id="modal-title">Tool</h2>
             <span class="close" onclick="closeTool()">&times;</span>
         </div>
         
         <div class="calc-container">
             <div class="meter-box">
-                <div class="meter-label">Precision Status</div>
                 <div class="meter-bg"><div id="precision-bar" class="meter-fill"></div></div>
             </div>
 
-            <div id="unit-converter-ui" class="unit-ui" style="display:none;">
-                <div class="unit-inputs">
-                    <input type="number" id="unit-val" placeholder="Enter Value" oninput="convertUnits()">
-                    <select id="unit-from" onchange="convertUnits()"></select>
-                    <div class="to-label">to</div>
-                    <select id="unit-to" onchange="convertUnits()"></select>
-                </div>
-                <div id="unit-result-display">Result: --</div>
+            <div class="display-panel">
+                <div id="calc-preview"></div>
+                <input type="text" id="main-display" placeholder="0">
             </div>
 
-            <div id="math-ui">
-                <div class="display-panel">
-                    <div id="calc-preview"></div>
-                    <input type="text" id="main-display" placeholder="0" readonly>
+            <div id="unit-ui" style="display:none;">
+                <div class="unit-row">
+                    <select id="u-from" onchange="performUnitLogic()"></select>
+                    <span>to</span>
+                    <select id="u-to" onchange="performUnitLogic()"></select>
                 </div>
-                <div class="keypad">
-                    <button class="k-num" onclick="press('7')">7</button>
-                    <button class="k-num" onclick="press('8')">8</button>
-                    <button class="k-num" onclick="press('9')">9</button>
-                    <button class="k-op" onclick="press('/')">÷</button>
-                    <button class="k-del" onclick="backspace()">DEL</button>
-                    
-                    <button class="k-num" onclick="press('4')">4</button>
-                    <button class="k-num" onclick="press('5')">5</button>
-                    <button class="k-num" onclick="press('6')">6</button>
-                    <button class="k-op" onclick="press('*')">×</button>
-                    <button class="k-ac" onclick="clearDisplay()">AC</button>
-                    
-                    <button class="k-num" onclick="press('1')">1</button>
-                    <button class="k-num" onclick="press('2')">2</button>
-                    <button class="k-num" onclick="press('3')">3</button>
-                    <button class="k-op" onclick="press('-')">-</button>
-                    <button class="k-equal" style="grid-row: span 2;" onclick="solve()">=</button>
-                    
-                    <button class="k-num" style="grid-column: span 2;" onclick="press('0')">0</button>
-                    <button class="k-num" onclick="press('.')">.</button>
-                    <button class="k-op" onclick="press('+')">+</button>
-                </div>
+            </div>
+
+            <div class="keypad" id="math-keypad">
+                <button class="k-func" onclick="press('sin(')">sin</button>
+                <button class="k-func" onclick="press('cos(')">cos</button>
+                <button class="k-func" onclick="press('tan(')">tan</button>
+                <button class="k-op" onclick="press('(')">(</button>
+                <button class="k-op" onclick="press(')')">)</button>
+                <button class="k-num" onclick="press('7')">7</button>
+                <button class="k-num" onclick="press('8')">8</button>
+                <button class="k-num" onclick="press('9')">9</button>
+                <button class="k-del" onclick="backspace()">DEL</button>
+                <button class="k-op" onclick="press('/')">/</button>
+                <button class="k-num" onclick="press('4')">4</button>
+                <button class="k-num" onclick="press('5')">5</button>
+                <button class="k-num" onclick="press('6')">6</button>
+                <button class="k-op" onclick="press('*')">×</button>
+                <button class="k-ac" onclick="clearDisplay()">AC</button>
+                <button class="k-num" onclick="press('1')">1</button>
+                <button class="k-num" onclick="press('2')">2</button>
+                <button class="k-num" onclick="press('3')">3</button>
+                <button class="k-op" onclick="press('-')">-</button>
+                <button class="k-equal" style="grid-row: span 2;" onclick="solve()">=</button>
+                <button class="k-num" style="grid-column: span 2;" onclick="press('0')">0</button>
+                <button class="k-num" onclick="press('.')">.</button>
+                <button class="k-op" onclick="press('+')">+</button>
             </div>
         </div>
 
-        <div class="edu-section">
-            <h4>How it works</h4>
+        <div class="edu-box">
+            <h4><i class="fas fa-graduation-cap"></i> Educational Guide</h4>
             <p id="edu-text"></p>
-            <div id="edu-formula" class="formula-box"></div>
+            <div class="formula-display" id="edu-formula"></div>
         </div>
     </div>
 </div>
 
 <footer class="site-footer">
     <div class="container">
-        <a href="about.html">About</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a>
-        <p>&copy; 2026 MathOS Pro</p>
+        <div class="f-links">
+            <a href="about.html">About</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a>
+        </div>
+        <p>&copy; 2026 MathOS Pro. Professional Math Suite.</p>
     </div>
 </footer>
 
