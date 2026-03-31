@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>MathOS Pro | Free Engineering & Scientific Calculator with Steps</title>
-    <meta name="description" content="MathOS Pro is a professional-grade engineering suite for Matric, Inter, and Engineering students. Solve complex algebra, calculus, and matrix equations instantly.">
-    <meta name="keywords" content="scientific calculator, engineering calculator online, mathos pro, step by step math, matric math solver, matrix multiplication, calculus tool">
+    <title>MathOS Pro | Step-by-Step Engineering & Scientific Calculator</title>
+    <meta name="description" content="MathOS Pro is a free online engineering suite for Matric, Inter, and Engineering students. Solve quadratic equations, calculus, and matrices with step-by-step clarity.">
+    <meta name="keywords" content="scientific calculator, engineering calculator online, mathos pro, matric math solver, matrix multiplication, calculus tool, derivative calculator">
     <link rel="canonical" href="https://mathospro.github.io/" />
 
     <script type="application/ld+json">
@@ -16,11 +16,12 @@
       "name": "MathOS Pro Engineering Suite",
       "operatingSystem": "All",
       "applicationCategory": "EducationalApplication",
-      "offers": { " @type": "Offer", "price": "0", "priceCurrency": "USD" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
     </script>
 
     <script src="https://unpkg.com/mathjs@11.8.0/lib/browser/math.js"></script>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2B5JTRYR9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -63,28 +64,27 @@
 <main>
     <div class="header">
         <h1 id="section-title">Online Engineering Calculator Suite</h1>
-        <p>Professional mathematical tools for high-precision scientific computing.</p>
+        <p>Select a specialized tool to open the Scientific Terminal.</p>
     </div>
     
     <div id="tool-grid" class="tool-grid"></div>
 
-    <article class="seo-content-section" style="padding: 40px 20px; max-width: 900px; margin: 40px auto; color: #cbd5e1; line-height: 1.8; border-top: 1px solid rgba(255,255,255,0.1);">
-        <h2>Empowering Students with Precision Math Tools</h2>
-        <p>Welcome to <strong>MathOS Pro</strong>, the ultimate digital terminal for students and engineers. Our platform handles the rigorous demands of modern mathematics, from high school board exams to professional engineering applications.</p>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px;">
-            <section>
-                <h3>Matric & Secondary Math</h3>
-                <p>Solve quadratic equations and geometry problems instantly. We provide the logic required for academic success in secondary education.</p>
-            </section>
-            <section>
-                <h3>Intermediate Calculus</h3>
-                <p>Advanced calculators for differentiation, integration, and complex number theory. Optimized for FSc and A-Level students.</p>
-            </section>
-            <section>
-                <h3>Advanced Engineering</h3>
-                <p>Solve large-scale matrices using <strong>Cramer's Rule</strong> or <strong>Gauss-Jordan elimination</strong>. High-speed vector and linear algebra tools.</p>
-            </section>
+    <article class="seo-content-section">
+        <h2>Professional Mathematical Resources for Students</h2>
+        <p>MathOS Pro is an advanced digital terminal designed to help students master complex calculations. Our platform provides high-precision solvers for Matric, Intermediate, and University-level engineering mathematics.</p>
+        <div class="seo-grid">
+            <div>
+                <h3>Algebra & Matric Math</h3>
+                <p>Simplify expressions, solve quadratic equations using the quadratic formula, and calculate ratios for board exam preparation.</p>
+            </div>
+            <div>
+                <h3>Calculus & Real Analysis</h3>
+                <p>Find derivatives (d/dx), evaluate definite integrals, and solve complex number identities for FSc and A-Level curricula.</p>
+            </div>
+            <div>
+                <h3>Matrix & Linear Algebra</h3>
+                <p>Engineered for professionals. Solve 3x3 matrices, find determinants, and calculate vector cross products using standard engineering methods.</p>
+            </div>
         </div>
     </article>
     
@@ -102,55 +102,65 @@
     <div class="modal-content">
         <span class="close" onclick="closeTool()">&times;</span>
         <h2 id="modal-title">Terminal</h2>
+        
         <div id="calculator-ui">
             <div class="calc-display">
                 <div id="calc-preview"></div>
                 <input type="text" id="main-display" placeholder="0" spellcheck="false">
             </div>
+
             <div class="sci-keys">
                 <button class="key op" onclick="press('sin(')">sin</button>
                 <button class="key op" onclick="press('cos(')">cos</button>
                 <button class="key op" onclick="press('tan(')">tan</button>
                 <button class="key op" onclick="press('log(')">log</button>
                 <button class="key op" onclick="press('sqrt(')">√</button>
+
                 <button class="key op" onclick="press('^')">xʸ</button>
                 <button class="key op" onclick="press('pi')">π</button>
                 <button class="key op" onclick="press('(')">(</button>
                 <button class="key op" onclick="press(')')">)</button>
                 <button class="key action ac" onclick="clearDisplay()">AC</button>
+
                 <button class="key num" onclick="press('7')">7</button>
                 <button class="key num" onclick="press('8')">8</button>
                 <button class="key num" onclick="press('9')">9</button>
                 <button class="key action del" onclick="backspace()">DEL</button>
                 <button class="key op" onclick="press('/')">÷</button>
+
                 <button class="key num" onclick="press('4')">4</button>
                 <button class="key num" onclick="press('5')">5</button>
                 <button class="key num" onclick="press('6')">6</button>
                 <button class="key op" onclick="press('*')">×</button>
                 <button class="key op" onclick="press('-')">-</button>
+
                 <button class="key num" onclick="press('1')">1</button>
                 <button class="key num" onclick="press('2')">2</button>
                 <button class="key num" onclick="press('3')">3</button>
                 <button class="key op" onclick="press('+')">+</button>
                 <button class="key equal" onclick="solve()">=</button>
+
                 <button class="key num" style="grid-column: span 2;" onclick="press('0')">0</button>
                 <button class="key num" onclick="press('.')">.</button>
                 <button class="key num" onclick="press(',')">,</button>
             </div>
         </div>
+
         <div class="result-container">
-            <button class="copy-btn" onclick="copyResult()"><i class="far fa-copy"></i> Copy Result</button>
+            <button class="copy-btn" onclick="copyResult()">
+                <i class="far fa-copy"></i> Copy Result
+            </button>
         </div>
     </div>
 </div>
 
 <div id="history-panel" class="history-panel">
     <div class="history-header">
-        <h3>Records</h3>
+        <h3>History</h3>
         <span onclick="toggleHistory()" class="close-btn">&times;</span>
     </div>
     <div id="history-list"></div>
-    <button class="clear-hist" onclick="clearHistory()">Clear All</button>
+    <button class="clear-hist" onclick="clearHistory()">Clear All Records</button>
 </div>
 
 <script src="app.js"></script>
