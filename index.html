@@ -4,34 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>MathOS Pro | Step-by-Step Engineering & Scientific Calculator</title>
-    <meta name="description" content="MathOS Pro is a free online engineering suite for Matric, Inter, and Engineering students. Solve quadratic equations, calculus, and matrices with step-by-step clarity.">
-    <meta name="keywords" content="scientific calculator, engineering calculator online, mathos pro, matric math solver, matrix multiplication, calculus tool, derivative calculator">
-    <link rel="canonical" href="https://mathospro.github.io/" />
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "MathOS Pro Engineering Suite",
-      "operatingSystem": "All",
-      "applicationCategory": "EducationalApplication",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    }
-    </script>
-
-    <script src="https://unpkg.com/mathjs@11.8.0/lib/browser/math.js"></script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2B5JTRYR9"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-K2B5JTRYR9');
-    </script>  
+    <title>MathOS Pro | Free Step-by-Step Engineering & Scientific Calculator</title>
+    <meta name="description" content="MathOS Pro is a free, high-performance engineering calculator for Matric, Inter, and University students. Solve Algebra, Calculus, and Matrices with instant results.">
+    <meta name="keywords" content="scientific calculator, engineering calculator, step by step math, matric math solver, matrix multiplier, calculus solver, derivative calculator, online math tool">
     
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/mathjs@11.8.0/lib/browser/math.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,127 +20,118 @@
     <div class="logo"><i class="fas fa-microchip"></i> MathOS<span>PRO</span></div>
     
     <div class="nav-group">
-        <div class="nav-item active" onclick="loadGrid('matric', this)" role="button">
-            <i class="fas fa-graduation-cap"></i><span>Matric</span>
+        <div class="nav-item active" onclick="loadGrid('matric', this)">
+            <i class="fas fa-graduation-cap"></i><span>Matric Section</span>
         </div>
-        <div class="nav-item" onclick="loadGrid('inter', this)" role="button">
-            <i class="fas fa-superscript"></i><span>Inter</span>
+        <div class="nav-item" onclick="loadGrid('inter', this)">
+            <i class="fas fa-superscript"></i><span>Intermediate</span>
         </div>
-        <div class="nav-item" onclick="loadGrid('engg', this)" role="button">
-            <i class="fas fa-atom"></i><span>Engg</span>
+        <div class="nav-item" onclick="loadGrid('engg', this)">
+            <i class="fas fa-atom"></i><span>Engineering</span>
         </div>
         <div class="nav-item mobile-only" onclick="toggleHistory()">
             <i class="fas fa-history"></i><span>History</span>
         </div>
-        <a href="about.html" class="nav-item mobile-only"><i class="fas fa-info-circle"></i><span>About</span></a>
     </div>
 
-    <div class="sidebar-footer desktop-only">
-        <a href="about.html" class="nav-item-link"><i class="fas fa-info-circle"></i> About Us</a>
-        <div class="nav-item" onclick="toggleHistory()"><i class="fas fa-history"></i> History</div>
+    <div class="sidebar-footer">
+        <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About Us</a>
+        <a href="privacy.html" class="nav-link"><i class="fas fa-shield-halved"></i> Privacy</a>
+        <div class="nav-item" onclick="toggleHistory()"><i class="fas fa-clock-rotate-left"></i> History</div>
     </div>
 </nav>
 
 <main>
-    <div class="header">
-        <h1 id="section-title">Online Engineering Calculator Suite</h1>
-        <p>Select a specialized tool to open the Scientific Terminal.</p>
-    </div>
+    <header class="main-header">
+        <h1 id="section-title">Academic & Engineering Suite</h1>
+        <p>Advanced mathematical terminal for students and researchers.</p>
+    </header>
     
     <div id="tool-grid" class="tool-grid"></div>
 
-    <article class="seo-content-section">
-        <h2>Professional Mathematical Resources for Students</h2>
-        <p>MathOS Pro is an advanced digital terminal designed to help students master complex calculations. Our platform provides high-precision solvers for Matric, Intermediate, and University-level engineering mathematics.</p>
-        <div class="seo-grid">
-            <div>
-                <h3>Algebra & Matric Math</h3>
-                <p>Simplify expressions, solve quadratic equations using the quadratic formula, and calculate ratios for board exam preparation.</p>
-            </div>
-            <div>
-                <h3>Calculus & Real Analysis</h3>
-                <p>Find derivatives (d/dx), evaluate definite integrals, and solve complex number identities for FSc and A-Level curricula.</p>
-            </div>
-            <div>
-                <h3>Matrix & Linear Algebra</h3>
-                <p>Engineered for professionals. Solve 3x3 matrices, find determinants, and calculate vector cross products using standard engineering methods.</p>
-            </div>
+    <article class="seo-section">
+        <h2>Professional Mathematics Simplified</h2>
+        <p>MathOS Pro provides a robust digital workspace for solving complex academic problems. Whether you are preparing for <strong>Matric board exams</strong>, <strong>Intermediate FSc/A-Levels</strong>, or <strong>University Engineering</strong>, our tools provide precision and speed.</p>
+        
+        <div class="seo-cards">
+            <section>
+                <h4>Matric Math</h4>
+                <p>Focus on Quadratic equations, Ratios, and Geometry basics with our easy-to-use interface.</p>
+            </section>
+            <section>
+                <h4>Intermediate</h4>
+                <p>Solve advanced Calculus, Integration, and Complex number identities in seconds.</p>
+            </section>
+            <section>
+                <h4>Engineering</h4>
+                <p>Professional Matrix Algebra, Vector Mechanics, and Fourier series analysis for higher education.</p>
+            </section>
         </div>
     </article>
-    
+
     <footer>
-        <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-        </div>
-        <p>© 2026 MathOS Pro. All Rights Reserved.</p>
+        <p>© 2026 MathOS Pro | <a href="privacy.html">Privacy</a> | <a href="about.html">About</a></p>
     </footer>
 </main>
 
 <div id="tool-modal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeTool()">&times;</span>
-        <h2 id="modal-title">Terminal</h2>
+        <h2 id="modal-title">Scientific Terminal</h2>
         
-        <div id="calculator-ui">
-            <div class="calc-display">
+        <div class="calc-wrapper">
+            <div class="display-box">
                 <div id="calc-preview"></div>
                 <input type="text" id="main-display" placeholder="0" spellcheck="false">
             </div>
 
-            <div class="sci-keys">
-                <button class="key op" onclick="press('sin(')">sin</button>
-                <button class="key op" onclick="press('cos(')">cos</button>
-                <button class="key op" onclick="press('tan(')">tan</button>
-                <button class="key op" onclick="press('log(')">log</button>
-                <button class="key op" onclick="press('sqrt(')">√</button>
+            <div class="keypad">
+                <button class="btn-func" onclick="press('sin(')">sin</button>
+                <button class="btn-func" onclick="press('cos(')">cos</button>
+                <button class="btn-func" onclick="press('tan(')">tan</button>
+                <button class="btn-func" onclick="press('log(')">log</button>
+                <button class="btn-func" onclick="press('sqrt(')">√</button>
+                
+                <button class="btn-func" onclick="press('^')">xʸ</button>
+                <button class="btn-func" onclick="press('pi')">π</button>
+                <button class="btn-func" onclick="press('(')">(</button>
+                <button class="btn-func" onclick="press(')')">)</button>
+                <button class="btn-ac" onclick="clearDisplay()">AC</button>
 
-                <button class="key op" onclick="press('^')">xʸ</button>
-                <button class="key op" onclick="press('pi')">π</button>
-                <button class="key op" onclick="press('(')">(</button>
-                <button class="key op" onclick="press(')')">)</button>
-                <button class="key action ac" onclick="clearDisplay()">AC</button>
+                <button class="btn-num" onclick="press('7')">7</button>
+                <button class="btn-num" onclick="press('8')">8</button>
+                <button class="btn-num" onclick="press('9')">9</button>
+                <button class="btn-del" onclick="backspace()">DEL</button>
+                <button class="btn-op" onclick="press('/')">÷</button>
 
-                <button class="key num" onclick="press('7')">7</button>
-                <button class="key num" onclick="press('8')">8</button>
-                <button class="key num" onclick="press('9')">9</button>
-                <button class="key action del" onclick="backspace()">DEL</button>
-                <button class="key op" onclick="press('/')">÷</button>
+                <button class="btn-num" onclick="press('4')">4</button>
+                <button class="btn-num" onclick="press('5')">5</button>
+                <button class="btn-num" onclick="press('6')">6</button>
+                <button class="btn-op" onclick="press('*')">×</button>
+                <button class="btn-op" onclick="press('-')">-</button>
 
-                <button class="key num" onclick="press('4')">4</button>
-                <button class="key num" onclick="press('5')">5</button>
-                <button class="key num" onclick="press('6')">6</button>
-                <button class="key op" onclick="press('*')">×</button>
-                <button class="key op" onclick="press('-')">-</button>
+                <button class="btn-num" onclick="press('1')">1</button>
+                <button class="btn-num" onclick="press('2')">2</button>
+                <button class="btn-num" onclick="press('3')">3</button>
+                <button class="btn-op" onclick="press('+')">+</button>
+                <button class="btn-equal" onclick="solve()">=</button>
 
-                <button class="key num" onclick="press('1')">1</button>
-                <button class="key num" onclick="press('2')">2</button>
-                <button class="key num" onclick="press('3')">3</button>
-                <button class="key op" onclick="press('+')">+</button>
-                <button class="key equal" onclick="solve()">=</button>
-
-                <button class="key num" style="grid-column: span 2;" onclick="press('0')">0</button>
-                <button class="key num" onclick="press('.')">.</button>
-                <button class="key num" onclick="press(',')">,</button>
+                <button class="btn-num" style="grid-column: span 2;" onclick="press('0')">0</button>
+                <button class="btn-num" onclick="press('.')">.</button>
+                <button class="btn-num" onclick="press(',')">,</button>
             </div>
         </div>
-
-        <div class="result-container">
-            <button class="copy-btn" onclick="copyResult()">
-                <i class="far fa-copy"></i> Copy Result
-            </button>
-        </div>
+        <button class="btn-copy" onclick="copyResult()"><i class="far fa-copy"></i> Copy Result</button>
     </div>
 </div>
 
-<div id="history-panel" class="history-panel">
-    <div class="history-header">
-        <h3>History</h3>
-        <span onclick="toggleHistory()" class="close-btn">&times;</span>
+<div id="history-panel" class="history-sidebar">
+    <div class="hist-head">
+        <h3>Calculation History</h3>
+        <button onclick="toggleHistory()">&times;</button>
     </div>
     <div id="history-list"></div>
-    <button class="clear-hist" onclick="clearHistory()">Clear All Records</button>
+    <button class="btn-clear-all" onclick="clearHistory()">Clear All Records</button>
 </div>
 
 <script src="app.js"></script>
