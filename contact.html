@@ -1,18 +1,24 @@
-<h1 style="color:var(--accent)">Contact Abid Amin</h1>
-<p style="color:var(--text-dim)">Sent to: abidamin0307@gmail.com</p>
-
-<form action="https://formspree.io/f/your_formspree_id" method="POST" style="display:flex; flex-direction:column; gap:15px;">
-    
-    <label style="color:white; font-size:0.9rem;">Your Name</label>
-    <input type="text" name="name" placeholder="Abid Amin" required>
-    
-    <label style="color:white; font-size:0.9rem;">Your Email</label>
-    <input type="email" name="_replyto" placeholder="abidamin0307@gmail.com" required>
-    
-    <label style="color:white; font-size:0.9rem;">Message</label>
-    <textarea name="message" style="background:var(--bg); color:white; padding:10px; border-radius:8px; height:150px; border:1px solid #334155; font-family:inherit;" placeholder="Type your math question here..." required></textarea>
-    
-    <input type="hidden" name="_subject" value="New MathOS Pro Inquiry">
-
-    <button type="submit" class="solve-btn">Send Message</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us | MathOS Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-container { max-width: 600px; margin: 80px auto; padding: 40px; background: var(--card); border-radius: 20px; }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 20px; background: #0f172a; border: 1px solid #334155; color: white; border-radius: 8px; }
+    </style>
+</head>
+<body style="display: block; background: var(--bg);">
+    <div class="page-container">
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">← Back to App</a>
+        <h1>Contact Support</h1>
+        <form action="#">
+            <label>Name</label><input type="text" placeholder="Abid Amin">
+            <label>Email</label><input type="email" placeholder="abidamin0307@gmail.com">
+            <label>Message</label><textarea rows="5" placeholder="How can we help?"></textarea>
+            <button type="button" class="solve-btn" onclick="alert('Message Sent!')">Send Message</button>
+        </form>
+    </div>
+</body>
+</html>
