@@ -8,7 +8,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,15 +20,15 @@
         <div class="nav-item" onclick="loadGrid('engg', this)"><i class="fas fa-atom"></i> Engineering</div>
     </div>
     <div class="sidebar-footer">
-        <div class="nav-item" onclick="showLegal('about')"><i class="fas fa-info-circle"></i> About App</div>
-        <div class="nav-item" onclick="toggleHistory()"><i class="fas fa-history"></i> View History</div>
+        <a href="about.html" class="nav-item-link"><i class="fas fa-info-circle"></i> About Us</a>
+        <div class="nav-item" onclick="toggleHistory()"><i class="fas fa-history"></i> History</div>
     </div>
 </nav>
 
 <main>
     <div class="header">
         <h1 id="section-title">Matric Section</h1>
-        <p id="section-desc">Select a tool to open the Scientific Terminal.</p>
+        <p id="section-desc">Select a specialized tool to open the Scientific Terminal.</p>
     </div>
     <div id="tool-grid" class="tool-grid"></div>
     
@@ -37,19 +36,19 @@
         <div class="footer-links">
             <a href="#" onclick="showLegal('privacy')">Privacy</a>
             <a href="#" onclick="showLegal('terms')">Terms</a>
-            <a href="#" onclick="showLegal('contact')">Support</a>
+            <a href="contact.html">Contact Us</a>
         </div>
-        <p>© 2026 MathOS Pro. Built for Engineers.</p>
+        <p>© 2026 MathOS Pro. All Rights Reserved.</p>
     </footer>
 </main>
 
 <div id="history-panel" class="history-panel">
     <div class="history-header">
-        <h3>Calculation History</h3>
+        <h3>History</h3>
         <span onclick="toggleHistory()">&times;</span>
     </div>
     <div id="history-list"></div>
-    <button class="clear-hist" onclick="clearHistory()">Clear History</button>
+    <button class="clear-hist" onclick="clearHistory()">Clear All</button>
 </div>
 
 <div id="tool-modal" class="modal">
@@ -69,42 +68,40 @@
                 <button class="key op" onclick="press('tan(')">tan</button>
                 <button class="key op" onclick="press('log(')">log</button>
                 <button class="key op" onclick="press('sqrt(')">√</button>
-
                 <button class="key op" onclick="press('^')">xʸ</button>
                 <button class="key op" onclick="press('pi')">π</button>
-                <button class="key op" onclick="press('e')">e</button>
                 <button class="key op" onclick="press('(')">(</button>
                 <button class="key op" onclick="press(')')">)</button>
-
+                <button class="key action ac" onclick="clearDisplay()">AC</button>
+                
                 <button class="key num" onclick="press('7')">7</button>
                 <button class="key num" onclick="press('8')">8</button>
                 <button class="key num" onclick="press('9')">9</button>
                 <button class="key action del" onclick="backspace()">DEL</button>
-                <button class="key action ac" onclick="clearDisplay()">AC</button>
-
+                <button class="key op" onclick="press('/')">÷</button>
+                
                 <button class="key num" onclick="press('4')">4</button>
                 <button class="key num" onclick="press('5')">5</button>
                 <button class="key num" onclick="press('6')">6</button>
                 <button class="key op" onclick="press('*')">×</button>
-                <button class="key op" onclick="press('/')">÷</button>
-
+                <button class="key op" onclick="press('-')">-</button>
+                
                 <button class="key num" onclick="press('1')">1</button>
                 <button class="key num" onclick="press('2')">2</button>
                 <button class="key num" onclick="press('3')">3</button>
                 <button class="key op" onclick="press('+')">+</button>
-                <button class="key op" onclick="press('-')">-</button>
-
-                <button class="key num" onclick="press('0')">0</button>
+                <button class="key equal" onclick="solve()" style="grid-row: span 2;">=</button>
+                
+                <button class="key num" onclick="press('0')" style="grid-column: span 2;">0</button>
                 <button class="key num" onclick="press('.')">.</button>
                 <button class="key num" onclick="press(',')">,</button>
-                <button class="key equal" onclick="solve()">= ENTER</button>
             </div>
         </div>
 
         <div id="legal-ui" style="display:none;"></div>
         
         <div class="result-container" id="res-container">
-            <button class="copy-btn" onclick="copyResult()"><i class="far fa-copy"></i> Copy Result</button>
+            <button class="copy-btn" onclick="copyResult()">Copy Result</button>
         </div>
     </div>
 </div>
