@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MathOS Pro | 45-Tool Engineering Suite</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .result-container { position: relative; margin-top: 20px; }
+        .copy-btn { 
+            position: absolute; right: 10px; top: 10px; 
+            background: #334155; color: #38bdf8; border: none; 
+            padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 0.7rem; z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+<nav id="sidebar">
+    <div class="logo"><i class="fas fa-microchip"></i> MathOS<span>PRO</span></div>
+    <div class="nav-group">
+        <div class="nav-item active" onclick="loadGrid('matric', this)"><i class="fas fa-graduation-cap"></i> Matric</div>
+        <div class="nav-item" onclick="loadGrid('inter', this)"><i class="fas fa-superscript"></i> Intermediate</div>
+        <div class="nav-item" onclick="loadGrid('engg', this)"><i class="fas fa-atom"></i> Engineering</div>
+    </div>
+    <div class="sidebar-footer" style="margin-top:auto; padding:10px;">
+        <div class="nav-item" onclick="showLegal('about')"><i class="fas fa-info-circle"></i> About</div>
+        <div class="nav-item" onclick="showLegal('contact')"><i class="fas fa-envelope"></i> Contact</div>
+    </div>
+</nav>
+
+<main>
+    <div class="header">
+        <h1 id="section-title">Matric Section</h1>
+        <p id="section-desc">Select a specialized tool below.</p>
+    </div>
+    <div id="tool-grid" class="tool-grid"></div>
+    
+    <footer style="margin-top: 50px; text-align: center; opacity: 0.6; font-size: 0.8rem;">
+        <a href="#" onclick="showLegal('privacy')" style="color:white; margin:0 10px;">Privacy</a>
+        <a href="#" onclick="showLegal('terms')" style="color:white; margin:0 10px;">Terms</a>
+        <p>© 2026 MathOS Pro Suite</p>
+    </footer>
+</main>
+
+<div id="tool-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeTool()">&times;</span>
+        <h2 id="modal-title">Tool Name</h2>
+        <div id="tool-ui"></div>
+        <div class="result-container" id="res-container">
+            <button class="copy-btn" id="copy-btn" onclick="copyResult()"><i class="far fa-copy"></i> Copy</button>
+            <div id="tool-result" class="result-area">Ready...</div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
