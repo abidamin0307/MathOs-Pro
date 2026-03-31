@@ -5,49 +5,54 @@
 
 body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; overflow-x: hidden; }
 
-/* Navigation Logic */
+/* Sidebar/Nav */
 #sidebar { width: 260px; background: var(--side); padding: 30px 20px; border-right: 1px solid #334155; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 1000; box-sizing: border-box; }
 .logo { font-size: 1.5rem; font-weight: 800; color: var(--accent); margin-bottom: 40px; }
 .logo span { color: white; font-weight: 300; }
 .nav-group { flex-grow: 1; }
-.nav-item, .nav-item-link { padding: 12px; margin-bottom: 8px; border-radius: 10px; cursor: pointer; transition: 0.3s; color: var(--text-dim); display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-item, .nav-item-link { padding: 12px; margin-bottom: 8px; border-radius: 12px; cursor: pointer; transition: 0.3s; color: var(--text-dim); display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .nav-item:hover, .nav-item.active { background: var(--card); color: var(--accent); }
 .mobile-only { display: none; }
 
-/* Layout */
+/* Grid Layout */
 main { margin-left: 260px; padding: 40px; width: 100%; box-sizing: border-box; }
 .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-.tool-card { background: var(--card); padding: 25px; border-radius: 20px; border: 1px solid #334155; cursor: pointer; transition: 0.3s; }
-.tool-card:hover { transform: translateY(-5px); border-color: var(--accent); }
-.tool-card i { font-size: 1.6rem; color: var(--accent); margin-bottom: 12px; display: block; }
+.tool-card { background: var(--card); padding: 25px; border-radius: 20px; border: 1px solid #334155; cursor: pointer; transition: 0.3s; position: relative; overflow: hidden; }
+.tool-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+.tool-card i { font-size: 1.8rem; color: var(--accent); margin-bottom: 12px; display: block; }
+.tool-card h3 { margin: 10px 0 5px 0; font-size: 1.1rem; }
+.tool-card p { font-size: 0.85rem; color: var(--text-dim); margin: 0; }
 
-/* Modal & Calc */
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; backdrop-filter: blur(10px); }
-.modal-content { background: var(--card); margin: 3% auto; padding: 20px; width: 90%; max-width: 420px; border-radius: 24px; border: 1px solid #475569; position: relative; }
+/* Modal & Calculator */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; backdrop-filter: blur(8px); }
+.modal-content { background: var(--card); margin: 30px auto; padding: 25px; width: 90%; max-width: 440px; border-radius: 28px; border: 1px solid #475569; position: relative; }
 .close { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: var(--text-dim); }
-.calc-display { background: #020617; padding: 15px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #334155; }
-#main-display { width: 100%; background: transparent; border: none; text-align: right; font-size: 1.6rem; color: white; outline: none; font-family: monospace; }
-.sci-keys { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-.key { padding: 15px 2px; border-radius: 10px; border: none; font-weight: 700; cursor: pointer; font-size: 0.8rem; transition: 0.1s; }
+.calc-display { background: #020617; padding: 20px; border-radius: 18px; margin-bottom: 20px; border: 1px solid #334155; }
+#main-display { width: 100%; background: transparent; border: none; text-align: right; font-size: 1.8rem; color: white; outline: none; font-family: monospace; }
+.sci-keys { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.key { padding: 18px 2px; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; font-size: 0.9rem; transition: 0.1s; }
 .num { background: #334155; color: white; }
 .op { background: #0f172a; color: var(--accent); }
 .action { background: #7f1d1d; color: white; }
 .equal { background: var(--accent); color: #020617; grid-row: span 2; }
 
-/* History Sidebar */
-.history-panel { position: fixed; right: -320px; top: 0; width: 300px; height: 100vh; background: var(--side); border-left: 1px solid #334155; z-index: 3000; transition: 0.4s ease; padding: 20px; }
+/* History & Footer */
+.history-panel { position: fixed; right: -320px; top: 0; width: 300px; height: 100vh; background: var(--side); z-index: 3000; transition: 0.4s ease; padding: 25px; border-left: 1px solid #334155; box-sizing: border-box; }
 .history-panel.open { right: 0; }
-.history-item { padding: 10px; border-bottom: 1px solid #334155; font-size: 0.8rem; }
+.history-item { padding: 12px; border-bottom: 1px solid #334155; font-size: 0.85rem; color: var(--text-dim); }
+footer { margin-top: 50px; border-top: 1px solid #334155; padding-top: 20px; text-align: center; color: var(--text-dim); }
+.footer-links a { color: var(--accent); text-decoration: none; margin: 0 10px; font-size: 0.9rem; }
 
-/* Mobile Adaptations */
+/* MOBILE RESPONSIVE ADAPTATION */
 @media (max-width: 768px) {
-    #sidebar { width: 100%; height: 75px; bottom: 0; top: auto; flex-direction: row; padding: 5px 10px; border-right: none; border-top: 1px solid #334155; }
+    #sidebar { width: 100%; height: 80px; bottom: 0; top: auto; flex-direction: row; padding: 5px 10px; border-right: none; border-top: 1px solid #334155; }
     .logo, .desktop-only { display: none; }
     .mobile-only { display: flex; }
     .nav-group { display: flex; width: 100%; justify-content: space-around; }
-    .nav-item { flex-direction: column; gap: 4px; font-size: 0.65rem; padding: 8px; margin: 0; }
-    .nav-item i { font-size: 1.2rem; }
+    .nav-item { flex-direction: column; gap: 4px; font-size: 0.7rem; padding: 10px; margin: 0; width: 20%; }
+    .nav-item i { font-size: 1.4rem; }
     main { margin-left: 0; padding: 20px 20px 100px 20px; }
     .tool-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .modal-content { margin: 10px auto; padding: 15px; }
+    .modal-content { margin: 15px auto; padding: 15px; }
+    .key { padding: 15px 2px; }
 }
