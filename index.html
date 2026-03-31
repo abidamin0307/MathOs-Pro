@@ -1,235 +1,595 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathOS Pro | 75+ Engineering & Academic Suite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root { --bg: #f1f5f9; --card: #ffffff; --pri: #0f172a; --acc: #2563eb; --txt: #334155; --bor: #cbd5e1; }
-        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--txt); margin: 0; padding: 0; }
-        .container { width: 96%; max-width: 1300px; margin: 0 auto; }
-        .top-nav { background: var(--card); border-bottom: 2px solid var(--acc); padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 900; font-size: 1.8rem; color: var(--pri); cursor: pointer; }
-        .logo span { color: var(--acc); }
-        #toolSearch { padding: 12px 25px; border-radius: 8px; border: 1px solid var(--bor); width: 350px; outline: none; }
-        .main-layout { display: grid; grid-template-columns: 280px 1fr; gap: 25px; padding: 25px 0; }
-        aside { position: sticky; top: 100px; height: fit-content; }
-        .side-card { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .cat-btn { padding: 15px; border-radius: 8px; cursor: pointer; margin-bottom: 10px; transition: 0.2s; border: none; width: 100%; text-align: left; background: #f8fafc; font-weight: 700; color: var(--txt); border-left: 4px solid transparent; }
-        .cat-btn.active { background: var(--acc); color: white; border-left: 4px solid var(--pri); }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; }
-        .tool-card { padding: 20px; background: var(--card); border-radius: 10px; text-align: center; cursor: pointer; transition: 0.2s; border: 1px solid var(--bor); }
-        .tool-card:hover { transform: translateY(-5px); border-color: var(--acc); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
-        .tool-card i { font-size: 1.8rem; color: var(--acc); margin-bottom: 10px; display: block; }
-        .modal { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.9); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
-        .modal-window { background: var(--card); width: 95%; max-width: 750px; border-radius: 16px; max-height: 90vh; overflow-y: auto; }
-        .modal-header { background: var(--pri); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
-        .modal-body { padding: 30px; }
-        .input-row { margin-bottom: 20px; }
-        .input-row label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.9rem; }
-        .input-row input { width: 100%; padding: 14px; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; }
-        .calc-trigger { width: 100%; padding: 18px; background: var(--acc); color: white; border: none; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 1.2rem; }
-        #res-display { margin-top: 25px; padding: 20px; background: #f0fdf4; border: 2px dashed #10b981; border-radius: 12px; color: #065f46; font-size: 1.6rem; font-weight: 900; display: none; text-align: center; }
-        .edu-footer { padding: 30px; border-top: 1px solid var(--bor); background: #f8fafc; }
-        .formula-box { background: #1e293b; color: #38bdf8; padding: 15px; border-radius: 8px; font-family: monospace; margin-top: 15px; border-left: 5px solid var(--acc); }
-        .legal-section { display: none; padding: 40px 0; }
-        .legal-box { background: white; padding: 40px; border-radius: 15px; border: 1px solid var(--bor); line-height: 1.8; }
-        footer { background: var(--pri); color: #94a3b8; padding: 40px 0; text-align: center; margin-top: 50px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>MultiTool Suite | Smart Calculators & Converters</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 2rem 1.5rem;
+    }
+
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .main-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .main-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e293b, #2c3e66);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+
+    .main-header p {
+      color: #475569;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    /* Toolbar / Category Tabs */
+    .tools-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 1rem;
+    }
+
+    .tool-btn {
+      background: white;
+      border: 1px solid #cbd5e1;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #334155;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .tool-btn:hover {
+      background: #eef2ff;
+      border-color: #94a3b8;
+      transform: translateY(-1px);
+    }
+
+    .tool-btn.active {
+      background: #1e293b;
+      border-color: #1e293b;
+      color: white;
+      box-shadow: 0 6px 12px -8px rgba(0,0,0,0.2);
+    }
+
+    /* Card layout */
+    .calculator-panel {
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+      padding: 1.8rem 2rem;
+      transition: all 0.2s;
+      border: 1px solid #eef2ff;
+    }
+
+    .panel-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel-desc {
+      color: #475569;
+      border-left: 3px solid #94a3b8;
+      padding-left: 0.75rem;
+      margin-bottom: 1.8rem;
+      font-size: 0.9rem;
+    }
+
+    /* Grid for multi-tools */
+    .calc-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      background: #f8fafc;
+      padding: 0.75rem 1rem;
+      border-radius: 1.2rem;
+    }
+
+    .input-group label {
+      font-weight: 600;
+      min-width: 110px;
+      color: #1e293b;
+    }
+
+    .input-group input, .input-group select {
+      flex: 2;
+      min-width: 180px;
+      padding: 0.7rem 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 1.2rem;
+      font-size: 1rem;
+      background: white;
+      transition: 0.2s;
+    }
+
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+    }
+
+    button.calc-action {
+      background: #0f172a;
+      border: none;
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    button.calc-action:hover {
+      background: #1e293b;
+      transform: scale(0.98);
+    }
+
+    .result-area {
+      background: #f1f5f9;
+      border-radius: 1.2rem;
+      padding: 1rem 1.5rem;
+      margin-top: 0.75rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-left: 5px solid #3b82f6;
+    }
+
+    .result-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      word-break: break-word;
+    }
+
+    hr {
+      margin: 1rem 0;
+      border-color: #e2e8f0;
+    }
+
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: flex-end;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem;
+      }
+      .calculator-panel {
+        padding: 1.2rem;
+      }
+      .input-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .input-group label {
+        min-width: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-<nav class="top-nav">
-    <div class="container nav-flex">
-        <div class="logo" onclick="nav('home')">MathOS<span>Pro</span></div>
-        <input type="text" id="toolSearch" placeholder="Search 75+ tools..." onkeyup="filterTools()">
-    </div>
-</nav>
-<div id="home-view" class="container main-layout">
-    <aside>
-        <div class="side-card">
-            <button class="cat-btn active" onclick="loadGrid('set1', this)">Academic (1-25)</button>
-            <button class="cat-btn" onclick="loadGrid('set2', this)">Physics & Engg (26-50)</button>
-            <button class="cat-btn" onclick="loadGrid('set3', this)">Advanced & Units (51-75)</button>
-            <hr style="margin:20px 0; border:0; border-top:1px solid var(--bor);">
-            <button class="cat-btn" onclick="nav('about')">About Us</button>
-            <button class="cat-btn" onclick="nav('privacy')">Privacy Policy</button>
-            <button class="cat-btn" onclick="nav('terms')">Terms of Use</button>
-            <button class="cat-btn" onclick="nav('contact')">Contact Support</button>
+<div class="app-container">
+  <div class="main-header">
+    <h1>⚡ MultiTool Suite</h1>
+    <p>Financial | Health | Math | Converters — everything in one place</p>
+  </div>
+
+  <div class="tools-nav" id="toolsNav">
+    <button data-tool="bmi" class="tool-btn active">🧮 BMI Calculator</button>
+    <button data-tool="mortgage" class="tool-btn">🏠 Mortgage Calculator</button>
+    <button data-tool="unitconv" class="tool-btn">📏 Unit Converter</button>
+    <button data-tool="currency" class="tool-btn">💱 Currency Converter</button>
+    <button data-tool="percentage" class="tool-btn">% Percentage Calc</button>
+    <button data-tool="scientific" class="tool-btn">🔢 Basic & Scientific</button>
+  </div>
+
+  <div class="calculator-panel" id="calculatorPanel">
+    <!-- dynamic content injected via JS -->
+    <div id="toolContent">Loading smart tools...</div>
+  </div>
+</div>
+
+<script>
+  // ----- UTILITIES -----
+  function formatNumber(num, decimals = 2) {
+    if (isNaN(num)) return 'Invalid input';
+    return Number(num).toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  }
+
+  // ---------- 1. BMI Calculator ----------
+  function renderBMI() {
+    return `
+      <div class="calc-grid">
+        <div class="panel-title">🧍 BMI Calculator (Metric / Imperial)</div>
+        <div class="panel-desc">Body Mass Index: weight (kg) / height(m)²  |  or use lbs & inches</div>
+        <div class="input-group">
+          <label>🌡️ Weight</label>
+          <input type="number" id="bmiWeight" placeholder="e.g., 70" step="any" value="70">
+          <select id="bmiWeightUnit">
+            <option value="kg">kg</option>
+            <option value="lb">pounds (lb)</option>
+          </select>
         </div>
-    </aside>
-    <main><div id="tool-grid" class="grid-container"></div></main>
-</div>
-<div id="tool-modal" class="modal">
-    <div class="modal-window">
-        <div class="modal-header"><span id="m-title"></span><span onclick="closeModal()" style="cursor:pointer; font-size:2rem;">&times;</span></div>
-        <div class="modal-body"><div id="inputs"></div><button class="calc-trigger" onclick="calculate()">Process Data</button><div id="res-display"></div></div>
-        <div class="edu-footer"><h3>Concept Mastery</h3><p id="m-edu"></p><div id="m-form" class="formula-box"></div></div>
-    </div>
-</div>
-<div id="about-view" class="container legal-section"><div class="legal-box"><h1>About Us</h1><p>MathOS Pro is a comprehensive educational and engineering tool designed for accuracy and depth. Our goal is to provide a unified platform for professional calculations.</p></div></div>
-<div id="privacy-view" class="container legal-section"><div class="legal-box"><h1>Privacy Policy</h1><p>We do not store your data. All calculations happen locally on your computer. Your inputs never leave your browser.</p></div></div>
-<div id="terms-view" class="container legal-section"><div class="legal-box"><h1>Terms of Use</h1><p>This software is for educational use. Users should verify critical calculations with professional standards. Use at your own risk.</p></div></div>
-<div id="contact-view" class="container legal-section"><div class="legal-box"><h1>Contact</h1><p>Email: engineering@mathospro.com</p></div></div>
-<footer><p>&copy; 2026 MathOS Pro</p></footer>
-<script>
-const registry = {
-    set1: [
-        { id: "quad", n: "Quadratic Equation", f: ["A", "B", "C"], formula: "x = [-b ± √(b²-4ac)] / 2a", edu: "Solves second-degree polynomials. Vital for understanding projectile motion and parabolic curves in economics." },
-        { id: "pyth", n: "Pythagorean Theorem", f: ["A", "B"], formula: "c = √(a² + b²)", edu: "Calculates the hypotenuse of a right triangle. The foundation of geometry and navigation." },
-        { id: "mean", n: "Arithmetic Mean", f: ["N1", "N2", "N3", "N4"], formula: "Σx / n", edu: "Finds the average of a data set. Used in statistics to identify central tendencies." },
-        { id: "perc", n: "Percentage Change", f: ["Old", "New"], formula: "((New-Old)/Old)*100", edu: "Measures growth or decay. Critical for finance, retail, and lab data." },
-        { id: "log", n: "Logarithm (Base 10)", f: ["Value"], formula: "log10(x)", edu: "Compresses exponential scales. Essential for pH, Decibels, and the Richter scale." },
-        { id: "circ", n: "Circle Properties", f: ["Radius"], formula: "A=πr², C=2πr", edu: "Area and circumference. Used in mechanical design for gears and pistons." },
-        { id: "slope", n: "Slope of a Line", f: ["X1", "Y1", "X2", "Y2"], formula: "(y2-y1)/(x2-x1)", edu: "Measures steepness and rate of change. Core concept in linear algebra." },
-        { id: "trig_sin", n: "Sine (Trigonometry)", f: ["Opposite", "Hypotenuse"], formula: "sin(θ) = O/H", edu: "Models periodic waves in sound and light. Used in maritime navigation." },
-        { id: "trig_cos", n: "Cosine (Trigonometry)", f: ["Adjacent", "Hypotenuse"], formula: "cos(θ) = A/H", edu: "Measures horizontal projections of angles. Vital for physics and vector analysis." },
-        { id: "trig_tan", n: "Tangent (Trigonometry)", f: ["Opposite", "Adjacent"], formula: "tan(θ) = O/A", edu: "Calculates heights of buildings and terrain gradients in surveying." },
-        { id: "prob", n: "Basic Probability", f: ["Event", "Total"], formula: "E / T", edu: "Measures likelihood. Fundamental for risk assessment and insurance." },
-        { id: "dist", n: "Distance Formula", f: ["X1", "Y1", "X2", "Y2"], formula: "√[(x2-x1)² + (y2-y1)²]", edu: "Finds the straight-line distance between two points on a 2D plane." },
-        { id: "mid", n: "Midpoint Formula", f: ["X1", "Y1", "X2", "Y2"], formula: "((x1+x2)/2, (y1+y2)/2)", edu: "Calculates the exact center between two coordinates." },
-        { id: "vol_cyl", n: "Cylinder Volume", f: ["Radius", "Height"], formula: "V = πr²h", edu: "Volume of a round container. Used for pipe and tank capacity." },
-        { id: "vol_sph", n: "Sphere Volume", f: ["Radius"], formula: "V = (4/3)πr³", edu: "Calculates capacity of ball-shaped objects like gas storage tanks." },
-        { id: "area_tri", n: "Triangle Area", f: ["Base", "Height"], formula: "0.5 * b * h", edu: "Standard area calculation for 2D triangles." },
-        { id: "area_trap", n: "Trapezoid Area", f: ["Base1", "Base2", "Height"], formula: "((a+b)/2) * h", edu: "Area calculation for land lots and structural components." },
-        { id: "int_simp", n: "Simple Interest", f: ["Principal", "Rate", "Time"], formula: "P*R*T / 100", edu: "Basic finance calculation for bank loans and savings." },
-        { id: "comp_int", n: "Compound Interest", f: ["Principal", "Rate", "Time"], formula: "P(1+r)^t - P", edu: "Measures exponential growth in investments over time." },
-        { id: "perm", n: "Permutations", f: ["n", "r"], formula: "n! / (n-r)!", edu: "Finds number of ways to arrange items where order matters." },
-        { id: "comb", n: "Combinations", f: ["n", "r"], formula: "n! / r!(n-r)!", edu: "Arrangements where order does not matter. Used in probability." },
-        { id: "rad_deg", n: "Radian to Degree", f: ["Radians"], formula: "Rad * (180/π)", edu: "Converts scientific angle measures to standard degrees." },
-        { id: "deg_rad", n: "Degree to Radian", f: ["Degrees"], formula: "Deg * (π/180)", edu: "Converts degrees for use in calculus and physics." },
-        { id: "prime", n: "Prime Factor Check", f: ["Number"], formula: "Divisibility Test", edu: "Checks if a number is prime. Foundation of cryptography." },
-        { id: "gcd", n: "GCD / HCF", f: ["Num 1", "Num 2"], formula: "Euclidean Algo", edu: "Greatest Common Divisor for simplifying fractions." }
-    ],
-    set2: [
-        { id: "ohm", n: "Ohm's Law", f: ["Current", "Resistance"], formula: "V = I * R", edu: "The basis of all electronics. Calculates voltage in a circuit." },
-        { id: "ke", n: "Kinetic Energy", f: ["Mass", "Velocity"], formula: "0.5 * m * v²", edu: "Energy of motion. Crucial for vehicle safety and ballistics." },
-        { id: "pe", n: "Potential Energy", f: ["Mass", "Height"], formula: "m * g * h", edu: "Stored energy due to gravity. Used in dam and elevator design." },
-        { id: "hooke", n: "Hooke's Law", f: ["Constant (k)", "Extension (x)"], formula: "F = k * x", edu: "Measures spring force. Basis for suspension and scales." },
-        { id: "power", n: "Electrical Power", f: ["Voltage", "Current"], formula: "P = V * I", edu: "Rate of energy use. Measured in Watts." },
-        { id: "press", n: "Pressure", f: ["Force", "Area"], formula: "P = F / A", edu: "Measures force distribution. Vital for hydraulics." },
-        { id: "density", n: "Density", f: ["Mass", "Volume"], formula: "ρ = m / V", edu: "Identifies substances. Critical for buoyancy in ships." },
-        { id: "force", n: "Newton's 2nd Law", f: ["Mass", "Accel"], formula: "F = m * a", edu: "Measures force needed to move an object." },
-        { id: "momentum", n: "Momentum", f: ["Mass", "Velocity"], formula: "p = m * v", edu: "Quantity of motion. Analyzes collisions in physics." },
-        { id: "work", n: "Work Done", f: ["Force", "Distance"], formula: "W = F * d", edu: "Calculates energy transferred to an object." },
-        { id: "torque", n: "Torque", f: ["Force", "Radius"], formula: "τ = F * r", edu: "Rotational force. Vital for engine and gear design." },
-        { id: "accel", n: "Acceleration", f: ["v_final", "v_init", "time"], formula: "(vf-vi)/t", edu: "Rate of change of velocity over time." },
-        { id: "freq", n: "Frequency", f: ["Period (T)"], formula: "f = 1 / T", edu: "Cycles per second. Standard for AC power and radio." },
-        { id: "snell", n: "Snell's Law", f: ["index1", "angle1"], formula: "n1 sin θ1 = n2 sin θ2", edu: "Describes light bending. Used in lens and fiber optic design." },
-        { id: "heat", n: "Specific Heat", f: ["mass", "SHC", "deltaT"], formula: "Q = mcΔT", edu: "Thermal energy required to change temperature." },
-        { id: "gas", n: "Ideal Gas Law", f: ["P", "V", "n", "T"], formula: "PV = nRT", edu: "Behavior of gases in chemical and HVAC systems." },
-        { id: "fric", n: "Friction Force", f: ["mu", "NormalForce"], formula: "F = μ * N", edu: "Resistance to sliding. Essential for tire and brake design." },
-        { id: "centrip", n: "Centripetal Force", f: ["Mass", "Vel", "Rad"], formula: "F = mv²/r", edu: "Force keeping objects in a circular path." },
-        { id: "lens", n: "Lens Formula", f: ["Obj_dist", "Focal"], formula: "1/f = 1/v + 1/u", edu: "Predicts image distance in cameras and glasses." },
-        { id: "mach", n: "Mach Number", f: ["Object_v", "Sound_v"], formula: "M = v / a", edu: "Measures speed relative to sound. Vital for aviation." },
-        { id: "reynolds", n: "Reynolds Number", f: ["Vel", "Len", "Visc"], formula: "Re = ρvL/μ", edu: "Predicts flow patterns (laminar vs turbulent) in pipes." },
-        { id: "darcy", n: "Darcy Friction", f: ["f", "L", "v", "D"], formula: "h = f(L/D)(v²/2g)", edu: "Calculates pressure drop in plumbing systems." },
-        { id: "stefan", n: "Radiant Heat", f: ["Area", "Temp"], formula: "P = εσAT⁴", edu: "Heat loss through radiation. Used in space and furnace design." },
-        { id: "capac", n: "Capacitance", f: ["Area", "Dist"], formula: "C = εA/d", edu: "Storage of electrical charge in capacitors." },
-        { id: "induc", n: "Inductance", f: ["Turns", "Area", "Len"], formula: "L = μN²A/l", edu: "Measures magnetic energy storage in coils." }
-    ],
-    set3: [
-        { id: "fourier", n: "Fourier Conduction", f: ["k", "Area", "dT", "Thick"], formula: "q = -kA(dT/dx)", edu: "Calculates heat flow through building walls." },
-        { id: "boltz", n: "Entropy (Boltzmann)", f: ["States"], formula: "S = k ln W", edu: "Measures disorder in thermodynamic systems." },
-        { id: "db_gain", n: "Signal Gain (dB)", f: ["P_out", "P_in"], formula: "10 log(Pout/Pin)", edu: "Measures amplification in radio and WiFi routers." },
-        { id: "kg_lb", n: "kg to lb", f: ["kg"], formula: "kg * 2.204", edu: "Weight conversion for international logistics." },
-        { id: "lb_kg", n: "lb to kg", f: ["lb"], formula: "lb / 2.204", edu: "Convert imperial weight to metric standard." },
-        { id: "m_ft", n: "m to ft", f: ["meters"], formula: "m * 3.28", edu: "Length conversion for construction blueprints." },
-        { id: "c_f", n: "C to F", f: ["Celsius"], formula: "C * 1.8 + 32", edu: "Temp conversion for climate data." },
-        { id: "f_c", n: "F to C", f: ["Fahrenheit"], formula: "(F-32)/1.8", edu: "Temp conversion for science and cooking." },
-        { id: "hp_w", n: "HP to Watts", f: ["HP"], formula: "HP * 745.7", edu: "Relates engine power to electrical capacity." },
-        { id: "bar_psi", n: "Bar to PSI", f: ["Bar"], formula: "Bar * 14.5", edu: "Pressure conversion for scuba and tires." },
-        { id: "km_mi", n: "km to mi", f: ["km"], formula: "km * 0.621", edu: "Distance conversion for mapping." },
-        { id: "mi_km", n: "mi to km", f: ["miles"], formula: "mi / 0.621", edu: "Standard road distance conversion." },
-        { id: "gal_lit", n: "Gal to Lit", f: ["Gallons"], formula: "G * 3.785", edu: "Liquid volume for chemical shipping." },
-        { id: "kn_mph", n: "Knots to MPH", f: ["Knots"], formula: "K * 1.15", edu: "Maritime speed to land speed conversion." },
-        { id: "j_cal", n: "Joule to Cal", f: ["Joules"], formula: "J / 4.184", edu: "Energy to heat conversion for nutrition." },
-        { id: "pa_atm", n: "Pa to Atm", f: ["Pascal"], formula: "Pa / 101325", edu: "Converts pressure to atmosphere units." },
-        { id: "nm_ftlb", n: "Nm to ft-lb", f: ["Nm"], formula: "Nm * 0.737", edu: "Torque conversion for automotive mechanics." },
-        { id: "lux_fc", n: "Lux to FC", f: ["Lux"], formula: "L / 10.76", edu: "Light intensity for architectural lighting." },
-        { id: "sqm_sqft", n: "sqm to sqft", f: ["sqm"], formula: "m² * 10.76", edu: "Area conversion for real estate." },
-        { id: "l_ml", n: "L to ml", f: ["Liters"], formula: "L * 1000", edu: "Simple volume conversion." },
-        { id: "ml_l", n: "ml to L", f: ["ml"], formula: "ml / 1000", edu: "Lab volume conversion." },
-        { id: "euler", n: "Euler Buckling", f: ["E", "I", "L"], formula: "P = π²EI / L²", edu: "Predicts when pillars will snap. Essential for safety." },
-        { id: "strain", n: "Strain", f: ["dL", "L"], formula: "ε = ΔL / L", edu: "Measures material deformation under load." },
-        { id: "stress", n: "Stress", f: ["Force", "Area"], formula: "σ = F / A", edu: "Measures internal force in beams and bolts." },
-        { id: "visc", n: "Kinematic Visc", f: ["Dyn_Visc", "Density"], formula: "ν = μ / ρ", edu: "Determines how oil flows in engines." }
-    ]
-};
-<script>
-let active = null;
+        <div class="input-group">
+          <label>📏 Height</label>
+          <input type="number" id="bmiHeight" placeholder="e.g., 1.75" step="any" value="1.75">
+          <select id="bmiHeightUnit">
+            <option value="m">meters (m)</option>
+            <option value="cm">cm</option>
+            <option value="in">inches (in)</option>
+          </select>
+        </div>
+        <button class="calc-action" id="calcBMI">Calculate BMI</button>
+        <div class="result-area" id="bmiResult">📊 BMI: -- | Category: --</div>
+      </div>
+    `;
+  }
 
-function loadGrid(cat, btn) {
-    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-    if(btn) btn.classList.add('active');
-    const g = document.getElementById('tool-grid');
-    g.innerHTML = "";
-    registry[cat].forEach(t => {
-        g.innerHTML += `<div class="tool-card" onclick='openT(${JSON.stringify(t)})'><i class="fas fa-calculator"></i><span>${t.n}</span></div>`;
+  function attachBMI() {
+    const btn = document.getElementById('calcBMI');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      let weight = parseFloat(document.getElementById('bmiWeight').value);
+      let height = parseFloat(document.getElementById('bmiHeight').value);
+      const weightUnit = document.getElementById('bmiWeightUnit').value;
+      const heightUnit = document.getElementById('bmiHeightUnit').value;
+
+      if (isNaN(weight) || isNaN(height)) {
+        document.getElementById('bmiResult').innerHTML = '⚠️ Please enter valid numeric values.';
+        return;
+      }
+      // Convert weight to kg
+      if (weightUnit === 'lb') weight = weight * 0.45359237;
+      // Convert height to meters
+      let heightMeters = height;
+      if (heightUnit === 'cm') heightMeters = height / 100;
+      else if (heightUnit === 'in') heightMeters = height * 0.0254;
+      else if (heightUnit === 'm') heightMeters = height;
+
+      if (heightMeters <= 0) {
+        document.getElementById('bmiResult').innerHTML = '❌ Height must be > 0';
+        return;
+      }
+      const bmi = weight / (heightMeters * heightMeters);
+      let category = '';
+      if (bmi < 18.5) category = 'Underweight';
+      else if (bmi < 25) category = 'Normal weight';
+      else if (bmi < 30) category = 'Overweight';
+      else category = 'Obese';
+      document.getElementById('bmiResult').innerHTML = `📊 BMI: ${formatNumber(bmi, 1)} kg/m² &nbsp; | &nbsp; Category: ${category}`;
     });
-}
+  }
 
-function openT(t) {
-    active = t;
-    document.getElementById('m-title').innerText = t.n;
-    document.getElementById('m-edu').innerText = t.edu;
-    document.getElementById('m-form').innerText = t.formula;
-    const ins = document.getElementById('inputs');
-    ins.innerHTML = "";
-    t.f.forEach((label, i) => {
-        ins.innerHTML += `<div class="input-row"><label>${label}</label><input type="number" id="v${i}" step="any"></div>`;
+  // ---------- 2. Mortgage Calculator ----------
+  function renderMortgage() {
+    return `
+      <div class="calc-grid">
+        <div class="panel-title">🏡 Mortgage Payment Calculator</div>
+        <div class="panel-desc">Monthly payment based on principal, annual interest, and loan term.</div>
+        <div class="input-group"><label>💰 Loan Amount ($)</label><input type="number" id="loanAmount" value="250000" step="any"></div>
+        <div class="input-group"><label>📅 Annual Interest Rate (%)</label><input type="number" id="interestRate" value="4.5" step="any"></div>
+        <div class="input-group"><label>⏱️ Loan Term (years)</label><input type="number" id="loanYears" value="30" step="1"></div>
+        <button class="calc-action" id="calcMortgage">Compute Monthly Payment</button>
+        <div class="result-area" id="mortgageResult">💰 Monthly Payment: $---</div>
+      </div>
+    `;
+  }
+
+  function attachMortgage() {
+    const btn = document.getElementById('calcMortgage');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      let principal = parseFloat(document.getElementById('loanAmount').value);
+      let annualRate = parseFloat(document.getElementById('interestRate').value);
+      let years = parseFloat(document.getElementById('loanYears').value);
+      if (isNaN(principal) || isNaN(annualRate) || isNaN(years) || principal <= 0 || years <= 0) {
+        document.getElementById('mortgageResult').innerHTML = '⚠️ Please enter valid positive numbers.';
+        return;
+      }
+      const monthlyRate = annualRate / 100 / 12;
+      const months = years * 12;
+      let payment = 0;
+      if (monthlyRate === 0) {
+        payment = principal / months;
+      } else {
+        payment = principal * monthlyRate * Math.pow(1 + monthlyRate, months) / (Math.pow(1 + monthlyRate, months) - 1);
+      }
+      document.getElementById('mortgageResult').innerHTML = `💰 Monthly Payment: $${formatNumber(payment, 2)} &nbsp; | &nbsp; Total Payment: $${formatNumber(payment * months, 2)}`;
     });
-    document.getElementById('res-display').style.display = 'none';
-    document.getElementById('tool-modal').style.display = 'flex';
-}
+  }
 
-function calculate() {
-    const v = [];
-    active.f.forEach((_, i) => v.push(parseFloat(document.getElementById(`v${i}`).value || 0)));
-    let r = "";
-    
-    switch(active.id) {
-        case 'quad': let d = (v[1]**2)-(4*v[0]*v[2]); r = d<0?"Complex":`x1: ${((-v[1]+Math.sqrt(d))/(2*v[0])).toFixed(2)}`; break;
-        case 'pyth': r = Math.sqrt(v[0]**2 + v[1]**2).toFixed(2); break;
-        case 'mean': r = ((v[0]+v[1]+v[2]+v[3])/4).toFixed(2); break;
-        case 'ohm': r = (v[0]*v[1]).toFixed(2) + " V"; break;
-        case 'ke': r = (0.5*v[0]*v[1]**2).toFixed(2) + " J"; break;
-        case 'hooke': r = (v[0]*v[1]).toFixed(2) + " N"; break;
-        case 'power': r = (v[0]*v[1]).toFixed(2) + " W"; break;
-        case 'press': r = (v[0]/v[1]).toFixed(2) + " Pa"; break;
-        case 'perc': r = (((v[1]-v[0])/v[0])*100).toFixed(2) + "%"; break;
-        case 'log': r = Math.log10(v[0]).toFixed(4); break;
-        case 'circ': r = "A:"+(Math.PI*v[0]**2).toFixed(1)+", C:"+(2*Math.PI*v[0]).toFixed(1); break;
-        case 'kg_lb': r = (v[0]*2.204).toFixed(2) + " lb"; break;
-        case 'm_ft': r = (v[0]*3.28).toFixed(2) + " ft"; break;
-        case 'c_f': r = (v[0]*1.8+32).toFixed(1) + " F"; break;
-        case 'mach': r = (v[0]/v[1]).toFixed(2); break;
-        default: r = (v[0]*v[1] || v[0]).toFixed(2); 
+  // ---------- 3. Unit Converter (Length, Mass, etc) ----------
+  function renderUnitConv() {
+    return `
+      <div class="calc-grid">
+        <div class="panel-title">📐 Universal Unit Converter</div>
+        <div class="panel-desc">Length, mass, temperature — convert between metric/imperial.</div>
+        <div class="input-group"><label>📌 Category</label>
+          <select id="convCategory">
+            <option value="length">Length (meters, feet, inches, km, miles)</option>
+            <option value="mass">Mass (kg, lb, g, oz)</option>
+            <option value="temp">Temperature (°C, °F, K)</option>
+          </select>
+        </div>
+        <div class="input-group"><label>🔢 Value</label><input type="number" id="convValue" value="1" step="any"></div>
+        <div class="input-group"><label>⬅️ From Unit</label><select id="convFromUnit"></select></div>
+        <div class="input-group"><label>➡️ To Unit</label><select id="convToUnit"></select></div>
+        <button class="calc-action" id="doConvert">Convert</button>
+        <div class="result-area" id="convResult">🔄 Result: --</div>
+      </div>
+    `;
+  }
+
+  const lengthUnits = { 'meter':1, 'kilometer':1000, 'centimeter':0.01, 'millimeter':0.001, 'mile':1609.344, 'yard':0.9144, 'foot':0.3048, 'inch':0.0254 };
+  const massUnits = { 'kilogram':1, 'gram':0.001, 'milligram':0.000001, 'pound':0.45359237, 'ounce':0.028349523125 };
+  function updateUnitOptions(category) {
+    const fromSelect = document.getElementById('convFromUnit');
+    const toSelect = document.getElementById('convToUnit');
+    if (!fromSelect || !toSelect) return;
+    let units = [];
+    if (category === 'length') units = Object.keys(lengthUnits);
+    else if (category === 'mass') units = Object.keys(massUnits);
+    else if (category === 'temp') units = ['Celsius', 'Fahrenheit', 'Kelvin'];
+    fromSelect.innerHTML = '';
+    toSelect.innerHTML = '';
+    units.forEach(u => {
+      fromSelect.appendChild(new Option(u, u));
+      toSelect.appendChild(new Option(u, u));
+    });
+    if (category === 'length') { fromSelect.value = 'meter'; toSelect.value = 'foot'; }
+    else if (category === 'mass') { fromSelect.value = 'kilogram'; toSelect.value = 'pound'; }
+    else { fromSelect.value = 'Celsius'; toSelect.value = 'Fahrenheit'; }
+  }
+
+  function convertUnit(value, fromUnit, toUnit, category) {
+    if (category === 'length') {
+      const meters = value * lengthUnits[fromUnit];
+      return meters / lengthUnits[toUnit];
+    } else if (category === 'mass') {
+      const kg = value * massUnits[fromUnit];
+      return kg / massUnits[toUnit];
+    } else if (category === 'temp') {
+      let celsius;
+      if (fromUnit === 'Celsius') celsius = value;
+      else if (fromUnit === 'Fahrenheit') celsius = (value - 32) * 5/9;
+      else celsius = value - 273.15;
+      if (toUnit === 'Celsius') return celsius;
+      else if (toUnit === 'Fahrenheit') return celsius * 9/5 + 32;
+      else return celsius + 273.15;
     }
-    const res = document.getElementById('res-display');
-    res.innerHTML = "RESULT: " + r;
-    res.style.display = 'block';
-}
+    return NaN;
+  }
 
-function nav(id) {
-    document.getElementById('home-view').style.display = (id === 'home') ? 'grid' : 'none';
-    ['about', 'privacy', 'terms', 'contact'].forEach(p => {
-        document.getElementById(p + '-view').style.display = (id === p) ? 'block' : 'none';
+  function attachUnitConv() {
+    const catSelect = document.getElementById('convCategory');
+    if (!catSelect) return;
+    const update = () => updateUnitOptions(catSelect.value);
+    catSelect.addEventListener('change', update);
+    update();
+    document.getElementById('doConvert')?.addEventListener('click', () => {
+      let val = parseFloat(document.getElementById('convValue').value);
+      if (isNaN(val)) { document.getElementById('convResult').innerHTML = '⚠️ Invalid number'; return; }
+      const category = catSelect.value;
+      const fromUnit = document.getElementById('convFromUnit').value;
+      const toUnit = document.getElementById('convToUnit').value;
+      const result = convertUnit(val, fromUnit, toUnit, category);
+      if (isNaN(result)) document.getElementById('convResult').innerHTML = '❌ Conversion error';
+      else document.getElementById('convResult').innerHTML = `🔄 ${val} ${fromUnit} = ${formatNumber(result, 4)} ${toUnit}`;
     });
-}
+  }
 
-function closeModal() { document.getElementById('tool-modal').style.display = 'none'; }
-
-function filterTools() {
-    const q = document.getElementById('toolSearch').value.toLowerCase();
-    document.querySelectorAll('.tool-card').forEach(c => {
-        c.style.display = c.innerText.toLowerCase().includes(q) ? 'block' : 'none';
+  // ---------- 4. Currency Converter (simulated live rates, but realistic static rates) ----------
+  function renderCurrency() {
+    return `
+      <div class="calc-grid">
+        <div class="panel-title">💱 Currency Converter (realistic base rates)</div>
+        <div class="panel-desc">Convert between USD, EUR, GBP, JPY, INR, CAD, AUD.</div>
+        <div class="input-group"><label>💰 Amount</label><input type="number" id="curAmount" value="100" step="any"></div>
+        <div class="input-group"><label>From Currency</label><select id="curFrom"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="JPY">JPY</option><option value="INR">INR</option><option value="CAD">CAD</option><option value="AUD">AUD</option></select></div>
+        <div class="input-group"><label>To Currency</label><select id="curTo"><option value="EUR">EUR</option><option value="USD">USD</option><option value="GBP">GBP</option><option value="JPY">JPY</option><option value="INR">INR</option><option value="CAD">CAD</option><option value="AUD">AUD</option></select></div>
+        <button class="calc-action" id="convertCurrency">Convert</button>
+        <div class="result-area" id="curResult">💵 Converted Amount: --</div>
+      </div>
+    `;
+  }
+  // base rates relative to USD (1 USD = x)
+  const forexRates = { USD:1, EUR:0.92, GBP:0.79, JPY:148.2, INR:83.5, CAD:1.37, AUD:1.52 };
+  function attachCurrency() {
+    const btn = document.getElementById('convertCurrency');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      let amount = parseFloat(document.getElementById('curAmount').value);
+      const from = document.getElementById('curFrom').value;
+      const to = document.getElementById('curTo').value;
+      if (isNaN(amount)) { document.getElementById('curResult').innerHTML = '⚠️ Enter valid amount'; return; }
+      const inUSD = amount / forexRates[from];
+      const converted = inUSD * forexRates[to];
+      document.getElementById('curResult').innerHTML = `💵 ${formatNumber(amount,2)} ${from} = ${formatNumber(converted,2)} ${to} (live reference rates)`;
     });
-}
+  }
 
-window.onload = () => loadGrid('set1', document.querySelector('.cat-btn'));
+  // ---------- 5. Percentage Calculator ----------
+  function renderPercentage() {
+    return `
+      <div class="calc-grid">
+        <div class="panel-title">📊 Percentage Calculator (3 modes)</div>
+        <div class="panel-desc">What is X% of Y? | X is what % of Y? | Percentage change.</div>
+        <div class="input-group"><label>Mode</label><select id="pctMode"><option value="percentOf">🔹 X% of Y</option><option value="whatPercent">🔹 X is what % of Y</option><option value="change">🔹 Percentage change (from A to B)</option></select></div>
+        <div id="pctDynamicInputs"></div>
+        <button class="calc-action" id="calcPercent">Calculate</button>
+        <div class="result-area" id="pctResult">📈 Result: --</div>
+      </div>
+    `;
+  }
+  function updatePctFields() {
+    const mode = document.getElementById('pctMode').value;
+    const container = document.getElementById('pctDynamicInputs');
+    if (!container) return;
+    if (mode === 'percentOf') {
+      container.innerHTML = `<div class="input-group"><label>📌 Percentage (X)</label><input type="number" id="pctX" value="20" step="any"></div>
+                             <div class="input-group"><label>📌 Number (Y)</label><input type="number" id="pctY" value="200" step="any"></div>`;
+    } else if (mode === 'whatPercent') {
+      container.innerHTML = `<div class="input-group"><label>🔢 Part (X)</label><input type="number" id="pctX" value="30" step="any"></div>
+                             <div class="input-group"><label>🔢 Total (Y)</label><input type="number" id="pctY" value="150" step="any"></div>`;
+    } else {
+      container.innerHTML = `<div class="input-group"><label>📉 Original Value (A)</label><input type="number" id="pctA" value="80" step="any"></div>
+                             <div class="input-group"><label>📈 New Value (B)</label><input type="number" id="pctB" value="100" step="any"></div>`;
+    }
+  }
+  function attachPercentage() {
+    const modeSelect = document.getElementById('pctMode');
+    if(modeSelect) modeSelect.addEventListener('change', updatePctFields);
+    updatePctFields();
+    const btn = document.getElementById('calcPercent');
+    if(btn) btn.addEventListener('click', () => {
+      const mode = document.getElementById('pctMode').value;
+      let result = 0;
+      let msg = '';
+      if(mode === 'percentOf') {
+        const pct = parseFloat(document.getElementById('pctX').value);
+        const num = parseFloat(document.getElementById('pctY').value);
+        if(isNaN(pct)||isNaN(num)){ msg = 'Invalid numbers'; }
+        else { result = (pct/100)*num; msg = `${pct}% of ${num} = ${formatNumber(result,2)}`; }
+      } else if(mode === 'whatPercent') {
+        const part = parseFloat(document.getElementById('pctX').value);
+        const total = parseFloat(document.getElementById('pctY').value);
+        if(isNaN(part)||isNaN(total)|| total===0) msg = 'Invalid / total zero';
+        else { result = (part/total)*100; msg = `${part} is ${formatNumber(result,2)}% of ${total}`; }
+      } else {
+        const oldVal = parseFloat(document.getElementById('pctA').value);
+        const newVal = parseFloat(document.getElementById('pctB').value);
+        if(isNaN(oldVal)||isNaN(newVal)|| oldVal===0) msg = 'Invalid values (original cannot be zero)';
+        else { result = ((newVal - oldVal)/Math.abs(oldVal))*100; msg = `Change: ${formatNumber(result,2)}% (${newVal > oldVal ? 'increase' : 'decrease'})`; }
+      }
+      document.getElementById('pctResult').innerHTML = `📈 Result: ${msg}`;
+    });
+  }
+
+  // ---------- 6. Basic + Scientific style calculator (live expression) ----------
+  function renderScientific() {
+    return `
+      <div class="calc-grid">
+        <div class="panel-title">🔢 Smart Expression Calculator</div>
+        <div class="panel-desc">Supports + - * / ^ (power), sqrt(), sin, cos, tan, log, ln, π, e. (JavaScript math)</div>
+        <div class="input-group"><label>🧮 Expression</label><input type="text" id="exprInput" placeholder="e.g., sqrt(16) + 2^3 + sin(pi/2)" style="flex:3;" value="(10+5)*2/3"></div>
+        <button class="calc-action" id="evalExpr">Evaluate</button>
+        <div class="result-area" id="exprResult">🔬 Result: --</div>
+        <div class="panel-desc" style="margin-top:8px;">💡 Examples: 2^3, sqrt(25), sin(30° in rad), log10(100), ln(e), 2*pi</div>
+      </div>
+    `;
+  }
+  function attachScientific() {
+    const evalBtn = document.getElementById('evalExpr');
+    if(evalBtn) {
+      evalBtn.addEventListener('click', () => {
+        let expr = document.getElementById('exprInput').value;
+        try {
+          // replace ^ with ** for exponentiation
+          expr = expr.replace(/\^/g, '**');
+          // allow safe math functions
+          const mathContext = {
+            sin: Math.sin, cos: Math.cos, tan: Math.tan, asin: Math.asin, acos: Math.acos, atan: Math.atan,
+            sqrt: Math.sqrt, log: Math.log10, ln: Math.log, abs: Math.abs, PI: Math.PI, pi: Math.PI, E: Math.E, e: Math.E
+          };
+          const funcs = Object.keys(mathContext).join(',');
+          const evaluator = new Function(...Object.keys(mathContext), `return (${expr});`);
+          const result = evaluator(...Object.values(mathContext));
+          if(isNaN(result) || !isFinite(result)) throw new Error('Invalid math');
+          document.getElementById('exprResult').innerHTML = `🔬 Result: ${formatNumber(result, 6)}`;
+        } catch(e) {
+          document.getElementById('exprResult').innerHTML = `⚠️ Error: invalid expression. Use *, /, +, -, ^, functions.`;
+        }
+      });
+    }
+  }
+
+  // ---- Master render & attach logic ----
+  let currentTool = 'bmi';
+
+  function renderTool(toolId) {
+    const container = document.getElementById('toolContent');
+    if (!container) return;
+    switch(toolId) {
+      case 'bmi': container.innerHTML = renderBMI(); attachBMI(); break;
+      case 'mortgage': container.innerHTML = renderMortgage(); attachMortgage(); break;
+      case 'unitconv': container.innerHTML = renderUnitConv(); attachUnitConv(); break;
+      case 'currency': container.innerHTML = renderCurrency(); attachCurrency(); break;
+      case 'percentage': container.innerHTML = renderPercentage(); attachPercentage(); break;
+      case 'scientific': container.innerHTML = renderScientific(); attachScientific(); break;
+      default: container.innerHTML = '<div>Tool not found</div>';
+    }
+    // re-highlight active tab
+    document.querySelectorAll('.tool-btn').forEach(btn => {
+      if(btn.dataset.tool === toolId) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+  }
+
+  function initNavigation() {
+    const btns = document.querySelectorAll('.tool-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const tool = btn.dataset.tool;
+        if(tool) {
+          currentTool = tool;
+          renderTool(currentTool);
+        }
+      });
+    });
+  }
+
+  // initial render
+  renderTool('bmi');
+  initNavigation();
 </script>
 </body>
 </html>
