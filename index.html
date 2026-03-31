@@ -6,14 +6,17 @@
     <title>MathOS Pro | Engineering Suite</title>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav id="sidebar">
     <div class="logo"><i class="fas fa-microchip"></i> MathOS<span>PRO</span></div>
+    
     <div class="nav-group">
         <div class="nav-item active" onclick="loadGrid('matric', this)">
             <i class="fas fa-graduation-cap"></i><span>Matric</span>
@@ -24,13 +27,22 @@
         <div class="nav-item" onclick="loadGrid('engg', this)">
             <i class="fas fa-atom"></i><span>Engg</span>
         </div>
+        
         <div class="nav-item mobile-only" onclick="toggleHistory()">
             <i class="fas fa-history"></i><span>History</span>
         </div>
+        <a href="about.html" class="nav-item mobile-only">
+            <i class="fas fa-info-circle"></i><span>About</span>
+        </a>
     </div>
+
     <div class="sidebar-footer desktop-only">
-        <a href="about.html" class="nav-item-link"><i class="fas fa-info-circle"></i> About Us</a>
-        <div class="nav-item" onclick="toggleHistory()"><i class="fas fa-history"></i> History</div>
+        <a href="about.html" class="nav-item-link">
+            <i class="fas fa-info-circle"></i> About Us
+        </a>
+        <div class="nav-item" onclick="toggleHistory()">
+            <i class="fas fa-history"></i> History
+        </div>
     </div>
 </nav>
 
@@ -48,7 +60,7 @@
             <a href="#" onclick="showLegal('terms')">Terms</a>
             <a href="contact.html">Contact Us</a>
         </div>
-        <p>© 2026 MathOS Pro. All systems operational.</p>
+        <p>© 2026 MathOS Pro. All Rights Reserved.</p>
     </footer>
 </main>
 
@@ -112,7 +124,9 @@
         <div id="legal-ui" style="display:none; max-height: 350px; overflow-y: auto;"></div>
         
         <div class="result-container" id="res-container">
-            <button class="copy-btn" onclick="copyResult()"><i class="far fa-copy"></i> Copy Result</button>
+            <button class="copy-btn" onclick="copyResult()">
+                <i class="far fa-copy"></i> Copy Result
+            </button>
         </div>
     </div>
 </div>
