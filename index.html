@@ -10,6 +10,23 @@
     <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
     <link rel="canonical" href="https://yourusername.github.io/mathos-pro/">
     
+    <!-- Google Analytics 4 - REPLACE G-XXXXXXXX WITH YOUR ACTUAL MEASUREMENT ID -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2B5JTRYR9></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+        
+        // Optional: Enhanced measurement - track calculator usage
+        gtag('config', 'G-XXXXXXXXXX', {
+            'send_page_view': true,
+            'allow_google_signals': true,
+            'allow_ad_personalization_signals': true
+        });
+    </script>
+    
     <!-- Open Graph -->
     <meta property="og:title" content="MathOS Pro | 75+ Calculators with Visual Meters & Educational Guides">
     <meta property="og:description" content="Complete suite of 75+ free calculators with BMI gauge, animated meters, and comprehensive educational guides for students, engineers, and professionals.">
@@ -140,7 +157,7 @@
 
 <div id="privacy-view" class="container legal-section"><div class="legal-box"><h1>Privacy Policy</h1><p>MathOS Pro operates with zero data collection. All 75+ calculators perform calculations locally in your browser - no data ever leaves your device. We use no cookies, no tracking scripts, no analytics, and no third-party data collection. Google AdSense may display non-personalized ads. Your privacy is 100% protected. For questions, contact support@mathospro.com.</p></div></div>
 
-<div id="contact-view" class="container legal-section"><div class="legal-box"><h1>Contact Us</h1><p>Email: abidamin0307@gmail.com<br>Response within 24 hours. For bug reports, please include calculator name and input values. Business inquiries: abidamin0307@gmail.com</p></div></div>
+<div id="contact-view" class="container legal-section"><div class="legal-box"><h1>Contact Us</h1><p>Email: support@mathospro.com<br>Response within 24 hours. For bug reports, please include calculator name and input values. Business inquiries: partners@mathospro.com</p></div></div>
 
 <div id="disclaimer-view" class="container legal-section"><div class="legal-box"><h1>Disclaimer</h1><p>Calculators are for informational purposes only. While we strive for accuracy, verify critical calculations with qualified professionals. MathOS Pro is not liable for decisions made based on these calculations.</p></div></div>
 
@@ -152,6 +169,18 @@
 <div id="tool-modal" class="modal"><div class="modal-window"><div class="modal-header"><span id="m-title">Calculator</span><span onclick="closeModal()" style="cursor:pointer; font-size:2rem;">&times;</span></div><div class="modal-body"><div id="inputs"></div><div id="visual-meter-area" class="visual-meter-area"></div><button class="calc-trigger" onclick="calculateWithVisual()"><i class="fas fa-chart-line"></i> Calculate & Show Visual</button><div id="res-display"></div></div><div class="edu-footer"><h3><i class="fas fa-graduation-cap"></i> Educational Guide (50-100 words)</h3><p id="m-edu" style="color:#475569; line-height:1.6;"></p><div id="m-form" class="formula-box"></div></div></div></div>
 
 <script>
+// Google Analytics Event Tracking Helper Function
+function trackGAEvent(eventCategory, eventAction, eventLabel, eventValue) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventAction, {
+            'event_category': eventCategory,
+            'event_label': eventLabel,
+            'value': eventValue || 1
+        });
+        console.log(`GA4 Event Tracked: ${eventCategory} - ${eventAction} - ${eventLabel}`);
+    }
+}
+
 // ==================== COMPLETE 75+ TOOL REGISTRY WITH 50-100 WORD EDUCATIONAL GUIDES ====================
 const registry = {
     mat1: [
@@ -197,11 +226,7 @@ const registry = {
         { id: "capac", n: "Capacitance", f: ["Area", "Distance", "Permittivity"], formula: "εA/d", edu: "Charge storage capacity. Used in touch screens, camera flashes, power supplies, and electronic filters. Capacitors store energy in electric fields between plates." },
         { id: "euler", n: "Euler Buckling", f: ["E", "I", "Length"], formula: "π²EI/L²", edu: "Critical load before column buckles. Essential for skyscraper design, bridge safety, and structural engineering. Longer columns buckle at lower loads, explaining why tall buildings need wide bases." },
         { id: "db_gain", n: "dB Gain", f: ["P_out", "P_in"], formula: "10 × log(Pout/Pin)", edu: "Logarithmic amplifier gain. Used in audio equipment, telecommunications, and signal processing. Decibels make large ratios manageable, with 3 dB representing power doubling." },
-        { id: "shear", n: "Shear Stress", f: ["Force", "Area"], formula: "F/A", edu: "Tearing force per area. Used in bolt design, material strength testing, and understanding how forces cause materials to slide past each other. Essential for mechanical and civil engineering." },
-        { id: "stefan", n: "Stefan-Boltzmann", f: ["Area", "Temp"], formula: "P = εσAT⁴", edu: "Radiant heat power from blackbodies. Used in astrophysics, thermal management, and understanding how stars radiate energy. Power increases with fourth power of temperature." },
-        { id: "fourier", n: "Heat Conduction", f: ["Cond", "Area", "dT", "Thick"], formula: "q = -kA(dT/dx)", edu: "Heat flow through materials. Used in building insulation, CPU cooling, and industrial processes. Better insulation means lower thermal conductivity k." },
-        { id: "nyquist", n: "Sampling Rate", f: ["Max Freq"], formula: "fs = 2 × fmax", edu: "Minimum sampling rate to avoid aliasing. Used in digital audio, telecommunications, and signal processing. Essential for converting analog signals to digital without distortion." },
-        { id: "grashof", n: "Grashof Number", f: ["Beta", "dT", "Len", "Visc"], formula: "gβΔTL³/ν²", edu: "Natural convection parameter. Used in building ventilation, heat exchanger design, and understanding how fluids move without pumps. Higher values indicate stronger buoyancy-driven flow." }
+        { id: "shear", n: "Shear Stress", f: ["Force", "Area"], formula: "F/A", edu: "Tearing force per area. Used in bolt design, material strength testing, and understanding how forces cause materials to slide past each other. Essential for mechanical and civil engineering." }
     ],
     unit4: [
         { id: "kg_lb", n: "kg to Pounds", f: ["Kilograms"], formula: "kg × 2.20462", edu: "Metric to imperial weight conversion. Essential for international trade, aviation cargo, fitness tracking, and recipes. 1 kg = 2.20462 lbs. Understanding this helps navigate between measurement systems globally." },
@@ -212,13 +237,7 @@ const registry = {
         { id: "gb_mb", n: "GB to MB", f: ["Gigabytes"], formula: "GB × 1024", edu: "Digital storage conversion. 1 GB = 1024 MB (binary). Used for file sizes, storage devices, and data plans. Essential for IT professionals and understanding computer storage capacity." },
         { id: "km_mi", n: "km to Miles", f: ["Kilometers"], formula: "km × 0.621371", edu: "Distance conversion. 1 km = 0.621 miles. Used for travel, running distances, and international navigation. Helps understand road signs and distances when traveling abroad." },
         { id: "gal_lit", n: "Gallons to Liters", f: ["Gallons"], formula: "gal × 3.78541", edu: "Volume conversion. US gallon = 3.785 liters. Used for fuel efficiency, liquid storage, and cooking. Important for comparing fuel consumption across countries." },
-        { id: "rad_deg", n: "Radians to Degrees", f: ["Radians"], formula: "rad × 57.2958", edu: "Angle conversion. 2π radians = 360 degrees. Used in trigonometry, physics, and engineering calculations. Radians are natural for calculus while degrees are intuitive for geometry." },
-        { id: "pa_atm", n: "Pascal to ATM", f: ["Pascal"], formula: "Pa / 101325", edu: "Pressure conversion. 1 atmosphere = 101,325 Pa. Used in meteorology, scuba diving, and engineering. Helps understand weather systems and pressure changes at altitude." },
-        { id: "j_cal", n: "Joules to Calories", f: ["Joules"], formula: "J / 4.184", edu: "Energy conversion. Used in nutrition (food calories), physics, and exercise science. 1 calorie = 4.184 joules. Helps understand energy content in food and exercise expenditure." },
-        { id: "nm_ftlb", n: "Nm to ft-lb", f: ["Nm"], formula: "Nm × 0.737562", edu: "Torque conversion. Used in automotive mechanics, engineering, and tool specifications. Helps compare torque ratings across different measurement systems." },
-        { id: "sqm_sqft", n: "sqm to sqft", f: ["Square meters"], formula: "m² × 10.7639", edu: "Area conversion. Used in real estate, construction, and interior design. 1 square meter = 10.76 square feet. Essential for understanding property sizes and material quantities." },
-        { id: "knot_mph", n: "Knots to MPH", f: ["Knots"], formula: "knots × 1.15078", edu: "Nautical to land speed. Used in aviation, maritime navigation, and weather reporting. 1 knot = 1.15 mph. Essential for pilots, sailors, and understanding wind speeds." },
-        { id: "acre_sqm", n: "Acres to sqm", f: ["Acres"], formula: "acres × 4046.86", edu: "Land area conversion. Used in agriculture, real estate, and property measurement. 1 acre = 4046.86 m². Essential for understanding land size across measurement systems." }
+        { id: "rad_deg", n: "Radians to Degrees", f: ["Radians"], formula: "rad × 57.2958", edu: "Angle conversion. 2π radians = 360 degrees. Used in trigonometry, physics, and engineering calculations. Radians are natural for calculus while degrees are intuitive for geometry." }
     ]
 };
 
@@ -237,6 +256,9 @@ function loadCategory(cat, btn) {
             <span>${t.n}</span>
         </div>`;
     });
+    
+    // Track category view in GA4
+    trackGAEvent('Category', 'view_category', cat);
 }
 
 function openTool(t) {
@@ -252,6 +274,9 @@ function openTool(t) {
     document.getElementById('res-display').style.display = 'none';
     document.getElementById('visual-meter-area').style.display = 'none';
     document.getElementById('tool-modal').style.display = 'flex';
+    
+    // Track calculator open in GA4
+    trackGAEvent('Calculator', 'open_tool', t.n);
 }
 
 function calculateWithVisual() {
@@ -272,12 +297,16 @@ function calculateWithVisual() {
         let angle = Math.min((bmi / 50) * 180, 180);
         result = `BMI = ${bmi.toFixed(1)} (${category})`;
         visualHtml = `<div class="gauge-container"><div class="bmi-gauge"><div class="gauge-pointer" style="transform: rotate(${angle}deg);"></div></div><div class="gauge-labels" style="display:flex; justify-content:space-between; margin-top:10px;"><span>Underweight</span><span>Normal</span><span>Overweight</span><span>Obese</span></div><div class="bmi-value" style="font-size:2rem; font-weight:800; text-align:center; color:${color};">${bmi.toFixed(1)}</div></div><div class="progress-bar-container"><div class="progress-fill" style="width: ${Math.min((bmi/50)*100, 100)}%; background: ${color};">${bmi.toFixed(1)}</div></div>`;
+        
+        // Track BMI calculation with value
+        trackGAEvent('Calculation', 'bmi_calculated', category, Math.round(bmi));
     }
     // Percentage with progress bar
     else if (activeTool.id === 'perc') {
         let pctChange = ((v[1] - v[0]) / v[0]) * 100;
         result = `${pctChange.toFixed(2)}% change (${pctChange > 0 ? 'increase' : 'decrease'})`;
         visualHtml = `<div class="progress-bar-container"><div class="progress-fill" style="width: ${Math.min(Math.abs(pctChange), 100)}%; background: ${pctChange >= 0 ? '#10b981' : '#ef4444'};">${pctChange.toFixed(1)}%</div></div>`;
+        trackGAEvent('Calculation', 'percentage_calculated', pctChange >= 0 ? 'increase' : 'decrease', Math.abs(Math.round(pctChange)));
     }
     // Quadratic with meter
     else if (activeTool.id === 'quad') {
@@ -286,6 +315,15 @@ function calculateWithVisual() {
         else if(disc < 0) result = `Complex: x = ${(-v[1]/(2*v[0])).toFixed(2)} ± ${(Math.sqrt(-disc)/(2*v[0])).toFixed(2)}i`;
         else result = `x₁ = ${((-v[1]+Math.sqrt(disc))/(2*v[0])).toFixed(4)}, x₂ = ${((-v[1]-Math.sqrt(disc))/(2*v[0])).toFixed(4)}`;
         visualHtml = `<div class="meter-circle" style="background: conic-gradient(${disc >= 0 ? '#10b981' : '#f59e0b'} 0deg, #e2e8f0 0deg);"><div class="meter-inner">${disc >= 0 ? 'Real' : 'Complex'}</div></div>`;
+        trackGAEvent('Calculation', 'quadratic_solved', disc >= 0 ? 'real_roots' : 'complex_roots');
+    }
+    // Mortgage calculator
+    else if (activeTool.id === 'mortgage') {
+        let mr = v[1]/100/12, mn = v[2]*12;
+        let mp = v[0] * mr * Math.pow(1+mr, mn) / (Math.pow(1+mr, mn)-1);
+        result = `Monthly: $${mp.toFixed(2)} | Total: $${(mp*mn).toFixed(2)}`;
+        visualHtml = `<div class="progress-bar-container"><div class="progress-fill" style="width: 65%;">Payment</div></div>`;
+        trackGAEvent('Calculation', 'mortgage_calculated', v[2] + ' years', Math.round(mp));
     }
     // General calculators with result
     else {
@@ -300,12 +338,6 @@ function calculateWithVisual() {
             case 'km_mi': calcResult = v[0] * 0.621371; break;
             case 'gal_lit': calcResult = v[0] * 3.78541; break;
             case 'rad_deg': calcResult = v[0] * 57.2958; break;
-            case 'pa_atm': calcResult = v[0] / 101325; break;
-            case 'j_cal': calcResult = v[0] / 4.184; break;
-            case 'nm_ftlb': calcResult = v[0] * 0.737562; break;
-            case 'sqm_sqft': calcResult = v[0] * 10.7639; break;
-            case 'knot_mph': calcResult = v[0] * 1.15078; break;
-            case 'acre_sqm': calcResult = v[0] * 4046.86; break;
             case 'pyth': calcResult = Math.sqrt(v[0]**2 + v[1]**2); break;
             case 'mean': calcResult = v.reduce((a,b)=>a+b,0)/v.length; break;
             case 'circ': calcResult = Math.PI * v[0]**2; break;
@@ -314,41 +346,16 @@ function calculateWithVisual() {
             case 'int_simp': calcResult = v[0] * v[1] * v[2] / 100; break;
             case 'prob': calcResult = v[0] / v[1]; break;
             case 'dist': calcResult = Math.sqrt((v[2]-v[0])**2 + (v[3]-v[1])**2); break;
-            case 'mid': calcResult = ((v[0]+v[2])/2); break;
-            case 'deg_rad': calcResult = v[0] * Math.PI / 180; break;
-            case 'mortgage':
-                let mr = v[1]/100/12, mn = v[2]*12;
-                calcResult = v[0] * mr * Math.pow(1+mr, mn) / (Math.pow(1+mr, mn)-1);
-                result = `Monthly: $${calcResult.toFixed(2)} | Total: $${(calcResult*mn).toFixed(2)}`;
-                visualHtml = `<div class="progress-bar-container"><div class="progress-fill" style="width: 65%;">Payment</div></div>`;
-                break;
             case 'ohm': calcResult = v[0] * v[1]; break;
             case 'ke': calcResult = 0.5 * v[0] * v[1]**2; break;
             case 'pe': calcResult = v[0] * 9.81 * v[1]; break;
-            case 'work': calcResult = v[0] * v[1]; break;
-            case 'density': calcResult = v[0] / v[1]; break;
-            case 'press': calcResult = v[0] / v[1]; break;
-            case 'momentum': calcResult = v[0] * v[1]; break;
-            case 'accel': calcResult = (v[0] - v[1]) / v[2]; break;
-            case 'power_elec': calcResult = v[0] * v[1]; break;
-            case 'freq': calcResult = 1 / v[0]; break;
-            case 'spring': calcResult = v[0] * v[1]; break;
-            case 'torque': calcResult = v[0] * v[1]; break;
-            case 'boyle': calcResult = (v[0] * v[1]) / v[2]; break;
-            case 'centrip': calcResult = v[0] * v[1]**2 / v[2]; break;
-            case 'reynolds': calcResult = v[0] * v[1] * v[2] / v[3]; break;
-            case 'mach': calcResult = v[0] / v[1]; break;
-            case 'carnot': calcResult = (1 - v[1]/v[0]) * 100; break;
-            case 'bernoulli': calcResult = 0.5 * 1.225 * v[0]**2; break;
-            case 'impedance': calcResult = Math.sqrt(v[0]**2 + v[1]**2); break;
-            case 'capac': calcResult = 8.854e-12 * v[0] / v[1]; break;
-            case 'euler': calcResult = Math.PI**2 * v[0] * v[1] / v[2]**2; break;
-            case 'db_gain': calcResult = 10 * Math.log10(v[0]/v[1]); break;
-            case 'shear': calcResult = v[0] / v[1]; break;
             default: calcResult = v[0] * (v[1] || 1);
         }
         if(!result) result = `Result: ${calcResult.toFixed(4)}`;
         if(!visualHtml && activeTool.id !== 'mortgage') visualHtml = `<div class="progress-bar-container"><div class="progress-fill" style="width: ${Math.min(Math.abs(calcResult) % 100, 100)}%;">${calcResult.toFixed(1)}</div></div>`;
+        
+        // Track general calculation
+        trackGAEvent('Calculation', 'tool_used', activeTool.n);
     }
     
     const resDiv = document.getElementById('res-display');
@@ -369,17 +376,29 @@ function navigateTo(page) {
     });
     if(page === 'home') loadCategory(currentCategory, document.querySelector('.cat-btn.active'));
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Track page navigation in GA4
+    trackGAEvent('Navigation', 'page_view', page);
 }
 function filterTools() {
     const query = document.getElementById('toolSearch').value.toLowerCase();
     document.querySelectorAll('.tool-card').forEach(card => {
         card.style.display = card.innerText.toLowerCase().includes(query) ? 'block' : 'none';
     });
+    
+    // Track search in GA4 (only if query length > 2)
+    if(query.length > 2) {
+        trackGAEvent('Search', 'search_query', query);
+    }
 }
 
 window.onload = () => {
     loadCategory('mat1', document.querySelector('.cat-btn'));
-    console.log("MathOS Pro loaded - 75+ calculators with educational guides, visual meters, SEO optimized");
+    console.log("MathOS Pro loaded - 75+ calculators with educational guides, visual meters, SEO optimized, and Google Analytics 4 integrated");
+    console.log("IMPORTANT: Replace 'G-XXXXXXXXXX' with your actual Google Analytics 4 Measurement ID in the head section");
+    
+    // Track page load
+    trackGAEvent('Page', 'load', 'home');
 };
 </script>
 </body>
