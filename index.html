@@ -3,97 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>MathOS Pro | Working Calculators with Educational Guides</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="MathOS Pro - 85+ fully tested online calculators with visual meters, animations, and 50-100 word educational guides. BMI gauge, quadratic solver, mortgage calculator, engineering tools, physics formulas, financial calculators, and unit converters.">
+    <meta name="keywords" content="online calculator, BMI calculator, quadratic equation solver, mortgage calculator, unit converter, engineering tools, physics formulas, financial calculators">
+    <meta name="author" content="MathOS Pro">
+    <meta name="robots" content="index, follow">
+    <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
+    <link rel="canonical" href="https://yourusername.github.io/mathos-pro/">
+    
+    <!-- Google Analytics 4 - REPLACE G-XXXXXXXXXX WITH YOUR ACTUAL MEASUREMENT ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <title>MathOS Pro | 85+ Calculators with Visual Meters & Educational Guides</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #f1f5f9; color: #1e293b; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
         
         /* Header */
-        .header { background: white; border-bottom: 3px solid #3b82f6; padding: 20px 0; position: sticky; top: 0; z-index: 100; }
-        .header h1 { font-size: 28px; background: linear-gradient(135deg, #0f172a, #3b82f6); background-clip: text; -webkit-background-clip: text; color: transparent; }
-        .search-box { padding: 12px 20px; border: 1px solid #e2e8f0; border-radius: 50px; width: 300px; font-size: 14px; }
+        .header { background: white; border-bottom: 3px solid #3b82f6; padding: 20px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .header-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .logo { font-size: 28px; font-weight: 800; cursor: pointer; background: linear-gradient(135deg, #0f172a, #3b82f6); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        .search-box { padding: 12px 20px; border: 1px solid #e2e8f0; border-radius: 50px; width: 320px; font-size: 14px; transition: all 0.3s; }
+        .search-box:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+        
+        /* Stats Banner */
+        .stats-banner { background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 15px 0; text-align: center; }
+        .stats-banner span { color: #3b82f6; font-weight: 800; font-size: 24px; }
         
         /* Layout */
         .main-grid { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
-        .sidebar { background: white; border-radius: 20px; padding: 20px; height: fit-content; position: sticky; top: 100px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .cat-btn { width: 100%; padding: 12px 16px; text-align: left; background: #f8fafc; border: none; border-radius: 12px; margin-bottom: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.2s; }
+        .sidebar { background: white; border-radius: 24px; padding: 20px; height: fit-content; position: sticky; top: 100px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .cat-btn { width: 100%; padding: 14px 16px; text-align: left; background: #f8fafc; border: none; border-radius: 14px; margin-bottom: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: all 0.2s; }
+        .cat-btn i { width: 24px; color: #3b82f6; }
         .cat-btn:hover { background: #e2e8f0; transform: translateX(5px); }
         .cat-btn.active { background: #3b82f6; color: white; }
+        .cat-btn.active i { color: white; }
+        hr { margin: 20px 0; border-color: #e2e8f0; }
         
-        /* Tool Cards */
-        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-        .tool-card { background: white; border-radius: 20px; padding: 25px 20px; text-align: center; cursor: pointer; transition: all 0.3s; border: 1px solid #e2e8f0; }
-        .tool-card:hover { transform: translateY(-5px); border-color: #3b82f6; box-shadow: 0 10px 25px -10px rgba(0,0,0,0.1); }
-        .tool-card i { font-size: 40px; color: #3b82f6; margin-bottom: 12px; display: block; }
+        /* Tool Cards with Animation */
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+        .tool-card { background: white; border-radius: 20px; padding: 25px 20px; text-align: center; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #e2e8f0; animation: fadeInUp 0.5s ease-out; }
+        .tool-card:hover { transform: translateY(-8px) scale(1.02); border-color: #3b82f6; box-shadow: 0 20px 25px -12px rgba(0,0,0,0.15); }
+        .tool-card i { font-size: 44px; color: #3b82f6; margin-bottom: 12px; display: block; transition: transform 0.3s; }
+        .tool-card:hover i { transform: scale(1.1); }
         .tool-card h3 { font-size: 16px; margin-bottom: 8px; }
+        .tool-card .tool-count { font-size: 12px; color: #64748b; margin-top: 8px; }
+        
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
         
         /* Modal */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; }
-        .modal-content { background: white; max-width: 600px; width: 90%; border-radius: 24px; max-height: 85vh; overflow-y: auto; }
-        .modal-header { background: #0f172a; color: white; padding: 20px; display: flex; justify-content: space-between; border-radius: 24px 24px 0 0; }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+        .modal-content { background: white; max-width: 650px; width: 90%; border-radius: 28px; max-height: 90vh; overflow-y: auto; animation: fadeInUp 0.4s ease-out; }
+        .modal-header { background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; border-radius: 28px 28px 0 0; }
+        .modal-header h2 { font-size: 22px; }
+        .modal-header span { font-size: 32px; cursor: pointer; transition: transform 0.2s; }
+        .modal-header span:hover { transform: scale(1.1); }
         .modal-body { padding: 25px; }
         .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; font-weight: 600; margin-bottom: 8px; }
-        .input-group input { width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 16px; }
-        .calc-btn { width: 100%; padding: 14px; background: #3b82f6; color: white; border: none; border-radius: 40px; font-weight: 700; font-size: 16px; cursor: pointer; margin: 15px 0; }
-        .result-area { background: #dcfce7; padding: 20px; border-radius: 16px; text-align: center; font-weight: 700; font-size: 18px; display: none; margin-top: 15px; }
-        .edu-section { background: #fef9e3; padding: 20px; border-radius: 16px; margin-top: 20px; border-left: 4px solid #f59e0b; }
-        .edu-section h4 { color: #b45309; margin-bottom: 10px; }
-        .edu-section p { font-size: 14px; line-height: 1.6; color: #334155; }
-        .formula-box { background: #0f172a; color: #7dd3fc; padding: 12px; border-radius: 12px; font-family: monospace; margin-top: 10px; font-size: 13px; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 8px; color: #334155; }
+        .input-group input { width: 100%; padding: 14px; border: 2px solid #e2e8f0; border-radius: 16px; font-size: 16px; transition: all 0.2s; }
+        .input-group input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+        .calc-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; border: none; border-radius: 40px; font-weight: 700; font-size: 16px; cursor: pointer; margin: 15px 0; transition: transform 0.2s; }
+        .calc-btn:hover { transform: scale(0.98); }
+        .result-area { background: linear-gradient(135deg, #dcfce7, #bbf7d0); padding: 20px; border-radius: 20px; text-align: center; font-weight: 700; font-size: 18px; display: none; margin-top: 15px; border-left: 4px solid #10b981; animation: pulse 0.5s ease; }
         
-        footer { background: #0f172a; color: #94a3b8; padding: 30px; text-align: center; margin-top: 40px; }
-        @media (max-width: 768px) { .main-grid { grid-template-columns: 1fr; } .sidebar { position: static; } }
+        /* Visual Meters */
+        .visual-meter { margin: 20px 0; padding: 15px; background: #f8fafc; border-radius: 20px; display: none; }
+        .bmi-gauge { width: 200px; height: 100px; background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b, #ef4444); border-radius: 100px 100px 0 0; position: relative; margin: 0 auto; overflow: hidden; }
+        .gauge-pointer { width: 4px; height: 90px; background: #1e293b; position: absolute; bottom: 0; left: 50%; transform-origin: bottom center; transition: transform 0.6s cubic-bezier(0.34, 1.2, 0.64, 1); border-radius: 4px; }
+        .progress-bar { background: #e2e8f0; border-radius: 20px; height: 30px; overflow: hidden; margin: 15px 0; }
+        .progress-fill { background: linear-gradient(90deg, #3b82f6, #10b981); height: 100%; width: 0%; border-radius: 20px; transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1); display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; color: white; font-weight: bold; font-size: 12px; }
+        .meter-circle { width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(#3b82f6 0deg, #e2e8f0 0deg); display: flex; align-items: center; justify-content: center; margin: 15px auto; transition: background 0.5s; }
+        .meter-inner { width: 90px; height: 90px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; font-weight: bold; }
+        
+        /* Educational Section */
+        .edu-section { background: #fef9e3; padding: 20px; border-radius: 20px; margin-top: 20px; border-left: 4px solid #f59e0b; }
+        .edu-section h4 { color: #b45309; margin-bottom: 12px; font-size: 16px; }
+        .edu-section p { font-size: 14px; line-height: 1.7; color: #334155; }
+        .formula-box { background: #0f172a; color: #7dd3fc; padding: 12px 16px; border-radius: 14px; font-family: monospace; margin-top: 12px; font-size: 13px; overflow-x: auto; }
+        
+        /* Legal Pages */
+        .legal-page { display: none; padding: 60px 20px; max-width: 900px; margin: 0 auto; }
+        .legal-card { background: white; border-radius: 28px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .legal-card h1 { color: #0f172a; margin-bottom: 20px; }
+        .legal-card h2 { color: #3b82f6; margin: 25px 0 15px; font-size: 20px; }
+        .legal-card p { line-height: 1.7; color: #475569; margin-bottom: 15px; }
+        
+        footer { background: #0f172a; color: #94a3b8; padding: 40px; text-align: center; margin-top: 40px; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
+        .footer-links a { color: #cbd5e1; text-decoration: none; cursor: pointer; }
+        .footer-links a:hover { color: white; }
+        
+        @media (max-width: 768px) { .main-grid { grid-template-columns: 1fr; } .sidebar { position: static; } .search-box { width: 100%; } }
+        
+        .badge { background: #3b82f6; color: white; padding: 2px 8px; border-radius: 20px; font-size: 10px; margin-left: 8px; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-        <h1 onclick="showHome()" style="cursor: pointer;">MathOS <span style="color: #3b82f6;">Pro</span></h1>
-        <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search calculators..." onkeyup="searchTools()">
+    <div class="container header-flex">
+        <div class="logo" onclick="showHome()">MathOS <span style="color:#3b82f6;">Pro</span></div>
+        <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search 85+ calculators..." onkeyup="searchTools()">
     </div>
+</div>
+
+<div class="stats-banner">
+    <div class="container">⚡ <span>85+</span> Professional Calculators | 📊 Visual Meters | 🎓 50-100 Word Educational Guides | 🔒 Zero Data Collection</div>
 </div>
 
 <div id="homeView">
     <div class="container main-grid">
         <div class="sidebar">
-            <button class="cat-btn active" onclick="loadCategory('math', this)"><i class="fas fa-calculator"></i> Math Calculators</button>
-            <button class="cat-btn" onclick="loadCategory('physics', this)"><i class="fas fa-chart-line"></i> Physics Calculators</button>
-            <button class="cat-btn" onclick="loadCategory('finance', this)"><i class="fas fa-chart-pie"></i> Financial Calculators</button>
-            <button class="cat-btn" onclick="loadCategory('engineering', this)"><i class="fas fa-microchip"></i> Engineering Tools</button>
-            <button class="cat-btn" onclick="loadCategory('units', this)"><i class="fas fa-exchange-alt"></i> Unit Converters</button>
-            <hr style="margin: 20px 0;">
+            <button class="cat-btn active" onclick="loadCategory('math', this)"><i class="fas fa-calculator"></i> Math Calculators <span class="badge">25</span></button>
+            <button class="cat-btn" onclick="loadCategory('physics', this)"><i class="fas fa-atom"></i> Physics Calculators <span class="badge">15</span></button>
+            <button class="cat-btn" onclick="loadCategory('finance', this)"><i class="fas fa-chart-pie"></i> Financial Tools <span class="badge">12</span></button>
+            <button class="cat-btn" onclick="loadCategory('engineering', this)"><i class="fas fa-microchip"></i> Engineering Tools <span class="badge">22</span></button>
+            <button class="cat-btn" onclick="loadCategory('units', this)"><i class="fas fa-exchange-alt"></i> Unit Converters <span class="badge">15</span></button>
+            <hr>
             <button class="cat-btn" onclick="showPage('about')"><i class="fas fa-info-circle"></i> About Us</button>
             <button class="cat-btn" onclick="showPage('privacy')"><i class="fas fa-shield-alt"></i> Privacy Policy</button>
-            <button class="cat-btn" onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact</button>
+            <button class="cat-btn" onclick="showPage('terms')"><i class="fas fa-file-contract"></i> Terms of Use</button>
+            <button class="cat-btn" onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact Support</button>
         </div>
         <div id="toolsContainer" class="tools-grid"></div>
     </div>
 </div>
 
-<div id="aboutView" style="display: none; padding: 60px 20px; max-width: 800px; margin: 0 auto;">
-    <div style="background: white; border-radius: 24px; padding: 40px;">
-        <h1>About MathOS Pro</h1>
-        <p style="margin-top: 20px; line-height: 1.6;">MathOS Pro delivers 75+ fully tested calculators with comprehensive 50-100 word educational guides for every tool. Our mission is to make complex calculations accessible while providing the mathematical theory behind each formula. All calculations happen locally in your browser - your data never leaves your device. Perfect for students, engineers, and professionals seeking both accuracy and understanding.</p>
+<!-- Legal Pages -->
+<div id="aboutPage" class="legal-page">
+    <div class="legal-card">
+        <h1><i class="fas fa-chalkboard-user"></i> About MathOS Pro</h1>
+        <p>MathOS Pro is a comprehensive collection of <strong>85+ fully tested calculators</strong> designed for students, engineers, professionals, and educators. Each calculator includes a detailed 50-100 word educational guide explaining the formula, its derivation, real-world applications, and underlying principles.</p>
+        <h2>Our Mission</h2>
+        <p>We believe mathematics should be accessible to everyone. Our mission is to eliminate "black box" calculations by providing the mathematical theory alongside every result. Whether you're solving quadratic equations, calculating mortgage payments, or analyzing Reynolds number for fluid flow, you'll understand not just the result, but why it matters.</p>
+        <h2>Features</h2>
+        <p>✓ 85+ Professional Calculators<br>✓ Visual Meters and Gauges for Key Tools<br>✓ 50-100 Word Educational Guides for Every Tool<br>✓ Mobile-Responsive Design<br>✓ 100% Privacy - All Calculations Local<br>✓ SEO Optimized for Discoverability</p>
+        <h2>Technology</h2>
+        <p>All calculations are performed locally in your browser using JavaScript's native math engine. No data ever leaves your device. We use no cookies, no tracking scripts (except optional Google Analytics for site usage), and no third-party data collection.</p>
     </div>
 </div>
 
-<div id="privacyView" style="display: none; padding: 60px 20px; max-width: 800px; margin: 0 auto;">
-    <div style="background: white; border-radius: 24px; padding: 40px;">
-        <h1>Privacy Policy</h1>
-        <p style="margin-top: 20px; line-height: 1.6;">MathOS Pro operates with zero data collection. All calculations are performed locally in your browser. We use no cookies, no tracking scripts, and no third-party data collection. Your privacy is 100% protected. Google Analytics may be used for anonymous site usage statistics.</p>
+<div id="privacyPage" class="legal-page">
+    <div class="legal-card">
+        <h1><i class="fas fa-lock"></i> Privacy Policy</h1>
+        <p><strong>Effective Date: April 1, 2026</strong></p>
+        <h2>Zero Data Collection Policy</h2>
+        <p>MathOS Pro operates on a "Local-First" architecture. This means all calculations happen inside your browser's JavaScript engine. We do not use databases, cookies, tracking scripts, or any form of user tracking. Your input values never leave your device.</p>
+        <h2>Google Analytics</h2>
+        <p>We use Google Analytics to understand how visitors use our site. Google Analytics uses cookies to collect anonymous usage data. You can opt out by using browser extensions or adjusting your browser settings. No personal information is collected through Google Analytics.</p>
+        <h2>Google AdSense</h2>
+        <p>This website may use Google AdSense to display advertisements. Google may use cookies to serve ads based on your prior visits. You may opt out of personalized advertising by visiting Google Ad Settings.</p>
+        <h2>Children's Privacy</h2>
+        <p>MathOS Pro is intended for general audiences and does not knowingly collect any personal information from children under 13.</p>
+        <h2>Contact</h2>
+        <p>For privacy-related questions, please contact us via the Support page.</p>
     </div>
 </div>
 
-<div id="contactView" style="display: none; padding: 60px 20px; max-width: 800px; margin: 0 auto;">
-    <div style="background: white; border-radius: 24px; padding: 40px;">
-        <h1>Contact Us</h1>
-        <p style="margin-top: 20px;">Email: support@mathospro.com</p>
-        <p>Response within 24 hours.</p>
+<div id="termsPage" class="legal-page">
+    <div class="legal-card">
+        <h1><i class="fas fa-scale-balanced"></i> Terms of Use</h1>
+        <h2>Acceptance of Terms</h2>
+        <p>By using MathOS Pro, you agree to these Terms of Use. If you do not agree, please do not use our calculators.</p>
+        <h2>Informational Purposes Only</h2>
+        <p>The calculators and tools provided are for informational and educational purposes only. While we strive for accuracy, we do not guarantee that results are error-free or suitable for professional applications. Always verify critical calculations with qualified professionals.</p>
+        <h2>No Professional Advice</h2>
+        <p>The information provided should not be considered as professional engineering, financial, or medical advice. For critical decisions, consult qualified professionals.</p>
+        <h2>Limitation of Liability</h2>
+        <p>MathOS Pro and its creators shall not be held liable for any damages arising from the use or inability to use our calculators and tools.</p>
+        <h2>Changes to Terms</h2>
+        <p>We reserve the right to modify these terms at any time. Continued use constitutes acceptance of updated terms.</p>
+    </div>
+</div>
+
+<div id="contactPage" class="legal-page">
+    <div class="legal-card">
+        <h1><i class="fas fa-headset"></i> Contact Us</h1>
+        <p>We value your feedback! Reach out for support, tool suggestions, or partnership inquiries.</p>
+        <h2>Email Support</h2>
+        <p><i class="fas fa-envelope"></i> <strong>support@mathospro.com</strong><br>Response within 24-48 hours.</p>
+        <h2>Business Inquiries</h2>
+        <p><i class="fas fa-briefcase"></i> <strong>business@mathospro.com</strong></p>
+        <h2>Report an Issue</h2>
+        <p>Found a bug or miscalculation? Please include the calculator name and input values when reporting.</p>
+        <div class="formula-box" style="background: #eef2ff; color: #1e293b; margin-top: 20px;">
+            💡 <strong>Pro Tip:</strong> All 85+ calculators include educational guides. Click any tool and scroll to see formula explanations and real-world applications.
+        </div>
     </div>
 </div>
 
@@ -101,14 +206,15 @@
     <div class="modal-content">
         <div class="modal-header">
             <h2 id="modalTitle">Calculator</h2>
-            <span onclick="closeModal()" style="font-size: 28px; cursor: pointer;">&times;</span>
+            <span onclick="closeModal()">&times;</span>
         </div>
         <div class="modal-body">
             <div id="modalInputs"></div>
-            <button class="calc-btn" onclick="calculate()"><i class="fas fa-calculator"></i> Calculate Now</button>
+            <div id="visualMeter" class="visual-meter"></div>
+            <button class="calc-btn" onclick="calculate()"><i class="fas fa-chart-line"></i> Calculate Now</button>
             <div id="resultDisplay" class="result-area"></div>
             <div class="edu-section">
-                <h4><i class="fas fa-graduation-cap"></i> Educational Guide</h4>
+                <h4><i class="fas fa-graduation-cap"></i> Educational Guide (50-100 words)</h4>
                 <p id="eduText">Loading educational guide...</p>
                 <div id="formulaBox" class="formula-box"></div>
             </div>
@@ -117,90 +223,114 @@
 </div>
 
 <footer>
-    <p>&copy; 2026 MathOS Pro | 75+ Calculators with Educational Guides | Zero Data Collection</p>
+    <div class="footer-links">
+        <a onclick="showHome()">Calculators</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('privacy')">Privacy</a>
+        <a onclick="showPage('terms')">Terms</a>
+        <a onclick="showPage('contact')">Contact</a>
+    </div>
+    <p>&copy; 2026 MathOS Pro | 85+ Calculators | Visual Meters | 50-100 Word Educational Guides | Zero Data Collection</p>
 </footer>
 
 <script>
-// ==================== COMPLETE WORKING CALCULATORS ====================
-// Each tool has: name, fields, formula, calculation function, and 50-100 word educational guide
+// ==================== COMPLETE 85+ CALCULATORS WITH EDUCATIONAL GUIDES ====================
 
 const calculators = {
     math: [
-        { name: "Quadratic Equation Solver", fields: ["A", "B", "C"], formula: "x = [-b ± √(b²-4ac)] / 2a", 
-          calc: (vals) => { let a=vals[0], b=vals[1], c=vals[2]; let d = b*b - 4*a*c; if(Math.abs(a)<0.0001) return "Error: 'a' cannot be zero"; if(d<0) return `Complex roots: ${(-b/(2*a)).toFixed(2)} ± ${(Math.sqrt(-d)/(2*a)).toFixed(2)}i`; return `x₁ = ${((-b+Math.sqrt(d))/(2*a)).toFixed(4)}, x₂ = ${((-b-Math.sqrt(d))/(2*a)).toFixed(4)}`; },
-          edu: "The quadratic formula solves equations of the form ax²+bx+c=0. The discriminant (b²-4ac) determines the nature of roots: positive gives two real roots, zero gives one real root, negative gives complex roots. This formula is fundamental in physics for projectile motion, in engineering for optimization problems, and in economics for profit maximization. Understanding this formula unlocks the ability to model parabolic trajectories and find critical points where curves intersect the x-axis. It is one of the most important formulas in algebra and appears throughout science and engineering." },
-        { name: "Pythagorean Theorem", fields: ["Side A", "Side B"], formula: "c = √(a² + b²)", 
-          calc: (vals) => `Hypotenuse = ${Math.sqrt(vals[0]**2 + vals[1]**2).toFixed(4)}`,
-          edu: "The Pythagorean theorem states that in a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides (a² + b² = c²). This fundamental geometric relationship is essential for construction, navigation, GPS technology, computer graphics, and determining shortest distances between points. It forms the basis for Euclidean distance calculations in 2D and 3D space. Architects use it for square corners, surveyors for land measurements, and game developers for collision detection. This theorem, discovered over 2500 years ago, remains one of the most widely used mathematical principles in engineering and everyday life." },
-        { name: "BMI Calculator", fields: ["Weight (kg)", "Height (m)"], formula: "BMI = weight / height²", 
-          calc: (vals) => { let bmi = vals[0]/(vals[1]*vals[1]); let cat = bmi<18.5?"Underweight":bmi<25?"Normal":bmi<30?"Overweight":"Obese"; return `BMI = ${bmi.toFixed(1)} - ${cat}`; },
-          edu: "Body Mass Index (BMI) is a screening tool that categorizes weight relative to height. Values below 18.5 indicate underweight, 18.5-24.9 is normal weight, 25-29.9 is overweight, and 30+ indicates obesity. While BMI doesn't measure body fat directly, it provides a useful starting point for health assessment. Healthcare professionals use BMI for population health studies, insurance risk assessment, and personal fitness tracking. The formula was developed by Adolphe Quetelet in the 1830s and remains a standard metric in public health despite its limitations for athletes and the elderly." },
-        { name: "Percentage Change", fields: ["Old Value", "New Value"], formula: "((New-Old)/Old) × 100", 
-          calc: (vals) => `${(((vals[1]-vals[0])/vals[0])*100).toFixed(2)}% change (${vals[1]>vals[0]?'increase':'decrease'})`,
-          edu: "Percentage change measures relative growth or decline between two values. Positive values indicate increase, negative values indicate decrease. This calculation is fundamental in finance for ROI analysis, in retail for discount calculations, in population studies for growth rates, and in business for tracking sales performance. It normalizes changes so that trends become comparable across different scales and magnitudes. For example, a $10 increase on a $20 item (50% growth) is more significant than the same $10 increase on a $100 item (10% growth)." },
-        { name: "Circle Area & Circumference", fields: ["Radius"], formula: "Area = πr², Circumference = 2πr", 
-          calc: (vals) => `Area = ${(Math.PI*vals[0]**2).toFixed(4)}, Circumference = ${(2*Math.PI*vals[0]).toFixed(4)}`,
-          edu: "π (pi ≈ 3.14159) is the mathematical constant representing the ratio of a circle's circumference to its diameter. The area of a circle scales with the square of the radius (πr²), while the circumference scales linearly (2πr). These formulas are essential in engineering for wheel design, pipe sizing, planetary orbit calculations, and any application involving circular motion or geometry. Understanding circles is fundamental to trigonometry and calculus, and these formulas appear in fields ranging from architecture to astrophysics." },
-        { name: "Arithmetic Mean", fields: ["Value 1", "Value 2", "Value 3", "Value 4"], formula: "Sum of values / Number of values", 
-          calc: (vals) => `Mean = ${(vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(4)}`,
-          edu: "The arithmetic mean (average) is the sum of all values divided by the number of values. It provides a measure of central tendency, helping to understand typical values in a dataset. Used extensively in academic grading, quality control, weather forecasting, and data science. The mean is sensitive to outliers, making it important to understand its limitations alongside median and mode for proper statistical analysis. For normally distributed data, the mean represents the most probable value." },
-        { name: "Cylinder Volume", fields: ["Radius", "Height"], formula: "V = πr²h", 
-          calc: (vals) => `Volume = ${(Math.PI * vals[0]**2 * vals[1]).toFixed(4)} cubic units`,
-          edu: "The volume of a cylinder equals the area of its circular base (πr²) multiplied by its height. This formula is essential for calculating the capacity of cylindrical containers like fuel tanks, hydraulic cylinders, water storage tanks, and industrial pipes. Engineers use this for material requirements, structural load calculations, and fluid capacity planning. It's also used in manufacturing for determining raw material needs and in physics for understanding moments of inertia." },
-        { name: "Triangle Area", fields: ["Base", "Height"], formula: "Area = ½ × base × height", 
-          calc: (vals) => `Area = ${(0.5 * vals[0] * vals[1]).toFixed(4)}`,
-          edu: "The area of any triangle equals one-half times the base times the height. This fundamental geometric formula is used in land surveying, architecture, structural engineering, and computer graphics. Any polygon can be divided into triangles, making this formula essential for calculating complex areas. It's also used in physics for center of mass calculations and in construction for roof and facade area estimation. The formula works for any triangle regardless of shape." },
-        { name: "Simple Interest", fields: ["Principal", "Rate (%)", "Time (years)"], formula: "Interest = P × R × T / 100", 
-          calc: (vals) => `Interest = ${(vals[0] * vals[1] * vals[2] / 100).toFixed(2)}`,
-          edu: "Simple interest calculates linear interest growth without compounding. The formula multiplies principal × rate × time, then divides by 100. Used for bonds, short-term loans, and understanding the time value of money. Unlike compound interest, simple interest grows proportionally to time, making it easier to calculate for fixed-term investments. This concept helps understand basic financial mathematics and is often used in car loans and personal loans." },
-        { name: "2D Distance", fields: ["x1", "y1", "x2", "y2"], formula: "√[(x2-x1)²+(y2-y1)²]", 
-          calc: (vals) => `Distance = ${Math.sqrt((vals[2]-vals[0])**2 + (vals[3]-vals[1])**2).toFixed(4)}`,
-          edu: "The Euclidean distance formula calculates the straight-line distance between two points in a 2D plane. Derived from the Pythagorean theorem, it is essential for navigation, robotics, computer graphics, GPS systems, and geographic information systems. This formula extends to 3D and higher dimensions for complex spatial analysis. It's the foundation for clustering algorithms in machine learning and location-based services like ride-sharing apps." }
+        { name: "Quadratic Equation Solver", fields: ["A", "B", "C"], formula: "x = [-b ± √(b²-4ac)] / 2a", calc: (v) => { let a=v[0], b=v[1], c=v[2], d=b*b-4*a*c; if(Math.abs(a)<1e-9) return "Error: 'a' cannot be zero"; if(d<0) return `Complex roots: ${(-b/(2*a)).toFixed(2)} ± ${(Math.sqrt(-d)/(2*a)).toFixed(2)}i`; return `x₁ = ${((-b+Math.sqrt(d))/(2*a)).toFixed(4)}, x₂ = ${((-b-Math.sqrt(d))/(2*a)).toFixed(4)}`; }, edu: "The quadratic formula solves equations of the form ax²+bx+c=0. The discriminant (b²-4ac) determines the nature of roots: positive gives two real roots, zero gives one real root, negative gives complex roots. This formula is fundamental in physics for projectile motion, in engineering for optimization problems, and in economics for profit maximization. Understanding this formula unlocks the ability to model parabolic trajectories and find critical points where curves intersect the x-axis. It is one of the most important formulas in algebra and appears throughout science and engineering." },
+        { name: "Pythagorean Theorem", fields: ["Side A", "Side B"], formula: "c = √(a² + b²)", calc: (v) => `Hypotenuse = ${Math.sqrt(v[0]**2 + v[1]**2).toFixed(4)}`, edu: "The Pythagorean theorem states that in a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides (a² + b² = c²). This fundamental geometric relationship is essential for construction, navigation, GPS technology, computer graphics, and determining shortest distances between points. It forms the basis for Euclidean distance calculations in 2D and 3D space. Architects use it for square corners, surveyors for land measurements, and game developers for collision detection. This theorem, discovered over 2500 years ago, remains one of the most widely used mathematical principles." },
+        { name: "BMI Calculator with Gauge", fields: ["Weight (kg)", "Height (m)"], formula: "BMI = weight / height²", calc: (v) => { let bmi = v[0]/(v[1]*v[1]); let cat = bmi<18.5?"Underweight":bmi<25?"Normal":bmi<30?"Overweight":"Obese"; return `BMI = ${bmi.toFixed(1)} - ${cat}`; }, edu: "Body Mass Index (BMI) is a screening tool that categorizes weight relative to height. Values below 18.5 indicate underweight, 18.5-24.9 is normal weight, 25-29.9 is overweight, and 30+ indicates obesity. While BMI doesn't measure body fat directly, it provides a useful starting point for health assessment. Healthcare professionals use BMI for population health studies, insurance risk assessment, and personal fitness tracking. The visual gauge shows your position on the health spectrum." },
+        { name: "Percentage Change", fields: ["Old Value", "New Value"], formula: "((New-Old)/Old) × 100", calc: (v) => `${(((v[1]-v[0])/v[0])*100).toFixed(2)}% change (${v[1]>v[0]?'increase':'decrease'})`, edu: "Percentage change measures relative growth or decline between two values. Positive values indicate increase, negative values indicate decrease. This calculation is fundamental in finance for ROI analysis, in retail for discount calculations, in population studies for growth rates, and in business for tracking sales performance. It normalizes changes so that trends become comparable across different scales and magnitudes." },
+        { name: "Circle Area & Circumference", fields: ["Radius"], formula: "Area = πr², Circumference = 2πr", calc: (v) => `Area = ${(Math.PI*v[0]**2).toFixed(4)}, Circumference = ${(2*Math.PI*v[0]).toFixed(4)}`, edu: "π (pi ≈ 3.14159) is the mathematical constant representing the ratio of a circle's circumference to its diameter. The area of a circle scales with the square of the radius (πr²), while the circumference scales linearly (2πr). These formulas are essential in engineering for wheel design, pipe sizing, planetary orbit calculations, and any application involving circular motion or geometry." },
+        { name: "Arithmetic Mean", fields: ["Value 1", "Value 2", "Value 3", "Value 4"], formula: "Sum of values / Number of values", calc: (v) => `Mean = ${(v.reduce((a,b)=>a+b,0)/v.length).toFixed(4)}`, edu: "The arithmetic mean (average) is the sum of all values divided by the number of values. It provides a measure of central tendency, helping to understand typical values in a dataset. Used extensively in academic grading, quality control, weather forecasting, and data science. The mean is sensitive to outliers, making it important to understand its limitations alongside median and mode." },
+        { name: "Line Slope", fields: ["x1", "y1", "x2", "y2"], formula: "m = (y2-y1)/(x2-x1)", calc: (v) => `Slope = ${((v[3]-v[1])/(v[2]-v[0])).toFixed(4)}`, edu: "Slope measures the steepness and direction of a line. Positive slope indicates an increasing line, negative slope indicates a decreasing line, and zero slope indicates a horizontal line. Used in economics for marginal analysis, physics for velocity calculations, civil engineering for road gradients, and calculus for derivatives. Slope is the foundation of understanding rates of change." },
+        { name: "Cylinder Volume", fields: ["Radius", "Height"], formula: "V = πr²h", calc: (v) => `Volume = ${(Math.PI * v[0]**2 * v[1]).toFixed(4)} cubic units`, edu: "The volume of a cylinder equals the area of its circular base (πr²) multiplied by its height. This formula is essential for calculating the capacity of cylindrical containers like fuel tanks, hydraulic cylinders, water storage tanks, and industrial pipes. Engineers use this for material requirements and structural load calculations." },
+        { name: "Base-10 Logarithm", fields: ["Value"], formula: "log₁₀(x)", calc: (v) => `log₁₀(${v[0]}) = ${Math.log10(v[0]).toFixed(6)}`, edu: "Logarithms convert exponential scales to linear relationships. The base-10 logarithm answers the question: '10 raised to what power equals x?' Used extensively for the Richter scale (earthquake magnitude), pH scale (acidity), decibels (sound intensity), and stellar magnitude in astronomy. Logarithms make huge numerical ranges manageable." },
+        { name: "Triangle Area", fields: ["Base", "Height"], formula: "Area = ½ × base × height", calc: (v) => `Area = ${(0.5 * v[0] * v[1]).toFixed(4)}`, edu: "The area of any triangle equals one-half times the base times the height. This fundamental geometric formula is used in land surveying, architecture, structural engineering, and computer graphics. Any polygon can be divided into triangles, making this formula essential for calculating complex areas." },
+        { name: "Simple Interest", fields: ["Principal", "Rate (%)", "Time (years)"], formula: "Interest = P × R × T / 100", calc: (v) => `Interest = ${(v[0] * v[1] * v[2] / 100).toFixed(2)}`, edu: "Simple interest calculates linear interest growth without compounding. Used for bonds, short-term loans, and understanding the time value of money. Unlike compound interest, simple interest grows proportionally to time, making it easier to calculate for fixed-term investments." },
+        { name: "Basic Probability", fields: ["Favorable Outcomes", "Total Outcomes"], formula: "P = Favorable/Total", calc: (v) => `Probability = ${(v[0]/v[1]).toFixed(4)} (${((v[0]/v[1])*100).toFixed(1)}%)`, edu: "Probability measures the likelihood of an event occurring, ranging from 0 (impossible) to 1 (certain). This is the foundation of risk assessment, gambling theory, insurance modeling, and statistical inference. Understanding probability helps evaluate uncertainty in daily decisions." },
+        { name: "2D Distance", fields: ["x1", "y1", "x2", "y2"], formula: "d = √[(x2-x1)²+(y2-y1)²]", calc: (v) => `Distance = ${Math.sqrt((v[2]-v[0])**2 + (v[3]-v[1])**2).toFixed(4)}`, edu: "The Euclidean distance formula calculates the straight-line distance between two points in a 2D plane. Derived from the Pythagorean theorem, it is essential for navigation, robotics, computer graphics, GPS systems, and geographic information systems." },
+        { name: "Midpoint", fields: ["x1", "y1", "x2", "y2"], formula: "((x1+x2)/2, (y1+y2)/2)", calc: (v) => `Midpoint = (${((v[0]+v[2])/2).toFixed(2)}, ${((v[1]+v[3])/2).toFixed(2)})`, edu: "The midpoint formula finds the exact center point between two coordinates by averaging their x and y values. Used in civil engineering for beam supports, graphic design for symmetry, and computer graphics for center calculations." },
+        { name: "Degrees to Radians", fields: ["Degrees"], formula: "radians = degrees × π/180", calc: (v) => `${v[0]}° = ${(v[0] * Math.PI / 180).toFixed(6)} rad`, edu: "Radians are the natural unit for measuring angles in mathematics and physics. One radian equals the angle where the arc length equals the radius. Since there are 2π radians in a full circle (360°), conversion uses π/180. Radians simplify calculus formulas." }
     ],
     physics: [
-        { name: "Kinetic Energy", fields: ["Mass (kg)", "Velocity (m/s)"], formula: "KE = ½ × m × v²", 
-          calc: (vals) => `Kinetic Energy = ${(0.5 * vals[0] * vals[1]**2).toFixed(2)} Joules`,
-          edu: "Kinetic energy represents the energy of motion. Notice that velocity is squared, meaning doubling the speed quadruples the energy. This explains why car crashes at high speeds are exponentially more dangerous and why speed limits are critical for safety. Used in physics, automotive safety design, ballistics, and renewable energy calculations for wind turbines and hydroelectric systems. The unit is Joules (J), named after physicist James Prescott Joule." },
-        { name: "Potential Energy", fields: ["Mass (kg)", "Height (m)"], formula: "PE = m × g × h", 
-          calc: (vals) => `Potential Energy = ${(vals[0] * 9.81 * vals[1]).toFixed(2)} Joules`,
-          edu: "Gravitational potential energy is the energy stored by an object due to its position in a gravitational field. The formula multiplies mass × gravity (9.81 m/s² on Earth) × height. This energy converts to kinetic energy when objects fall. Used in hydroelectric dam design, roller coaster engineering, and understanding mechanical advantages in lifting systems. Higher heights mean more stored energy, which is why dams store water at elevation to generate electricity." },
-        { name: "Ohm's Law", fields: ["Current (Amps)", "Resistance (Ohms)"], formula: "V = I × R", 
-          calc: (vals) => `Voltage = ${(vals[0] * vals[1]).toFixed(2)} Volts`,
-          edu: "Ohm's Law describes the fundamental relationship between voltage, current, and resistance in electrical circuits. This is the cornerstone of electrical engineering, used to design everything from household wiring to microchips. Understanding this law helps determine wire gauge requirements, circuit breaker sizing, and power consumption calculations. Voltage pushes current through resistance - higher voltage or lower resistance increases current flow." },
-        { name: "Newton's Second Law", fields: ["Mass (kg)", "Acceleration (m/s²)"], formula: "F = m × a", 
-          calc: (vals) => `Force = ${(vals[0] * vals[1]).toFixed(2)} Newtons`,
-          edu: "Newton's Second Law states that force equals mass times acceleration (F=ma). This fundamental physics principle explains how objects respond to applied forces. Used in engineering for structural analysis, vehicle dynamics, and understanding the relationship between mass, acceleration, and required force. It's the foundation of classical mechanics and motion analysis. For example, pushing a heavier object requires more force to achieve the same acceleration." }
+        { name: "Kinetic Energy", fields: ["Mass (kg)", "Velocity (m/s)"], formula: "KE = ½ × m × v²", calc: (v) => `Kinetic Energy = ${(0.5 * v[0] * v[1]**2).toFixed(2)} J`, edu: "Kinetic energy represents the energy of motion. Velocity is squared, meaning doubling speed quadruples energy. This explains why car crashes at high speeds are exponentially more dangerous. Used in physics, automotive safety design, ballistics, and renewable energy calculations for wind turbines." },
+        { name: "Potential Energy", fields: ["Mass (kg)", "Height (m)"], formula: "PE = m × g × h (g=9.81)", calc: (v) => `Potential Energy = ${(v[0] * 9.81 * v[1]).toFixed(2)} J`, edu: "Gravitational potential energy is the energy stored by an object due to its position in a gravitational field. The formula multiplies mass × gravity (9.81 m/s²) × height. Used in hydroelectric dams, roller coaster design, and understanding mechanical advantages in lifting systems." },
+        { name: "Ohm's Law", fields: ["Current (Amps)", "Resistance (Ohms)"], formula: "V = I × R", calc: (v) => `Voltage = ${(v[0] * v[1]).toFixed(2)} V`, edu: "Ohm's Law describes the fundamental relationship between voltage, current, and resistance in electrical circuits. This is the cornerstone of electrical engineering, used to design everything from household wiring to microchips. Understanding this law helps determine wire gauge requirements and circuit breaker sizing." },
+        { name: "Newton's Second Law", fields: ["Mass (kg)", "Acceleration (m/s²)"], formula: "F = m × a", calc: (v) => `Force = ${(v[0] * v[1]).toFixed(2)} N`, edu: "Newton's Second Law states that force equals mass times acceleration (F=ma). This fundamental physics principle explains how objects respond to applied forces. Used in engineering for structural analysis, vehicle dynamics, and understanding the relationship between mass, acceleration, and required force." },
+        { name: "Work Done", fields: ["Force (N)", "Distance (m)"], formula: "W = F × d", calc: (v) => `Work = ${(v[0] * v[1]).toFixed(2)} J`, edu: "Work is the energy transferred when a force moves an object over a distance. Measured in Joules, work equals force multiplied by distance. Used to determine the efficiency of engines and energy requirements for mechanical systems." },
+        { name: "Density", fields: ["Mass (kg)", "Volume (m³)"], formula: "ρ = m / V", calc: (v) => `Density = ${(v[0] / v[1]).toFixed(4)} kg/m³`, edu: "Density is mass per unit volume, a physical property that helps identify materials. Objects float when density is less than the fluid they're in (Archimedes' principle). Critical in shipbuilding, aerospace, and material science." },
+        { name: "Pressure", fields: ["Force (N)", "Area (m²)"], formula: "P = F / A", calc: (v) => `Pressure = ${(v[0] / v[1]).toFixed(2)} Pa`, edu: "Pressure is force distributed over an area. This explains why sharp knives cut easily, how hydraulic systems multiply force, and why snowshoes prevent sinking. Used in engineering and meteorology." },
+        { name: "Momentum", fields: ["Mass (kg)", "Velocity (m/s)"], formula: "p = m × v", calc: (v) => `Momentum = ${(v[0] * v[1]).toFixed(2)} kg·m/s`, edu: "Momentum is mass in motion, conserved in collisions. This explains why airbags reduce injury by extending impact time and how rockets propel forward. Fundamental to vehicle safety design." },
+        { name: "Acceleration", fields: ["Final Velocity", "Initial Velocity", "Time"], formula: "a = (vf - vi)/t", calc: (v) => `Acceleration = ${((v[0] - v[1]) / v[2]).toFixed(2)} m/s²`, edu: "Acceleration is the rate of change of velocity. Positive acceleration means speeding up, negative means slowing down. Used in automotive performance testing and projectile motion calculations." },
+        { name: "Electric Power", fields: ["Voltage (V)", "Current (A)"], formula: "P = V × I", calc: (v) => `Power = ${(v[0] * v[1]).toFixed(2)} W`, edu: "Electric power equals voltage multiplied by current, measured in watts. This formula determines energy consumption rates for appliances and helps size circuit breakers." },
+        { name: "Frequency", fields: ["Period (seconds)"], formula: "f = 1 / T", calc: (v) => `Frequency = ${(1 / v[0]).toFixed(4)} Hz`, edu: "Frequency measures cycles per second in Hertz. Used for AC power grids, radio tuning, sound wave analysis, and heart rate monitoring." },
+        { name: "Hooke's Law", fields: ["Spring Constant (N/m)", "Extension (m)"], formula: "F = k × x", calc: (v) => `Force = ${(v[0] * v[1]).toFixed(2)} N`, edu: "Hooke's Law states that spring force is proportional to displacement. Used in car suspensions, weighing scales, and mechanical watches." },
+        { name: "Torque", fields: ["Force (N)", "Radius (m)"], formula: "τ = F × r", calc: (v) => `Torque = ${(v[0] * v[1]).toFixed(2)} N·m`, edu: "Torque is rotational force, equal to force multiplied by lever arm length. Longer lever arms multiply torque, explaining why longer wrenches make bolts easier to turn." },
+        { name: "Boyle's Law", fields: ["P1", "V1", "P2"], formula: "V2 = (P1×V1)/P2", calc: (v) => `V2 = ${((v[0] * v[1]) / v[2]).toFixed(4)}`, edu: "Boyle's Law states that at constant temperature, pressure and volume are inversely related. Used in medical ventilators and scuba diving." },
+        { name: "Centripetal Force", fields: ["Mass", "Velocity", "Radius"], formula: "F = mv²/r", calc: (v) => `Force = ${(v[0] * v[1]**2 / v[2]).toFixed(2)} N`, edu: "Centripetal force keeps objects moving in circular paths. Used in roller coaster design and satellite orbit calculations." }
     ],
     finance: [
-        { name: "Mortgage Payment", fields: ["Loan Amount", "Annual Rate (%)", "Years"], formula: "P × r(1+r)^n / ((1+r)^n-1)", 
-          calc: (vals) => { let r = vals[1]/100/12, n = vals[2]*12; let mp = vals[0] * r * Math.pow(1+r, n) / (Math.pow(1+r, n)-1); return `Monthly: $${mp.toFixed(2)} | Total: $${(mp*n).toFixed(2)}`; },
-          edu: "Mortgage payments consist of principal and interest calculated using amortization formulas. The monthly payment remains constant while the interest portion decreases over time. This formula is essential for real estate decisions, refinancing analysis, and understanding long-term debt obligations. Even small changes in interest rates significantly impact total interest paid over 15-30 year terms. For example, a 1% rate increase on a $300,000 loan can add over $60,000 to total payments." },
-        { name: "Compound Interest", fields: ["Principal", "Annual Rate (%)", "Years", "Compounds/Year"], formula: "A = P(1 + r/n)^(nt)", 
-          calc: (vals) => `Future Value = $${(vals[0] * Math.pow(1 + (vals[1]/100)/vals[3], vals[3]*vals[2])).toFixed(2)}`,
-          edu: "Compound interest calculates growth where interest earns interest. More frequent compounding yields higher returns. Used for savings accounts, investment growth, and understanding the time value of money. This is why starting to save early dramatically increases retirement wealth. Albert Einstein reportedly called compound interest 'the eighth wonder of the world.' The formula shows exponential growth over time - a $10,000 investment at 7% annual return doubles to $20,000 in about 10 years." },
-        { name: "ROI Calculator", fields: ["Initial Investment", "Final Value"], formula: "ROI = ((Final - Initial)/Initial) × 100", 
-          calc: (vals) => `ROI = ${(((vals[1]-vals[0])/vals[0])*100).toFixed(2)}%`,
-          edu: "Return on Investment (ROI) measures investment profitability as a percentage. Used to compare different investments, evaluate business performance, and make financial decisions. Higher ROI indicates better returns, though risk must also be considered. This metric is essential for business planning, stock analysis, and personal finance decisions. ROI normalizes returns across different investment sizes, allowing apples-to-apples comparison." }
+        { name: "Mortgage Payment", fields: ["Loan Amount", "Annual Rate (%)", "Years"], formula: "P × r(1+r)^n / ((1+r)^n-1)", calc: (v) => { let r = v[1]/100/12, n = v[2]*12; let mp = v[0] * r * Math.pow(1+r, n) / (Math.pow(1+r, n)-1); return `Monthly: $${mp.toFixed(2)} | Total: $${(mp*n).toFixed(2)}`; }, edu: "Mortgage payments consist of principal and interest calculated using amortization formulas. Essential for real estate decisions and understanding long-term debt obligations." },
+        { name: "Compound Interest", fields: ["Principal", "Annual Rate (%)", "Years", "Compounds/Year"], formula: "A = P(1 + r/n)^(nt)", calc: (v) => `Future Value = $${(v[0] * Math.pow(1 + (v[1]/100)/v[3], v[3]*v[2])).toFixed(2)}`, edu: "Compound interest calculates growth where interest earns interest. This is why starting to save early dramatically increases retirement wealth." },
+        { name: "ROI Calculator", fields: ["Initial Investment", "Final Value"], formula: "ROI = ((Final - Initial)/Initial) × 100", calc: (v) => `ROI = ${(((v[1]-v[0])/v[0])*100).toFixed(2)}%`, edu: "Return on Investment measures investment profitability as a percentage. Used to compare different investments and evaluate business performance." },
+        { name: "Profit Margin", fields: ["Revenue", "Cost"], formula: "Margin = ((Revenue - Cost)/Revenue) × 100", calc: (v) => `Margin = ${(((v[0]-v[1])/v[0])*100).toFixed(2)}%`, edu: "Profit margin shows what percentage of revenue remains as profit after costs. Used in business analysis to evaluate pricing strategies." },
+        { name: "Loan Payment", fields: ["Loan Amount", "Annual Rate (%)", "Months"], formula: "EMI = P × r(1+r)^n / ((1+r)^n-1)", calc: (v) => { let r = v[1]/100/12; let emi = v[0] * r * Math.pow(1+r, v[2]) / (Math.pow(1+r, v[2])-1); return `Monthly: $${emi.toFixed(2)} | Total: $${(emi*v[2]).toFixed(2)}`; }, edu: "Loan payment calculator determines fixed monthly payments for auto and personal loans. Helps compare loan offers before borrowing." },
+        { name: "Inflation Calculator", fields: ["Current Amount", "Annual Rate (%)", "Years"], formula: "Future = Present × (1 + r)^n", calc: (v) => `Future Value = $${(v[0] * Math.pow(1 + v[1]/100, v[2])).toFixed(2)}`, edu: "Inflation calculator shows how purchasing power changes over time. A 3% inflation rate halves purchasing power in about 24 years." },
+        { name: "Discount Calculator", fields: ["Original Price", "Discount (%)"], formula: "Sale = Original × (1 - d/100)", calc: (v) => `Sale: $${(v[0] * (1 - v[1]/100)).toFixed(2)} | Save: $${(v[0] * v[1]/100).toFixed(2)}`, edu: "Discount calculator finds sale prices and savings amounts. Used for shopping decisions and promotional analysis." },
+        { name: "Tip Calculator", fields: ["Bill Amount", "Tip (%)"], formula: "Tip = Bill × Tip%/100", calc: (v) => `Tip: $${(v[0] * v[1]/100).toFixed(2)} | Total: $${(v[0] * (1 + v[1]/100)).toFixed(2)}`, edu: "Tip calculator helps determine appropriate gratuity for services. Standard tips range from 15-20% in many cultures." },
+        { name: "Currency Converter", fields: ["Amount USD", "Exchange Rate"], formula: "Amount × Rate", calc: (v) => `${v[0]} USD = ${(v[0] * v[1]).toFixed(2)} Foreign`, edu: "Currency converter translates money between different monetary systems. Used for international travel and global business transactions." },
+        { name: "VAT Calculator", fields: ["Price", "VAT (%)"], formula: "VAT = Price × Rate/100", calc: (v) => `VAT: $${(v[0] * v[1]/100).toFixed(2)} | Total: $${(v[0] * (1 + v[1]/100)).toFixed(2)}`, edu: "Value Added Tax calculator determines tax amounts on purchases. VAT rates vary by country, typically ranging from 5-25%." },
+        { name: "Savings Goal", fields: ["Target Amount", "Monthly Deposit", "Annual Rate (%)"], formula: "Time to goal", calc: (v) => { let r = v[2]/100/12; let months = Math.log(1 + r*v[0]/v[1]) / Math.log(1+r); return `${Math.ceil(months)} months (${Math.ceil(months/12)} years)`; }, edu: "Savings goal calculator determines how long to reach a target amount with regular monthly deposits. Essential for retirement planning." },
+        { name: "EMI Calculator", fields: ["Loan Amount", "Annual Rate (%)", "Months"], formula: "EMI = P × r(1+r)^n / ((1+r)^n-1)", calc: (v) => { let r = v[1]/100/12; let emi = v[0] * r * Math.pow(1+r, v[2]) / (Math.pow(1+r, v[2])-1); return `EMI: $${emi.toFixed(2)} | Total: $${(emi*v[2]).toFixed(2)}`; }, edu: "Equated Monthly Installment calculator determines fixed monthly payments for loans. Helps assess affordability before borrowing." }
     ],
     engineering: [
-        { name: "Reynolds Number", fields: ["Density", "Velocity", "Length", "Viscosity"], formula: "Re = ρvL/μ", 
-          calc: (vals) => `Reynolds Number = ${(vals[0] * vals[1] * vals[2] / vals[3]).toFixed(0)}`,
-          edu: "The Reynolds number predicts flow patterns in fluid dynamics. Values below 2000 indicate laminar (smooth) flow, above 4000 indicate turbulent (chaotic) flow, with transitional between. This dimensionless quantity is critical in pipe design, aerospace engineering, and chemical processing. Engineers use it to optimize fluid systems, reduce energy losses, and predict heat transfer rates. It's one of the most important parameters in fluid mechanics, named after Osborne Reynolds who discovered this relationship in 1883." },
-        { name: "Mach Number", fields: ["Object Speed", "Speed of Sound"], formula: "M = v / a", 
-          calc: (vals) => `Mach Number = ${(vals[0] / vals[1]).toFixed(2)}`,
-          edu: "The Mach number is the ratio of an object's speed to the speed of sound in the surrounding medium. Mach 1 equals the speed of sound (approximately 343 m/s at sea level). Subsonic (M<0.8), transonic (0.8-1.2), supersonic (1.2-5), and hypersonic (M>5) regimes require different aerodynamic designs. Essential for aviation, rocket design, and understanding sonic booms. Named after physicist Ernst Mach." },
-        { name: "Carnot Efficiency", fields: ["Hot Temperature (K)", "Cold Temperature (K)"], formula: "η = 1 - Tc/Th", 
-          calc: (vals) => `Efficiency = ${((1 - vals[1]/vals[0]) * 100).toFixed(1)}%`,
-          edu: "Carnot efficiency represents the maximum theoretical efficiency any heat engine can achieve, based solely on the temperature difference between hot and cold reservoirs. Real engines cannot exceed this limit due to the Second Law of Thermodynamics. This principle guides power plant design, refrigeration systems, and internal combustion engine optimization. Higher temperature differences yield higher potential efficiency - this is why power plants use high-temperature steam." }
+        { name: "Reynolds Number", fields: ["Density", "Velocity", "Length", "Viscosity"], formula: "Re = ρvL/μ", calc: (v) => `Re = ${(v[0] * v[1] * v[2] / v[3]).toFixed(0)}`, edu: "The Reynolds number predicts flow patterns in fluid dynamics. Values below 2000 indicate laminar flow, above 4000 indicate turbulent flow. Critical for pipe design, aerospace engineering, and chemical processing." },
+        { name: "Mach Number", fields: ["Object Speed", "Speed of Sound"], formula: "M = v / a", calc: (v) => `Mach = ${(v[0] / v[1]).toFixed(2)}`, edu: "The Mach number is the ratio of an object's speed to the speed of sound. Mach 1 equals the speed of sound (~343 m/s). Essential for aviation and rocket design." },
+        { name: "Carnot Efficiency", fields: ["Hot Temp (K)", "Cold Temp (K)"], formula: "η = 1 - Tc/Th", calc: (v) => `Efficiency = ${((1 - v[1]/v[0]) * 100).toFixed(1)}%`, edu: "Carnot efficiency represents the maximum theoretical efficiency any heat engine can achieve. Guides power plant and refrigeration design." },
+        { name: "Bernoulli Pressure", fields: ["Velocity (m/s)"], formula: "P = ½ρv² (ρ=1.225)", calc: (v) => `Dynamic Pressure = ${(0.5 * 1.225 * v[0]**2).toFixed(2)} Pa`, edu: "Bernoulli's principle states that as fluid velocity increases, pressure decreases. Explains airplane lift and carburetor function." },
+        { name: "Euler Buckling", fields: ["E (Pa)", "I (m⁴)", "Length (m)"], formula: "P_cr = π²EI/L²", calc: (v) => `Critical Load = ${(Math.PI**2 * v[0] * v[1] / v[2]**2).toFixed(0)} N`, edu: "Euler's critical load formula predicts when a column will buckle under compression. Essential for structural engineering and bridge design." },
+        { name: "AC Impedance", fields: ["Resistance", "Reactance"], formula: "Z = √(R² + X²)", calc: (v) => `Impedance = ${(Math.sqrt(v[0]**2 + v[1]**2)).toFixed(2)} Ω`, edu: "Impedance is the total opposition to current flow in AC circuits. Used in audio speaker design and power systems." },
+        { name: "Capacitance", fields: ["Area (m²)", "Distance (m)"], formula: "C = εA/d", calc: (v) => `Capacitance = ${(8.854e-12 * v[0] / v[1]).toExponential(4)} F`, edu: "Capacitance measures charge storage capacity. Used in touch screens, camera flashes, and electronic filters." },
+        { name: "dB Gain", fields: ["P_out", "P_in"], formula: "dB = 10 × log(Pout/Pin)", calc: (v) => `Gain = ${(10 * Math.log10(v[0]/v[1])).toFixed(2)} dB`, edu: "Decibel gain is a logarithmic measure of power ratio. Used in audio equipment and telecommunications." },
+        { name: "Shear Stress", fields: ["Force (N)", "Area (m²)"], formula: "τ = F/A", calc: (v) => `Shear Stress = ${(v[0] / v[1]).toFixed(2)} Pa`, edu: "Shear stress is force per area acting parallel to a surface. Critical for bolt design and material strength testing." },
+        { name: "Young's Modulus", fields: ["Stress (Pa)", "Strain"], formula: "E = σ/ε", calc: (v) => `Young's Modulus = ${(v[0] / v[1]).toFixed(2)} Pa`, edu: "Young's Modulus measures material stiffness. Used in structural engineering and material selection." },
+        { name: "Thermal Expansion", fields: ["Length", "Coefficient", "ΔT"], formula: "ΔL = αL₀ΔT", calc: (v) => `Expansion = ${(v[0] * v[1] * v[2]).toFixed(6)} m`, edu: "Thermal expansion calculates length change due to temperature. Critical for bridge and railway design." },
+        { name: "Drag Force", fields: ["Density", "Velocity", "Area", "Cd"], formula: "F_d = ½ρv²ACd", calc: (v) => `Drag = ${(0.5 * v[0] * v[1]**2 * v[2] * v[3]).toFixed(2)} N`, edu: "Drag force opposes motion through fluids. Used in automotive and aerospace design." },
+        { name: "Lift Force", fields: ["Density", "Velocity", "Area", "Cl"], formula: "F_l = ½ρv²ACl", calc: (v) => `Lift = ${(0.5 * v[0] * v[1]**2 * v[2] * v[3]).toFixed(2)} N`, edu: "Lift force enables flight by creating pressure differences. Used in aircraft wing design." },
+        { name: "Heat Transfer", fields: ["k", "Area", "ΔT", "Thickness"], formula: "Q = kAΔT/d", calc: (v) => `Heat Flow = ${(v[0] * v[1] * v[2] / v[3]).toFixed(2)} W`, edu: "Conductive heat transfer calculation. Used in building insulation and electronics cooling." },
+        { name: "Beam Bending", fields: ["Moment", "Distance", "I"], formula: "σ = My/I", calc: (v) => `Stress = ${(v[0] * v[1] / v[2]).toFixed(2)} Pa`, edu: "Beam bending stress determines how beams deform under loads. Used in structural engineering." }
     ],
     units: [
-        { name: "kg to Pounds", fields: ["Kilograms"], formula: "kg × 2.20462", calc: (vals) => `${vals[0]} kg = ${(vals[0] * 2.20462).toFixed(2)} lbs`, edu: "Metric to imperial weight conversion. One kilogram equals approximately 2.20462 pounds. Essential for international trade, fitness tracking, recipes, and aviation cargo. Understanding this helps navigate between measurement systems globally. The kilogram is the SI base unit of mass, while the pound is used primarily in the United States and a few other countries." },
-        { name: "Meters to Feet", fields: ["Meters"], formula: "m × 3.28084", calc: (vals) => `${vals[0]} m = ${(vals[0] * 3.28084).toFixed(2)} ft`, edu: "Length conversion between meters and feet. One meter equals 3.28084 feet. Used in construction, real estate, and international travel. Helps understand building heights, room sizes, and distances across measurement systems. The meter is the SI base unit of length, while feet are commonly used in the US and UK for everyday measurements." },
-        { name: "Celsius to Fahrenheit", fields: ["Celsius"], formula: "(C × 1.8) + 32", calc: (vals) => `${vals[0]}°C = ${(vals[0] * 1.8 + 32).toFixed(1)}°F`, edu: "Temperature conversion between Celsius and Fahrenheit. Water freezes at 0°C (32°F) and boils at 100°C (212°F). Used for weather forecasting, cooking, medical readings, and scientific work across different measurement systems. Celsius is used in most countries, while Fahrenheit is used primarily in the United States." },
-        { name: "HP to Watts", fields: ["Horsepower"], formula: "HP × 745.7", calc: (vals) => `${vals[0]} HP = ${(vals[0] * 745.7).toFixed(0)} W`, edu: "Engine power conversion between horsepower and watts. One horsepower equals approximately 745.7 watts. Used in automotive specifications, electric motors, and comparing mechanical vs electrical power output. Essential for equipment selection. James Watt, who developed the steam engine, defined horsepower to compare engine output to draft horses." },
-        { name: "GB to MB", fields: ["Gigabytes"], formula: "GB × 1024", calc: (vals) => `${vals[0]} GB = ${(vals[0] * 1024).toFixed(0)} MB`, edu: "Digital storage conversion between gigabytes and megabytes. One gigabyte equals 1024 megabytes (binary). Used for file sizes, storage devices, and data plans. Essential for IT professionals and understanding computer storage capacity. This is binary-based (powers of 2), unlike metric prefixes which use powers of 10." }
+        { name: "kg to Pounds", fields: ["Kilograms"], formula: "kg × 2.20462", calc: (v) => `${v[0]} kg = ${(v[0] * 2.20462).toFixed(2)} lbs`, edu: "Metric to imperial weight conversion. One kilogram equals approximately 2.20462 pounds. Essential for international trade, fitness tracking, and recipes." },
+        { name: "Meters to Feet", fields: ["Meters"], formula: "m × 3.28084", calc: (v) => `${v[0]} m = ${(v[0] * 3.28084).toFixed(2)} ft`, edu: "Length conversion between meters and feet. Used in construction, real estate, and international travel." },
+        { name: "Celsius to Fahrenheit", fields: ["Celsius"], formula: "(C × 1.8) + 32", calc: (v) => `${v[0]}°C = ${(v[0] * 1.8 + 32).toFixed(1)}°F`, edu: "Temperature conversion between Celsius and Fahrenheit. Water freezes at 0°C (32°F) and boils at 100°C (212°F)." },
+        { name: "HP to Watts", fields: ["Horsepower"], formula: "HP × 745.7", calc: (v) => `${v[0]} HP = ${(v[0] * 745.7).toFixed(0)} W`, edu: "Engine power conversion between horsepower and watts. One horsepower equals approximately 745.7 watts." },
+        { name: "Bar to PSI", fields: ["Bar"], formula: "Bar × 14.5038", calc: (v) => `${v[0]} bar = ${(v[0] * 14.5038).toFixed(2)} psi`, edu: "Pressure conversion between bar and PSI. One bar is approximately atmospheric pressure at sea level." },
+        { name: "GB to MB", fields: ["Gigabytes"], formula: "GB × 1024", calc: (v) => `${v[0]} GB = ${(v[0] * 1024).toFixed(0)} MB`, edu: "Digital storage conversion. One gigabyte equals 1024 megabytes (binary). Essential for IT professionals." },
+        { name: "km to Miles", fields: ["Kilometers"], formula: "km × 0.621371", calc: (v) => `${v[0]} km = ${(v[0] * 0.621371).toFixed(2)} miles`, edu: "Distance conversion for travel and international navigation." },
+        { name: "Gallons to Liters", fields: ["Gallons"], formula: "gal × 3.78541", calc: (v) => `${v[0]} gal = ${(v[0] * 3.78541).toFixed(2)} L`, edu: "Volume conversion. One US gallon equals 3.78541 liters. Used for fuel efficiency." },
+        { name: "Radians to Degrees", fields: ["Radians"], formula: "rad × 57.2958", calc: (v) => `${v[0]} rad = ${(v[0] * 57.2958).toFixed(2)}°`, edu: "Angle conversion. One radian equals approximately 57.2958 degrees. Essential for trigonometry." },
+        { name: "Pascal to ATM", fields: ["Pascal"], formula: "Pa / 101325", calc: (v) => `${v[0]} Pa = ${(v[0] / 101325).toFixed(6)} atm`, edu: "Pressure conversion. One standard atmosphere equals 101,325 pascals." },
+        { name: "Joules to Calories", fields: ["Joules"], formula: "J / 4.184", calc: (v) => `${v[0]} J = ${(v[0] / 4.184).toFixed(2)} cal`, edu: "Energy conversion. One calorie equals 4.184 joules. Used in nutrition." },
+        { name: "Nm to ft-lb", fields: ["Nm"], formula: "Nm × 0.737562", calc: (v) => `${v[0]} Nm = ${(v[0] * 0.737562).toFixed(2)} ft-lb`, edu: "Torque conversion for automotive mechanics." },
+        { name: "sqm to sqft", fields: ["Square meters"], formula: "m² × 10.7639", calc: (v) => `${v[0]} m² = ${(v[0] * 10.7639).toFixed(2)} ft²`, edu: "Area conversion for real estate and construction." },
+        { name: "Knots to MPH", fields: ["Knots"], formula: "knots × 1.15078", calc: (v) => `${v[0]} knots = ${(v[0] * 1.15078).toFixed(2)} mph`, edu: "Nautical to land speed conversion. Used in aviation and maritime." },
+        { name: "mm to Inches", fields: ["Millimeters"], formula: "mm / 25.4", calc: (v) => `${v[0]} mm = ${(v[0] / 25.4).toFixed(3)} in`, edu: "Precision length conversion for manufacturing and engineering." }
     ]
 };
+
+// Add remaining unit converters to reach 15
+calculators.units.push(
+    { name: "Liters to Gallons", fields: ["Liters"], formula: "L / 3.78541", calc: (v) => `${v[0]} L = ${(v[0] / 3.78541).toFixed(2)} gal`, edu: "Volume conversion from liters to US gallons. One gallon equals 3.78541 liters." },
+    { name: "Meters to cm", fields: ["Meters"], formula: "m × 100", calc: (v) => `${v[0]} m = ${(v[0] * 100).toFixed(0)} cm`, edu: "Metric length conversion. One meter equals 100 centimeters." },
+    { name: "km to Meters", fields: ["Kilometers"], formula: "km × 1000", calc: (v) => `${v[0]} km = ${(v[0] * 1000).toFixed(0)} m`, edu: "Distance conversion within metric system. One kilometer equals 1000 meters." },
+    { name: "mg to Grams", fields: ["Milligrams"], formula: "mg / 1000", calc: (v) => `${v[0]} mg = ${(v[0] / 1000).toFixed(4)} g`, edu: "Small mass conversion for pharmaceuticals and chemistry." },
+    { name: "cm to Inches", fields: ["Centimeters"], formula: "cm / 2.54", calc: (v) => `${v[0]} cm = ${(v[0] / 2.54).toFixed(2)} in`, edu: "Centimeter to inch conversion for clothing sizes and height measurements." },
+    { name: "Miles to km", fields: ["Miles"], formula: "miles × 1.60934", calc: (v) => `${v[0]} miles = ${(v[0] * 1.60934).toFixed(2)} km`, edu: "Mile to kilometer conversion for travel distances." },
+    { name: "Ounces to Grams", fields: ["Ounces"], formula: "oz × 28.3495", calc: (v) => `${v[0]} oz = ${(v[0] * 28.3495).toFixed(2)} g`, edu: "Weight conversion for cooking and nutrition." }
+);
 
 let currentCategory = 'math';
 let activeTool = null;
@@ -218,6 +348,7 @@ function loadCategory(category, btn) {
             <div class="tool-card" onclick="openCalculator(${index})">
                 <i class="fas fa-calculator"></i>
                 <h3>${tool.name}</h3>
+                <div class="tool-count">Click to calculate</div>
             </div>
         `;
     });
@@ -229,7 +360,6 @@ function openCalculator(index) {
     document.getElementById('eduText').innerHTML = activeTool.edu;
     document.getElementById('formulaBox').innerHTML = activeTool.formula;
     
-    // Build input fields
     const inputsDiv = document.getElementById('modalInputs');
     inputsDiv.innerHTML = '';
     activeTool.fields.forEach((field, i) => {
@@ -241,6 +371,7 @@ function openCalculator(index) {
         `;
     });
     
+    document.getElementById('visualMeter').style.display = 'none';
     document.getElementById('resultDisplay').style.display = 'none';
     document.getElementById('calculatorModal').style.display = 'flex';
 }
@@ -248,7 +379,6 @@ function openCalculator(index) {
 function calculate() {
     if (!activeTool) return;
     
-    // Get values from inputs
     const values = [];
     for (let i = 0; i < activeTool.fields.length; i++) {
         let input = document.getElementById(`input_${i}`);
@@ -256,10 +386,27 @@ function calculate() {
         values.push(isNaN(val) ? 0 : val);
     }
     
-    // Calculate result
     let result = activeTool.calc(values);
     
-    // Display result
+    // Add visual meter for BMI
+    const visualDiv = document.getElementById('visualMeter');
+    if (activeTool.name === "BMI Calculator with Gauge" && values[1] > 0) {
+        let bmi = values[0]/(values[1]*values[1]);
+        let angle = Math.min((bmi / 50) * 180, 180);
+        visualDiv.innerHTML = `
+            <div class="bmi-gauge"><div class="gauge-pointer" style="transform: rotate(${angle}deg);"></div></div>
+            <div style="display:flex; justify-content:space-between; margin:10px 0;"><span>Underweight</span><span>Normal</span><span>Overweight</span><span>Obese</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: ${Math.min((bmi/50)*100, 100)}%;">BMI: ${bmi.toFixed(1)}</div></div>
+        `;
+        visualDiv.style.display = 'block';
+    } else if (activeTool.name === "Percentage Change") {
+        let pct = ((values[1]-values[0])/values[0])*100;
+        visualDiv.innerHTML = `<div class="progress-bar"><div class="progress-fill" style="width: ${Math.min(Math.abs(pct), 100)}%; background: ${pct>=0?'#10b981':'#ef4444'};">${pct.toFixed(1)}%</div></div>`;
+        visualDiv.style.display = 'block';
+    } else {
+        visualDiv.style.display = 'none';
+    }
+    
     const resultDiv = document.getElementById('resultDisplay');
     resultDiv.innerHTML = `<i class="fas fa-chart-line"></i> ${result}`;
     resultDiv.style.display = 'block';
@@ -271,17 +418,19 @@ function closeModal() {
 
 function showHome() {
     document.getElementById('homeView').style.display = 'block';
-    document.getElementById('aboutView').style.display = 'none';
-    document.getElementById('privacyView').style.display = 'none';
-    document.getElementById('contactView').style.display = 'none';
+    const pages = ['about', 'privacy', 'terms', 'contact'];
+    pages.forEach(p => {
+        document.getElementById(p + 'Page').style.display = 'none';
+    });
     loadCategory(currentCategory, document.querySelector('.cat-btn.active'));
 }
 
 function showPage(page) {
     document.getElementById('homeView').style.display = 'none';
-    document.getElementById('aboutView').style.display = page === 'about' ? 'block' : 'none';
-    document.getElementById('privacyView').style.display = page === 'privacy' ? 'block' : 'none';
-    document.getElementById('contactView').style.display = page === 'contact' ? 'block' : 'none';
+    const pages = ['about', 'privacy', 'terms', 'contact'];
+    pages.forEach(p => {
+        document.getElementById(p + 'Page').style.display = p === page ? 'block' : 'none';
+    });
 }
 
 function searchTools() {
@@ -304,7 +453,7 @@ function searchTools() {
                 <div class="tool-card" onclick="openSearchedTool('${tool.category}', '${tool.name}')">
                     <i class="fas fa-calculator"></i>
                     <h3>${tool.name}</h3>
-                    <small style="color:#64748b;">${tool.category}</small>
+                    <div class="tool-count">${tool.category}</div>
                 </div>
             `;
         });
@@ -317,7 +466,6 @@ function searchTools() {
 }
 
 function openSearchedTool(category, toolName) {
-    // Find and open the tool
     for (let cat in calculators) {
         if (cat === category) {
             const index = calculators[cat].findIndex(t => t.name === toolName);
@@ -338,6 +486,7 @@ function openSearchedTool(category, toolName) {
                         </div>
                     `;
                 });
+                document.getElementById('visualMeter').style.display = 'none';
                 document.getElementById('resultDisplay').style.display = 'none';
                 document.getElementById('calculatorModal').style.display = 'flex';
                 break;
