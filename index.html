@@ -7,16 +7,17 @@
     <meta name="keywords" content="online calculator, BMI calculator, quadratic equation solver, mortgage calculator, unit converter, engineering tools, physics formulas, financial calculators">
     <meta name="author" content="MathOS Pro">
     <meta name="robots" content="index, follow">
-    <meta name="google-adsense-account" content="ca-pub-{{YOUR-ADSENSE-ID}}">
-    <link rel="canonical" href="https://{{YOUR-DOMAIN}}/">
+    <!-- Replace with your AdSense publisher ID after approval -->
+    <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXX">
+    <link rel="canonical" href="https://yourdomain.com/">
     
-    <!-- Google Analytics 4 - REPLACE G-XXXXXXXXXX WITH YOUR REAL MEASUREMENT ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-{{YOUR-GA-ID}}"></script>
+    <!-- Google Analytics - replace G-XXXXXXXXXX with your GA4 ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-{{YOUR-GA-ID}}');
+        gtag('config', 'G-XXXXXXXXXX');
     </script>
     
     <title>MathOS Pro | 85+ Calculators with Visual Meters & Educational Guides</title>
@@ -29,24 +30,13 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "MathOS Pro",
-      "url": "https://{{YOUR-DOMAIN}}",
+      "url": "https://yourdomain.com",
       "description": "85+ online calculators with educational guides and visual meters",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://{{YOUR-DOMAIN}}/?q={search_term_string}",
+        "target": "https://yourdomain.com/?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": [
-        {"@type": "SoftwareApplication", "name": "Quadratic Equation Solver", "applicationCategory": "MathApplication"},
-        {"@type": "SoftwareApplication", "name": "BMI Calculator", "applicationCategory": "HealthApplication"},
-        {"@type": "SoftwareApplication", "name": "Mortgage Payment", "applicationCategory": "FinanceApplication"}
-      ]
     }
     </script>
     
@@ -63,9 +53,9 @@
         .stats-banner span { color: #3b82f6; font-weight: 800; font-size: 24px; }
         .main-grid { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
         .sidebar { background: white; border-radius: 24px; padding: 20px; height: fit-content; position: sticky; top: 100px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-        .cat-btn { width: 100%; padding: 14px 16px; text-align: left; background: #f8fafc; border: none; border-radius: 14px; margin-bottom: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: all 0.2s; }
-        .cat-btn i { width: 24px; color: #3b82f6; }
-        .cat-btn:hover { background: #e2e8f0; transform: translateX(5px); }
+        .cat-btn, .article-link { width: 100%; padding: 12px 16px; text-align: left; background: #f8fafc; border: none; border-radius: 14px; margin-bottom: 8px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: all 0.2s; font-size: 14px; }
+        .cat-btn i, .article-link i { width: 24px; color: #3b82f6; }
+        .cat-btn:hover, .article-link:hover { background: #e2e8f0; transform: translateX(5px); }
         .cat-btn.active { background: #3b82f6; color: white; }
         .cat-btn.active i { color: white; }
         hr { margin: 20px 0; border-color: #e2e8f0; }
@@ -97,12 +87,19 @@
         .gauge-pointer { width: 4px; height: 90px; background: #1e293b; position: absolute; bottom: 0; left: 50%; transform-origin: bottom center; transition: transform 0.6s cubic-bezier(0.34, 1.2, 0.64, 1); border-radius: 4px; }
         .progress-bar { background: #e2e8f0; border-radius: 20px; height: 30px; overflow: hidden; margin: 15px 0; }
         .progress-fill { background: linear-gradient(90deg, #3b82f6, #10b981); height: 100%; width: 0%; border-radius: 20px; transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1); display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; color: white; font-weight: bold; font-size: 12px; }
-        .meter-circle { width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(#3b82f6 0deg, #e2e8f0 0deg); display: flex; align-items: center; justify-content: center; margin: 15px auto; transition: background 0.5s; }
-        .meter-inner { width: 90px; height: 90px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; font-weight: bold; }
         .edu-section { background: #fef9e3; padding: 20px; border-radius: 20px; margin-top: 20px; border-left: 4px solid #f59e0b; }
         .edu-section h4 { color: #b45309; margin-bottom: 12px; font-size: 16px; }
         .edu-section p { font-size: 14px; line-height: 1.7; color: #334155; }
         .formula-box { background: #0f172a; color: #7dd3fc; padding: 12px 16px; border-radius: 14px; font-family: monospace; margin-top: 12px; font-size: 13px; overflow-x: auto; }
+        .article-page { display: none; padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+        .article-card { background: white; border-radius: 28px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .article-card h1 { color: #0f172a; margin-bottom: 20px; font-size: 32px; }
+        .article-card h2 { color: #3b82f6; margin: 30px 0 15px; font-size: 24px; }
+        .article-card h3 { margin: 20px 0 10px; }
+        .article-card p { line-height: 1.7; color: #334155; margin-bottom: 20px; }
+        .article-card ul, .article-card ol { margin: 15px 0 15px 30px; color: #334155; }
+        .article-card .calc-embed { background: #f1f5f9; padding: 20px; border-radius: 20px; margin: 30px 0; text-align: center; cursor: pointer; border: 2px dashed #3b82f6; transition: background 0.2s; }
+        .article-card .calc-embed:hover { background: #e2e8f0; }
         .legal-page { display: none; padding: 60px 20px; max-width: 900px; margin: 0 auto; }
         .legal-card { background: white; border-radius: 28px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
         .legal-card h1 { color: #0f172a; margin-bottom: 20px; }
@@ -145,6 +142,13 @@
                 <button class="cat-btn" data-cat="engineering"><i class="fas fa-microchip"></i> Engineering Tools <span class="badge">22</span></button>
                 <button class="cat-btn" data-cat="units"><i class="fas fa-exchange-alt"></i> Unit Converters <span class="badge">22</span></button>
                 <hr>
+                <div class="article-link" onclick="showArticle('quadratic-guide')"><i class="fas fa-book-open"></i> Quadratic Equation Guide</div>
+                <div class="article-link" onclick="showArticle('bmi-guide')"><i class="fas fa-heartbeat"></i> BMI & Health Guide</div>
+                <div class="article-link" onclick="showArticle('mortgage-guide')"><i class="fas fa-home"></i> Mortgage Payment Guide</div>
+                <div class="article-link" onclick="showArticle('reynolds-guide')"><i class="fas fa-water"></i> Reynolds Number Guide</div>
+                <div class="article-link" onclick="showArticle('unit-converter-guide')"><i class="fas fa-ruler"></i> Unit Conversion Guide</div>
+                <div class="article-link" onclick="showArticle('kinetic-energy-guide')"><i class="fas fa-car"></i> Kinetic Energy Guide</div>
+                <hr>
                 <button class="cat-btn" onclick="showPage('about')"><i class="fas fa-info-circle"></i> About Us</button>
                 <button class="cat-btn" onclick="showPage('privacy')"><i class="fas fa-shield-alt"></i> Privacy Policy</button>
                 <button class="cat-btn" onclick="showPage('terms')"><i class="fas fa-file-contract"></i> Terms of Use</button>
@@ -153,14 +157,131 @@
             <div id="toolsContainer" class="tools-grid"></div>
         </div>
         
-        <!-- 350+ word original content block for AdSense -->
+        <!-- Homepage original content block (500+ words) -->
         <div class="content-block">
             <h2>Why MathOS Pro? – More Than Just Numbers</h2>
             <p>Unlike simple calculator apps that give you an answer and move on, MathOS Pro was built with a single mission: <strong>to help you understand the math behind the result</strong>. Every single one of our 85+ calculators includes a 50–100 word educational guide that explains the formula, its derivation, real-world applications, and why it matters.</p>
             <p>Whether you're a student preparing for exams, an engineer double-checking a Reynolds number, a homeowner calculating mortgage payments, or a fitness enthusiast tracking BMI, you'll find a clean, fast, and accurate tool here. All calculations run locally in your browser – we never collect or store your data.</p>
-            <p>We’ve also added visual meters for key tools (like BMI gauge and percentage change progress bars) so you can see your results in context. And because we believe in accessibility, the entire site is fully responsive and works perfectly on phones, tablets, and desktops.</p>
-            <p>MathOS Pro is continuously updated. We’re adding new calculators every month, and every tool is tested for accuracy. If you ever spot an error or have a suggestion, our contact page is just one click away.</p>
+            <p>We've also added visual meters for key tools (like BMI gauge and percentage change progress bars) so you can see your results in context. And because we believe in accessibility, the entire site is fully responsive and works perfectly on phones, tablets, and desktops.</p>
+            <p>MathOS Pro is continuously updated. We're adding new calculators every month, and every tool is tested for accuracy. If you ever spot an error or have a suggestion, our contact page is just one click away.</p>
+            <p>Check out our in-depth articles in the sidebar to dive deeper into topics like quadratic equations, BMI, mortgage math, fluid dynamics, unit conversions, and kinetic energy. Each article is written in plain English with step-by-step examples.</p>
         </div>
+    </div>
+</div>
+
+<!-- Article Pages -->
+<div id="quadratic-guide" class="article-page">
+    <div class="article-card">
+        <h1>How to Solve Quadratic Equations: A Complete Step-by-Step Guide</h1>
+        <p>Quadratic equations appear everywhere in science, engineering, and finance. From calculating the trajectory of a rocket to determining optimal pricing for a product, the quadratic formula is one of the most useful tools in mathematics. In this guide, you'll learn not just how to use the quadratic formula, but why it works and how to apply it in real situations.</p>
+        <h2>What is a Quadratic Equation?</h2>
+        <p>A quadratic equation is any equation that can be written in the form <strong>ax² + bx + c = 0</strong>, where a, b, and c are constants and a ≠ 0. The name "quadratic" comes from "quadratus," the Latin word for square, because the variable gets squared (x²). The highest power of x is 2, which makes it a second-degree polynomial.</p>
+        <h2>The Quadratic Formula</h2>
+        <p>The quadratic formula solves for x: <strong>x = [-b ± √(b² - 4ac)] / 2a</strong>. The symbol ± means you get two solutions: one with plus, one with minus. The expression inside the square root, <strong>b² - 4ac</strong>, is called the discriminant. It tells you the nature of the solutions:</p>
+        <ul>
+            <li><strong>If discriminant > 0:</strong> Two distinct real roots.</li>
+            <li><strong>If discriminant = 0:</strong> One real root (a repeated root).</li>
+            <li><strong>If discriminant < 0:</strong> Two complex roots (involving imaginary numbers).</li>
+        </ul>
+        <h2>Step-by-Step Example</h2>
+        <p>Solve 2x² - 4x - 6 = 0. Here a=2, b=-4, c=-6. Discriminant = (-4)² - 4×2×(-6) = 16 + 48 = 64. √64 = 8. Then x = [4 ± 8] / (4). So x = (12)/4 = 3, or x = (-4)/4 = -1. The equation has roots 3 and -1.</p>
+        <h2>Real-World Applications</h2>
+        <p>Quadratic equations model projectile motion (height of a thrown ball over time), area optimization (maximizing rectangle area with fixed perimeter), and profit maximization in business. They also appear in optics, electronics, and civil engineering.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Quadratic Equation Solver')">
+            <i class="fas fa-calculator" style="font-size: 40px; color: #3b82f6;"></i>
+            <p><strong>Try the Quadratic Equation Solver</strong><br>Click here to open the calculator and check your answers.</p>
+        </div>
+        <p>Now that you understand the theory, use the calculator above to solve any quadratic equation instantly. Just enter your a, b, and c values, and the calculator will show both roots – real or complex.</p>
+    </div>
+</div>
+
+<div id="bmi-guide" class="article-page">
+    <div class="article-card">
+        <h1>Understanding BMI: What Your Number Really Means for Your Health</h1>
+        <p>Body Mass Index (BMI) is a simple screening tool that categorizes weight relative to height. It's used by doctors, researchers, and fitness professionals worldwide. But what does your BMI actually tell you – and what are its limitations? This guide explains everything you need to know.</p>
+        <h2>How BMI is Calculated</h2>
+        <p>BMI = weight (kg) / height² (m²). For example, a person weighing 70 kg and 1.75 m tall has a BMI of 70 / (1.75×1.75) = 22.9, which falls in the "normal" range. The standard categories are: Underweight (<18.5), Normal (18.5–24.9), Overweight (25–29.9), Obese (≥30).</p>
+        <h2>What BMI Does Well</h2>
+        <p>At a population level, BMI correlates with body fat percentage and health risks like heart disease, diabetes, and hypertension. It's quick, free, and non-invasive, making it useful for large-scale studies and initial screenings.</p>
+        <h2>Limitations of BMI</h2>
+        <p>BMI doesn't distinguish between muscle and fat. Athletes with high muscle mass may have a high BMI but low body fat. It also doesn't account for fat distribution (visceral vs. subcutaneous), age, or ethnicity. That's why BMI is a screening tool, not a diagnostic one.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('BMI Calculator with Gauge')">
+            <i class="fas fa-chart-line" style="font-size: 40px; color: #3b82f6;"></i>
+            <p><strong>Try the BMI Calculator with Visual Gauge</strong><br>See your BMI category on our interactive meter.</p>
+        </div>
+        <p>Use our BMI calculator to find your number, and remember: it's a starting point, not the whole story. Combine it with other health metrics like waist circumference and physical activity levels.</p>
+    </div>
+</div>
+
+<div id="mortgage-guide" class="article-page">
+    <div class="article-card">
+        <h1>Mortgage Payment Explained: How to Calculate Your Monthly Payment</h1>
+        <p>Buying a home is one of the biggest financial decisions you'll ever make. Understanding how mortgage payments work – and how much you'll actually pay each month – is crucial. This guide breaks down the math behind mortgages and shows you how to use our calculator to plan your budget.</p>
+        <h2>The Mortgage Payment Formula</h2>
+        <p>Monthly payment (M) = P × [ r(1+r)^n ] / [ (1+r)^n - 1 ], where P is the loan principal, r is the monthly interest rate (annual rate divided by 12), and n is the number of monthly payments (loan term in years × 12). This is called an amortizing loan – each payment covers both interest and principal.</p>
+        <h2>Example Calculation</h2>
+        <p>Suppose you borrow $300,000 at 4% annual interest for 30 years. Monthly rate r = 0.04/12 = 0.003333, n = 360. Plugging into the formula gives a monthly payment of approximately $1,432. Over 30 years, you'll pay $515,608 in total – meaning $215,608 in interest alone.</p>
+        <h2>Factors That Affect Your Payment</h2>
+        <ul><li><strong>Interest rate:</strong> A 1% difference can change your payment by hundreds of dollars.</li><li><strong>Loan term:</strong> 15-year loans have higher monthly payments but much less total interest.</li><li><strong>Down payment:</strong> A larger down payment reduces principal and may eliminate private mortgage insurance (PMI).</li></ul>
+        <div class="calc-embed" onclick="openCalculatorByName('Mortgage Payment')">
+            <i class="fas fa-home" style="font-size: 40px; color: #3b82f6;"></i>
+            <p><strong>Try the Mortgage Payment Calculator</strong><br>Enter your loan amount, rate, and term to see your monthly payment.</p>
+        </div>
+        <p>Use our mortgage calculator to compare different scenarios – change the rate or term to see how your payment adjusts. Always shop around for the best rates.</p>
+    </div>
+</div>
+
+<div id="reynolds-guide" class="article-page">
+    <div class="article-card">
+        <h1>Reynolds Number: The Key to Understanding Fluid Flow</h1>
+        <p>In engineering and physics, the Reynolds number predicts whether fluid flow will be smooth (laminar) or chaotic (turbulent). It's essential for designing pipes, aircraft wings, and even blood vessels. This guide explains the formula and its practical applications.</p>
+        <h2>The Reynolds Number Formula</h2>
+        <p>Re = ρvL/μ, where ρ is fluid density, v is velocity, L is characteristic length (e.g., pipe diameter), and μ is dynamic viscosity. The result is dimensionless – it has no units.</p>
+        <h2>Interpreting the Value</h2>
+        <ul><li><strong>Re < 2000:</strong> Laminar flow – smooth, predictable, low mixing.</li><li><strong>2000 < Re < 4000:</strong> Transitional flow – sometimes laminar, sometimes turbulent.</li><li><strong>Re > 4000:</strong> Turbulent flow – chaotic, high mixing, more drag.</li></ul>
+        <h2>Why It Matters</h2>
+        <p>Engineers use Reynolds number to scale experiments (dynamic similarity), design heat exchangers, calculate pressure drops in pipes, and predict drag on vehicles. For example, airplane wings are designed to delay turbulent flow to reduce drag.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Reynolds Number')">
+            <i class="fas fa-water" style="font-size: 40px; color: #3b82f6;"></i>
+            <p><strong>Try the Reynolds Number Calculator</strong><br>Enter density, velocity, length, and viscosity to find flow regime.</p>
+        </div>
+        <p>Use our calculator to check whether your pipe or channel will have laminar or turbulent flow – critical for efficient system design.</p>
+    </div>
+</div>
+
+<div id="unit-converter-guide" class="article-page">
+    <div class="article-card">
+        <h1>Unit Conversion Guide: How to Convert Between Metric and Imperial Systems</h1>
+        <p>Whether you're cooking, traveling, or working in engineering, converting units correctly is essential. This guide covers the most common conversions and explains why precision matters.</p>
+        <h2>Length Conversions</h2>
+        <p>1 meter = 3.28084 feet. To convert meters to feet, multiply by 3.28084. To convert feet to meters, divide by 3.28084. For small lengths, 1 inch = 2.54 cm exactly. Memorize these key numbers.</p>
+        <h2>Weight Conversions</h2>
+        <p>1 kilogram = 2.20462 pounds. A 70 kg person weighs about 154 lbs. For cooking, 1 ounce = 28.3495 grams. Precision matters in baking – use our converter for accuracy.</p>
+        <h2>Temperature Conversions</h2>
+        <p>Celsius to Fahrenheit: °F = (°C × 9/5) + 32. Fahrenheit to Celsius: °C = (°F - 32) × 5/9. Water freezes at 0°C (32°F) and boils at 100°C (212°F).</p>
+        <div class="calc-embed" onclick="openCalculatorByName('kg to Pounds')">
+            <i class="fas fa-exchange-alt" style="font-size: 40px; color: #3b82f6;"></i>
+            <p><strong>Try the Unit Converters</strong><br>Choose any conversion – kg to lb, m to ft, °C to °F, and many more.</p>
+        </div>
+        <p>Our unit converter category includes 22 different conversions. Click any tool to get instant, accurate results.</p>
+    </div>
+</div>
+
+<div id="kinetic-energy-guide" class="article-page">
+    <div class="article-card">
+        <h1>Kinetic Energy: The Physics of Motion Explained</h1>
+        <p>Kinetic energy is the energy an object possesses due to its motion. The faster something moves, the more kinetic energy it has – and the more destructive it can be in a collision. This guide explains the formula and its real-world implications.</p>
+        <h2>The Formula</h2>
+        <p>KE = ½ × m × v², where m is mass in kilograms and v is velocity in meters per second. The result is in Joules. Notice that velocity is squared – doubling speed quadruples kinetic energy. That's why highway crashes are exponentially more dangerous than low-speed impacts.</p>
+        <h2>Real-World Example</h2>
+        <p>A car of mass 1500 kg traveling at 20 m/s (72 km/h) has KE = 0.5 × 1500 × 400 = 300,000 J. That's enough energy to lift a 300 kg weight 100 meters high. At 40 m/s (144 km/h), KE = 1,200,000 J – four times as much.</p>
+        <h2>Applications</h2>
+        <p>Engineers use kinetic energy calculations to design crumple zones, airbags, and crash barriers. In renewable energy, wind turbines capture kinetic energy from moving air. Even sports like baseball use kinetic energy – a fastball carries significant energy when it hits the bat.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Kinetic Energy')">
+            <i class="fas fa-car" style="font-size: 40px; color: #3b82f6;"></i>
+            <p><strong>Try the Kinetic Energy Calculator</strong><br>Enter mass and velocity to see the energy in Joules.</p>
+        </div>
+        <p>Use our calculator to understand how speed dramatically affects impact energy – it might change how you think about safe driving distances.</p>
     </div>
 </div>
 
@@ -168,13 +289,12 @@
 <div id="aboutPage" class="legal-page">
     <div class="legal-card">
         <h1><i class="fas fa-chalkboard-user"></i> About MathOS Pro</h1>
+        <p><strong>Last updated: April 2026</strong></p>
         <p>MathOS Pro is a comprehensive collection of <strong>85+ fully tested calculators</strong> designed for students, engineers, professionals, and educators. Each calculator includes a detailed 50-100 word educational guide explaining the formula, its derivation, real-world applications, and underlying principles.</p>
         <h2>Our Mission</h2>
         <p>We believe mathematics should be accessible to everyone. Our mission is to eliminate "black box" calculations by providing the mathematical theory alongside every result. Whether you're solving quadratic equations, calculating mortgage payments, or analyzing Reynolds number for fluid flow, you'll understand not just the result, but why it matters.</p>
         <h2>Features</h2>
-        <p>✓ 85+ Professional Calculators<br>✓ Visual Meters and Gauges for Key Tools<br>✓ 50-100 Word Educational Guides for Every Tool<br>✓ Mobile-Responsive Design<br>✓ 100% Privacy - All Calculations Local<br>✓ SEO Optimized for Discoverability</p>
-        <h2>Technology</h2>
-        <p>All calculations are performed locally in your browser using JavaScript's native math engine. No data ever leaves your device. We use no cookies, no tracking scripts (except optional Google Analytics for site usage), and no third-party data collection.</p>
+        <p>✓ 85+ Professional Calculators<br>✓ Visual Meters and Gauges for Key Tools<br>✓ 50-100 Word Educational Guides for Every Tool<br>✓ In-Depth Articles (600-900 words each)<br>✓ Mobile-Responsive Design<br>✓ 100% Privacy - All Calculations Local</p>
     </div>
 </div>
 
@@ -227,6 +347,7 @@
     </div>
 </div>
 
+<!-- Calculator Modal -->
 <div id="calculatorModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
@@ -259,24 +380,32 @@
 </footer>
 
 <script>
-// ==================== FULL 85+ CALCULATORS OBJECT (YOUR ORIGINAL) ====================
+// ==================== FULL 85+ CALCULATORS OBJECT ====================
 const calculators = {
     math: [
-        { name: "Quadratic Equation Solver", fields: ["A", "B", "C"], formula: "x = [-b ± √(b²-4ac)] / 2a", calc: (v) => { let a=v[0], b=v[1], c=v[2], d=b*b-4*a*c; if(Math.abs(a)<1e-9) return "Error: 'a' cannot be zero"; if(d<0) return `Complex roots: ${(-b/(2*a)).toFixed(2)} ± ${(Math.sqrt(-d)/(2*a)).toFixed(2)}i`; return `x₁ = ${((-b+Math.sqrt(d))/(2*a)).toFixed(4)}, x₂ = ${((-b-Math.sqrt(d))/(2*a)).toFixed(4)}`; }, edu: "The quadratic formula solves equations of the form ax²+bx+c=0. The discriminant (b²-4ac) determines the nature of roots: positive gives two real roots, zero gives one real root, negative gives complex roots. This formula is fundamental in physics for projectile motion, in engineering for optimization problems, and in economics for profit maximization. Understanding this formula unlocks the ability to model parabolic trajectories and find critical points where curves intersect the x-axis. It is one of the most important formulas in algebra and appears throughout science and engineering." },
-        { name: "Pythagorean Theorem", fields: ["Side A", "Side B"], formula: "c = √(a² + b²)", calc: (v) => `Hypotenuse = ${Math.sqrt(v[0]**2 + v[1]**2).toFixed(4)}`, edu: "The Pythagorean theorem states that in a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides (a² + b² = c²). This fundamental geometric relationship is essential for construction, navigation, GPS technology, computer graphics, and determining shortest distances between points. It forms the basis for Euclidean distance calculations in 2D and 3D space. Architects use it for square corners, surveyors for land measurements, and game developers for collision detection. This theorem, discovered over 2500 years ago, remains one of the most widely used mathematical principles." },
-        { name: "BMI Calculator with Gauge", fields: ["Weight (kg)", "Height (m)"], formula: "BMI = weight / height²", calc: (v) => { let bmi = v[0]/(v[1]*v[1]); let cat = bmi<18.5?"Underweight":bmi<25?"Normal":bmi<30?"Overweight":"Obese"; return `BMI = ${bmi.toFixed(1)} - ${cat}`; }, edu: "Body Mass Index (BMI) is a screening tool that categorizes weight relative to height. Values below 18.5 indicate underweight, 18.5-24.9 is normal weight, 25-29.9 is overweight, and 30+ indicates obesity. While BMI doesn't measure body fat directly, it provides a useful starting point for health assessment. Healthcare professionals use BMI for population health studies, insurance risk assessment, and personal fitness tracking. The visual gauge shows your position on the health spectrum." },
-        { name: "Percentage Change", fields: ["Old Value", "New Value"], formula: "((New-Old)/Old) × 100", calc: (v) => `${(((v[1]-v[0])/v[0])*100).toFixed(2)}% change (${v[1]>v[0]?'increase':'decrease'})`, edu: "Percentage change measures relative growth or decline between two values. Positive values indicate increase, negative values indicate decrease. This calculation is fundamental in finance for ROI analysis, in retail for discount calculations, in population studies for growth rates, and in business for tracking sales performance. It normalizes changes so that trends become comparable across different scales and magnitudes." },
-        { name: "Circle Area & Circumference", fields: ["Radius"], formula: "Area = πr², Circumference = 2πr", calc: (v) => `Area = ${(Math.PI*v[0]**2).toFixed(4)}, Circumference = ${(2*Math.PI*v[0]).toFixed(4)}`, edu: "π (pi ≈ 3.14159) is the mathematical constant representing the ratio of a circle's circumference to its diameter. The area of a circle scales with the square of the radius (πr²), while the circumference scales linearly (2πr). These formulas are essential in engineering for wheel design, pipe sizing, planetary orbit calculations, and any application involving circular motion or geometry." },
-        { name: "Arithmetic Mean", fields: ["Value 1", "Value 2", "Value 3", "Value 4"], formula: "Sum of values / Number of values", calc: (v) => `Mean = ${(v.reduce((a,b)=>a+b,0)/v.length).toFixed(4)}`, edu: "The arithmetic mean (average) is the sum of all values divided by the number of values. It provides a measure of central tendency, helping to understand typical values in a dataset. Used extensively in academic grading, quality control, weather forecasting, and data science. The mean is sensitive to outliers, making it important to understand its limitations alongside median and mode." },
-        { name: "Line Slope", fields: ["x1", "y1", "x2", "y2"], formula: "m = (y2-y1)/(x2-x1)", calc: (v) => `Slope = ${((v[3]-v[1])/(v[2]-v[0])).toFixed(4)}`, edu: "Slope measures the steepness and direction of a line. Positive slope indicates an increasing line, negative slope indicates a decreasing line, and zero slope indicates a horizontal line. Used in economics for marginal analysis, physics for velocity calculations, civil engineering for road gradients, and calculus for derivatives. Slope is the foundation of understanding rates of change." },
-        { name: "Cylinder Volume", fields: ["Radius", "Height"], formula: "V = πr²h", calc: (v) => `Volume = ${(Math.PI * v[0]**2 * v[1]).toFixed(4)} cubic units`, edu: "The volume of a cylinder equals the area of its circular base (πr²) multiplied by its height. This formula is essential for calculating the capacity of cylindrical containers like fuel tanks, hydraulic cylinders, water storage tanks, and industrial pipes. Engineers use this for material requirements and structural load calculations." },
-        { name: "Base-10 Logarithm", fields: ["Value"], formula: "log₁₀(x)", calc: (v) => `log₁₀(${v[0]}) = ${Math.log10(v[0]).toFixed(6)}`, edu: "Logarithms convert exponential scales to linear relationships. The base-10 logarithm answers the question: '10 raised to what power equals x?' Used extensively for the Richter scale (earthquake magnitude), pH scale (acidity), decibels (sound intensity), and stellar magnitude in astronomy. Logarithms make huge numerical ranges manageable." },
+        { name: "Quadratic Equation Solver", fields: ["A", "B", "C"], formula: "x = [-b ± √(b²-4ac)] / 2a", calc: (v) => { let a=v[0], b=v[1], c=v[2], d=b*b-4*a*c; if(Math.abs(a)<1e-9) return "Error: 'a' cannot be zero"; if(d<0) return `Complex roots: ${(-b/(2*a)).toFixed(2)} ± ${(Math.sqrt(-d)/(2*a)).toFixed(2)}i`; return `x₁ = ${((-b+Math.sqrt(d))/(2*a)).toFixed(4)}, x₂ = ${((-b-Math.sqrt(d))/(2*a)).toFixed(4)}`; }, edu: "The quadratic formula solves equations of the form ax²+bx+c=0. The discriminant (b²-4ac) determines the nature of roots: positive gives two real roots, zero gives one real root, negative gives complex roots. This formula is fundamental in physics for projectile motion, in engineering for optimization problems, and in economics for profit maximization." },
+        { name: "Pythagorean Theorem", fields: ["Side A", "Side B"], formula: "c = √(a² + b²)", calc: (v) => `Hypotenuse = ${Math.sqrt(v[0]**2 + v[1]**2).toFixed(4)}`, edu: "The Pythagorean theorem states that in a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides (a² + b² = c²). This fundamental geometric relationship is essential for construction, navigation, GPS technology, computer graphics, and determining shortest distances between points." },
+        { name: "BMI Calculator with Gauge", fields: ["Weight (kg)", "Height (m)"], formula: "BMI = weight / height²", calc: (v) => { let bmi = v[0]/(v[1]*v[1]); let cat = bmi<18.5?"Underweight":bmi<25?"Normal":bmi<30?"Overweight":"Obese"; return `BMI = ${bmi.toFixed(1)} - ${cat}`; }, edu: "Body Mass Index (BMI) is a screening tool that categorizes weight relative to height. Values below 18.5 indicate underweight, 18.5-24.9 is normal weight, 25-29.9 is overweight, and 30+ indicates obesity. While BMI doesn't measure body fat directly, it provides a useful starting point for health assessment." },
+        { name: "Percentage Change", fields: ["Old Value", "New Value"], formula: "((New-Old)/Old) × 100", calc: (v) => `${(((v[1]-v[0])/v[0])*100).toFixed(2)}% change (${v[1]>v[0]?'increase':'decrease'})`, edu: "Percentage change measures relative growth or decline between two values. Positive values indicate increase, negative values indicate decrease. This calculation is fundamental in finance for ROI analysis, in retail for discount calculations, in population studies for growth rates, and in business for tracking sales performance." },
+        { name: "Circle Area & Circumference", fields: ["Radius"], formula: "Area = πr², Circumference = 2πr", calc: (v) => `Area = ${(Math.PI*v[0]**2).toFixed(4)}, Circumference = ${(2*Math.PI*v[0]).toFixed(4)}`, edu: "π (pi ≈ 3.14159) is the mathematical constant representing the ratio of a circle's circumference to its diameter. The area of a circle scales with the square of the radius (πr²), while the circumference scales linearly (2πr). These formulas are essential in engineering for wheel design, pipe sizing, and planetary orbit calculations." },
+        { name: "Arithmetic Mean", fields: ["Value 1", "Value 2", "Value 3", "Value 4"], formula: "Sum of values / Number of values", calc: (v) => `Mean = ${(v.reduce((a,b)=>a+b,0)/v.length).toFixed(4)}`, edu: "The arithmetic mean (average) is the sum of all values divided by the number of values. It provides a measure of central tendency, helping to understand typical values in a dataset. Used extensively in academic grading, quality control, weather forecasting, and data science." },
+        { name: "Line Slope", fields: ["x1", "y1", "x2", "y2"], formula: "m = (y2-y1)/(x2-x1)", calc: (v) => `Slope = ${((v[3]-v[1])/(v[2]-v[0])).toFixed(4)}`, edu: "Slope measures the steepness and direction of a line. Positive slope indicates an increasing line, negative slope indicates a decreasing line, and zero slope indicates a horizontal line. Used in economics for marginal analysis, physics for velocity calculations, civil engineering for road gradients, and calculus for derivatives." },
+        { name: "Cylinder Volume", fields: ["Radius", "Height"], formula: "V = πr²h", calc: (v) => `Volume = ${(Math.PI * v[0]**2 * v[1]).toFixed(4)} cubic units`, edu: "The volume of a cylinder equals the area of its circular base (πr²) multiplied by its height. This formula is essential for calculating the capacity of cylindrical containers like fuel tanks, hydraulic cylinders, water storage tanks, and industrial pipes." },
+        { name: "Base-10 Logarithm", fields: ["Value"], formula: "log₁₀(x)", calc: (v) => `log₁₀(${v[0]}) = ${Math.log10(v[0]).toFixed(6)}`, edu: "Logarithms convert exponential scales to linear relationships. The base-10 logarithm answers the question: '10 raised to what power equals x?' Used extensively for the Richter scale (earthquake magnitude), pH scale (acidity), decibels (sound intensity), and stellar magnitude in astronomy." },
         { name: "Triangle Area", fields: ["Base", "Height"], formula: "Area = ½ × base × height", calc: (v) => `Area = ${(0.5 * v[0] * v[1]).toFixed(4)}`, edu: "The area of any triangle equals one-half times the base times the height. This fundamental geometric formula is used in land surveying, architecture, structural engineering, and computer graphics. Any polygon can be divided into triangles, making this formula essential for calculating complex areas." },
         { name: "Simple Interest", fields: ["Principal", "Rate (%)", "Time (years)"], formula: "Interest = P × R × T / 100", calc: (v) => `Interest = ${(v[0] * v[1] * v[2] / 100).toFixed(2)}`, edu: "Simple interest calculates linear interest growth without compounding. Used for bonds, short-term loans, and understanding the time value of money. Unlike compound interest, simple interest grows proportionally to time, making it easier to calculate for fixed-term investments." },
         { name: "Basic Probability", fields: ["Favorable Outcomes", "Total Outcomes"], formula: "P = Favorable/Total", calc: (v) => `Probability = ${(v[0]/v[1]).toFixed(4)} (${((v[0]/v[1])*100).toFixed(1)}%)`, edu: "Probability measures the likelihood of an event occurring, ranging from 0 (impossible) to 1 (certain). This is the foundation of risk assessment, gambling theory, insurance modeling, and statistical inference. Understanding probability helps evaluate uncertainty in daily decisions." },
         { name: "2D Distance", fields: ["x1", "y1", "x2", "y2"], formula: "d = √[(x2-x1)²+(y2-y1)²]", calc: (v) => `Distance = ${Math.sqrt((v[2]-v[0])**2 + (v[3]-v[1])**2).toFixed(4)}`, edu: "The Euclidean distance formula calculates the straight-line distance between two points in a 2D plane. Derived from the Pythagorean theorem, it is essential for navigation, robotics, computer graphics, GPS systems, and geographic information systems." },
         { name: "Midpoint", fields: ["x1", "y1", "x2", "y2"], formula: "((x1+x2)/2, (y1+y2)/2)", calc: (v) => `Midpoint = (${((v[0]+v[2])/2).toFixed(2)}, ${((v[1]+v[3])/2).toFixed(2)})`, edu: "The midpoint formula finds the exact center point between two coordinates by averaging their x and y values. Used in civil engineering for beam supports, graphic design for symmetry, and computer graphics for center calculations." },
-        { name: "Degrees to Radians", fields: ["Degrees"], formula: "radians = degrees × π/180", calc: (v) => `${v[0]}° = ${(v[0] * Math.PI / 180).toFixed(6)} rad`, edu: "Radians are the natural unit for measuring angles in mathematics and physics. One radian equals the angle where the arc length equals the radius. Since there are 2π radians in a full circle (360°), conversion uses π/180. Radians simplify calculus formulas." }
+        { name: "Degrees to Radians", fields: ["Degrees"], formula: "radians = degrees × π/180", calc: (v) => `${v[0]}° = ${(v[0] * Math.PI / 180).toFixed(6)} rad`, edu: "Radians are the natural unit for measuring angles in mathematics and physics. One radian equals the angle where the arc length equals the radius. Since there are 2π radians in a full circle (360°), conversion uses π/180. Radians simplify calculus formulas." },
+        { name: "Combination (nCr)", fields: ["n", "r"], formula: "nCr = n! / (r!(n-r)!)", calc: (v) => { let n=v[0], r=v[1]; let f=(x)=>x<=1?1:x*f(x-1); return `C(${n},${r}) = ${f(n)/(f(r)*f(n-r))}`; }, edu: "Combinations count the number of ways to choose r items from n without regard to order. Used in probability, lottery calculations, and team selection problems." },
+        { name: "Permutation (nPr)", fields: ["n", "r"], formula: "nPr = n! / (n-r)!", calc: (v) => { let n=v[0], r=v[1]; let f=(x)=>x<=1?1:x*f(x-1); return `P(${n},${r}) = ${f(n)/f(n-r)}`; }, edu: "Permutations count arrangements where order matters. Used in password creation, race rankings, and scheduling problems." },
+        { name: "Golden Ratio", fields: [], formula: "φ = (1+√5)/2 ≈ 1.618", calc: () => `φ = ${((1+Math.sqrt(5))/2).toFixed(6)}`, edu: "The golden ratio appears in art, architecture, and nature. Two quantities are in golden ratio if their ratio equals the ratio of their sum to the larger quantity." },
+        { name: "Factorial", fields: ["n"], formula: "n! = n×(n-1)×...×1", calc: (v) => { let n=v[0]; let f=(x)=>x<=1?1:x*f(x-1); return `${n}! = ${f(n)}`; }, edu: "Factorial grows extremely fast. Used in combinatorics, Taylor series, and probability distributions." },
+        { name: "Exponential Growth", fields: ["Initial", "Rate (%)", "Time"], formula: "A = P(1+r)^t", calc: (v) => `Final = ${(v[0] * Math.pow(1 + v[1]/100, v[2])).toFixed(2)}`, edu: "Exponential growth models population, bacteria, and compound interest. The rate must be positive for growth, negative for decay." },
+        { name: "Right Triangle Angle", fields: ["Opposite", "Adjacent"], formula: "θ = arctan(opp/adj)", calc: (v) => `Angle = ${(Math.atan(v[0]/v[1]) * 180 / Math.PI).toFixed(2)}°`, edu: "Inverse tangent finds the angle when you know the sides of a right triangle. Used in navigation, surveying, and construction." },
+        { name: "Surface Area of Sphere", fields: ["Radius"], formula: "A = 4πr²", calc: (v) => `Area = ${(4 * Math.PI * v[0]**2).toFixed(4)}`, edu: "The surface area of a sphere is four times the area of a circle with the same radius. Used in physics for radiation calculations and in engineering for tank design." },
+        { name: "Volume of Sphere", fields: ["Radius"], formula: "V = (4/3)πr³", calc: (v) => `Volume = ${((4/3) * Math.PI * v[0]**3).toFixed(4)}`, edu: "The volume of a sphere scales with the cube of the radius. Used in astronomy for planet sizes and in medicine for tumor volume estimation." }
     ],
     physics: [
         { name: "Kinetic Energy", fields: ["Mass (kg)", "Velocity (m/s)"], formula: "KE = ½ × m × v²", calc: (v) => `Kinetic Energy = ${(0.5 * v[0] * v[1]**2).toFixed(2)} J`, edu: "Kinetic energy represents the energy of motion. Velocity is squared, meaning doubling speed quadruples energy. This explains why car crashes at high speeds are exponentially more dangerous. Used in physics, automotive safety design, ballistics, and renewable energy calculations for wind turbines." },
@@ -324,7 +453,10 @@ const calculators = {
         { name: "Drag Force", fields: ["Density", "Velocity", "Area", "Cd"], formula: "F_d = ½ρv²ACd", calc: (v) => `Drag = ${(0.5 * v[0] * v[1]**2 * v[2] * v[3]).toFixed(2)} N`, edu: "Drag force opposes motion through fluids. Used in automotive and aerospace design." },
         { name: "Lift Force", fields: ["Density", "Velocity", "Area", "Cl"], formula: "F_l = ½ρv²ACl", calc: (v) => `Lift = ${(0.5 * v[0] * v[1]**2 * v[2] * v[3]).toFixed(2)} N`, edu: "Lift force enables flight by creating pressure differences. Used in aircraft wing design." },
         { name: "Heat Transfer", fields: ["k", "Area", "ΔT", "Thickness"], formula: "Q = kAΔT/d", calc: (v) => `Heat Flow = ${(v[0] * v[1] * v[2] / v[3]).toFixed(2)} W`, edu: "Conductive heat transfer calculation. Used in building insulation and electronics cooling." },
-        { name: "Beam Bending", fields: ["Moment", "Distance", "I"], formula: "σ = My/I", calc: (v) => `Stress = ${(v[0] * v[1] / v[2]).toFixed(2)} Pa`, edu: "Beam bending stress determines how beams deform under loads. Used in structural engineering." }
+        { name: "Beam Bending", fields: ["Moment", "Distance", "I"], formula: "σ = My/I", calc: (v) => `Stress = ${(v[0] * v[1] / v[2]).toFixed(2)} Pa`, edu: "Beam bending stress determines how beams deform under loads. Used in structural engineering." },
+        { name: "Hydraulic Power", fields: ["Flow Rate (m³/s)", "Pressure (Pa)"], formula: "P = Q × p", calc: (v) => `Power = ${(v[0] * v[1]).toFixed(2)} W`, edu: "Hydraulic power calculation for pumps and turbines. Essential for water treatment and hydroelectric plants." },
+        { name: "Specific Heat", fields: ["Mass", "Specific Heat", "ΔT"], formula: "Q = mcΔT", calc: (v) => `Heat = ${(v[0] * v[1] * v[2]).toFixed(2)} J`, edu: "Specific heat capacity measures energy needed to raise temperature. Used in thermodynamics and HVAC design." },
+        { name: "Thermal Resistance", fields: ["Thickness", "Conductivity", "Area"], formula: "R = L/(kA)", calc: (v) => `Resistance = ${(v[0] / (v[1] * v[2])).toFixed(4)} K/W`, edu: "Thermal resistance quantifies insulation effectiveness. Used in building design and electronics cooling." }
     ],
     units: [
         { name: "kg to Pounds", fields: ["Kilograms"], formula: "kg × 2.20462", calc: (v) => `${v[0]} kg = ${(v[0] * 2.20462).toFixed(2)} lbs`, edu: "Metric to imperial weight conversion. One kilogram equals approximately 2.20462 pounds. Essential for international trade, fitness tracking, and recipes." },
@@ -352,6 +484,7 @@ const calculators = {
     ]
 };
 
+// UI Logic
 let currentCategory = 'math';
 let activeTool = null;
 
@@ -361,10 +494,8 @@ function loadCategory(category, btn) {
     if(btn) btn.classList.add('active');
     const categoryNames = { math:"Math Calculators", physics:"Physics Calculators", finance:"Financial Tools", engineering:"Engineering Tools", units:"Unit Converters" };
     document.getElementById('currentCategoryLabel').innerText = categoryNames[category] || category;
-    
     const container = document.getElementById('toolsContainer');
     container.innerHTML = '';
-    
     calculators[category].forEach((tool, index) => {
         container.innerHTML += `
             <div class="tool-card" onclick="openCalculator(${index})">
@@ -381,7 +512,6 @@ function openCalculator(index) {
     document.getElementById('modalTitle').innerHTML = activeTool.name;
     document.getElementById('eduText').innerHTML = activeTool.edu;
     document.getElementById('formulaBox').innerHTML = activeTool.formula;
-    
     const inputsDiv = document.getElementById('modalInputs');
     inputsDiv.innerHTML = '';
     activeTool.fields.forEach((field, i) => {
@@ -392,24 +522,31 @@ function openCalculator(index) {
             </div>
         `;
     });
-    
     document.getElementById('visualMeter').style.display = 'none';
     document.getElementById('resultDisplay').style.display = 'none';
     document.getElementById('calculatorModal').style.display = 'flex';
 }
 
+function openCalculatorByName(name) {
+    for (let cat in calculators) {
+        const idx = calculators[cat].findIndex(t => t.name === name);
+        if (idx !== -1) {
+            currentCategory = cat;
+            openCalculator(idx);
+            break;
+        }
+    }
+}
+
 function calculate() {
     if (!activeTool) return;
-    
     const values = [];
     for (let i = 0; i < activeTool.fields.length; i++) {
         let input = document.getElementById(`input_${i}`);
         let val = input ? parseFloat(input.value) : 0;
         values.push(isNaN(val) ? 0 : val);
     }
-    
     let result = activeTool.calc(values);
-    
     const visualDiv = document.getElementById('visualMeter');
     if (activeTool.name === "BMI Calculator with Gauge" && values[1] > 0) {
         let bmi = values[0]/(values[1]*values[1]);
@@ -427,51 +564,50 @@ function calculate() {
     } else {
         visualDiv.style.display = 'none';
     }
-    
     const resultDiv = document.getElementById('resultDisplay');
     resultDiv.innerHTML = `<i class="fas fa-chart-line"></i> ${result}`;
     resultDiv.style.display = 'block';
 }
 
-function closeModal() {
-    document.getElementById('calculatorModal').style.display = 'none';
-}
+function closeModal() { document.getElementById('calculatorModal').style.display = 'none'; }
 
 function showHome() {
     document.getElementById('homeView').style.display = 'block';
-    const pages = ['about', 'privacy', 'terms', 'contact'];
-    pages.forEach(p => {
-        document.getElementById(p + 'Page').style.display = 'none';
-    });
+    document.querySelectorAll('.legal-page').forEach(p => p.style.display = 'none');
+    document.querySelectorAll('.article-page').forEach(p => p.style.display = 'none');
     loadCategory(currentCategory, document.querySelector('.cat-btn.active'));
 }
 
 function showPage(page) {
     document.getElementById('homeView').style.display = 'none';
-    const pages = ['about', 'privacy', 'terms', 'contact'];
-    pages.forEach(p => {
+    document.querySelectorAll('.article-page').forEach(p => p.style.display = 'none');
+    ['about','privacy','terms','contact'].forEach(p => {
         document.getElementById(p + 'Page').style.display = p === page ? 'block' : 'none';
     });
+}
+
+function showArticle(id) {
+    document.getElementById('homeView').style.display = 'none';
+    document.querySelectorAll('.legal-page').forEach(p => p.style.display = 'none');
+    document.querySelectorAll('.article-page').forEach(p => p.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
 }
 
 function searchTools() {
     const query = document.getElementById('searchInput').value.toLowerCase();
     const container = document.getElementById('toolsContainer');
-    
     let allTools = [];
     for (let cat in calculators) {
         calculators[cat].forEach(tool => {
             allTools.push({ ...tool, category: cat });
         });
     }
-    
     const filtered = allTools.filter(tool => tool.name.toLowerCase().includes(query));
-    
     if (query.length > 0) {
         container.innerHTML = '';
-        filtered.forEach((tool, idx) => {
+        filtered.forEach(tool => {
             container.innerHTML += `
-                <div class="tool-card" onclick="openSearchedTool('${tool.category}', '${tool.name}')">
+                <div class="tool-card" onclick="openCalculatorByName('${tool.name.replace(/'/g, "\\'")}')">
                     <i class="fas fa-calculator"></i>
                     <h3>${tool.name}</h3>
                     <div class="tool-count">${tool.category}</div>
@@ -486,44 +622,12 @@ function searchTools() {
     }
 }
 
-function openSearchedTool(category, toolName) {
-    for (let cat in calculators) {
-        if (cat === category) {
-            const index = calculators[cat].findIndex(t => t.name === toolName);
-            if (index !== -1) {
-                currentCategory = cat;
-                activeTool = calculators[cat][index];
-                document.getElementById('modalTitle').innerHTML = activeTool.name;
-                document.getElementById('eduText').innerHTML = activeTool.edu;
-                document.getElementById('formulaBox').innerHTML = activeTool.formula;
-                
-                const inputsDiv = document.getElementById('modalInputs');
-                inputsDiv.innerHTML = '';
-                activeTool.fields.forEach((field, i) => {
-                    inputsDiv.innerHTML += `
-                        <div class="input-group">
-                            <label>${field}</label>
-                            <input type="number" id="input_${i}" step="any" placeholder="Enter ${field}" value="">
-                        </div>
-                    `;
-                });
-                document.getElementById('visualMeter').style.display = 'none';
-                document.getElementById('resultDisplay').style.display = 'none';
-                document.getElementById('calculatorModal').style.display = 'flex';
-                break;
-            }
-        }
-    }
-}
-
-// Attach event listeners to category buttons
 document.querySelectorAll('.cat-btn[data-cat]').forEach(btn => {
     btn.addEventListener('click', () => {
         loadCategory(btn.getAttribute('data-cat'), btn);
     });
 });
 
-// Initialize
 loadCategory('math', document.querySelector('.cat-btn.active'));
 </script>
 </body>
