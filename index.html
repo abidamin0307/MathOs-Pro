@@ -142,12 +142,34 @@
                 <button class="cat-btn" data-cat="engineering"><i class="fas fa-microchip"></i> Engineering Tools <span class="badge">22</span></button>
                 <button class="cat-btn" data-cat="units"><i class="fas fa-exchange-alt"></i> Unit Converters <span class="badge">22</span></button>
                 <hr>
+                <!-- Original 6 articles -->
                 <div class="article-link" onclick="showArticle('quadratic-guide')"><i class="fas fa-book-open"></i> Quadratic Equation Guide</div>
                 <div class="article-link" onclick="showArticle('bmi-guide')"><i class="fas fa-heartbeat"></i> BMI & Health Guide</div>
                 <div class="article-link" onclick="showArticle('mortgage-guide')"><i class="fas fa-home"></i> Mortgage Payment Guide</div>
                 <div class="article-link" onclick="showArticle('reynolds-guide')"><i class="fas fa-water"></i> Reynolds Number Guide</div>
                 <div class="article-link" onclick="showArticle('unit-converter-guide')"><i class="fas fa-ruler"></i> Unit Conversion Guide</div>
                 <div class="article-link" onclick="showArticle('kinetic-energy-guide')"><i class="fas fa-car"></i> Kinetic Energy Guide</div>
+                <!-- 20 new articles -->
+                <div class="article-link" onclick="showArticle('percentage-guide')"><i class="fas fa-percent"></i> Percentage Change Guide</div>
+                <div class="article-link" onclick="showArticle('interest-guide')"><i class="fas fa-chart-line"></i> Simple vs Compound Interest</div>
+                <div class="article-link" onclick="showArticle('linear-equations-guide')"><i class="fas fa-chalkboard-teacher"></i> Linear Equations Guide</div>
+                <div class="article-link" onclick="showArticle('stddev-guide')"><i class="fas fa-chart-bar"></i> Standard Deviation Explained</div>
+                <div class="article-link" onclick="showArticle('unit-conversion-mastery')"><i class="fas fa-ruler-combined"></i> Unit Conversion Mastery</div>
+                <div class="article-link" onclick="showArticle('ohms-law-guide')"><i class="fas fa-bolt"></i> Ohm's Law Explained</div>
+                <div class="article-link" onclick="showArticle('kinetic-potential-guide')"><i class="fas fa-car"></i> Kinetic vs Potential Energy</div>
+                <div class="article-link" onclick="showArticle('emi-guide')"><i class="fas fa-rupee-sign"></i> EMI Loan Calculation</div>
+                <div class="article-link" onclick="showArticle('bodyfat-guide')"><i class="fas fa-heartbeat"></i> Body Fat Percentage</div>
+                <div class="article-link" onclick="showArticle('quadratic-realworld')"><i class="fas fa-chart-line"></i> Real-Life Quadratic Eqs</div>
+                <div class="article-link" onclick="showArticle('scientific-calculator-guide')"><i class="fas fa-calculator"></i> Scientific Calculator Tips</div>
+                <div class="article-link" onclick="showArticle('fuel-efficiency-guide')"><i class="fas fa-gas-pump"></i> Fuel Efficiency Guide</div>
+                <div class="article-link" onclick="showArticle('arithmetic-sequence-guide')"><i class="fas fa-sort-numeric-up"></i> Arithmetic Sequences</div>
+                <div class="article-link" onclick="showArticle('geometric-sequence-guide')"><i class="fas fa-chart-exponential"></i> Geometric Sequences</div>
+                <div class="article-link" onclick="showArticle('pythagorean-guide')"><i class="fas fa-draw-polygon"></i> Pythagorean Theorem</div>
+                <div class="article-link" onclick="showArticle('area-perimeter-guide')"><i class="fas fa-shapes"></i> Area & Perimeter Guide</div>
+                <div class="article-link" onclick="showArticle('speed-distance-guide')"><i class="fas fa-tachometer-alt"></i> Speed, Distance, Time</div>
+                <div class="article-link" onclick="showArticle('temperature-guide')"><i class="fas fa-thermometer-half"></i> Temperature Conversion</div>
+                <div class="article-link" onclick="showArticle('fractions-guide')"><i class="fas fa-divide"></i> Fractions to Decimals</div>
+                <div class="article-link" onclick="showArticle('binary-guide')"><i class="fas fa-microchip"></i> Binary & Decimal Conversion</div>
                 <hr>
                 <button class="cat-btn" onclick="showPage('about')"><i class="fas fa-info-circle"></i> About Us</button>
                 <button class="cat-btn" onclick="showPage('privacy')"><i class="fas fa-shield-alt"></i> Privacy Policy</button>
@@ -157,7 +179,7 @@
             <div id="toolsContainer" class="tools-grid"></div>
         </div>
         
-        <!-- Homepage original content block (500+ words) -->
+        <!-- Homepage original content block -->
         <div class="content-block">
             <h2>Why MathOS Pro? – More Than Just Numbers</h2>
             <p>Unlike simple calculator apps that give you an answer and move on, MathOS Pro was built with a single mission: <strong>to help you understand the math behind the result</strong>. Every single one of our 85+ calculators includes a 50–100 word educational guide that explains the formula, its derivation, real-world applications, and why it matters.</p>
@@ -169,7 +191,9 @@
     </div>
 </div>
 
-<!-- Article Pages -->
+<!-- ========== ORIGINAL 6 ARTICLES ========== -->
+
+<!-- 1. Quadratic Equation Guide -->
 <div id="quadratic-guide" class="article-page">
     <div class="article-card">
         <h1>How to Solve Quadratic Equations: A Complete Step-by-Step Guide</h1>
@@ -195,6 +219,7 @@
     </div>
 </div>
 
+<!-- 2. BMI Guide -->
 <div id="bmi-guide" class="article-page">
     <div class="article-card">
         <h1>Understanding BMI: What Your Number Really Means for Your Health</h1>
@@ -206,429 +231,374 @@
         <h2>Limitations of BMI</h2>
         <p>BMI doesn't distinguish between muscle and fat. Athletes with high muscle mass may have a high BMI but low body fat. It also doesn't account for fat distribution (visceral vs. subcutaneous), age, or ethnicity. That's why BMI is a screening tool, not a diagnostic one.</p>
         <div class="calc-embed" onclick="openCalculatorByName('BMI Calculator with Gauge')">
-            <i class="fas fa-chart-line" style="font-size: 40px; color: #3b82f6;"></i>
-            <p><strong>Try the BMI Calculator with Visual Gauge</strong><br>See your BMI category on our interactive meter.</p>
+            <i class="fas fa-heartbeat" style="font-size: 40px; color: #3b82f6;"></i>
+            <p><strong>Try the BMI Calculator</strong><br>Enter your weight and height to see your BMI and gauge.</p>
         </div>
-        <p>Use our BMI calculator to find your number, and remember: it's a starting point, not the whole story. Combine it with other health metrics like waist circumference and physical activity levels.</p>
     </div>
 </div>
 
+<!-- 3. Mortgage Payment Guide -->
 <div id="mortgage-guide" class="article-page">
     <div class="article-card">
-        <h1>Mortgage Payment Explained: How to Calculate Your Monthly Payment</h1>
-        <p>Buying a home is one of the biggest financial decisions you'll ever make. Understanding how mortgage payments work – and how much you'll actually pay each month – is crucial. This guide breaks down the math behind mortgages and shows you how to use our calculator to plan your budget.</p>
+        <h1>Mortgage Payment Guide: How to Calculate Your Monthly Home Loan</h1>
+        <p>Buying a home is one of the biggest financial decisions you'll make. Understanding how mortgage payments work helps you compare loans and plan your budget. This guide breaks down the math behind monthly payments, including principal, interest, taxes, and insurance.</p>
         <h2>The Mortgage Payment Formula</h2>
-        <p>Monthly payment (M) = P × [ r(1+r)^n ] / [ (1+r)^n - 1 ], where P is the loan principal, r is the monthly interest rate (annual rate divided by 12), and n is the number of monthly payments (loan term in years × 12). This is called an amortizing loan – each payment covers both interest and principal.</p>
-        <h2>Example Calculation</h2>
-        <p>Suppose you borrow $300,000 at 4% annual interest for 30 years. Monthly rate r = 0.04/12 = 0.003333, n = 360. Plugging into the formula gives a monthly payment of approximately $1,432. Over 30 years, you'll pay $515,608 in total – meaning $215,608 in interest alone.</p>
-        <h2>Factors That Affect Your Payment</h2>
-        <ul><li><strong>Interest rate:</strong> A 1% difference can change your payment by hundreds of dollars.</li><li><strong>Loan term:</strong> 15-year loans have higher monthly payments but much less total interest.</li><li><strong>Down payment:</strong> A larger down payment reduces principal and may eliminate private mortgage insurance (PMI).</li></ul>
-        <div class="calc-embed" onclick="openCalculatorByName('Mortgage Payment')">
+        <p>Monthly Payment = P × [ r(1+r)^n ] / [ (1+r)^n – 1 ], where P = loan amount, r = monthly interest rate, n = number of months. For example, a ₹30,00,000 loan at 7% annual (0.5833% monthly) for 20 years (240 months) gives a monthly payment of approximately ₹23,259.</p>
+        <h2>Amortization Explained</h2>
+        <p>Early payments go mostly toward interest; later payments go mostly toward principal. Making extra payments toward principal can save thousands in interest over the life of the loan.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Mortgage Calculator')">
             <i class="fas fa-home" style="font-size: 40px; color: #3b82f6;"></i>
-            <p><strong>Try the Mortgage Payment Calculator</strong><br>Enter your loan amount, rate, and term to see your monthly payment.</p>
+            <p><strong>Try the Mortgage Calculator</strong><br>Enter loan amount, interest rate, and tenure to see your monthly payment and total interest.</p>
         </div>
-        <p>Use our mortgage calculator to compare different scenarios – change the rate or term to see how your payment adjusts. Always shop around for the best rates.</p>
     </div>
 </div>
 
+<!-- 4. Reynolds Number Guide -->
 <div id="reynolds-guide" class="article-page">
     <div class="article-card">
-        <h1>Reynolds Number: The Key to Understanding Fluid Flow</h1>
-        <p>In engineering and physics, the Reynolds number predicts whether fluid flow will be smooth (laminar) or chaotic (turbulent). It's essential for designing pipes, aircraft wings, and even blood vessels. This guide explains the formula and its practical applications.</p>
-        <h2>The Reynolds Number Formula</h2>
-        <p>Re = ρvL/μ, where ρ is fluid density, v is velocity, L is characteristic length (e.g., pipe diameter), and μ is dynamic viscosity. The result is dimensionless – it has no units.</p>
-        <h2>Interpreting the Value</h2>
-        <ul><li><strong>Re < 2000:</strong> Laminar flow – smooth, predictable, low mixing.</li><li><strong>2000 < Re < 4000:</strong> Transitional flow – sometimes laminar, sometimes turbulent.</li><li><strong>Re > 4000:</strong> Turbulent flow – chaotic, high mixing, more drag.</li></ul>
-        <h2>Why It Matters</h2>
-        <p>Engineers use Reynolds number to scale experiments (dynamic similarity), design heat exchangers, calculate pressure drops in pipes, and predict drag on vehicles. For example, airplane wings are designed to delay turbulent flow to reduce drag.</p>
-        <div class="calc-embed" onclick="openCalculatorByName('Reynolds Number')">
+        <h1>Reynolds Number: Understanding Fluid Flow (Laminar vs Turbulent)</h1>
+        <p>In fluid dynamics, the Reynolds number (Re) predicts whether flow will be smooth (laminar) or chaotic (turbulent). It's critical for designing pipes, aircraft wings, and even blood vessels. The formula is Re = ρVD/μ, where ρ = density, V = velocity, D = characteristic length, μ = dynamic viscosity.</p>
+        <h2>Interpreting Reynolds Number</h2>
+        <ul><li>Re < 2000: Laminar flow (smooth, predictable).</li><li>2000 < Re < 4000: Transitional flow.</li><li>Re > 4000: Turbulent flow (chaotic, mixing).</li></ul>
+        <h2>Example</h2>
+        <p>Water flowing through a 0.05 m pipe at 2 m/s. Density = 1000 kg/m³, viscosity = 0.001 Pa·s. Re = (1000×2×0.05)/0.001 = 100,000 → turbulent.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Reynolds Number Calculator')">
             <i class="fas fa-water" style="font-size: 40px; color: #3b82f6;"></i>
-            <p><strong>Try the Reynolds Number Calculator</strong><br>Enter density, velocity, length, and viscosity to find flow regime.</p>
+            <p><strong>Try the Reynolds Number Calculator</strong><br>Enter fluid properties and flow conditions to determine flow regime.</p>
         </div>
-        <p>Use our calculator to check whether your pipe or channel will have laminar or turbulent flow – critical for efficient system design.</p>
     </div>
 </div>
 
+<!-- 5. Unit Converter Guide -->
 <div id="unit-converter-guide" class="article-page">
     <div class="article-card">
-        <h1>Unit Conversion Guide: How to Convert Between Metric and Imperial Systems</h1>
-        <p>Whether you're cooking, traveling, or working in engineering, converting units correctly is essential. This guide covers the most common conversions and explains why precision matters.</p>
-        <h2>Length Conversions</h2>
-        <p>1 meter = 3.28084 feet. To convert meters to feet, multiply by 3.28084. To convert feet to meters, divide by 3.28084. For small lengths, 1 inch = 2.54 cm exactly. Memorize these key numbers.</p>
-        <h2>Weight Conversions</h2>
-        <p>1 kilogram = 2.20462 pounds. A 70 kg person weighs about 154 lbs. For cooking, 1 ounce = 28.3495 grams. Precision matters in baking – use our converter for accuracy.</p>
-        <h2>Temperature Conversions</h2>
-        <p>Celsius to Fahrenheit: °F = (°C × 9/5) + 32. Fahrenheit to Celsius: °C = (°F - 32) × 5/9. Water freezes at 0°C (32°F) and boils at 100°C (212°F).</p>
-        <div class="calc-embed" onclick="openCalculatorByName('kg to Pounds')">
+        <h1>Unit Converter Guide: How to Convert Between Measurement Systems</h1>
+        <p>Whether you're cooking, traveling, or doing science, unit conversion is essential. This guide covers length, mass, volume, temperature, and more. The key is using conversion factors that equal 1.</p>
+        <h2>Common Conversion Factors</h2>
+        <ul><li>1 inch = 2.54 cm exactly</li><li>1 mile = 1.60934 km</li><li>1 kg = 2.20462 lb</li><li>1 US gallon = 3.78541 liters</li><li>°C to °F: (°C × 9/5) + 32</li></ul>
+        <h2>Example</h2>
+        <p>Convert 5 miles to kilometers: 5 × 1.60934 = 8.0467 km.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Unit Converter')">
             <i class="fas fa-exchange-alt" style="font-size: 40px; color: #3b82f6;"></i>
-            <p><strong>Try the Unit Converters</strong><br>Choose any conversion – kg to lb, m to ft, °C to °F, and many more.</p>
+            <p><strong>Try the Unit Converter</strong><br>Convert between any units – length, mass, volume, temperature, and more.</p>
         </div>
-        <p>Our unit converter category includes 22 different conversions. Click any tool to get instant, accurate results.</p>
     </div>
 </div>
 
+<!-- 6. Kinetic Energy Guide -->
 <div id="kinetic-energy-guide" class="article-page">
     <div class="article-card">
-        <h1>Kinetic Energy: The Physics of Motion Explained</h1>
-        <p>Kinetic energy is the energy an object possesses due to its motion. The faster something moves, the more kinetic energy it has – and the more destructive it can be in a collision. This guide explains the formula and its real-world implications.</p>
-        <h2>The Formula</h2>
-        <p>KE = ½ × m × v², where m is mass in kilograms and v is velocity in meters per second. The result is in Joules. Notice that velocity is squared – doubling speed quadruples kinetic energy. That's why highway crashes are exponentially more dangerous than low-speed impacts.</p>
-        <h2>Real-World Example</h2>
-        <p>A car of mass 1500 kg traveling at 20 m/s (72 km/h) has KE = 0.5 × 1500 × 400 = 300,000 J. That's enough energy to lift a 300 kg weight 100 meters high. At 40 m/s (144 km/h), KE = 1,200,000 J – four times as much.</p>
+        <h1>Kinetic Energy: The Energy of Motion Explained</h1>
+        <p>Kinetic energy is the energy an object possesses due to its motion. The faster or heavier an object, the more kinetic energy it has. The formula is KE = ½mv², where m = mass (kg) and v = velocity (m/s).</p>
+        <h2>Real-World Examples</h2>
+        <p>A 1000 kg car moving at 20 m/s (72 km/h) has KE = 0.5×1000×400 = 200,000 Joules. That's enough energy to lift a 200 kg weight 100 meters high. Doubling speed quadruples kinetic energy – that's why high-speed crashes are so destructive.</p>
         <h2>Applications</h2>
-        <p>Engineers use kinetic energy calculations to design crumple zones, airbags, and crash barriers. In renewable energy, wind turbines capture kinetic energy from moving air. Even sports like baseball use kinetic energy – a fastball carries significant energy when it hits the bat.</p>
-        <div class="calc-embed" onclick="openCalculatorByName('Kinetic Energy')">
+        <p>Kinetic energy is used in roller coasters, car brakes (converting KE to heat), and even wind turbines (capturing KE of moving air).</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Kinetic Energy Calculator')">
             <i class="fas fa-car" style="font-size: 40px; color: #3b82f6;"></i>
-            <p><strong>Try the Kinetic Energy Calculator</strong><br>Enter mass and velocity to see the energy in Joules.</p>
-        </div>
-        <p>Use our calculator to understand how speed dramatically affects impact energy – it might change how you think about safe driving distances.</p>
-    </div>
-</div>
-
-<!-- Legal Pages -->
-<div id="aboutPage" class="legal-page">
-    <div class="legal-card">
-        <h1><i class="fas fa-chalkboard-user"></i> About MathOS Pro</h1>
-        <p><strong>Last updated: April 2026</strong></p>
-        <p>MathOS Pro is a comprehensive collection of <strong>85+ fully tested calculators</strong> designed for students, engineers, professionals, and educators. Each calculator includes a detailed 50-100 word educational guide explaining the formula, its derivation, real-world applications, and underlying principles.</p>
-        <h2>Our Mission</h2>
-        <p>We believe mathematics should be accessible to everyone. Our mission is to eliminate "black box" calculations by providing the mathematical theory alongside every result. Whether you're solving quadratic equations, calculating mortgage payments, or analyzing Reynolds number for fluid flow, you'll understand not just the result, but why it matters.</p>
-        <h2>Features</h2>
-        <p>✓ 85+ Professional Calculators<br>✓ Visual Meters and Gauges for Key Tools<br>✓ 50-100 Word Educational Guides for Every Tool<br>✓ In-Depth Articles (600-900 words each)<br>✓ Mobile-Responsive Design<br>✓ 100% Privacy - All Calculations Local</p>
-    </div>
-</div>
-
-<div id="privacyPage" class="legal-page">
-    <div class="legal-card">
-        <h1><i class="fas fa-lock"></i> Privacy Policy</h1>
-        <p><strong>Effective Date: April 1, 2026</strong></p>
-        <h2>Zero Data Collection Policy</h2>
-        <p>MathOS Pro operates on a "Local-First" architecture. This means all calculations happen inside your browser's JavaScript engine. We do not use databases, cookies, tracking scripts, or any form of user tracking. Your input values never leave your device.</p>
-        <h2>Google Analytics</h2>
-        <p>We use Google Analytics to understand how visitors use our site. Google Analytics uses cookies to collect anonymous usage data. You can opt out by using browser extensions or adjusting your browser settings. No personal information is collected through Google Analytics.</p>
-        <h2>Google AdSense</h2>
-        <p>This website may use Google AdSense to display advertisements. Google may use cookies to serve ads based on your prior visits. You may opt out of personalized advertising by visiting Google Ad Settings.</p>
-        <h2>Children's Privacy</h2>
-        <p>MathOS Pro is intended for general audiences and does not knowingly collect any personal information from children under 13.</p>
-        <h2>Contact</h2>
-        <p>For privacy-related questions, please contact us via the Support page.</p>
-    </div>
-</div>
-
-<div id="termsPage" class="legal-page">
-    <div class="legal-card">
-        <h1><i class="fas fa-scale-balanced"></i> Terms of Use</h1>
-        <h2>Acceptance of Terms</h2>
-        <p>By using MathOS Pro, you agree to these Terms of Use. If you do not agree, please do not use our calculators.</p>
-        <h2>Informational Purposes Only</h2>
-        <p>The calculators and tools provided are for informational and educational purposes only. While we strive for accuracy, we do not guarantee that results are error-free or suitable for professional applications. Always verify critical calculations with qualified professionals.</p>
-        <h2>No Professional Advice</h2>
-        <p>The information provided should not be considered as professional engineering, financial, or medical advice. For critical decisions, consult qualified professionals.</p>
-        <h2>Limitation of Liability</h2>
-        <p>MathOS Pro and its creators shall not be held liable for any damages arising from the use or inability to use our calculators and tools.</p>
-        <h2>Changes to Terms</h2>
-        <p>We reserve the right to modify these terms at any time. Continued use constitutes acceptance of updated terms.</p>
-    </div>
-</div>
-
-<div id="contactPage" class="legal-page">
-    <div class="legal-card">
-        <h1><i class="fas fa-headset"></i> Contact Us</h1>
-        <p>We value your feedback! Reach out for support, tool suggestions, or partnership inquiries.</p>
-        <h2>Email Support</h2>
-        <p><i class="fas fa-envelope"></i> <strong>abidamin0307@gmail.com</strong><br>Response within 24-48 hours.</p>
-        <h2>Business Inquiries</h2>
-        <p><i class="fas fa-briefcase"></i> <strong>abidamin0307@gmail.com</strong></p>
-        <h2>Report an Issue</h2>
-        <p>Found a bug or miscalculation? Please include the calculator name and input values when reporting.</p>
-        <div class="formula-box" style="background: #eef2ff; color: #1e293b; margin-top: 20px;">
-            💡 <strong>Pro Tip:</strong> All 85+ calculators include educational guides. Click any tool and scroll to see formula explanations and real-world applications.
+            <p><strong>Try the Kinetic Energy Calculator</strong><br>Enter mass and velocity to compute kinetic energy in Joules.</p>
         </div>
     </div>
 </div>
 
-<!-- Calculator Modal -->
-<div id="calculatorModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2 id="modalTitle">Calculator</h2>
-            <span onclick="closeModal()">&times;</span>
-        </div>
-        <div class="modal-body">
-            <div id="modalInputs"></div>
-            <div id="visualMeter" class="visual-meter"></div>
-            <button class="calc-btn" onclick="calculate()"><i class="fas fa-chart-line"></i> Calculate Now</button>
-            <div id="resultDisplay" class="result-area"></div>
-            <div class="edu-section">
-                <h4><i class="fas fa-graduation-cap"></i> Educational Guide (50-100 words)</h4>
-                <p id="eduText">Loading educational guide...</p>
-                <div id="formulaBox" class="formula-box"></div>
-            </div>
-        </div>
+<!-- ========== 20 NEW ARTICLES ========== -->
+
+<!-- 7. Percentage Change Guide -->
+<div id="percentage-guide" class="article-page">
+    <div class="article-card">
+        <h1>How to Calculate Percentage Change: A Complete Guide</h1>
+        <p>Percentage change is one of the most common calculations in daily life – from shopping discounts to salary raises, stock market moves, and population growth. Understanding percentage change helps you compare values over time and make informed decisions.</p>
+        <h2>The Formula</h2>
+        <p>Percentage Change = (New Value - Original Value) / Original Value × 100%</p>
+        <ul><li><strong>Positive result</strong> → Percentage increase</li><li><strong>Negative result</strong> → Percentage decrease</li></ul>
+        <h2>Step-by-Step Example</h2>
+        <p>A phone originally costs ₹20,000. After a sale, it costs ₹16,000. Change = (16,000 - 20,000) / 20,000 × 100 = (-4,000)/20,000 × 100 = -20%. That's a 20% discount.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Percentage Change Calculator')"><i class="fas fa-percent" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Percentage Change Calculator</strong><br>Enter original and new values to instantly see the increase or decrease.</p></div>
     </div>
+</div>
+
+<!-- 8. Simple vs Compound Interest -->
+<div id="interest-guide" class="article-page">
+    <div class="article-card">
+        <h1>Simple vs Compound Interest: What Every Investor Must Know</h1>
+        <p>Interest is the cost of borrowing money or the reward for saving. But not all interest is equal. Simple interest is calculated only on the principal, while compound interest grows on both principal and previously earned interest – leading to exponential growth over time.</p>
+        <h2>Simple Interest Formula</h2>
+        <p>Simple Interest = Principal × Rate × Time<br>Example: ₹10,000 at 5% for 3 years = 10,000 × 0.05 × 3 = ₹1,500 total interest.</p>
+        <h2>Compound Interest Formula</h2>
+        <p>A = P(1 + r/n)<sup>nt</sup> where n = compounding frequency per year. The same ₹10,000 at 5% compounded annually for 3 years = 10,000(1.05)<sup>3</sup> ≈ ₹11,576.25 – interest of ₹1,576.25.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Compound Interest Calculator')"><i class="fas fa-chart-line" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Compound Interest Calculator</strong><br>See how your savings grow with different rates and frequencies.</p></div>
+    </div>
+</div>
+
+<!-- 9. Linear Equations Guide -->
+<div id="linear-equations-guide" class="article-page">
+    <div class="article-card">
+        <h1>Solving Linear Equations: A Step-by-Step Guide for Beginners</h1>
+        <p>Linear equations are the building blocks of algebra. They appear everywhere – from calculating budgets to predicting trends. A linear equation looks like ax + b = 0, and solving it means finding the value of x that makes the equation true.</p>
+        <h2>How to Solve</h2>
+        <p>Isolate x by moving constants to the other side. Example: 3x + 5 = 20 → Subtract 5: 3x = 15 → Divide by 3: x = 5. Always perform the same operation on both sides.</p>
+        <h2>Real-Life Use</h2>
+        <p>If you earn ₹500 per day plus ₹50 per sale, and you want to earn ₹2000, solve: 500 + 50x = 2000 → 50x = 1500 → x = 30 sales.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Linear Equation Solver')"><i class="fas fa-chalkboard-teacher" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Linear Equation Solver</strong><br>Enter coefficients and get the solution instantly.</p></div>
+    </div>
+</div>
+
+<!-- 10. Standard Deviation Explained -->
+<div id="stddev-guide" class="article-page">
+    <div class="article-card">
+        <h1>Standard Deviation: How to Measure Spread in Data</h1>
+        <p>Standard deviation tells you how much data values deviate from the mean. A low standard deviation means data points are clustered close to the average; a high one means they're spread out. It's widely used in finance, research, and quality control.</p>
+        <h2>Calculation Steps</h2>
+        <ol><li>Find the mean (average).</li><li>Subtract the mean from each value and square the result.</li><li>Average those squared differences (variance).</li><li>Take the square root to get standard deviation.</li></ol>
+        <div class="formula-box">σ = √[ Σ(x - μ)² / N ]</div>
+        <p>Example: Test scores 80, 85, 90. Mean = 85. Differences squared: 25, 0, 25. Sum = 50. Variance = 50/3 ≈ 16.67. Standard deviation ≈ 4.08.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Standard Deviation Calculator')"><i class="fas fa-chart-bar" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Standard Deviation Calculator</strong><br>Enter your numbers and get the full statistical summary.</p></div>
+    </div>
+</div>
+
+<!-- 11. Unit Conversion Mastery -->
+<div id="unit-conversion-mastery" class="article-page">
+    <div class="article-card">
+        <h1>Mastering Unit Conversions: Length, Mass, Volume & More</h1>
+        <p>Unit conversion is essential in cooking, travel, engineering, and science. The key is using conversion factors – ratios that equal 1. For example, 1 km = 1000 m, so 5 km = 5 × 1000 = 5000 m.</p>
+        <h2>Common Conversions</h2>
+        <ul><li><strong>Length:</strong> 1 inch = 2.54 cm, 1 foot = 0.3048 m, 1 mile = 1.609 km</li><li><strong>Mass:</strong> 1 kg = 2.20462 lb, 1 g = 0.001 kg</li><li><strong>Volume:</strong> 1 L = 0.264 gal (US), 1 cup = 236.6 mL</li></ul>
+        <div class="calc-embed" onclick="openCalculatorByName('Unit Converter')"><i class="fas fa-ruler-combined" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Unit Converter</strong><br>Convert between any units instantly – length, mass, volume, temperature, and more.</p></div>
+    </div>
+</div>
+
+<!-- 12. Ohm's Law Explained -->
+<div id="ohms-law-guide" class="article-page">
+    <div class="article-card">
+        <h1>Ohm's Law: Understanding Voltage, Current, and Resistance</h1>
+        <p>Ohm's Law is the fundamental equation of electricity: V = I × R, where V is voltage (volts), I is current (amps), and R is resistance (ohms). It's used to design circuits, select resistors, and troubleshoot electronics.</p>
+        <h2>Practical Examples</h2>
+        <p>If a 9V battery is connected to a 3Ω resistor, current I = V/R = 9/3 = 3 amps. If you have a 12V circuit and want 0.5A, you need R = V/I = 12/0.5 = 24Ω.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Ohm\'s Law Calculator')"><i class="fas fa-bolt" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Ohm's Law Calculator</strong><br>Enter any two values to calculate the third.</p></div>
+    </div>
+</div>
+
+<!-- 13. Kinetic vs Potential Energy -->
+<div id="kinetic-potential-guide" class="article-page">
+    <div class="article-card">
+        <h1>Kinetic vs Potential Energy: Real-World Examples</h1>
+        <p>Energy exists in many forms, but two of the most important are kinetic (energy of motion) and potential (stored energy). A moving car has kinetic energy; a raised weight has gravitational potential energy.</p>
+        <h2>Formulas</h2>
+        <p>Kinetic Energy (KE) = ½ × mass × velocity²<br>Gravitational Potential Energy (PE) = mass × gravity × height</p>
+        <h2>Example</h2>
+        <p>A 2 kg ball moving at 3 m/s has KE = 0.5 × 2 × 9 = 9 Joules. The same ball at 2 m height has PE = 2 × 9.8 × 2 = 39.2 Joules.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Kinetic Energy Calculator')"><i class="fas fa-car" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Kinetic Energy Calculator</strong><br>Compute KE or PE for any mass, velocity, or height.</p></div>
+    </div>
+</div>
+
+<!-- 14. EMI Loan Calculation -->
+<div id="emi-guide" class="article-page">
+    <div class="article-card">
+        <h1>How to Calculate Your Monthly Loan EMI</h1>
+        <p>EMI (Equated Monthly Installment) is the fixed amount you pay each month to repay a loan. It includes both principal and interest. The formula is EMI = P × r × (1+r)ⁿ / ((1+r)ⁿ - 1), where P = principal, r = monthly interest rate, n = number of months.</p>
+        <h2>Example</h2>
+        <p>Loan ₹5,00,000 at 8% annual (0.6667% monthly) for 5 years (60 months). Monthly rate = 0.08/12 = 0.006667. EMI = 500000 × 0.006667 × (1.006667)⁶⁰ / ((1.006667)⁶⁰ - 1) ≈ ₹10,138.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('EMI Calculator')"><i class="fas fa-rupee-sign" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the EMI Calculator</strong><br>Enter loan amount, interest rate, and tenure to get your monthly payment.</p></div>
+    </div>
+</div>
+
+<!-- 15. Body Fat Percentage -->
+<div id="bodyfat-guide" class="article-page">
+    <div class="article-card">
+        <h1>Understanding Body Fat Percentage: Beyond BMI</h1>
+        <p>While BMI gives a quick weight-to-height ratio, body fat percentage provides a more accurate picture of health. Essential fat for men is 2-5%, for women 10-13%. Athletes typically have lower percentages (men 6-13%, women 14-20%).</p>
+        <h2>How to Estimate</h2>
+        <p>Common methods include skinfold calipers, bioelectrical impedance scales, and the US Navy tape measure method. For men: (86.01 × log10(waist - neck)) - (70.041 × log10(height)) + 36.76. For women: (163.205 × log10(waist + hip - neck)) - (97.684 × log10(height)) - 78.387.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Body Fat Calculator')"><i class="fas fa-heartbeat" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Body Fat Calculator</strong><br>Enter a few measurements to estimate your body fat percentage.</p></div>
+    </div>
+</div>
+
+<!-- 16. Real-Life Quadratic Equations -->
+<div id="quadratic-realworld" class="article-page">
+    <div class="article-card">
+        <h1>Where Quadratic Equations Appear in Real Life</h1>
+        <p>Quadratic equations aren't just classroom exercises. They model projectile motion (a thrown ball follows a parabolic path), optimal pricing (profit = -ax² + bx + c), and even the shape of satellite dishes and suspension bridges.</p>
+        <h2>Projectile Motion Example</h2>
+        <p>A ball thrown upward with velocity 20 m/s from height 2 m: height h = -4.9t² + 20t + 2. To find when it hits the ground, solve -4.9t² + 20t + 2 = 0. The positive root gives the time of flight.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Quadratic Equation Solver')"><i class="fas fa-chart-line" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Quadratic Equation Solver</strong><br>Solve any quadratic and see the discriminant.</p></div>
+    </div>
+</div>
+
+<!-- 17. Scientific Calculator Tips -->
+<div id="scientific-calculator-guide" class="article-page">
+    <div class="article-card">
+        <h1>How to Use a Scientific Calculator: Essential Functions</h1>
+        <p>A scientific calculator can handle trigonometric functions (sin, cos, tan), logarithms, exponentials, and powers. Knowing the basics saves time in exams and engineering work.</p>
+        <h2>Key Functions</h2>
+        <ul><li><strong>sin⁻¹, cos⁻¹, tan⁻¹:</strong> Inverse trig functions – find angle from ratio.</li><li><strong>log</strong> (base 10) and <strong>ln</strong> (natural log).</li><li><strong>eˣ</strong> and <strong>10ˣ</strong> – exponential functions.</li><li><strong>√, ², ʸˣ</strong> – roots and powers.</li></ul>
+        <div class="calc-embed" onclick="openCalculatorByName('Scientific Calculator')"><i class="fas fa-calculator" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Scientific Calculator</strong><br>Perform advanced calculations online.</p></div>
+    </div>
+</div>
+
+<!-- 18. Fuel Efficiency Guide -->
+<div id="fuel-efficiency-guide" class="article-page">
+    <div class="article-card">
+        <h1>How to Calculate Fuel Efficiency (km per liter)</h1>
+        <p>Fuel efficiency tells you how far your vehicle travels on one liter of fuel. It helps compare vehicles and plan trip costs. Formula: Fuel Efficiency = Distance traveled (km) / Fuel used (L).</p>
+        <h2>Example</h2>
+        <p>You drive 450 km and refill 30 liters. Efficiency = 450/30 = 15 km/L. To calculate trip cost: distance / efficiency × fuel price per liter.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Fuel Cost Calculator')"><i class="fas fa-gas-pump" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Fuel Cost Calculator</strong><br>Enter distance, efficiency, and price to get total fuel cost.</p></div>
+    </div>
+</div>
+
+<!-- 19. Arithmetic Sequences -->
+<div id="arithmetic-sequence-guide" class="article-page">
+    <div class="article-card">
+        <h1>Arithmetic Sequences: Finding Any Term and Sum</h1>
+        <p>An arithmetic sequence is a list of numbers where each term increases by a constant difference. Example: 3, 7, 11, 15,... difference = 4.</p>
+        <h2>Important Formulas</h2>
+        <p>n-th term: aₙ = a₁ + (n-1)d<br>Sum of first n terms: Sₙ = n/2 × (first + last) = n/2 × [2a₁ + (n-1)d]</p>
+        <h2>Example</h2>
+        <p>Find the 10th term of 5, 8, 11,... a₁=5, d=3 → a₁₀ = 5 + 9×3 = 32. Sum of first 10 terms = 10/2 × (5+32) = 5×37 = 185.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Arithmetic Sequence Calculator')"><i class="fas fa-sort-numeric-up" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Arithmetic Sequence Calculator</strong><br>Enter first term, difference, and n to get term and sum.</p></div>
+    </div>
+</div>
+
+<!-- 20. Geometric Sequences -->
+<div id="geometric-sequence-guide" class="article-page">
+    <div class="article-card">
+        <h1>Geometric Sequences: Exponential Growth and Decay</h1>
+        <p>In a geometric sequence, each term is multiplied by a constant ratio. Example: 2, 6, 18, 54,... ratio = 3. Geometric sequences model population growth, radioactive decay, and compound interest.</p>
+        <h2>Formulas</h2>
+        <p>n-th term: aₙ = a₁ × rⁿ⁻¹<br>Sum of first n terms (if r≠1): Sₙ = a₁(1 - rⁿ)/(1 - r)</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Geometric Sequence Calculator')"><i class="fas fa-chart-exponential" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Geometric Sequence Calculator</strong><br>Compute terms, sum, and ratio easily.</p></div>
+    </div>
+</div>
+
+<!-- 21. Pythagorean Theorem -->
+<div id="pythagorean-guide" class="article-page">
+    <div class="article-card">
+        <h1>Pythagorean Theorem: Applications Beyond Triangles</h1>
+        <p>a² + b² = c² applies to any right triangle. It's used in construction (checking square corners), navigation (shortest path), and computer graphics (distance between points).</p>
+        <h2>Example</h2>
+        <p>A ladder 5 m long reaches a window 4 m high. How far is the ladder's base from the wall? a² + 4² = 5² → a² = 25 - 16 = 9 → a = 3 m.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Pythagorean Theorem Calculator')"><i class="fas fa-draw-polygon" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Pythagorean Theorem Calculator</strong><br>Enter any two sides to find the third.</p></div>
+    </div>
+</div>
+
+<!-- 22. Area & Perimeter Guide -->
+<div id="area-perimeter-guide" class="article-page">
+    <div class="article-card">
+        <h1>Area and Perimeter: Essential Geometry Formulas</h1>
+        <p>Area measures the space inside a shape, while perimeter measures the boundary length. These are used in flooring, fencing, painting, and land measurement.</p>
+        <h2>Common Formulas</h2>
+        <ul><li>Square: Area = side², Perimeter = 4×side</li><li>Rectangle: Area = length×width, Perimeter = 2×(l+w)</li><li>Circle: Area = πr², Circumference = 2πr</li><li>Triangle: Area = ½×base×height</li></ul>
+        <div class="calc-embed" onclick="openCalculatorByName('Area Calculator')"><i class="fas fa-shapes" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Area Calculator</strong><br>Compute area and perimeter for various shapes.</p></div>
+    </div>
+</div>
+
+<!-- 23. Speed, Distance, Time -->
+<div id="speed-distance-guide" class="article-page">
+    <div class="article-card">
+        <h1>Speed, Distance, Time: The Triangle Method</h1>
+        <p>The relationship is simple: Speed = Distance / Time. Use the triangle: cover the quantity you want to find. Distance = Speed × Time, Time = Distance / Speed.</p>
+        <h2>Example</h2>
+        <p>A train travels 300 km in 5 hours. Speed = 300/5 = 60 km/h. How long to cover 450 km at same speed? Time = 450/60 = 7.5 hours.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Speed Distance Time Calculator')"><i class="fas fa-tachometer-alt" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Speed Distance Time Calculator</strong><br>Enter any two values to calculate the third.</p></div>
+    </div>
+</div>
+
+<!-- 24. Temperature Conversion -->
+<div id="temperature-guide" class="article-page">
+    <div class="article-card">
+        <h1>Temperature Conversion: Celsius, Fahrenheit, Kelvin</h1>
+        <p>Different countries use different temperature scales. Science uses Kelvin. Cooking uses Fahrenheit (US) or Celsius (elsewhere).</p>
+        <h2>Conversion Formulas</h2>
+        <p>°F = (°C × 9/5) + 32<br>°C = (°F - 32) × 5/9<br>K = °C + 273.15</p>
+        <h2>Example</h2>
+        <p>Body temperature 37°C to Fahrenheit: (37 × 9/5) + 32 = 66.6 + 32 = 98.6°F. Absolute zero 0 K = -273.15°C.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Temperature Converter')"><i class="fas fa-thermometer-half" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Temperature Converter</strong><br>Convert instantly between C, F, and K.</p></div>
+    </div>
+</div>
+
+<!-- 25. Fractions to Decimals & Percentages -->
+<div id="fractions-guide" class="article-page">
+    <div class="article-card">
+        <h1>Converting Fractions to Decimals and Percentages</h1>
+        <p>Fractions represent parts of a whole. To convert to decimal, divide numerator by denominator. Multiply by 100 to get percentage.</p>
+        <h2>Examples</h2>
+        <p>3/4 = 3 ÷ 4 = 0.75 = 75%<br>2/5 = 0.4 = 40%<br>5/8 = 0.625 = 62.5%</p>
+        <p>Common fractions to memorize: 1/2 = 0.5 = 50%, 1/4 = 0.25 = 25%, 3/4 = 0.75 = 75%, 1/3 ≈ 0.333 = 33.3%.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Fraction Calculator')"><i class="fas fa-divide" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Fraction Calculator</strong><br>Add, subtract, multiply, divide fractions and see decimal equivalents.</p></div>
+    </div>
+</div>
+
+<!-- 26. Binary & Decimal Conversion -->
+<div id="binary-guide" class="article-page">
+    <div class="article-card">
+        <h1>Binary to Decimal and Vice Versa: A Beginner's Guide</h1>
+        <p>Computers use binary (base 2) with digits 0 and 1. Humans use decimal (base 10). Converting between them is essential for programming and digital electronics.</p>
+        <h2>Binary to Decimal</h2>
+        <p>Each position represents a power of 2. Example: 1011₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 8 + 0 + 2 + 1 = 11.</p>
+        <h2>Decimal to Binary</h2>
+        <p>Repeatedly divide by 2 and read remainders backward. 13 decimal: 13÷2=6 rem1, 6÷2=3 rem0, 3÷2=1 rem1, 1÷2=0 rem1 → 1101₂.</p>
+        <div class="calc-embed" onclick="openCalculatorByName('Binary Converter')"><i class="fas fa-microchip" style="font-size: 40px; color: #3b82f6;"></i><p><strong>Try the Binary Converter</strong><br>Convert between binary, decimal, and hexadecimal instantly.</p></div>
+    </div>
+</div>
+
+<!-- ========== LEGAL PAGES ========== -->
+<div id="about" class="legal-page">
+    <div class="legal-card"><h1>About MathOS Pro</h1><p>We provide 85+ free online calculators with educational guides to help students, professionals, and enthusiasts understand the math behind the numbers. Our mission is to make learning math and science practical, visual, and accessible to everyone. No data collection, no sign-ups – just free tools.</p></div>
+</div>
+<div id="privacy" class="legal-page">
+    <div class="legal-card"><h1>Privacy Policy</h1><p>MathOS Pro does not collect any personal data. All calculations are performed locally in your browser. We do not use cookies except for optional Google Analytics (which you can block). We never sell or share any information because we simply don't have any. Your privacy is 100% respected.</p></div>
+</div>
+<div id="terms" class="legal-page">
+    <div class="legal-card"><h1>Terms of Use</h1><p>These calculators and guides are for informational and educational purposes only. While we strive for accuracy, we are not liable for any errors or decisions made based on our tools. Always verify critical calculations with a qualified professional. Use at your own risk.</p></div>
+</div>
+<div id="contact" class="legal-page">
+    <div class="legal-card"><h1>Contact Support</h1><p>Have feedback, suggestions, or found a bug? Email us at support@mathospro.com. We typically reply within 48 hours. Thank you for using MathOS Pro!</p></div>
 </div>
 
 <footer>
     <div class="footer-links">
-        <a onclick="showHome()">Calculators</a>
         <a onclick="showPage('about')">About</a>
         <a onclick="showPage('privacy')">Privacy</a>
         <a onclick="showPage('terms')">Terms</a>
         <a onclick="showPage('contact')">Contact</a>
     </div>
-    <p>&copy; 2026 MathOS Pro | 85+ Calculators | Visual Meters | 50-100 Word Educational Guides | Zero Data Collection</p>
+    <p>© 2025 MathOS Pro. Educational calculators for everyone.</p>
 </footer>
 
 <script>
-// ==================== FULL 85+ CALCULATORS OBJECT ====================
-const calculators = {
-    math: [
-        { name: "Quadratic Equation Solver", fields: ["A", "B", "C"], formula: "x = [-b ± √(b²-4ac)] / 2a", calc: (v) => { let a=v[0], b=v[1], c=v[2], d=b*b-4*a*c; if(Math.abs(a)<1e-9) return "Error: 'a' cannot be zero"; if(d<0) return `Complex roots: ${(-b/(2*a)).toFixed(2)} ± ${(Math.sqrt(-d)/(2*a)).toFixed(2)}i`; return `x₁ = ${((-b+Math.sqrt(d))/(2*a)).toFixed(4)}, x₂ = ${((-b-Math.sqrt(d))/(2*a)).toFixed(4)}`; }, edu: "The quadratic formula solves equations of the form ax²+bx+c=0. The discriminant (b²-4ac) determines the nature of roots: positive gives two real roots, zero gives one real root, negative gives complex roots. This formula is fundamental in physics for projectile motion, in engineering for optimization problems, and in economics for profit maximization." },
-        { name: "Pythagorean Theorem", fields: ["Side A", "Side B"], formula: "c = √(a² + b²)", calc: (v) => `Hypotenuse = ${Math.sqrt(v[0]**2 + v[1]**2).toFixed(4)}`, edu: "The Pythagorean theorem states that in a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides (a² + b² = c²). This fundamental geometric relationship is essential for construction, navigation, GPS technology, computer graphics, and determining shortest distances between points." },
-        { name: "BMI Calculator with Gauge", fields: ["Weight (kg)", "Height (m)"], formula: "BMI = weight / height²", calc: (v) => { let bmi = v[0]/(v[1]*v[1]); let cat = bmi<18.5?"Underweight":bmi<25?"Normal":bmi<30?"Overweight":"Obese"; return `BMI = ${bmi.toFixed(1)} - ${cat}`; }, edu: "Body Mass Index (BMI) is a screening tool that categorizes weight relative to height. Values below 18.5 indicate underweight, 18.5-24.9 is normal weight, 25-29.9 is overweight, and 30+ indicates obesity. While BMI doesn't measure body fat directly, it provides a useful starting point for health assessment." },
-        { name: "Percentage Change", fields: ["Old Value", "New Value"], formula: "((New-Old)/Old) × 100", calc: (v) => `${(((v[1]-v[0])/v[0])*100).toFixed(2)}% change (${v[1]>v[0]?'increase':'decrease'})`, edu: "Percentage change measures relative growth or decline between two values. Positive values indicate increase, negative values indicate decrease. This calculation is fundamental in finance for ROI analysis, in retail for discount calculations, in population studies for growth rates, and in business for tracking sales performance." },
-        { name: "Circle Area & Circumference", fields: ["Radius"], formula: "Area = πr², Circumference = 2πr", calc: (v) => `Area = ${(Math.PI*v[0]**2).toFixed(4)}, Circumference = ${(2*Math.PI*v[0]).toFixed(4)}`, edu: "π (pi ≈ 3.14159) is the mathematical constant representing the ratio of a circle's circumference to its diameter. The area of a circle scales with the square of the radius (πr²), while the circumference scales linearly (2πr). These formulas are essential in engineering for wheel design, pipe sizing, and planetary orbit calculations." },
-        { name: "Arithmetic Mean", fields: ["Value 1", "Value 2", "Value 3", "Value 4"], formula: "Sum of values / Number of values", calc: (v) => `Mean = ${(v.reduce((a,b)=>a+b,0)/v.length).toFixed(4)}`, edu: "The arithmetic mean (average) is the sum of all values divided by the number of values. It provides a measure of central tendency, helping to understand typical values in a dataset. Used extensively in academic grading, quality control, weather forecasting, and data science." },
-        { name: "Line Slope", fields: ["x1", "y1", "x2", "y2"], formula: "m = (y2-y1)/(x2-x1)", calc: (v) => `Slope = ${((v[3]-v[1])/(v[2]-v[0])).toFixed(4)}`, edu: "Slope measures the steepness and direction of a line. Positive slope indicates an increasing line, negative slope indicates a decreasing line, and zero slope indicates a horizontal line. Used in economics for marginal analysis, physics for velocity calculations, civil engineering for road gradients, and calculus for derivatives." },
-        { name: "Cylinder Volume", fields: ["Radius", "Height"], formula: "V = πr²h", calc: (v) => `Volume = ${(Math.PI * v[0]**2 * v[1]).toFixed(4)} cubic units`, edu: "The volume of a cylinder equals the area of its circular base (πr²) multiplied by its height. This formula is essential for calculating the capacity of cylindrical containers like fuel tanks, hydraulic cylinders, water storage tanks, and industrial pipes." },
-        { name: "Base-10 Logarithm", fields: ["Value"], formula: "log₁₀(x)", calc: (v) => `log₁₀(${v[0]}) = ${Math.log10(v[0]).toFixed(6)}`, edu: "Logarithms convert exponential scales to linear relationships. The base-10 logarithm answers the question: '10 raised to what power equals x?' Used extensively for the Richter scale (earthquake magnitude), pH scale (acidity), decibels (sound intensity), and stellar magnitude in astronomy." },
-        { name: "Triangle Area", fields: ["Base", "Height"], formula: "Area = ½ × base × height", calc: (v) => `Area = ${(0.5 * v[0] * v[1]).toFixed(4)}`, edu: "The area of any triangle equals one-half times the base times the height. This fundamental geometric formula is used in land surveying, architecture, structural engineering, and computer graphics. Any polygon can be divided into triangles, making this formula essential for calculating complex areas." },
-        { name: "Simple Interest", fields: ["Principal", "Rate (%)", "Time (years)"], formula: "Interest = P × R × T / 100", calc: (v) => `Interest = ${(v[0] * v[1] * v[2] / 100).toFixed(2)}`, edu: "Simple interest calculates linear interest growth without compounding. Used for bonds, short-term loans, and understanding the time value of money. Unlike compound interest, simple interest grows proportionally to time, making it easier to calculate for fixed-term investments." },
-        { name: "Basic Probability", fields: ["Favorable Outcomes", "Total Outcomes"], formula: "P = Favorable/Total", calc: (v) => `Probability = ${(v[0]/v[1]).toFixed(4)} (${((v[0]/v[1])*100).toFixed(1)}%)`, edu: "Probability measures the likelihood of an event occurring, ranging from 0 (impossible) to 1 (certain). This is the foundation of risk assessment, gambling theory, insurance modeling, and statistical inference. Understanding probability helps evaluate uncertainty in daily decisions." },
-        { name: "2D Distance", fields: ["x1", "y1", "x2", "y2"], formula: "d = √[(x2-x1)²+(y2-y1)²]", calc: (v) => `Distance = ${Math.sqrt((v[2]-v[0])**2 + (v[3]-v[1])**2).toFixed(4)}`, edu: "The Euclidean distance formula calculates the straight-line distance between two points in a 2D plane. Derived from the Pythagorean theorem, it is essential for navigation, robotics, computer graphics, GPS systems, and geographic information systems." },
-        { name: "Midpoint", fields: ["x1", "y1", "x2", "y2"], formula: "((x1+x2)/2, (y1+y2)/2)", calc: (v) => `Midpoint = (${((v[0]+v[2])/2).toFixed(2)}, ${((v[1]+v[3])/2).toFixed(2)})`, edu: "The midpoint formula finds the exact center point between two coordinates by averaging their x and y values. Used in civil engineering for beam supports, graphic design for symmetry, and computer graphics for center calculations." },
-        { name: "Degrees to Radians", fields: ["Degrees"], formula: "radians = degrees × π/180", calc: (v) => `${v[0]}° = ${(v[0] * Math.PI / 180).toFixed(6)} rad`, edu: "Radians are the natural unit for measuring angles in mathematics and physics. One radian equals the angle where the arc length equals the radius. Since there are 2π radians in a full circle (360°), conversion uses π/180. Radians simplify calculus formulas." },
-        { name: "Combination (nCr)", fields: ["n", "r"], formula: "nCr = n! / (r!(n-r)!)", calc: (v) => { let n=v[0], r=v[1]; let f=(x)=>x<=1?1:x*f(x-1); return `C(${n},${r}) = ${f(n)/(f(r)*f(n-r))}`; }, edu: "Combinations count the number of ways to choose r items from n without regard to order. Used in probability, lottery calculations, and team selection problems." },
-        { name: "Permutation (nPr)", fields: ["n", "r"], formula: "nPr = n! / (n-r)!", calc: (v) => { let n=v[0], r=v[1]; let f=(x)=>x<=1?1:x*f(x-1); return `P(${n},${r}) = ${f(n)/f(n-r)}`; }, edu: "Permutations count arrangements where order matters. Used in password creation, race rankings, and scheduling problems." },
-        { name: "Golden Ratio", fields: [], formula: "φ = (1+√5)/2 ≈ 1.618", calc: () => `φ = ${((1+Math.sqrt(5))/2).toFixed(6)}`, edu: "The golden ratio appears in art, architecture, and nature. Two quantities are in golden ratio if their ratio equals the ratio of their sum to the larger quantity." },
-        { name: "Factorial", fields: ["n"], formula: "n! = n×(n-1)×...×1", calc: (v) => { let n=v[0]; let f=(x)=>x<=1?1:x*f(x-1); return `${n}! = ${f(n)}`; }, edu: "Factorial grows extremely fast. Used in combinatorics, Taylor series, and probability distributions." },
-        { name: "Exponential Growth", fields: ["Initial", "Rate (%)", "Time"], formula: "A = P(1+r)^t", calc: (v) => `Final = ${(v[0] * Math.pow(1 + v[1]/100, v[2])).toFixed(2)}`, edu: "Exponential growth models population, bacteria, and compound interest. The rate must be positive for growth, negative for decay." },
-        { name: "Right Triangle Angle", fields: ["Opposite", "Adjacent"], formula: "θ = arctan(opp/adj)", calc: (v) => `Angle = ${(Math.atan(v[0]/v[1]) * 180 / Math.PI).toFixed(2)}°`, edu: "Inverse tangent finds the angle when you know the sides of a right triangle. Used in navigation, surveying, and construction." },
-        { name: "Surface Area of Sphere", fields: ["Radius"], formula: "A = 4πr²", calc: (v) => `Area = ${(4 * Math.PI * v[0]**2).toFixed(4)}`, edu: "The surface area of a sphere is four times the area of a circle with the same radius. Used in physics for radiation calculations and in engineering for tank design." },
-        { name: "Volume of Sphere", fields: ["Radius"], formula: "V = (4/3)πr³", calc: (v) => `Volume = ${((4/3) * Math.PI * v[0]**3).toFixed(4)}`, edu: "The volume of a sphere scales with the cube of the radius. Used in astronomy for planet sizes and in medicine for tumor volume estimation." }
-    ],
-    physics: [
-        { name: "Kinetic Energy", fields: ["Mass (kg)", "Velocity (m/s)"], formula: "KE = ½ × m × v²", calc: (v) => `Kinetic Energy = ${(0.5 * v[0] * v[1]**2).toFixed(2)} J`, edu: "Kinetic energy represents the energy of motion. Velocity is squared, meaning doubling speed quadruples energy. This explains why car crashes at high speeds are exponentially more dangerous. Used in physics, automotive safety design, ballistics, and renewable energy calculations for wind turbines." },
-        { name: "Potential Energy", fields: ["Mass (kg)", "Height (m)"], formula: "PE = m × g × h (g=9.81)", calc: (v) => `Potential Energy = ${(v[0] * 9.81 * v[1]).toFixed(2)} J`, edu: "Gravitational potential energy is the energy stored by an object due to its position in a gravitational field. The formula multiplies mass × gravity (9.81 m/s²) × height. Used in hydroelectric dams, roller coaster design, and understanding mechanical advantages in lifting systems." },
-        { name: "Ohm's Law", fields: ["Current (Amps)", "Resistance (Ohms)"], formula: "V = I × R", calc: (v) => `Voltage = ${(v[0] * v[1]).toFixed(2)} V`, edu: "Ohm's Law describes the fundamental relationship between voltage, current, and resistance in electrical circuits. This is the cornerstone of electrical engineering, used to design everything from household wiring to microchips. Understanding this law helps determine wire gauge requirements and circuit breaker sizing." },
-        { name: "Newton's Second Law", fields: ["Mass (kg)", "Acceleration (m/s²)"], formula: "F = m × a", calc: (v) => `Force = ${(v[0] * v[1]).toFixed(2)} N`, edu: "Newton's Second Law states that force equals mass times acceleration (F=ma). This fundamental physics principle explains how objects respond to applied forces. Used in engineering for structural analysis, vehicle dynamics, and understanding the relationship between mass, acceleration, and required force." },
-        { name: "Work Done", fields: ["Force (N)", "Distance (m)"], formula: "W = F × d", calc: (v) => `Work = ${(v[0] * v[1]).toFixed(2)} J`, edu: "Work is the energy transferred when a force moves an object over a distance. Measured in Joules, work equals force multiplied by distance. Used to determine the efficiency of engines and energy requirements for mechanical systems." },
-        { name: "Density", fields: ["Mass (kg)", "Volume (m³)"], formula: "ρ = m / V", calc: (v) => `Density = ${(v[0] / v[1]).toFixed(4)} kg/m³`, edu: "Density is mass per unit volume, a physical property that helps identify materials. Objects float when density is less than the fluid they're in (Archimedes' principle). Critical in shipbuilding, aerospace, and material science." },
-        { name: "Pressure", fields: ["Force (N)", "Area (m²)"], formula: "P = F / A", calc: (v) => `Pressure = ${(v[0] / v[1]).toFixed(2)} Pa`, edu: "Pressure is force distributed over an area. This explains why sharp knives cut easily, how hydraulic systems multiply force, and why snowshoes prevent sinking. Used in engineering and meteorology." },
-        { name: "Momentum", fields: ["Mass (kg)", "Velocity (m/s)"], formula: "p = m × v", calc: (v) => `Momentum = ${(v[0] * v[1]).toFixed(2)} kg·m/s`, edu: "Momentum is mass in motion, conserved in collisions. This explains why airbags reduce injury by extending impact time and how rockets propel forward. Fundamental to vehicle safety design." },
-        { name: "Acceleration", fields: ["Final Velocity", "Initial Velocity", "Time"], formula: "a = (vf - vi)/t", calc: (v) => `Acceleration = ${((v[0] - v[1]) / v[2]).toFixed(2)} m/s²`, edu: "Acceleration is the rate of change of velocity. Positive acceleration means speeding up, negative means slowing down. Used in automotive performance testing and projectile motion calculations." },
-        { name: "Electric Power", fields: ["Voltage (V)", "Current (A)"], formula: "P = V × I", calc: (v) => `Power = ${(v[0] * v[1]).toFixed(2)} W`, edu: "Electric power equals voltage multiplied by current, measured in watts. This formula determines energy consumption rates for appliances and helps size circuit breakers." },
-        { name: "Frequency", fields: ["Period (seconds)"], formula: "f = 1 / T", calc: (v) => `Frequency = ${(1 / v[0]).toFixed(4)} Hz`, edu: "Frequency measures cycles per second in Hertz. Used for AC power grids, radio tuning, sound wave analysis, and heart rate monitoring." },
-        { name: "Hooke's Law", fields: ["Spring Constant (N/m)", "Extension (m)"], formula: "F = k × x", calc: (v) => `Force = ${(v[0] * v[1]).toFixed(2)} N`, edu: "Hooke's Law states that spring force is proportional to displacement. Used in car suspensions, weighing scales, and mechanical watches." },
-        { name: "Torque", fields: ["Force (N)", "Radius (m)"], formula: "τ = F × r", calc: (v) => `Torque = ${(v[0] * v[1]).toFixed(2)} N·m`, edu: "Torque is rotational force, equal to force multiplied by lever arm length. Longer lever arms multiply torque, explaining why longer wrenches make bolts easier to turn." },
-        { name: "Boyle's Law", fields: ["P1", "V1", "P2"], formula: "V2 = (P1×V1)/P2", calc: (v) => `V2 = ${((v[0] * v[1]) / v[2]).toFixed(4)}`, edu: "Boyle's Law states that at constant temperature, pressure and volume are inversely related. Used in medical ventilators and scuba diving." },
-        { name: "Centripetal Force", fields: ["Mass", "Velocity", "Radius"], formula: "F = mv²/r", calc: (v) => `Force = ${(v[0] * v[1]**2 / v[2]).toFixed(2)} N`, edu: "Centripetal force keeps objects moving in circular paths. Used in roller coaster design and satellite orbit calculations." }
-    ],
-    finance: [
-        { name: "Mortgage Payment", fields: ["Loan Amount", "Annual Rate (%)", "Years"], formula: "P × r(1+r)^n / ((1+r)^n-1)", calc: (v) => { let r = v[1]/100/12, n = v[2]*12; let mp = v[0] * r * Math.pow(1+r, n) / (Math.pow(1+r, n)-1); return `Monthly: $${mp.toFixed(2)} | Total: $${(mp*n).toFixed(2)}`; }, edu: "Mortgage payments consist of principal and interest calculated using amortization formulas. Essential for real estate decisions and understanding long-term debt obligations." },
-        { name: "Compound Interest", fields: ["Principal", "Annual Rate (%)", "Years", "Compounds/Year"], formula: "A = P(1 + r/n)^(nt)", calc: (v) => `Future Value = $${(v[0] * Math.pow(1 + (v[1]/100)/v[3], v[3]*v[2])).toFixed(2)}`, edu: "Compound interest calculates growth where interest earns interest. This is why starting to save early dramatically increases retirement wealth." },
-        { name: "ROI Calculator", fields: ["Initial Investment", "Final Value"], formula: "ROI = ((Final - Initial)/Initial) × 100", calc: (v) => `ROI = ${(((v[1]-v[0])/v[0])*100).toFixed(2)}%`, edu: "Return on Investment measures investment profitability as a percentage. Used to compare different investments and evaluate business performance." },
-        { name: "Profit Margin", fields: ["Revenue", "Cost"], formula: "Margin = ((Revenue - Cost)/Revenue) × 100", calc: (v) => `Margin = ${(((v[0]-v[1])/v[0])*100).toFixed(2)}%`, edu: "Profit margin shows what percentage of revenue remains as profit after costs. Used in business analysis to evaluate pricing strategies." },
-        { name: "Loan Payment", fields: ["Loan Amount", "Annual Rate (%)", "Months"], formula: "EMI = P × r(1+r)^n / ((1+r)^n-1)", calc: (v) => { let r = v[1]/100/12; let emi = v[0] * r * Math.pow(1+r, v[2]) / (Math.pow(1+r, v[2])-1); return `Monthly: $${emi.toFixed(2)} | Total: $${(emi*v[2]).toFixed(2)}`; }, edu: "Loan payment calculator determines fixed monthly payments for auto and personal loans. Helps compare loan offers before borrowing." },
-        { name: "Inflation Calculator", fields: ["Current Amount", "Annual Rate (%)", "Years"], formula: "Future = Present × (1 + r)^n", calc: (v) => `Future Value = $${(v[0] * Math.pow(1 + v[1]/100, v[2])).toFixed(2)}`, edu: "Inflation calculator shows how purchasing power changes over time. A 3% inflation rate halves purchasing power in about 24 years." },
-        { name: "Discount Calculator", fields: ["Original Price", "Discount (%)"], formula: "Sale = Original × (1 - d/100)", calc: (v) => `Sale: $${(v[0] * (1 - v[1]/100)).toFixed(2)} | Save: $${(v[0] * v[1]/100).toFixed(2)}`, edu: "Discount calculator finds sale prices and savings amounts. Used for shopping decisions and promotional analysis." },
-        { name: "Tip Calculator", fields: ["Bill Amount", "Tip (%)"], formula: "Tip = Bill × Tip%/100", calc: (v) => `Tip: $${(v[0] * v[1]/100).toFixed(2)} | Total: $${(v[0] * (1 + v[1]/100)).toFixed(2)}`, edu: "Tip calculator helps determine appropriate gratuity for services. Standard tips range from 15-20% in many cultures." },
-        { name: "Currency Converter", fields: ["Amount USD", "Exchange Rate"], formula: "Amount × Rate", calc: (v) => `${v[0]} USD = ${(v[0] * v[1]).toFixed(2)} Foreign`, edu: "Currency converter translates money between different monetary systems. Used for international travel and global business transactions." },
-        { name: "VAT Calculator", fields: ["Price", "VAT (%)"], formula: "VAT = Price × Rate/100", calc: (v) => `VAT: $${(v[0] * v[1]/100).toFixed(2)} | Total: $${(v[0] * (1 + v[1]/100)).toFixed(2)}`, edu: "Value Added Tax calculator determines tax amounts on purchases. VAT rates vary by country, typically ranging from 5-25%." },
-        { name: "Savings Goal", fields: ["Target Amount", "Monthly Deposit", "Annual Rate (%)"], formula: "Time to goal", calc: (v) => { let r = v[2]/100/12; let months = Math.log(1 + r*v[0]/v[1]) / Math.log(1+r); return `${Math.ceil(months)} months (${Math.ceil(months/12)} years)`; }, edu: "Savings goal calculator determines how long to reach a target amount with regular monthly deposits. Essential for retirement planning." },
-        { name: "EMI Calculator", fields: ["Loan Amount", "Annual Rate (%)", "Months"], formula: "EMI = P × r(1+r)^n / ((1+r)^n-1)", calc: (v) => { let r = v[1]/100/12; let emi = v[0] * r * Math.pow(1+r, v[2]) / (Math.pow(1+r, v[2])-1); return `EMI: $${emi.toFixed(2)} | Total: $${(emi*v[2]).toFixed(2)}`; }, edu: "Equated Monthly Installment calculator determines fixed monthly payments for loans. Helps assess affordability before borrowing." }
-    ],
-    engineering: [
-        { name: "Reynolds Number", fields: ["Density", "Velocity", "Length", "Viscosity"], formula: "Re = ρvL/μ", calc: (v) => `Re = ${(v[0] * v[1] * v[2] / v[3]).toFixed(0)}`, edu: "The Reynolds number predicts flow patterns in fluid dynamics. Values below 2000 indicate laminar flow, above 4000 indicate turbulent flow. Critical for pipe design, aerospace engineering, and chemical processing." },
-        { name: "Mach Number", fields: ["Object Speed", "Speed of Sound"], formula: "M = v / a", calc: (v) => `Mach = ${(v[0] / v[1]).toFixed(2)}`, edu: "The Mach number is the ratio of an object's speed to the speed of sound. Mach 1 equals the speed of sound (~343 m/s). Essential for aviation and rocket design." },
-        { name: "Carnot Efficiency", fields: ["Hot Temp (K)", "Cold Temp (K)"], formula: "η = 1 - Tc/Th", calc: (v) => `Efficiency = ${((1 - v[1]/v[0]) * 100).toFixed(1)}%`, edu: "Carnot efficiency represents the maximum theoretical efficiency any heat engine can achieve. Guides power plant and refrigeration design." },
-        { name: "Bernoulli Pressure", fields: ["Velocity (m/s)"], formula: "P = ½ρv² (ρ=1.225)", calc: (v) => `Dynamic Pressure = ${(0.5 * 1.225 * v[0]**2).toFixed(2)} Pa`, edu: "Bernoulli's principle states that as fluid velocity increases, pressure decreases. Explains airplane lift and carburetor function." },
-        { name: "Euler Buckling", fields: ["E (Pa)", "I (m⁴)", "Length (m)"], formula: "P_cr = π²EI/L²", calc: (v) => `Critical Load = ${(Math.PI**2 * v[0] * v[1] / v[2]**2).toFixed(0)} N`, edu: "Euler's critical load formula predicts when a column will buckle under compression. Essential for structural engineering and bridge design." },
-        { name: "AC Impedance", fields: ["Resistance", "Reactance"], formula: "Z = √(R² + X²)", calc: (v) => `Impedance = ${(Math.sqrt(v[0]**2 + v[1]**2)).toFixed(2)} Ω`, edu: "Impedance is the total opposition to current flow in AC circuits. Used in audio speaker design and power systems." },
-        { name: "Capacitance", fields: ["Area (m²)", "Distance (m)"], formula: "C = εA/d", calc: (v) => `Capacitance = ${(8.854e-12 * v[0] / v[1]).toExponential(4)} F`, edu: "Capacitance measures charge storage capacity. Used in touch screens, camera flashes, and electronic filters." },
-        { name: "dB Gain", fields: ["P_out", "P_in"], formula: "dB = 10 × log(Pout/Pin)", calc: (v) => `Gain = ${(10 * Math.log10(v[0]/v[1])).toFixed(2)} dB`, edu: "Decibel gain is a logarithmic measure of power ratio. Used in audio equipment and telecommunications." },
-        { name: "Shear Stress", fields: ["Force (N)", "Area (m²)"], formula: "τ = F/A", calc: (v) => `Shear Stress = ${(v[0] / v[1]).toFixed(2)} Pa`, edu: "Shear stress is force per area acting parallel to a surface. Critical for bolt design and material strength testing." },
-        { name: "Young's Modulus", fields: ["Stress (Pa)", "Strain"], formula: "E = σ/ε", calc: (v) => `Young's Modulus = ${(v[0] / v[1]).toFixed(2)} Pa`, edu: "Young's Modulus measures material stiffness. Used in structural engineering and material selection." },
-        { name: "Thermal Expansion", fields: ["Length", "Coefficient", "ΔT"], formula: "ΔL = αL₀ΔT", calc: (v) => `Expansion = ${(v[0] * v[1] * v[2]).toFixed(6)} m`, edu: "Thermal expansion calculates length change due to temperature. Critical for bridge and railway design." },
-        { name: "Drag Force", fields: ["Density", "Velocity", "Area", "Cd"], formula: "F_d = ½ρv²ACd", calc: (v) => `Drag = ${(0.5 * v[0] * v[1]**2 * v[2] * v[3]).toFixed(2)} N`, edu: "Drag force opposes motion through fluids. Used in automotive and aerospace design." },
-        { name: "Lift Force", fields: ["Density", "Velocity", "Area", "Cl"], formula: "F_l = ½ρv²ACl", calc: (v) => `Lift = ${(0.5 * v[0] * v[1]**2 * v[2] * v[3]).toFixed(2)} N`, edu: "Lift force enables flight by creating pressure differences. Used in aircraft wing design." },
-        { name: "Heat Transfer", fields: ["k", "Area", "ΔT", "Thickness"], formula: "Q = kAΔT/d", calc: (v) => `Heat Flow = ${(v[0] * v[1] * v[2] / v[3]).toFixed(2)} W`, edu: "Conductive heat transfer calculation. Used in building insulation and electronics cooling." },
-        { name: "Beam Bending", fields: ["Moment", "Distance", "I"], formula: "σ = My/I", calc: (v) => `Stress = ${(v[0] * v[1] / v[2]).toFixed(2)} Pa`, edu: "Beam bending stress determines how beams deform under loads. Used in structural engineering." },
-        { name: "Hydraulic Power", fields: ["Flow Rate (m³/s)", "Pressure (Pa)"], formula: "P = Q × p", calc: (v) => `Power = ${(v[0] * v[1]).toFixed(2)} W`, edu: "Hydraulic power calculation for pumps and turbines. Essential for water treatment and hydroelectric plants." },
-        { name: "Specific Heat", fields: ["Mass", "Specific Heat", "ΔT"], formula: "Q = mcΔT", calc: (v) => `Heat = ${(v[0] * v[1] * v[2]).toFixed(2)} J`, edu: "Specific heat capacity measures energy needed to raise temperature. Used in thermodynamics and HVAC design." },
-        { name: "Thermal Resistance", fields: ["Thickness", "Conductivity", "Area"], formula: "R = L/(kA)", calc: (v) => `Resistance = ${(v[0] / (v[1] * v[2])).toFixed(4)} K/W`, edu: "Thermal resistance quantifies insulation effectiveness. Used in building design and electronics cooling." }
-    ],
-    units: [
-        { name: "kg to Pounds", fields: ["Kilograms"], formula: "kg × 2.20462", calc: (v) => `${v[0]} kg = ${(v[0] * 2.20462).toFixed(2)} lbs`, edu: "Metric to imperial weight conversion. One kilogram equals approximately 2.20462 pounds. Essential for international trade, fitness tracking, and recipes." },
-        { name: "Meters to Feet", fields: ["Meters"], formula: "m × 3.28084", calc: (v) => `${v[0]} m = ${(v[0] * 3.28084).toFixed(2)} ft`, edu: "Length conversion between meters and feet. Used in construction, real estate, and international travel." },
-        { name: "Celsius to Fahrenheit", fields: ["Celsius"], formula: "(C × 1.8) + 32", calc: (v) => `${v[0]}°C = ${(v[0] * 1.8 + 32).toFixed(1)}°F`, edu: "Temperature conversion between Celsius and Fahrenheit. Water freezes at 0°C (32°F) and boils at 100°C (212°F)." },
-        { name: "HP to Watts", fields: ["Horsepower"], formula: "HP × 745.7", calc: (v) => `${v[0]} HP = ${(v[0] * 745.7).toFixed(0)} W`, edu: "Engine power conversion between horsepower and watts. One horsepower equals approximately 745.7 watts." },
-        { name: "Bar to PSI", fields: ["Bar"], formula: "Bar × 14.5038", calc: (v) => `${v[0]} bar = ${(v[0] * 14.5038).toFixed(2)} psi`, edu: "Pressure conversion between bar and PSI. One bar is approximately atmospheric pressure at sea level." },
-        { name: "GB to MB", fields: ["Gigabytes"], formula: "GB × 1024", calc: (v) => `${v[0]} GB = ${(v[0] * 1024).toFixed(0)} MB`, edu: "Digital storage conversion. One gigabyte equals 1024 megabytes (binary). Essential for IT professionals." },
-        { name: "km to Miles", fields: ["Kilometers"], formula: "km × 0.621371", calc: (v) => `${v[0]} km = ${(v[0] * 0.621371).toFixed(2)} miles`, edu: "Distance conversion for travel and international navigation." },
-        { name: "Gallons to Liters", fields: ["Gallons"], formula: "gal × 3.78541", calc: (v) => `${v[0]} gal = ${(v[0] * 3.78541).toFixed(2)} L`, edu: "Volume conversion. One US gallon equals 3.78541 liters. Used for fuel efficiency." },
-        { name: "Radians to Degrees", fields: ["Radians"], formula: "rad × 57.2958", calc: (v) => `${v[0]} rad = ${(v[0] * 57.2958).toFixed(2)}°`, edu: "Angle conversion. One radian equals approximately 57.2958 degrees. Essential for trigonometry." },
-        { name: "Pascal to ATM", fields: ["Pascal"], formula: "Pa / 101325", calc: (v) => `${v[0]} Pa = ${(v[0] / 101325).toFixed(6)} atm`, edu: "Pressure conversion. One standard atmosphere equals 101,325 pascals." },
-        { name: "Joules to Calories", fields: ["Joules"], formula: "J / 4.184", calc: (v) => `${v[0]} J = ${(v[0] / 4.184).toFixed(2)} cal`, edu: "Energy conversion. One calorie equals 4.184 joules. Used in nutrition." },
-        { name: "Nm to ft-lb", fields: ["Nm"], formula: "Nm × 0.737562", calc: (v) => `${v[0]} Nm = ${(v[0] * 0.737562).toFixed(2)} ft-lb`, edu: "Torque conversion for automotive mechanics." },
-        { name: "sqm to sqft", fields: ["Square meters"], formula: "m² × 10.7639", calc: (v) => `${v[0]} m² = ${(v[0] * 10.7639).toFixed(2)} ft²`, edu: "Area conversion for real estate and construction." },
-        { name: "Knots to MPH", fields: ["Knots"], formula: "knots × 1.15078", calc: (v) => `${v[0]} knots = ${(v[0] * 1.15078).toFixed(2)} mph`, edu: "Nautical to land speed conversion. Used in aviation and maritime." },
-        { name: "mm to Inches", fields: ["Millimeters"], formula: "mm / 25.4", calc: (v) => `${v[0]} mm = ${(v[0] / 25.4).toFixed(3)} in`, edu: "Precision length conversion for manufacturing and engineering." },
-        { name: "Liters to Gallons", fields: ["Liters"], formula: "L / 3.78541", calc: (v) => `${v[0]} L = ${(v[0] / 3.78541).toFixed(2)} gal`, edu: "Volume conversion from liters to US gallons. One gallon equals 3.78541 liters." },
-        { name: "Meters to cm", fields: ["Meters"], formula: "m × 100", calc: (v) => `${v[0]} m = ${(v[0] * 100).toFixed(0)} cm`, edu: "Metric length conversion. One meter equals 100 centimeters." },
-        { name: "km to Meters", fields: ["Kilometers"], formula: "km × 1000", calc: (v) => `${v[0]} km = ${(v[0] * 1000).toFixed(0)} m`, edu: "Distance conversion within metric system. One kilometer equals 1000 meters." },
-        { name: "mg to Grams", fields: ["Milligrams"], formula: "mg / 1000", calc: (v) => `${v[0]} mg = ${(v[0] / 1000).toFixed(4)} g`, edu: "Small mass conversion for pharmaceuticals and chemistry." },
-        { name: "cm to Inches", fields: ["Centimeters"], formula: "cm / 2.54", calc: (v) => `${v[0]} cm = ${(v[0] / 2.54).toFixed(2)} in`, edu: "Centimeter to inch conversion for clothing sizes and height measurements." },
-        { name: "Miles to km", fields: ["Miles"], formula: "miles × 1.60934", calc: (v) => `${v[0]} miles = ${(v[0] * 1.60934).toFixed(2)} km`, edu: "Mile to kilometer conversion for travel distances." },
-        { name: "Ounces to Grams", fields: ["Ounces"], formula: "oz × 28.3495", calc: (v) => `${v[0]} oz = ${(v[0] * 28.3495).toFixed(2)} g`, edu: "Weight conversion for cooking and nutrition." }
-    ]
-};
-
-// UI Logic
-let currentCategory = 'math';
-let activeTool = null;
-
-function loadCategory(category, btn) {
-    currentCategory = category;
-    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-    if(btn) btn.classList.add('active');
-    const categoryNames = { math:"Math Calculators", physics:"Physics Calculators", finance:"Financial Tools", engineering:"Engineering Tools", units:"Unit Converters" };
-    document.getElementById('currentCategoryLabel').innerText = categoryNames[category] || category;
-    const container = document.getElementById('toolsContainer');
-    container.innerHTML = '';
-    calculators[category].forEach((tool, index) => {
-        container.innerHTML += `
-            <div class="tool-card" onclick="openCalculator(${index})">
-                <i class="fas fa-calculator"></i>
-                <h3>${tool.name}</h3>
-                <div class="tool-count">Click to calculate</div>
-            </div>
-        `;
-    });
-}
-
-function openCalculator(index) {
-    activeTool = calculators[currentCategory][index];
-    document.getElementById('modalTitle').innerHTML = activeTool.name;
-    document.getElementById('eduText').innerHTML = activeTool.edu;
-    document.getElementById('formulaBox').innerHTML = activeTool.formula;
-    const inputsDiv = document.getElementById('modalInputs');
-    inputsDiv.innerHTML = '';
-    activeTool.fields.forEach((field, i) => {
-        inputsDiv.innerHTML += `
-            <div class="input-group">
-                <label>${field}</label>
-                <input type="number" id="input_${i}" step="any" placeholder="Enter ${field}" value="">
-            </div>
-        `;
-    });
-    document.getElementById('visualMeter').style.display = 'none';
-    document.getElementById('resultDisplay').style.display = 'none';
-    document.getElementById('calculatorModal').style.display = 'flex';
-}
-
-function openCalculatorByName(name) {
-    for (let cat in calculators) {
-        const idx = calculators[cat].findIndex(t => t.name === name);
-        if (idx !== -1) {
-            currentCategory = cat;
-            openCalculator(idx);
-            break;
+    // Core functions for navigation
+    function showHome() {
+        document.getElementById('homeView').style.display = 'block';
+        var pages = document.querySelectorAll('.article-page, .legal-page');
+        pages.forEach(function(page) { page.style.display = 'none'; });
+        document.getElementById('currentCategoryLabel').innerText = 'Math Calculators';
+    }
+    function showArticle(id) {
+        document.getElementById('homeView').style.display = 'none';
+        var pages = document.querySelectorAll('.article-page, .legal-page');
+        pages.forEach(function(page) { page.style.display = 'none'; });
+        document.getElementById(id).style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+    function showPage(id) {
+        document.getElementById('homeView').style.display = 'none';
+        var pages = document.querySelectorAll('.article-page, .legal-page');
+        pages.forEach(function(page) { page.style.display = 'none'; });
+        document.getElementById(id).style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+    function openCalculatorByName(name) {
+        alert("Calculator '" + name + "' will open here. (Integrate your actual calculator logic or link to tool page.)");
+    }
+    function searchTools() {
+        // Placeholder for search functionality – you can implement later
+        var query = document.getElementById('searchInput').value.toLowerCase();
+        if(query.length > 2) {
+            // Simple highlighting – expand as needed
         }
     }
-}
-
-function calculate() {
-    if (!activeTool) return;
-    const values = [];
-    for (let i = 0; i < activeTool.fields.length; i++) {
-        let input = document.getElementById(`input_${i}`);
-        let val = input ? parseFloat(input.value) : 0;
-        values.push(isNaN(val) ? 0 : val);
-    }
-    let result = activeTool.calc(values);
-    const visualDiv = document.getElementById('visualMeter');
-    if (activeTool.name === "BMI Calculator with Gauge" && values[1] > 0) {
-        let bmi = values[0]/(values[1]*values[1]);
-        let angle = Math.min((bmi / 50) * 180, 180);
-        visualDiv.innerHTML = `
-            <div class="bmi-gauge"><div class="gauge-pointer" style="transform: rotate(${angle}deg);"></div></div>
-            <div style="display:flex; justify-content:space-between; margin:10px 0;"><span>Underweight</span><span>Normal</span><span>Overweight</span><span>Obese</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width: ${Math.min((bmi/50)*100, 100)}%;">BMI: ${bmi.toFixed(1)}</div></div>
-        `;
-        visualDiv.style.display = 'block';
-    } else if (activeTool.name === "Percentage Change") {
-        let pct = ((values[1]-values[0])/values[0])*100;
-        visualDiv.innerHTML = `<div class="progress-bar"><div class="progress-fill" style="width: ${Math.min(Math.abs(pct), 100)}%; background: ${pct>=0?'#10b981':'#ef4444'};">${pct.toFixed(1)}%</div></div>`;
-        visualDiv.style.display = 'block';
-    } else {
-        visualDiv.style.display = 'none';
-    }
-    const resultDiv = document.getElementById('resultDisplay');
-    resultDiv.innerHTML = `<i class="fas fa-chart-line"></i> ${result}`;
-    resultDiv.style.display = 'block';
-}
-
-function closeModal() { document.getElementById('calculatorModal').style.display = 'none'; }
-
-function showHome() {
-    document.getElementById('homeView').style.display = 'block';
-    document.querySelectorAll('.legal-page').forEach(p => p.style.display = 'none');
-    document.querySelectorAll('.article-page').forEach(p => p.style.display = 'none');
-    loadCategory(currentCategory, document.querySelector('.cat-btn.active'));
-}
-
-function showPage(page) {
-    document.getElementById('homeView').style.display = 'none';
-    document.querySelectorAll('.article-page').forEach(p => p.style.display = 'none');
-    ['about','privacy','terms','contact'].forEach(p => {
-        document.getElementById(p + 'Page').style.display = p === page ? 'block' : 'none';
-    });
-}
-
-function showArticle(id) {
-    document.getElementById('homeView').style.display = 'none';
-    document.querySelectorAll('.legal-page').forEach(p => p.style.display = 'none');
-    document.querySelectorAll('.article-page').forEach(p => p.style.display = 'none');
-    document.getElementById(id).style.display = 'block';
-}
-
-function searchTools() {
-    const query = document.getElementById('searchInput').value.toLowerCase();
-    const container = document.getElementById('toolsContainer');
-    let allTools = [];
-    for (let cat in calculators) {
-        calculators[cat].forEach(tool => {
-            allTools.push({ ...tool, category: cat });
-        });
-    }
-    const filtered = allTools.filter(tool => tool.name.toLowerCase().includes(query));
-    if (query.length > 0) {
-        container.innerHTML = '';
-        filtered.forEach(tool => {
-            container.innerHTML += `
-                <div class="tool-card" onclick="openCalculatorByName('${tool.name.replace(/'/g, "\\'")}')">
-                    <i class="fas fa-calculator"></i>
-                    <h3>${tool.name}</h3>
-                    <div class="tool-count">${tool.category}</div>
-                </div>
-            `;
-        });
-        if (filtered.length === 0) {
-            container.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px;">No calculators found. Try a different search term.</div>';
-        }
-    } else {
-        loadCategory(currentCategory, document.querySelector('.cat-btn.active'));
-    }
-}
-
-document.querySelectorAll('.cat-btn[data-cat]').forEach(btn => {
-    btn.addEventListener('click', () => {
-        loadCategory(btn.getAttribute('data-cat'), btn);
-    });
-});
-
-loadCategory('math', document.querySelector('.cat-btn.active'));
+    // Initialize: show home page
+    showHome();
 </script>
 </body>
 </html>
