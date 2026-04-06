@@ -1,0 +1,54 @@
+# MathOS Pro - robots.txt
+# This file provides instructions to search engines about how to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /search?
+Allow: /sitemap.xml
+
+# Google-specific rules
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 0
+
+# Bing-specific rules
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# Yahoo-specific rules
+User-agent: Slurp
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# Fast crawlers - rate limiting
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 10
+
+# Block bad bots
+User-agent: MJ12bot
+User-agent: AntBot
+User-agent: ZyBorg
+Disallow: /
+
+# Sitemap location
+Sitemap: https://www.mathosprof.com/sitemap.xml
+Sitemap: https://www.mathosprof.com/sitemap-mobile.xml
+
+# Request rate guidance
+Request-rate: 1/10
+
+# Comment: Last updated - 2024-04-05
